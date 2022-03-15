@@ -2,13 +2,14 @@
 
 ## This is the current version of our software
 
-group member
+Group Member
 - Wang Zaitian
 - Li Chunlin
 - Wang Chenyu
 - Ni Ruijie
 - Liang Zhehao
 - Zhang Zeyu
+
 
 Suggested Timeline:
 - 11-15 March: set up the QMPlus Hub group and discuss the project handout.
