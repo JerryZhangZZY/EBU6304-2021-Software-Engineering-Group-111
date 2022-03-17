@@ -25,15 +25,6 @@ derby-tsfile-db
 # build generated
 **/target/
 
-# intermediately generated locally
-
-tsfile-timeseries/src/main/resources/logback.out.out.xml
-tsfile-timeseries/src/main/resources/logback.out.xml
-tsfile-service/derby-tsfile-db/
-tsfile-timeseries/src/test/resources/data
-src/main/resources/metadata/mlog.txt
-tsfile-jdbc/src/main/resources/output/queryRes.csv
-
 *.txt
 
 *.jar
@@ -72,21 +63,6 @@ grafana/data/
 
 ### vscode project
 **/.vscode/
-
-
-grafana/data/test.csv
-**/lib/
-/target/
-*.tsfile
-tsfile/src/test/resources/*.ts
-
-### Apache release ###
-local-snapshots-dir/
-venv/
-
-partitions.tmp
-partitions
-node_identifier
 
 ### temporary file of the distributed version ###
 remote/
