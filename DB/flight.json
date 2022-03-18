@@ -1,0 +1,22 @@
+{
+    "flight": [
+        {
+            "idFlight": "CA0001",
+            "departure": "Beijing",
+            "arrival": "Shanghai",
+            "gate": "3A",
+            "departureTime": "2022-03-18 08:30",
+            "arrivalTime": "2022-03-18 12:00",
+            "idPlane": 1
+        },
+        {
+            "idFlight": "CA0002",
+            "departure": "Shanghai",
+            "arrival": "Beijing",
+            "gate": "8C",
+            "departureTime": "2022-03-18 14:30",
+            "arrivalTime": "2022-03-18 18:00",
+            "idPlane": 1
+        }
+    ]
+}
