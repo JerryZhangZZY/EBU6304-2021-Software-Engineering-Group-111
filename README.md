@@ -2,6 +2,7 @@
 
 ![Version](https://img.shields.io/badge/Version-1.0-green)
 [![QMPlus Hub](https://img.shields.io/badge/QMPlus%20Hub-here-orange)](https://hub.qmplus.qmul.ac.uk/group/ebu6304-2022-software-engin-35)
+[![Gitee Mirror](https://img.shields.io/badge/Gitee%20Mirror-here-red)](https://gitee.com/jerryzhangzzy/EBU6304-2021-Software-Engineering-Group-111)
 
 ## This is the current version of our software
 
