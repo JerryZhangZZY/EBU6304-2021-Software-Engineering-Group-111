@@ -38,6 +38,7 @@ public class FlightInfoCardTest extends JFrame{
                 arrivalTime = arr.getJSONObject(i).getString("arrivalTime").substring(11);
                 departure = arr.getJSONObject(i).getString("departure");
                 arrival = arr.getJSONObject(i).getString("arrival");
+                break;
             }
         }
 
