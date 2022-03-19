@@ -11,13 +11,13 @@ package cardTest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import card.flightInfoCard;
+import card.FlightInfoCard;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 
-public class flightInfoCardTest extends JFrame{
+public class FlightInfoCardTest extends JFrame{
 
     public static void main(String[] args) throws IOException {
 
@@ -41,14 +41,14 @@ public class flightInfoCardTest extends JFrame{
             }
         }
 
-        flightInfoCardTest frame = new flightInfoCardTest();
+        FlightInfoCardTest frame = new FlightInfoCardTest();
         frame.setSize(1900,1600);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel contentPane = new JPanel();
         contentPane.setBackground(new Color(244,244,244));
         frame.setContentPane(contentPane);
-        contentPane.add(new flightInfoCard(idFlight,
+        contentPane.add(new FlightInfoCard(idFlight,
                                      date,
                                      departureTime,
                                      arrivalTime,

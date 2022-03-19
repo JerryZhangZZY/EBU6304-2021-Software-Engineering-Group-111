@@ -12,27 +12,14 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class flightInfoCard extends JPanel {
+public class FlightInfoCard extends JPanel {
 
-    private String idFlight;
-    private String date;
-    private String departureTime;
-    private String arrivalTime;
-    private String departure;
-    private String arrival;
-
-    public flightInfoCard(String idFlight,
+    public FlightInfoCard(String idFlight,
                           String date,
                           String departureTime,
                           String arrivalTime,
                           String departure,
                           String arrival) {
-        this.idFlight = idFlight;
-        this.date = date;
-        this.departureTime = departureTime;
-        this.arrivalTime = arrivalTime;
-        this.departure = departure;
-        this.arrival = arrival;
 
         setBorder(new LineBorder(new Color(0, 0, 0)));
         setBackground(Color.WHITE);
