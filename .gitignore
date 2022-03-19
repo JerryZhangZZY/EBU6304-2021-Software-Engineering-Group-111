@@ -23,6 +23,7 @@ derby-tsfile-db
 
 # build generated
 **/target/
+**/out/
 
 *.txt
 
