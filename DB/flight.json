@@ -7,6 +7,7 @@
             "gate": "3A",
             "departureTime": "2022-03-18 08:30",
             "arrivalTime": "2022-03-18 12:00",
+            "boardingTime": "08:00",
             "idPlane": 1
         },
         {
@@ -16,6 +17,7 @@
             "gate": "8C",
             "departureTime": "2022-03-18 14:30",
             "arrivalTime": "2022-03-18 18:00",
+            "boardingTime": "14:00",
             "idPlane": 1
         }
     ]
