@@ -5,7 +5,7 @@
 
 ## This is the current version of our software
 
-Group Member
+GROUP MEMBERS
 - Wang Zaitian
 - Li Chunlin
 - Wang Chenyu
