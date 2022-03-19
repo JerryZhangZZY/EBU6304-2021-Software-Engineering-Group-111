@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import java.awt.Component;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @version 1.0
@@ -27,9 +29,9 @@ public class MainFrame extends JFrame {
     private JPanel topPanel;
     private JLabel welcomeLabel;
     private JButton exitButton;
+    private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
-    private JPanel centerPanel;
 
     /**
      * Create the frame, initializing panels.
@@ -40,8 +42,10 @@ public class MainFrame extends JFrame {
          */
         setTitle("KIOSK");
         setResizable(false);
+        setUndecorated(true);
         //setSize(1600, 900);
-        setSize(1280, 720);
+        //setSize(1280, 720);
+        setBounds(new Rectangle(0, 0, 1920, 1080));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = new JPanel();
         setContentPane(contentPane);
@@ -51,40 +55,55 @@ public class MainFrame extends JFrame {
          */
         topPanel = new JPanel();
         topPanel.setBackground(Color.ORANGE);
-        topPanel.setBounds(0, 0, 1280, 80);
+        topPanel.setBounds(0, 0, 1920, 100);
         contentPane.add(topPanel);
         topPanel.setLayout(null);
 
         welcomeLabel = new JLabel("Welcome, iKun!");
         welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 36));
-        welcomeLabel.setBounds(40, 10, 400, 60);
+        welcomeLabel.setBounds(40, 20, 400, 60);
         topPanel.add(welcomeLabel);
 
         exitButton = new JButton("Exit (icon)");
-        exitButton.setBounds(1060, 10, 180, 60);
+        exitButton.setBounds(1660, 20, 180, 60);
         topPanel.add(exitButton);
+
         /*
-         * bottom panel, with back button
+        for developers to exit program easily
+        note that for ordinary users, clicking the normal exit just return to welcome page
          */
-        bottomPanel = new JPanel();
-        bottomPanel.setBackground(Color.CYAN);
-        bottomPanel.setBounds(0, 612, 1280, 80);
-        contentPane.add(bottomPanel);
-        bottomPanel.setLayout(null);
-
-        backButton = new JButton("Back (icon)");
-        backButton.setBounds(0, 10, 180, 60);
-        bottomPanel.add(backButton);
-
+        JButton ForcedExitButton = new JButton("Forced Exit");
+        ForcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        ForcedExitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        ForcedExitButton.setBounds(1400, 20, 180, 60);
+        topPanel.add(ForcedExitButton);
         /*
         main panel that holds other panels
         use centerPanel.add(JPanel panel) to add components
          */
         centerPanel = new JPanel();
         centerPanel.setBackground(Color.LIGHT_GRAY);
-        centerPanel.setBounds(0, 80, 1280, 530);
+        centerPanel.setBounds(0, 100, 1920, 880);
         contentPane.add(centerPanel);
         centerPanel.setLayout(null);
+        /*
+         * bottom panel, with back button
+         */
+        bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.CYAN);
+        bottomPanel.setBounds(0, 980, 1920, 100);
+        contentPane.add(bottomPanel);
+        bottomPanel.setLayout(null);
+
+        backButton = new JButton("Back (icon)");
+        backButton.setBounds(40, 20, 180, 60);
+        bottomPanel.add(backButton);
+
+
 
     }
 

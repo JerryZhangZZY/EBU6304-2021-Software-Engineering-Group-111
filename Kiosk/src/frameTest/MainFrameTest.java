@@ -2,13 +2,14 @@ package frameTest;
 
 import javax.swing.*;
 
-import card.flightInfoCard;
 import frame.*;
+import panel.*;
+import card.*;
 
 /**
  * @version 1.0
  * @author zaitian
- * @date 3/18
+ * @date 3/19
  * test for initial version main frame, with a panel embedded
  */
 
@@ -22,7 +23,7 @@ public class MainFrameTest {
                 "Shanghai");
         MainFrame testMainFrame = new MainFrame();
         testMainFrame.loadPanel(flightInfoCard);
-        testMainFrame.displayComponents(true, true, false);
+        testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);
     }
 }
