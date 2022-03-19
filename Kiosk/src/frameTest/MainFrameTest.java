@@ -2,8 +2,8 @@ package frameTest;
 
 import javax.swing.*;
 
+import card.flightInfoCard;
 import frame.*;
-import panel.*;
 
 /**
  * @version 1.0

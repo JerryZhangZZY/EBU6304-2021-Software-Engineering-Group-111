@@ -1,4 +1,4 @@
-package panelTest;
+package cardTest;
 
 /**
  * This test reads flight info from json database and generate a flight info card on a frame.
@@ -11,7 +11,7 @@ package panelTest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import panel.flightInfoCard;
+import card.flightInfoCard;
 
 import javax.swing.*;
 import java.awt.*;

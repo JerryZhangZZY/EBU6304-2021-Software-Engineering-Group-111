@@ -1,4 +1,4 @@
-package panel;
+package card;
 
 /**
  * This class can return a panel of a flight info card.
