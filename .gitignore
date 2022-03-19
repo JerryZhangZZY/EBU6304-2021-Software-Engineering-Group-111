@@ -26,7 +26,6 @@ derby-tsfile-db
 
 *.txt
 
-*.jar
 *.gz
 *.tar.gz
 *.tar
