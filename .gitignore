@@ -1,7 +1,6 @@
 **/*.pid
 **/gc.log*
 **/logs/*
-**/lib/**
 **/data/**
 
 # Python runtime file
