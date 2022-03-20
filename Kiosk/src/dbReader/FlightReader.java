@@ -16,12 +16,54 @@ import java.io.*;
 
 public abstract class FlightReader {
 
-    public int indexOf(String idFlight) {
-        JSONObject jobj = JSON.parseObject(readJsonFile("DB/flight.json"));
-        JSONArray arr = jobj.getJSONArray("flight");
+    public static int indexOf(String idFlight) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
         int index = 0;
-        while(arr.getJSONObject(index).getString("idFlight").equals(idFlight)) { index++; }
+        while(!arr.getJSONObject(index).getString("idFlight").equals(idFlight)) { index++; }
         return index;
+    }
+
+    public static String getDeparture(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("departure");
+    }
+
+    public static String getArrival(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("arrival");
+    }
+
+    public static String getGate(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("gate");
+    }
+
+    public static String getDepartureTime(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("departureTime");
+    }
+
+    public static String getArrivalTime(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("arrivalTime");
+    }
+
+    public static String getBoardingTime(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("boardingTime");
+    }
+
+    public static int getIdPlane(int index) {
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getInteger("idPlane");
     }
 
     public static String readJsonFile(String fileName) {

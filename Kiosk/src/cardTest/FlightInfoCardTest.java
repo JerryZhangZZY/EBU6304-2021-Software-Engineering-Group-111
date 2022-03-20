@@ -28,8 +28,8 @@ public class FlightInfoCardTest extends JFrame{
         String departure = null;
         String arrival = null;
 
-        JSONObject jobj = JSON.parseObject(readJsonFile("DB/flight.json"));
-        JSONArray arr = jobj.getJSONArray("flight");
+        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
         for (int i = 0; i < arr.size(); i++) {
             if(arr.getJSONObject(i).getString("idFlight").equals("CA0001")) {
                 idFlight = arr.getJSONObject(i).getString("idFlight");
