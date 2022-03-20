@@ -1,0 +1,34 @@
+{
+  "passengerFlight": [
+    {
+      "idPassengerFlight": 1,
+      "idPassenger": 1,
+      "idFlight": "CA0001",
+      "bookingNum": "bn0001",
+      "carryon": 2,
+      "checkout": 1,
+      "bagDropCounter": 15,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 2,
+      "idPassenger": 1,
+      "idFlight": "AC0001",
+      "bookingNum": "bn0001",
+      "carryon": 2,
+      "checkout": 1,
+      "bagDropCounter": 15,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 3,
+      "idPassenger": 2,
+      "idFlight": "CA0002",
+      "bookingNum": "bn0002",
+      "carryon": 1,
+      "checkout": 0,
+      "bagDropCounter": null,
+      "status": false
+    }
+  ]
+}
