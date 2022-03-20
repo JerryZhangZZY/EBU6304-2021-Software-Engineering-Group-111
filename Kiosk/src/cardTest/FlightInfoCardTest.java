@@ -1,9 +1,7 @@
 package cardTest;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import card.FlightInfoCard;
+import dbReader.FlightReader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,19 +26,28 @@ public class FlightInfoCardTest extends JFrame{
         String departure = null;
         String arrival = null;
 
-        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
-        JSONArray arr = obj.getJSONArray("flight");
-        for (int i = 0; i < arr.size(); i++) {
-            if(arr.getJSONObject(i).getString("idFlight").equals("CA0001")) {
-                idFlight = arr.getJSONObject(i).getString("idFlight");
-                date = arr.getJSONObject(i).getString("departureTime").substring(0, 10);
-                departureTime = arr.getJSONObject(i).getString("departureTime").substring(11);
-                arrivalTime = arr.getJSONObject(i).getString("arrivalTime").substring(11);
-                departure = arr.getJSONObject(i).getString("departure");
-                arrival = arr.getJSONObject(i).getString("arrival");
-                break;
-            }
-        }
+//        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
+//        JSONArray arr = obj.getJSONArray("flight");
+//        for (int i = 0; i < arr.size(); i++) {
+//            if(arr.getJSONObject(i).getString("idFlight").equals("CA0001")) {
+//                idFlight = arr.getJSONObject(i).getString("idFlight");
+//                date = arr.getJSONObject(i).getString("departureTime").substring(0, 10);
+//                departureTime = arr.getJSONObject(i).getString("departureTime").substring(11);
+//                arrivalTime = arr.getJSONObject(i).getString("arrivalTime").substring(11);
+//                departure = arr.getJSONObject(i).getString("departure");
+//                arrival = arr.getJSONObject(i).getString("arrival");
+//                break;
+//            }
+//        }
+
+        //switch to new dbReader tools
+        idFlight = "AC0001";
+        int tmpIndex = FlightReader.indexOf(idFlight);
+        date = FlightReader.getDate(tmpIndex);
+        departureTime = FlightReader.getDepartureTime(tmpIndex);
+        arrivalTime = FlightReader.getArrivalTime(tmpIndex);
+        departure = FlightReader.getDeparture(tmpIndex);
+        arrival = FlightReader.getArrival(tmpIndex);
 
         FlightInfoCardTest frame = new FlightInfoCardTest();
         frame.setSize(1900,1600);
