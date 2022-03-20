@@ -2,7 +2,7 @@
   "passengerFlight": [
     {
       "idPassengerFlight": 1,
-      "idPassenger": 1,
+      "idPassenger": "123001",
       "idFlight": "CA0001",
       "bookingNum": "bn0001",
       "carryon": 2,
@@ -12,7 +12,7 @@
     },
     {
       "idPassengerFlight": 2,
-      "idPassenger": 1,
+      "idPassenger": "123001",
       "idFlight": "AC0001",
       "bookingNum": "bn0001",
       "carryon": 2,
@@ -22,7 +22,7 @@
     },
     {
       "idPassengerFlight": 3,
-      "idPassenger": 2,
+      "idPassenger": "123002",
       "idFlight": "CA0002",
       "bookingNum": "bn0002",
       "carryon": 1,
