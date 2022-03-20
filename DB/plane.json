@@ -1,0 +1,22 @@
+{
+  "plane": [
+    {
+      "idPlane": 1,
+      "model": "P_small",
+      "capacity": 36,
+      "airline": "AIR CHINA"
+    },
+    {
+      "idPlane": 2,
+      "model": "P_middle",
+      "capacity": 72,
+      "airline": "AIR CANADA"
+    },
+    {
+      "idPlane": 3,
+      "model": "P_large",
+      "capacity": 144,
+      "airline": "UNITED AIRLINES"
+    }
+  ]
+}
