@@ -7,3 +7,19 @@
 1. Call indexOf(primaryKey) to get index.
 2. Save the index as a temp value.
 3. Call getters and pass in the index as a param to get the corresponding value.
+
+### Simple Example
+
+#### To get simple attribute:
+
+```java
+FlightReader.getDepartureTime(FlightReader.indexOf("CA0001"));
+```
+
+#### To get multiple attributes:
+
+```java
+int tmpIndex = FlightReader.indexOf("CA0001");
+FlightReader.getDepartureTime(tmpIndex);
+FlightReader.getArrivalTime(tmpIndex);
+```
