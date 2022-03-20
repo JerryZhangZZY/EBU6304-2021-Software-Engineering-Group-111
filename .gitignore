@@ -32,8 +32,6 @@ derby-tsfile-db
 *.tar
 #src/test/resources/logback.xml
 
-### CSV ###
-*.csv
 ### Maven ###
 grafana/target/
 !grafana/.mvn/wrapper/maven-wrapper.jar
