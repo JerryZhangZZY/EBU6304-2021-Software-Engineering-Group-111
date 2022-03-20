@@ -18,7 +18,16 @@ import javax.swing.JSeparator;
  * to be embedded into center panel of main frame
  */
 public class EnterIDPanel extends JPanel {
+    private JPanel textPanel;
+    private JLabel instructLabel;
+    private JPanel InputPanel;
     private JTextField bookingNumberTextField;
+    private JPanel buttonPanel;
+    private JButton okButton;
+    private JButton altButton;
+    private JSeparator separator1;
+    private JSeparator separator2;
+    private JLabel orLabel;
 
     /**
      * Create the panel.
@@ -31,12 +40,12 @@ public class EnterIDPanel extends JPanel {
         /*
         text panel
          */
-        JPanel textPanel = new JPanel();
+        textPanel = new JPanel();
         textPanel.setBounds(0, 0, 1920, 280);
         add(textPanel);
         textPanel.setLayout(null);
 
-        JLabel instructLabel = new JLabel("Please enter your booking number");
+        instructLabel = new JLabel("Please enter your booking number");
         instructLabel.setHorizontalAlignment(SwingConstants.CENTER);
         instructLabel.setFont(new Font("Arial", Font.PLAIN, 36));
         instructLabel.setBounds(660, 150, 600, 80);
@@ -44,7 +53,7 @@ public class EnterIDPanel extends JPanel {
         /*
         input panel
          */
-        JPanel InputPanel = new JPanel();
+        InputPanel = new JPanel();
         InputPanel.setBounds(0, 280, 1920, 200);
         add(InputPanel);
         InputPanel.setLayout(null);
@@ -57,30 +66,30 @@ public class EnterIDPanel extends JPanel {
         /*
         button panel
          */
-        JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
         buttonPanel.setBounds(0, 480, 1920, 400);
         add(buttonPanel);
         buttonPanel.setLayout(null);
 
-        JButton okButton = new JButton("OK");
+        okButton = new JButton("OK");
         okButton.setFont(new Font("Arial", Font.PLAIN, 28));
         okButton.setBounds(860, 20, 200, 60);
         buttonPanel.add(okButton);
 
-        JButton altButton = new JButton("Use my ID");
+        altButton = new JButton("Use my ID");
         altButton.setFont(new Font("Arial", Font.PLAIN, 24));
         altButton.setBounds(860, 158, 200, 60);
         buttonPanel.add(altButton);
 
-        JSeparator separator1 = new JSeparator();
+        separator1 = new JSeparator();
         separator1.setBounds(560, 120, 360, 2);
         buttonPanel.add(separator1);
 
-        JSeparator separator2 = new JSeparator();
+        separator2 = new JSeparator();
         separator2.setBounds(1000, 120, 360, 2);
         buttonPanel.add(separator2);
 
-        JLabel orLabel = new JLabel("OR");
+        orLabel = new JLabel("OR");
         orLabel.setForeground(Color.GRAY);
         orLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         orLabel.setHorizontalAlignment(SwingConstants.CENTER);

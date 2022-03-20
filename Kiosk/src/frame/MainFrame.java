@@ -29,6 +29,7 @@ public class MainFrame extends JFrame {
     private JPanel topPanel;
     private JLabel welcomeLabel;
     private JButton exitButton;
+    private JButton ForcedExitButton;
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
@@ -72,7 +73,7 @@ public class MainFrame extends JFrame {
         for developers to exit program easily
         note that for ordinary users, clicking the normal exit just return to welcome page
          */
-        JButton ForcedExitButton = new JButton("Forced Exit");
+        ForcedExitButton = new JButton("Forced Exit");
         ForcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
         ForcedExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
