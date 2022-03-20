@@ -1,5 +1,7 @@
 package dbReaderTest;
 
+import dbReader.FlightReader;
+
 /**
  * This class tests major methods in FlightReader.
  *
@@ -7,8 +9,6 @@ package dbReaderTest;
  * @date 2022/3/20
  * @version 1.0
  */
-
-import dbReader.FlightReader;
 
 public class FlightReaderTest {
     public static void main(String[] args) {

@@ -1,5 +1,9 @@
 package card;
 
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
+
 /**
  * This class can return a panel of a flight info card.
  *
@@ -7,10 +11,6 @@ package card;
  * @date 2022/3/19
  * @version 1.0
  */
-
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
 
 public class FlightInfoCard extends JPanel {
 

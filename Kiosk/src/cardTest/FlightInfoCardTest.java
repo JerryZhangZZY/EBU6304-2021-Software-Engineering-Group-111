@@ -1,13 +1,5 @@
 package cardTest;
 
-/**
- * This test reads flight info from json database and generate a flight info card on a frame.
- *
- * @author Zhang Zeyu
- * @date 2022/3/19
- * @version 1.0
- */
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -16,6 +8,14 @@ import card.FlightInfoCard;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+
+/**
+ * This test reads flight info from json database and generate a flight info card on a frame.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/19
+ * @version 1.0
+ */
 
 public class FlightInfoCardTest extends JFrame{
 
