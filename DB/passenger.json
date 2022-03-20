@@ -1,0 +1,16 @@
+{
+  "passenger": [
+    {
+      "idPassenger": "123001",
+      "surname": "Jack"
+    },
+    {
+      "idPassenger": "123002",
+      "surname": "Mike"
+    },
+    {
+      "idPassenger": "123003",
+      "surname": "Amy"
+    }
+  ]
+}
