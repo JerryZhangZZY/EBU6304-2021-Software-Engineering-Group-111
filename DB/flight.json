@@ -1,24 +1,34 @@
 {
-    "flight": [
-        {
-            "idFlight": "CA0001",
-            "departure": "Beijing",
-            "arrival": "Shanghai",
-            "gate": "3A",
-            "departureTime": "2022-03-18 08:30",
-            "arrivalTime": "2022-03-18 12:00",
-            "boardingTime": "08:00",
-            "idPlane": 1
-        },
-        {
-            "idFlight": "CA0002",
-            "departure": "Shanghai",
-            "arrival": "Beijing",
-            "gate": "8C",
-            "departureTime": "2022-03-18 14:30",
-            "arrivalTime": "2022-03-18 18:00",
-            "boardingTime": "14:00",
-            "idPlane": 1
-        }
-    ]
+  "flight": [
+    {
+      "idFlight": "CA0001",
+      "departure": "Beijing",
+      "arrival": "Shanghai",
+      "gate": "3A",
+      "departureTime": "2022-03-18 10:00",
+      "arrivalTime": "2022-03-18 12:00",
+      "boardingTime": "09:30",
+      "idPlane": 1
+    },
+    {
+      "idFlight": "CA0002",
+      "departure": "Shanghai",
+      "arrival": "Beijing",
+      "gate": "8C",
+      "departureTime": "2022-03-18 14:30",
+      "arrivalTime": "2022-03-18 18:00",
+      "boardingTime": "14:00",
+      "idPlane": 1
+    },
+    {
+      "idFlight": "AC0001",
+      "departure": "Shanghai",
+      "arrival": "Vancouver",
+      "gate": "2B",
+      "departureTime": "2022-03-18 13:00",
+      "arrivalTime": "2022-03-19 00:00",
+      "boardingTime": "12:30",
+      "idPlane": 3
+    }
+  ]
 }
