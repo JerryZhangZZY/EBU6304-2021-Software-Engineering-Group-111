@@ -6,7 +6,7 @@
       "idFlight": "CA0001",
       "bookingNum": "bn0001",
       "carryon": 2,
-      "checkout": 1,
+      "checkin": 1,
       "bagDropCounter": 15,
       "status": false
     },
@@ -16,7 +16,7 @@
       "idFlight": "AC0001",
       "bookingNum": "bn0001",
       "carryon": 2,
-      "checkout": 1,
+      "checkin": 1,
       "bagDropCounter": 15,
       "status": false
     },
@@ -26,8 +26,8 @@
       "idFlight": "CA0002",
       "bookingNum": "bn0002",
       "carryon": 1,
-      "checkout": 0,
-      "bagDropCounter": null,
+      "checkin": 0,
+      "bagDropCounter": -1,
       "status": false
     }
   ]
