@@ -45,16 +45,26 @@ public abstract class FlightReader {
         return arr.getJSONObject(index).getString("gate");
     }
 
+    /**
+     * Get departure time
+     * @param index got from indexOf()
+     * @return only contains time, date is not included
+     */
     public static String getDepartureTime(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");
-        return arr.getJSONObject(index).getString("departureTime");
+        return arr.getJSONObject(index).getString("departureTime").substring(11);
     }
 
+    /**
+     * Get arrival time
+     * @param index got from indexOf()
+     * @return only contains time, date is not included
+     */
     public static String getArrivalTime(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");
-        return arr.getJSONObject(index).getString("arrivalTime");
+        return arr.getJSONObject(index).getString("arrivalTime").substring(11);
     }
 
     public static String getBoardingTime(int index) {
@@ -67,5 +77,16 @@ public abstract class FlightReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");
         return arr.getJSONObject(index).getInteger("idPlane");
+    }
+
+    /**
+     * Get departure date
+     * @param index got from indexOf()
+     * @return date of departure
+     */
+    public static String getDate(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("departureTime").substring(0, 10);
     }
 }
