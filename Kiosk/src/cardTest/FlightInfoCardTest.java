@@ -13,6 +13,10 @@ import java.io.*;
  * @author Zhang Zeyu
  * @date 2022/3/19
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/20
+ * @version 1.1
  */
 
 public class FlightInfoCardTest extends JFrame{
