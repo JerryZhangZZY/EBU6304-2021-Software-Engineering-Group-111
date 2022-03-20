@@ -1,5 +1,11 @@
 package card;
 
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 /**
  * This class can return a panel of a seat preference info card.
  *
@@ -7,12 +13,6 @@ package card;
  * @date 2022/3/19
  * @version 1.0
  */
-
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class PrefSeatCard extends JPanel implements ItemListener {
 
