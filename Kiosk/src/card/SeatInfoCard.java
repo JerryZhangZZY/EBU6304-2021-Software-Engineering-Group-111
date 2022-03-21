@@ -22,7 +22,7 @@ import javax.swing.AbstractAction;
 
 
 
-public class seatInfoCard extends JPanel {
+public class SeatInfoCard extends JPanel {
     private int[] avail_seat = new int[6];
     private int row;
     private int temp_row = -1;
@@ -49,7 +49,7 @@ public class seatInfoCard extends JPanel {
     Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
-    public seatInfoCard(int[] avail_seat, int row) {
+    public SeatInfoCard(int[] avail_seat, int row) {
 
         for (int i = 0; i < 6; i++) {
             this.avail_seat[i] = avail_seat[i];

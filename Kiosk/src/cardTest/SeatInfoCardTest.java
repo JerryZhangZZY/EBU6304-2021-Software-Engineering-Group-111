@@ -1,8 +1,7 @@
 package cardTest;
 
-import javax.swing.*;
 import frame.MainFrame;
-import card.seatInfoCard;
+import card.SeatInfoCard;
 
 /**
  * @version 1.0
@@ -11,12 +10,12 @@ import card.seatInfoCard;
  * test for initial version main frame, with a panel embedded
  */
 
-public class seatInfoCardTest {
+public class SeatInfoCardTest {
     public static void main(String[] args) {
         int[] a= {1,0,1,0,1,1};
         int b= 12;
         MainFrame testMainFrame = new MainFrame();
-        seatInfoCard h = new seatInfoCard(a,b);
+        SeatInfoCard h = new SeatInfoCard(a,b);
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);
