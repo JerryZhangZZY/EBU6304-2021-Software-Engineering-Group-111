@@ -1,16 +1,16 @@
 package printer;
+
+import dbReader.*;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
 /**
  * @version 1.0
  * @author wcy
  * @date 3/20
  * test for Print ticket
  */
-import dbReader.*;
-
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-
-
 public abstract class BoardingPassPrinter {
     public static void creatTicket(int idPassengerFlight,String seat)throws IOException {
         int idPassengerFlight_index= PassengerFlightReader.indexOf(idPassengerFlight);

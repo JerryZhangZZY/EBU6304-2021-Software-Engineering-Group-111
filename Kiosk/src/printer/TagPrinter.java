@@ -1,14 +1,13 @@
+package printer;
+
+import dbReader.*;
+import java.io.*;
 /**
  * @version 1.0
  * @author Ni Ruijie
  * @date 3/22
  * A Tag Printer which can print out tags of the carry-on baggage in .txt files
  */
-package printer;
-
-import dbReader.*;
-import java.io.*;
-
 public abstract class TagPrinter {
     /**
      * Generate .txt form tags

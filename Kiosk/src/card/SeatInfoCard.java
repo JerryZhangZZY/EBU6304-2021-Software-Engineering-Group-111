@@ -1,4 +1,15 @@
 package card;
+
+
+import dbReader.FlightReader;
+import dbReader.PlaneReader;
+import dbReader.SeatReader;
+
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.awt.event.*;
+
 /**
  * This class can return a panel of a flight info card.
  *
@@ -12,17 +23,6 @@ package card;
  * @date 2022/3/21
  * @version 3.0
  */
-
-import dbReader.FlightReader;
-import dbReader.PlaneReader;
-import dbReader.SeatReader;
-
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
-import java.awt.event.*;
-
-
 public class SeatInfoCard extends JPanel {
     private int[] avail_seat = new int[6];
     private int row;
