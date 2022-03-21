@@ -20,7 +20,7 @@ public class PrefCardTest {
         JPanel flightInfoCard = new PrefSeatCard("Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra", 0, 10, 20, 50);
         //JPanel SeatInfoCard = new SeatInfoCard(a, b, 6);
         //JPanel flightInfoCard = new PrefMealCard("Extra", "Maotai", "Ice-cream", 5, 100, 10);
-        MainFrame testMainFrame = new MainFrame();
+        MainFrame testMainFrame = new MainFrame(1);
         testMainFrame.loadPanel(flightInfoCard);
         //testMainFrame.loadPanel(SeatInfoCard);
         testMainFrame.displayComponents(true, true, false);
