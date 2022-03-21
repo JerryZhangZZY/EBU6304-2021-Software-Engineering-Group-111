@@ -20,9 +20,9 @@ public class MainFrameTest {
                 "12:00",
                 "Beijing",
                 "Shanghai");
-        MainFrame testMainFrame = new MainFrame();
+        MainFrame testMainFrame = new MainFrame(1);
         testMainFrame.loadPanel(flightInfoCard);
-        testMainFrame.displayComponents(true, true, false);
+        testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);
     }
 }

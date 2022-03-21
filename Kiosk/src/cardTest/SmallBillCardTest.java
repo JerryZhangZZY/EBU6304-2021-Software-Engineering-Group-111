@@ -12,7 +12,7 @@ import card.SmallBillCard;
 public class SmallBillCardTest {
     public static void main(String[] args) {
         int b = 4;
-        MainFrame testMainFrame = new MainFrame();
+        MainFrame testMainFrame = new MainFrame(1);
         SmallBillCard h = new SmallBillCard(b);
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true, true, false);
