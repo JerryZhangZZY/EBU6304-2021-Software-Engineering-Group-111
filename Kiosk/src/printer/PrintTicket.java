@@ -106,8 +106,7 @@ public abstract class PrintTicket {
         buffer.write("________________________________________________________________________________________________________________________________________________________");
         buffer.write(side_bound);
         buffer.close();
-        String a = " Shanghai                                            ";
-        System.out.println(a.length());
+
 
     }
 }
