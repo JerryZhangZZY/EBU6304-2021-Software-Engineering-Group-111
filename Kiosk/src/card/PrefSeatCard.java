@@ -111,6 +111,7 @@ public class PrefSeatCard extends JPanel implements ItemListener {
         if(n != -1) {
             System.out.println(n);
             //call function to show perferable seat
+            SeatInfoCard.resetScrollBar(n);
         }
     }
 
