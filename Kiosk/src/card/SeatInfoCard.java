@@ -5,10 +5,12 @@ package card;
  * @author Wang Chenyu
  * @date 2022/3/19
  * @version 1.0
- *
  * @author Liang Zhehao
  * @date 2022/3/21
  * @version 2.0
+ * @author Liang Zhehao
+ * @date 2022/3/21
+ * @version 3.0
  */
 
 import dbReader.FlightReader;
@@ -18,16 +20,13 @@ import dbReader.SeatReader;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
+import java.awt.event.*;
 
 
 public class SeatInfoCard extends JPanel {
     private int[] avail_seat = new int[6];
-    private static int row;
-    private static int totalrow;
+    private int row;
+    private int totalrow;
     private String idFlight;
     private int temp_row = -1;
     private int temp_column = -1;
@@ -49,12 +48,15 @@ public class SeatInfoCard extends JPanel {
     Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
-    public SeatInfoCard(String idFlight) {
+    private JRadioButton rdbtnSeat1 = new JRadioButton();
+    private JRadioButton rdbtnSeat2 = new JRadioButton();
+    private JRadioButton rdbtnSeat3 = new JRadioButton();
+    private JRadioButton rdbtnSeat4 = new JRadioButton();
 
-//        for (int i = 0; i < 6; i++) {
-//            this.avail_seat[i] = avail_seat[i];
-//        }
-//        this.row = row;
+    public SeatInfoCard(String idFlight,
+                        String seat1, String seat2, String seat3, String seat4,
+                        float price1, float price2, float price3, float price4) {
+
         row = 4;
         this.idFlight = idFlight;
         totalrow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / 6;
@@ -62,7 +64,7 @@ public class SeatInfoCard extends JPanel {
         setBorder(new LineBorder(new Color(0, 0, 0)));
         setBackground(Color.WHITE);
         setLayout(null);
-        setSize(1529, 235);
+        setSize(1600, 880);
         //add bound icon
         JLabel right_label = new JLabel();
         right_label.setSize(75, 262);
@@ -139,12 +141,8 @@ public class SeatInfoCard extends JPanel {
         lblF.setBounds(1372, 190, 19, 26);
         add(lblF);
 
-//        int k=20-totalrow;
         scrollBar.setBounds(34, 59, 34, 101);
         scrollBar.setBlockIncrement(1);
-//        scrollBar.setMinimum(4);
-//        scrollBar.setMaximum(20);
-//        scrollBar.setVisibleAmount(k);
         resetScrollBar(0);
         add(scrollBar);
 
@@ -163,6 +161,77 @@ public class SeatInfoCard extends JPanel {
         addSeatIcon(avail_seat);
         ScrollListener scrollListener = new ScrollListener();
         scrollBar.addAdjustmentListener(scrollListener);
+
+        JLabel lblNewLabel1 = new JLabel("Preference");
+        lblNewLabel1.setForeground(Color.DARK_GRAY);
+        lblNewLabel1.setFont(new Font("Arial", Font.PLAIN, 30));
+        lblNewLabel1.setBounds(117, 438, 229, 40);
+        add(lblNewLabel1);
+
+        JLabel lblNewLabel_1 = new JLabel(":  $" + price1);
+        lblNewLabel_1.setForeground(Color.DARK_GRAY);
+        lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblNewLabel_1.setBounds(317, 510, 90, 28);
+        add(lblNewLabel_1);
+
+        JLabel lblNewLabel_1_1 = new JLabel(":  $" + price2);
+        lblNewLabel_1_1.setForeground(Color.DARK_GRAY);
+        lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblNewLabel_1_1.setBounds(317, 560, 90, 28);
+        add(lblNewLabel_1_1);
+
+        JLabel lblNewLabel_1_2 = new JLabel(":  $" + price3);
+        lblNewLabel_1_2.setForeground(Color.DARK_GRAY);
+        lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblNewLabel_1_2.setBounds(317, 610, 90, 28);
+        add(lblNewLabel_1_2);
+
+        JLabel lblNewLabel_1_3 = new JLabel(":  $" + price4);
+        lblNewLabel_1_3.setForeground(Color.DARK_GRAY);
+        lblNewLabel_1_3.setFont(new Font("Arial", Font.PLAIN, 20));
+        lblNewLabel_1_3.setBounds(317, 660, 90, 28);
+        add(lblNewLabel_1_3);
+
+        rdbtnSeat1.setText(seat1);
+        rdbtnSeat1.setFont(new Font("Arial", Font.PLAIN, 20));
+        rdbtnSeat1.setForeground(Color.DARK_GRAY);
+        rdbtnSeat1.setBounds(101, 510, 144, 28);
+        add(rdbtnSeat1);
+        rdbtnSeat1.setSelected(true);
+
+        rdbtnSeat2.setText(seat2);
+        rdbtnSeat2.setForeground(Color.DARK_GRAY);
+        rdbtnSeat2.setFont(new Font("Arial", Font.PLAIN, 20));
+        rdbtnSeat2.setBounds(101, 560, 144, 28);
+        add(rdbtnSeat2);
+
+        rdbtnSeat3.setText(seat3);
+        rdbtnSeat3.setForeground(Color.DARK_GRAY);
+        rdbtnSeat3.setFont(new Font("Arial", Font.PLAIN, 20));
+        rdbtnSeat3.setBounds(101, 610, 159, 28);
+        add(rdbtnSeat3);
+
+        rdbtnSeat4.setText(seat4);
+        rdbtnSeat4.setForeground(Color.DARK_GRAY);
+        rdbtnSeat4.setFont(new Font("Arial", Font.PLAIN, 20));
+        rdbtnSeat4.setBounds(101, 660, 159, 28);
+        add(rdbtnSeat4);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(rdbtnSeat4);
+        group.add(rdbtnSeat3);
+        group.add(rdbtnSeat1);
+        group.add(rdbtnSeat2);
+
+        JPanel panel = new JPanel();
+        panel.setBounds(49, 336, 544, 459);
+        add(panel);
+
+        PrefListener prefListener = new PrefListener();
+        rdbtnSeat1.addItemListener(prefListener);
+        rdbtnSeat2.addItemListener(prefListener);
+        rdbtnSeat3.addItemListener(prefListener);
+        rdbtnSeat4.addItemListener(prefListener);
     }
 
     //seat   button[0].setIcon(icon);
@@ -193,16 +262,34 @@ public class SeatInfoCard extends JPanel {
         }
     }
 
-//    public static void setRow(int row) {
-//        this.row = row;
-//    }
-
     public int getTemp_row() {
         return temp_row;
     }
 
     public int getTemp_column() {
         return temp_column;
+    }
+
+    private class PrefListener implements ItemListener {
+
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            int n = -1;
+            if (e.getSource() == rdbtnSeat1 && rdbtnSeat1.isSelected())
+                n = 0;
+            else if (e.getSource() == rdbtnSeat2 && rdbtnSeat2.isSelected())
+                n = 1;
+            else if (e.getSource() == rdbtnSeat3 && rdbtnSeat3.isSelected())
+                n = 2;
+            else if (e.getSource() == rdbtnSeat4 && rdbtnSeat4.isSelected())
+                n = 3;
+
+            if (n != -1) {
+                System.out.println(n);
+                //call function to show preferable seat
+                resetScrollBar(n);
+            }
+        }
     }
 
     private class SimpleListener implements ActionListener {
@@ -214,7 +301,7 @@ public class SeatInfoCard extends JPanel {
             }
 
             if (avail_seat[click] == 0) {
-                if (getTemp_row() == row){
+                if (getTemp_row() == row) {
                     button[getTemp_column()].setIcon(icon_empty);
                     avail_seat[getTemp_column()] = 0;
                 }
@@ -233,11 +320,11 @@ public class SeatInfoCard extends JPanel {
     }
 
 
-    public static void resetScrollBar(int pref) {
+    public void resetScrollBar(int pref) {
         if (pref == 0) {
             scrollBar.setMinimum(4);
             scrollBar.setMaximum(20);
-            int k=20-totalrow;
+            int k = 20 - totalrow;
             scrollBar.setVisibleAmount(k);
             row = 4;
             scrollBar.setValue(4);
