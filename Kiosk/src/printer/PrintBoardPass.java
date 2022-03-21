@@ -11,7 +11,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 
-public abstract class PrintTicket {
+public abstract class PrintBoardPass {
     public static void creatTicket(int idPassengerFlight,String seat)throws IOException {
         int idPassengerFlight_index= PassengerFlightReader.indexOf(idPassengerFlight);
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);

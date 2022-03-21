@@ -5,15 +5,15 @@ package printerTest;
  * @date 3/20
  * use for print ticket and generate a TXT
  */
-import printer.PrintTicket;
-import javax.imageio.IIOException;
+import printer.PrintBoardPass;
+
 import java.io.IOException;
 
 
-public class PrintTicketTest {
+public class PrintBoardPassTest {
     public static void main(String[] args) {
        try {
-           PrintTicket.creatTicket(3,"23A");
+           PrintBoardPass.creatTicket(1,"23A");
        }
        catch (IOException e) {
            e.printStackTrace();
