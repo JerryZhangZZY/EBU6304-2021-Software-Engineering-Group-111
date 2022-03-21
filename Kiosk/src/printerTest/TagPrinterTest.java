@@ -5,13 +5,13 @@
  * Test for Tag Printer
  */
 package printerTest;
-import printer.PrintTag;
+import printer.TagPrinter;
 
 import java.io.IOException;
-public class PrintTagTest {
+public class TagPrinterTest {
     public static void main(String[] args) {
         try {
-            PrintTag.creatTag(3);
+            TagPrinter.creatTag(3);
         }
         catch (IOException e) {
             e.printStackTrace();

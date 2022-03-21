@@ -5,15 +5,15 @@ package printerTest;
  * @date 3/20
  * use for print ticket and generate a TXT
  */
-import printer.PrintBoardPass;
+import printer.BoardingPassPrinter;
 
 import java.io.IOException;
 
 
-public class PrintBoardPassTest {
+public class BoardingPassPrinterTest {
     public static void main(String[] args) {
        try {
-           PrintBoardPass.creatTicket(1,"23A");
+           BoardingPassPrinter.creatTicket(1,"23A");
        }
        catch (IOException e) {
            e.printStackTrace();

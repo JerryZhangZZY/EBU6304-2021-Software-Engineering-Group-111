@@ -9,7 +9,7 @@ package printer;
 import dbReader.*;
 import java.io.*;
 
-public abstract class PrintTag {
+public abstract class TagPrinter {
     /**
      * Generate .txt form tags
      * @param idPassengerFlight primary key
