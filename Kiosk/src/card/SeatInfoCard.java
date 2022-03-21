@@ -3,8 +3,9 @@ package card;
  * This class can return a panel of a flight info card.
  *
  * @author Wang Chenyu
- * @date 2022/3/19
- * @version 1.0
+ * @author Liang Zhehao
+ * @date 2022/3/21
+ * @version 2.0
  */
 
 import dbReader.FlightReader;
