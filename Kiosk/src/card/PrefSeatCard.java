@@ -12,6 +12,10 @@ import java.awt.event.ItemListener;
  * @author Liang Zhehao
  * @date 2022/3/19
  * @version 1.0
+ *
+ * @author Liang Zhehao
+ * @date 2022/3/21
+ * @version 1.1
  */
 
 public class PrefSeatCard extends JPanel implements ItemListener {
@@ -63,6 +67,7 @@ public class PrefSeatCard extends JPanel implements ItemListener {
         rdbtnSeat1.setForeground(Color.DARK_GRAY);
         rdbtnSeat1.setBounds(16, 80, 144, 23);
         add(rdbtnSeat1);
+        rdbtnSeat1.setSelected(true);
 
         rdbtnSeat2.setText(seat2);
         rdbtnSeat2.setForeground(Color.DARK_GRAY);
@@ -110,7 +115,7 @@ public class PrefSeatCard extends JPanel implements ItemListener {
 
         if(n != -1) {
             System.out.println(n);
-            //call function to show perferable seat
+            //call function to show preferable seat
             SeatInfoCard.resetScrollBar(n);
         }
     }
