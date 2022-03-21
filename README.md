@@ -15,11 +15,11 @@
 
 **Group Members**
 - Wang Zaitian [*@ZaitianWang*](https://github.com/ZaitianWang)
-- Li Chunlin [*CuSO5*](https://github.com/CuSO5)
-- Wang Chenyu [*wcyfrank*](https://github.com/wcyfrank)
-- Ni Ruijie [*zhuantomato*](https://github.com/zhuantomato)
-- Liang Zhehao [*BHobbes*](https://github.com/BHobbes)
-- Zhang Zeyu [*JerryZhangZZY*](https://github.com/JerryZhangZZY)
+- Li Chunlin [*@CuSO5*](https://github.com/CuSO5)
+- Wang Chenyu [*@wcyfrank*](https://github.com/wcyfrank)
+- Ni Ruijie [*@zhuantomato*](https://github.com/zhuantomato)
+- Liang Zhehao [*@BHobbes*](https://github.com/BHobbes)
+- Zhang Zeyu [*@JerryZhangZZY*](https://github.com/JerryZhangZZY)
 
 ---
 
