@@ -40,7 +40,7 @@ public abstract class PassengerFlightReader {
         JSONArray arr = obj.getJSONArray("passengerFlight");
         List<String> list = new ArrayList<>();
         for(int index = 0; index < arr.size(); index++) {
-            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum))
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
                 list.add(arr.getJSONObject(index).getString("idFlight"));
         }
         return list;
