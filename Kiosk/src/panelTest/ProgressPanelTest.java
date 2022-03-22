@@ -6,6 +6,11 @@ import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
 
+/**
+ * @version 1.0
+ * @author zaitian
+ * @date 3/22
+ */
 public class ProgressPanelTest {
 
 	public static void main(String[] args) {

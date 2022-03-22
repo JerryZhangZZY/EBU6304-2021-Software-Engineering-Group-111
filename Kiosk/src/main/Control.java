@@ -8,6 +8,12 @@ import javax.swing.*;
 
 import static java.lang.Thread.sleep;
 
+/**
+ * @version 1.0
+ * @author zaitian
+ * @date 3/22
+ * the core class that run with main, managing all frames and panels
+ */
 public class Control {
     public static void main(String[] args) throws InterruptedException {
         MainFrame kiosk;
