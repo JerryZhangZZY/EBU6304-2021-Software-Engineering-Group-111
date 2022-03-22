@@ -1,5 +1,7 @@
 package panel;
 
+import main.State;
+
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Rectangle;
@@ -97,13 +99,11 @@ public class EnterIDPanel extends JPanel {
         orLabel.setHorizontalAlignment(SwingConstants.CENTER);
         orLabel.setBounds(931, 100, 60, 40);
         buttonPanel.add(orLabel);
-        /*test*/
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ;
+                State.setPc(4);
             }
         });
-        /*test*/
     }
 }

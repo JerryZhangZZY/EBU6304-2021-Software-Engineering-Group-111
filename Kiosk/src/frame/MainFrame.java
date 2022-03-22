@@ -2,6 +2,7 @@ package frame;
 
 import dbReader.PassengerFlightReader;
 import dbReader.PassengerReader;
+import main.State;
 
 import javax.swing.*;
 import java.awt.*;
@@ -135,6 +136,22 @@ public class MainFrame extends JFrame {
         backButton.setBorderPainted(false);
         backButton.setBounds(40, 20, 300, 60);
         backButton.setIcon(icon_back);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch (State.getPc()){
+                    case 2://alt ID
+                    case 4://seat
+                    case 5://food
+                    case 6://bill
+                    case 7://pay
+                    {
+                        State.setPc(State.getPc() - 1);
+                        break;
+                    }
+                }
+            }
+        });
         bottomPanel.add(backButton);
 
     }
@@ -149,7 +166,10 @@ public class MainFrame extends JFrame {
         centerPanel.add(panel, 0);
     }
     public Component getLoadedPanel(){
-        return centerPanel.getComponent(0);
+        if(centerPanel.getComponentCount()>0)
+            return centerPanel.getComponent(0);
+        else
+            return null;
     }
     public void unloadPanel(Component panel){
         centerPanel.remove(panel);
