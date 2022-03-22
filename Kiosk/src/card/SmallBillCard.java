@@ -14,6 +14,11 @@ import java.awt.*;
  * @date 2022/3/21
  * @version 1.1
  * Appearance improved and bug fixed.
+ *
+ * @author Liang Zhehao
+ * @date 2022/3/23
+ * @version 1.2
+ * Add addPrice and subPrice function
  */
 public class SmallBillCard extends JPanel{
     private int price;
@@ -41,6 +46,16 @@ public class SmallBillCard extends JPanel{
 
     public void setPrice(int price) {
         this.price = price;
-        screen.setText(String.valueOf(price));
+        screen.setText("$" + price);
+    }
+
+    public void addPrice(int price) {
+        this.price += price;
+        screen.setText("$" + this.price);
+    }
+
+    public void subPrice(int price) {
+        this.price -= price;
+        screen.setText("$" + this.price);
     }
 }
