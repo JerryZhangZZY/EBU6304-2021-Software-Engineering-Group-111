@@ -22,9 +22,19 @@
     },
     {
       "idPassengerFlight": 3,
+      "idPassenger": "123001",
+      "idFlight": "CA0003",
+      "bookingNum": "bn0003",
+      "carryon": 1,
+      "checkin": 0,
+      "bagDropCounter": -1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 4,
       "idPassenger": "123002",
       "idFlight": "CA0002",
-      "bookingNum": "bn0002",
+      "bookingNum": "bn0004",
       "carryon": 1,
       "checkin": 0,
       "bagDropCounter": -1,
