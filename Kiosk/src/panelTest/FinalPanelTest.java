@@ -19,7 +19,7 @@ public class FinalPanelTest {
         MainFrame testMainFrame = new MainFrame(1);
         FinalPanel testEnterIDPanel = new FinalPanel();
         testMainFrame.loadPanel(testEnterIDPanel);
-        testMainFrame.displayComponents(true, true, false);
+        testMainFrame.displayComponents(true, false, false);
         testMainFrame.setVisible(true);
     }
 }

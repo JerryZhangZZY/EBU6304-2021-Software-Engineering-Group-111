@@ -19,9 +19,18 @@ import static java.lang.Thread.sleep;
 public class FinalPanel extends JPanel {
     JLabel lblNewLabel =  new JLabel();
     JButton exit_begin = new JButton();
-    JButton exit_exit = new JButton();
+    JButton exit_system = new JButton();
+    ImageIcon icon1_bcak = new ImageIcon("Kiosk/icons/back.png");
+    Image img_bcak = icon1_bcak.getImage();
+    Image newimg_bcak= img_bcak.getScaledInstance(100, 80, java.awt.Image.SCALE_SMOOTH);
+    ImageIcon icon_bcak = new ImageIcon(newimg_bcak);
+    ImageIcon icon1_exit = new ImageIcon("Kiosk/icons/exit.png");
+    Image img_exit = icon1_exit.getImage();
+    Image newimg_exit= img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
+    ImageIcon icon_exit = new ImageIcon(newimg_exit);
     public FinalPanel(){
         Timer timer = new Timer();
+        Timer timer1 = new Timer();
         setBounds(new Rectangle(0, 0, 1920, 980));
         setBackground(Color.WHITE);
         setLayout(null);
@@ -32,8 +41,16 @@ public class FinalPanel extends JPanel {
         lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 43));
         lblNewLabel.setBounds(323, 150, 1284, 203);
         add(lblNewLabel);
+        exit_begin.setBounds(507, 793, 263, 95);
+        add(exit_begin);
+        exit_begin.setIcon(icon_bcak);
+        exit_system.setBounds(1165, 793, 263, 95);
+        add(exit_system);
+        exit_system.setIcon(icon_exit);
+        exit_begin.setVisible(false);
+        exit_system.setVisible(false);
         timer.schedule(new MyTask1(),3000);
-        timer.schedule(new MyTask2(),1000);
+        timer1.schedule(new MyTask2(),4000);
     }
     class MyTask1 extends TimerTask {
         public void run() {
@@ -43,10 +60,8 @@ public class FinalPanel extends JPanel {
     }
     class MyTask2 extends TimerTask {
         public void run() {
-            btnNewButton.setBounds(297, 693, 263, 95);
-            add(btnNewButton);
-            btnNewButton_1.setBounds(925, 693, 263, 95);
-            add(btnNewButton_1);
+            exit_system.setVisible(true);
+            exit_begin.setVisible(true);
         }
 
     }
