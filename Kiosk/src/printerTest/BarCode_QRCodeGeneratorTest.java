@@ -22,7 +22,7 @@ public class BarCode_QRCodeGeneratorTest {
         String result;
         String format = "jpg";
         //Generate QRCode
-        File outputFile = new File("Kiosk/printerOutPut/rqcode.jpg");
+        File outputFile = new File("Kiosk/printerOutPut/qrcode.jpg");
         BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toQRCodeMatrix(text, null, null), format, outputFile);
         System.out.println("success1");
         //Generate BarCode
