@@ -15,13 +15,8 @@ import dbReader.*;
  * @version 1.0
  * @author zaitian
  * @date 3/18
- * initial version main frame
- */
-/**
- * @version 1.0
  * @author wcy
- * @date 3/21
- * add icon and db_reader change some details
+ * initial version main frame
  */
 
 public class MainFrame extends JFrame {
@@ -53,8 +48,6 @@ public class MainFrame extends JFrame {
         setTitle("KIOSK");
         setResizable(false);
         setUndecorated(true);
-        //setSize(1600, 900);
-        //setSize(1280, 720);
         setBounds(new Rectangle(0, 0, 1920, 1080));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = new JPanel();
@@ -138,7 +131,13 @@ public class MainFrame extends JFrame {
      * @param panel the panel to be loaded
      */
     public void loadPanel(JPanel panel){
-        centerPanel.add(panel);
+        centerPanel.add(panel, 0);
+    }
+    public Component getLoadedPanel(){
+        return centerPanel.getComponent(0);
+    }
+    public void unloadPanel(Component panel){
+        centerPanel.remove(panel);
     }
 
     /**
