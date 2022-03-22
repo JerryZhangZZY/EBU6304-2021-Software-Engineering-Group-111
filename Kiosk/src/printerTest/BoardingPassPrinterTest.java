@@ -13,7 +13,7 @@ import java.io.IOException;
 public class BoardingPassPrinterTest {
     public static void main(String[] args) {
        try {
-           BoardingPassPrinter.creatTicket(1,"23A");
+           BoardingPassPrinter.creatBoardingPass(1,"23A");
        }
        catch (IOException e) {
            e.printStackTrace();

@@ -1,23 +1,29 @@
 package printer;
 
-import dbReader.*;
+import dbReader.FlightReader;
+import dbReader.PassengerFlightReader;
+import dbReader.PassengerReader;
+import dbReader.PlaneReader;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
- * @version 1.0
  * @author wcy
+ * @version 1.0
  * @date 3/20
  * test for Print ticket
  */
+
 public abstract class BoardingPassPrinter {
-    public static void creatTicket(int idPassengerFlight,String seat)throws IOException {
-        int idPassengerFlight_index= PassengerFlightReader.indexOf(idPassengerFlight);
+    public static void creatBoardingPass(int idPassengerFlight, String seat) throws IOException {
+        int idPassengerFlight_index = PassengerFlightReader.indexOf(idPassengerFlight);
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         int idFlight_index = FlightReader.indexOf(idFlight);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
-        int idPlane  = FlightReader.getIdPlane(idFlight_index);
+        int idPlane = FlightReader.getIdPlane(idFlight_index);
         String date = FlightReader.getDate(idFlight_index);
         String departure = FlightReader.getDeparture(idFlight_index);
         String arrival = FlightReader.getArrival(idFlight_index);
@@ -25,13 +31,13 @@ public abstract class BoardingPassPrinter {
         String board_time = FlightReader.getBoardingTime(idFlight_index);
         int idPassenger_index = PassengerReader.indexOf(idPassenger);
         String surname = PassengerReader.getSurname(idPassenger_index);
-        String airLine =  PlaneReader.getAirline(idPlane);
-        String ticket_file = idPassenger +"-"+idFlight+"-"+date;
-        String ticket_path ="Kiosk/printerOutPut/";
-        String ticket_temp = ticket_path +ticket_file +".txt";
+        String airLine = PlaneReader.getAirline(idPlane);
+        String ticket_file = idPassenger + "-" + idFlight + "-" + date;
+        String ticket_path = "Kiosk/printerOutPut/";
+        String ticket_temp = ticket_path + ticket_file + ".txt";
         File ticket = new File(ticket_temp);
         ticket.createNewFile();
-        FileWriter bucket=new FileWriter(ticket_temp);
+        FileWriter bucket = new FileWriter(ticket_temp);
         BufferedWriter buffer = new BufferedWriter(bucket);
         String side_bound = "|";
         buffer.write("_________________________________________________________________________________________________________________________________________________________");
@@ -39,7 +45,7 @@ public abstract class BoardingPassPrinter {
         buffer.write(side_bound);
         buffer.write("    ");
         buffer.write(airLine);
-        for (int i= 0;i<148-airLine.length();i++){
+        for (int i = 0; i < 148 - airLine.length(); i++) {
             buffer.write(" ");
         }
         buffer.write(side_bound);
@@ -53,20 +59,20 @@ public abstract class BoardingPassPrinter {
         buffer.write(side_bound);
         buffer.newLine();
         buffer.write(side_bound);
-        buffer.write("           "+surname);
-        for (int i= 0;i<93-surname.length();i++){
+        buffer.write("           " + surname);
+        for (int i = 0; i < 93 - surname.length(); i++) {
             buffer.write(" ");
         }
-        buffer.write(idFlight+"  "+date+"                              ");
+        buffer.write(idFlight + "  " + date + "                              ");
         buffer.write(side_bound);
         buffer.newLine();
         buffer.write(side_bound);
-        buffer.write(" From "+departure);
-        for (int i= 0;i<91-departure.length();i++){
+        buffer.write(" From " + departure);
+        for (int i = 0; i < 91 - departure.length(); i++) {
             buffer.write(" ");
         }
-        buffer.write("To "+arrival);
-        for (int i= 0;i<52-arrival.length();i++){
+        buffer.write("To " + arrival);
+        for (int i = 0; i < 52 - arrival.length(); i++) {
             buffer.write(" ");
         }
         buffer.write(side_bound);
@@ -80,16 +86,16 @@ public abstract class BoardingPassPrinter {
         buffer.write(side_bound);
         buffer.newLine();
         buffer.write(side_bound);
-        buffer.write(" | "+gate);
-        for (int i= 0;i<43-gate.length();i++){
+        buffer.write(" | " + gate);
+        for (int i = 0; i < 43 - gate.length(); i++) {
             buffer.write(" ");
         }
-        buffer.write("|     | "+board_time);
-        for (int i= 0;i<43-board_time.length();i++){
+        buffer.write("|     | " + board_time);
+        for (int i = 0; i < 43 - board_time.length(); i++) {
             buffer.write(" ");
         }
-        buffer.write("|       | "+seat);
-        for (int i= 0;i<43-seat.length();i++){
+        buffer.write("|       | " + seat);
+        for (int i = 0; i < 43 - seat.length(); i++) {
             buffer.write(" ");
         }
         buffer.write("| |");
@@ -106,7 +112,5 @@ public abstract class BoardingPassPrinter {
         buffer.write("________________________________________________________________________________________________________________________________________________________");
         buffer.write(side_bound);
         buffer.close();
-
-
     }
 }
