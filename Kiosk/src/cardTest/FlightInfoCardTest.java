@@ -23,12 +23,12 @@ public class FlightInfoCardTest extends JFrame{
 
     public static void main(String[] args) throws IOException {
 
-        String idFlight = null;
-        String date = null;
-        String departureTime = null;
-        String arrivalTime = null;
-        String departure = null;
-        String arrival = null;
+        String idFlight;
+        String date;
+        String departureTime;
+        String arrivalTime;
+        String departure;
+        String arrival;
 
 //        JSONObject obj = JSON.parseObject(readJsonFile("DB/flight.json"));
 //        JSONArray arr = obj.getJSONArray("flight");
@@ -68,25 +68,25 @@ public class FlightInfoCardTest extends JFrame{
                                      arrival));
     }
 
-    public static String readJsonFile(String fileName) {
-        String jsonStr = "";
-        try {
-            File jsonFile = new File(fileName);
-            FileReader fileReader = new FileReader(jsonFile);
-
-            Reader reader = new InputStreamReader(new FileInputStream(jsonFile),"utf-8");
-            int ch = 0;
-            StringBuffer sb = new StringBuffer();
-            while ((ch = reader.read()) != -1) {
-                sb.append((char) ch);
-            }
-            fileReader.close();
-            reader.close();
-            jsonStr = sb.toString();
-            return jsonStr;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public static String readJsonFile(String fileName) {
+//        String jsonStr = "";
+//        try {
+//            File jsonFile = new File(fileName);
+//            FileReader fileReader = new FileReader(jsonFile);
+//
+//            Reader reader = new InputStreamReader(new FileInputStream(jsonFile),"utf-8");
+//            int ch = 0;
+//            StringBuffer sb = new StringBuffer();
+//            while ((ch = reader.read()) != -1) {
+//                sb.append((char) ch);
+//            }
+//            fileReader.close();
+//            reader.close();
+//            jsonStr = sb.toString();
+//            return jsonStr;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 }
