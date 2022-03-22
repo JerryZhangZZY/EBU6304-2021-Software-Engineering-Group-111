@@ -20,7 +20,7 @@ public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
     JButton exit_begin = new JButton();
     JButton exit_system = new JButton();
-    ImageIcon icon1_bcak = new ImageIcon("KIosk/icons/initial.png");
+    ImageIcon icon1_bcak = new ImageIcon("Kiosk/icons/initial.png");
     Image img_bcak = icon1_bcak.getImage();
     Image newimg_bcak= img_bcak.getScaledInstance(100, 80, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_back = new ImageIcon(newimg_bcak);
