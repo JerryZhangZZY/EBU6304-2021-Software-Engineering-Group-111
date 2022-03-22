@@ -13,8 +13,7 @@ import java.awt.event.KeyEvent;
  * @author zaitian
  * @date 3/18
  * initial version main frame
- */
-/**
+ *
  * @version 1.1
  * @author wcy
  * @date 3/21
