@@ -13,7 +13,6 @@ import java.nio.charset.StandardCharsets;
 
 public abstract class JsonReader {
     public static String read(String path) {
-        String jsonStr = "";
         try {
             File jsonFile = new File(path);
             FileReader fileReader = new FileReader(jsonFile);
@@ -26,8 +25,7 @@ public abstract class JsonReader {
             }
             fileReader.close();
             reader.close();
-            jsonStr = sb.toString();
-            return jsonStr;
+            return sb.toString();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
