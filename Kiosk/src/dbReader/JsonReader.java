@@ -1,6 +1,7 @@
 package dbReader;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * This class opens a given json file and converts into string.
@@ -17,9 +18,9 @@ public abstract class JsonReader {
             File jsonFile = new File(path);
             FileReader fileReader = new FileReader(jsonFile);
 
-            Reader reader = new InputStreamReader(new FileInputStream(jsonFile),"utf-8");
+            Reader reader = new InputStreamReader(new FileInputStream(jsonFile), StandardCharsets.UTF_8);
             int ch = 0;
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             while ((ch = reader.read()) != -1) {
                 sb.append((char) ch);
             }
