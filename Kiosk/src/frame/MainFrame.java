@@ -3,9 +3,6 @@ package frame;
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -14,8 +11,8 @@ import dbReader.*;
 /**
  * @version 1.0
  * @author zaitian
- * @date 3/18
  * @author wcy
+ * @date 3/18
  * initial version main frame
  */
 
@@ -29,14 +26,14 @@ public class MainFrame extends JFrame {
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
-    ImageIcon icon1_bcak = new ImageIcon("Kiosk/src/icons/back.png");
-    Image img_bcak = icon1_bcak.getImage();
-    Image newimg_bcak= img_bcak.getScaledInstance(100, 80, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_bcak = new ImageIcon(newimg_bcak);
+    ImageIcon icon1_back = new ImageIcon("Kiosk/src/icons/back.png");
+    Image img_back = icon1_back.getImage();
+    Image newImg_back = img_back.getScaledInstance(100, 80, java.awt.Image.SCALE_SMOOTH);
+    ImageIcon icon_back = new ImageIcon(newImg_back);
     ImageIcon icon1_exit = new ImageIcon("Kiosk/src/icons/exit.png");
     Image img_exit = icon1_exit.getImage();
-    Image newimg_exit= img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_exit = new ImageIcon(newimg_exit);
+    Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
+    ImageIcon icon_exit = new ImageIcon(newImg_exit);
 
     /**
      * Create the frame, initializing panels.
@@ -120,7 +117,7 @@ public class MainFrame extends JFrame {
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
         backButton.setBounds(-20, 880, 240, 100);
-        backButton.setIcon(icon_bcak);
+        backButton.setIcon(icon_back);
         centerPanel.add(backButton);
 
     }
