@@ -1,5 +1,4 @@
 package cardTest;
-import card.SeatInfoCard;
 import frame.MainFrame;
 import card.SmallBillCard;
 

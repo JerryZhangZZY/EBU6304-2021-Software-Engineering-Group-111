@@ -1,8 +1,6 @@
 package cardTest;
 
-import card.PrefMealCard;
 import card.PrefSeatCard;
-import card.SeatInfoCard;
 import frame.MainFrame;
 
 import javax.swing.*;

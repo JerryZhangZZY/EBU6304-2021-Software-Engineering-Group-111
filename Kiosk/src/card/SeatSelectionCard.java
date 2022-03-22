@@ -16,14 +16,16 @@ import java.awt.event.*;
  * @author Wang Chenyu
  * @date 2022/3/19
  * @version 1.0
+ *
  * @author Liang Zhehao
  * @date 2022/3/21
- * @version 2.0
+ * @version 1.1
+ *
  * @author Liang Zhehao
  * @date 2022/3/21
- * @version 3.0
+ * @version 1.2
  */
-public class SeatInfoCard extends JPanel {
+public class SeatSelectionCard extends JPanel {
     private int[] avail_seat = new int[6];
     private int row;
     private int totalrow;
@@ -35,15 +37,15 @@ public class SeatInfoCard extends JPanel {
     JLabel row_num = new JLabel();
     private static JScrollBar scrollBar = new JScrollBar();
     //icon loading
-    ImageIcon icon1_empty = new ImageIcon("Kiosk/src/icons/avail.png");
+    ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
     Image img_empty = icon1_empty.getImage();
     Image newimg_empty = img_empty.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_empty = new ImageIcon(newimg_empty);
-    ImageIcon icon1_occu = new ImageIcon("Kiosk/src/icons/occu.png");
+    ImageIcon icon1_occu = new ImageIcon("Kiosk/icons/occu.png");
     Image img_occu = icon1_occu.getImage();
     Image newimg_occu = img_occu.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_occu = new ImageIcon(newimg_occu);
-    ImageIcon icon1_chonse = new ImageIcon("Kiosk/src/icons/chosen.png");
+    ImageIcon icon1_chonse = new ImageIcon("Kiosk/icons/chosen.png");
     Image img_chonse = icon1_chonse.getImage();
     Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
@@ -53,9 +55,9 @@ public class SeatInfoCard extends JPanel {
     private JRadioButton rdbtnSeat3 = new JRadioButton();
     private JRadioButton rdbtnSeat4 = new JRadioButton();
 
-    public SeatInfoCard(String idFlight,
-                        String seat1, String seat2, String seat3, String seat4,
-                        float price1, float price2, float price3, float price4) {
+    public SeatSelectionCard(String idFlight,
+                             String seat1, String seat2, String seat3, String seat4,
+                             float price1, float price2, float price3, float price4) {
 
         row = 4;
         this.idFlight = idFlight;
@@ -70,8 +72,8 @@ public class SeatInfoCard extends JPanel {
         right_label.setSize(75, 262);
         JLabel left_label = new JLabel();
         left_label.setSize(147, 206);
-        right_label.setIcon(new ImageIcon("Kiosk/src/icons/rightbound.png"));
-        left_label.setIcon(new ImageIcon("Kiosk/src/icons/leftbound.png"));
+        right_label.setIcon(new ImageIcon("Kiosk/icons/rightbound.png"));
+        left_label.setIcon(new ImageIcon("Kiosk/icons/leftbound.png"));
         add(right_label);
         add(left_label);
         right_label.setLocation(1460, -19);
@@ -81,8 +83,8 @@ public class SeatInfoCard extends JPanel {
         mright_label.setSize(118, 199);
         JLabel mleft_label = new JLabel();
         mleft_label.setSize(118, 168);
-        mright_label.setIcon(new ImageIcon("Kiosk/src/icons/mid.png"));
-        mleft_label.setIcon(new ImageIcon("Kiosk/src/icons/mid.png"));
+        mright_label.setIcon(new ImageIcon("Kiosk/icons/mid.png"));
+        mleft_label.setIcon(new ImageIcon("Kiosk/icons/mid.png"));
         add(mright_label);
         add(mleft_label);
         mright_label.setLocation(851, 10);
