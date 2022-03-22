@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -95,5 +97,13 @@ public class EnterIDPanel extends JPanel {
         orLabel.setHorizontalAlignment(SwingConstants.CENTER);
         orLabel.setBounds(931, 100, 60, 40);
         buttonPanel.add(orLabel);
+        /*test*/
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ;
+            }
+        });
+        /*test*/
     }
 }
