@@ -19,11 +19,18 @@ public class Control {
         MainFrame kiosk;
         EnterIDPanel enterIDPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
-
+        /*
+        main frame
+         */
         kiosk = new MainFrame(1);
         kiosk.displayComponents(true, true, true);
-
+        /*
+        enter id panel
+         */
         enterIDPanel = new EnterIDPanel();
+        /*
+        seat choosing panel
+         */
         seatPanel = new ProgressPanel(2);
         seatPanel.loadCards(new SeatSelectionCard( "AC0001",
                 "Normal", "Legroom Pro",
@@ -54,13 +61,13 @@ public class Control {
                     kiosk.loadPanel(seatPanel);
                     currentPC = State.getPc();
                     kiosk.repaint();
-                    sleep(1000);
-                    State.setPc(1);
                     break;
                 }
                 case 5: {    //food
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
 
+                    currentPC  = State.getPc();
+                    kiosk.repaint();
                     break;
                 }
 
