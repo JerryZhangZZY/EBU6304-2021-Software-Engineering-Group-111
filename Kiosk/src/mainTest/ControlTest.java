@@ -1,11 +1,6 @@
 package mainTest;
 
-import org.junit.jupiter.api.Test;
-import tests.TestFrame;
-
-import javax.swing.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+//import tests.TestFrame;
 
 class ControlTest {
 
