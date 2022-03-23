@@ -58,7 +58,7 @@ public class SeatSelectionCard extends JPanel {
     Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
-    SmallBillCard smallBillCard;
+    private SmallBillCard smallBillCard;
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
     private JRadioButton rdbtnSeat2 = new JRadioButton();
@@ -347,7 +347,6 @@ public class SeatSelectionCard extends JPanel {
                     button[getTemp_column()].setIcon(icon_empty);
                     avail_seat[getTemp_column()] = 0;
                     smallBillCard.subPrice(price[p]);
-                    System.out.println("去掉同一行的其他的");
                 } else if (getTemp_row() <= 3 && getTemp_row() >= 1) {
                     smallBillCard.subPrice(price[getTemp_row()]);
                 }
@@ -357,14 +356,12 @@ public class SeatSelectionCard extends JPanel {
                 button[click].setIcon(icon_chonse);
                 lbltip.setVisible(false);
                 smallBillCard.addPrice(price[p]);
-                System.out.println("选");
             } else if (avail_seat[click] == 2) {
                 setTemp_row(-1);
                 setTemp_column(-1);
                 avail_seat[click] = 0;
                 button[click].setIcon(icon_empty);
                 smallBillCard.subPrice(price[p]);
-                System.out.println("去掉已选择的");
             }
         }
     }
@@ -423,7 +420,6 @@ public class SeatSelectionCard extends JPanel {
             } else {
                 lbltip.setVisible(true);
             }
-
         }
     }
 }
