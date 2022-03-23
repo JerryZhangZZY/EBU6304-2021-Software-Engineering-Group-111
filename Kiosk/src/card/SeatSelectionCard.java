@@ -41,22 +41,22 @@ public class SeatSelectionCard extends JPanel {
     private int bill = 0;
     private int[] price = new int[4];
     //button init
-    JButton button[] = new JButton[6];
-    JLabel row_num = new JLabel();
+    private JButton[] button = new JButton[6];
+    private JLabel row_num = new JLabel();
     private static JScrollBar scrollBar = new JScrollBar();
     //icon loading
-    ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
-    Image img_empty = icon1_empty.getImage();
-    Image newimg_empty = img_empty.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_empty = new ImageIcon(newimg_empty);
-    ImageIcon icon1_occu = new ImageIcon("Kiosk/icons/occu.png");
-    Image img_occu = icon1_occu.getImage();
-    Image newimg_occu = img_occu.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_occu = new ImageIcon(newimg_occu);
-    ImageIcon icon1_chonse = new ImageIcon("Kiosk/icons/chosen.png");
-    Image img_chonse = icon1_chonse.getImage();
-    Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
+    private ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
+    private Image img_empty = icon1_empty.getImage();
+    private Image newimg_empty = img_empty.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
+    private ImageIcon icon_empty = new ImageIcon(newimg_empty);
+    private ImageIcon icon1_occu = new ImageIcon("Kiosk/icons/occu.png");
+    private Image img_occu = icon1_occu.getImage();
+    private Image newimg_occu = img_occu.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
+    private ImageIcon icon_occu = new ImageIcon(newimg_occu);
+    private ImageIcon icon1_chonse = new ImageIcon("Kiosk/icons/chosen.png");
+    private Image img_chonse = icon1_chonse.getImage();
+    private Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
+    private ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
     private SmallBillCard smallBillCard;
 
@@ -270,7 +270,7 @@ public class SeatSelectionCard extends JPanel {
     }
 
     //seat   button[0].setIcon(icon);
-    public void addSeatIcon(int[] avail) {
+    private void addSeatIcon(int[] avail) {
         if (getTemp_row() == row) {
             avail[getTemp_column()] = 2;
             avail_seat[getTemp_column()] = 2;
@@ -288,25 +288,23 @@ public class SeatSelectionCard extends JPanel {
     public void loadBill() {
     }
 
-    public void setTemp_row(int temp_row) {
+    private void setTemp_row(int temp_row) {
         this.temp_row = temp_row;
     }
 
-    public void setTemp_column(int temp_column) {
+    private void setTemp_column(int temp_column) {
         this.temp_column = temp_column;
     }
 
-    public void setAvail_seat(int[] avail_seat) {
-        for (int i = 0; i < 6; i++) {
-            this.avail_seat[i] = avail_seat[i];
-        }
+    private void setAvail_seat(int[] avail_seat) {
+        System.arraycopy(avail_seat, 0, this.avail_seat, 0, 6);
     }
 
-    public int getTemp_row() {
+    private int getTemp_row() {
         return temp_row;
     }
 
-    public int getTemp_column() {
+    private int getTemp_column() {
         return temp_column;
     }
 
@@ -367,7 +365,7 @@ public class SeatSelectionCard extends JPanel {
     }
 
 
-    public void resetScrollBar(int pref) {
+    private void resetScrollBar(int pref) {
         if (pref == 0) {
             scrollBar.setMinimum(4);
             scrollBar.setMaximum(20);

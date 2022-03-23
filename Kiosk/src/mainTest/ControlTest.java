@@ -1,7 +1,7 @@
 package mainTest;
 
 import org.junit.jupiter.api.Test;
-import tests.TestFrame;
+//import tests.TestFrame;
 
 import javax.swing.*;
 
