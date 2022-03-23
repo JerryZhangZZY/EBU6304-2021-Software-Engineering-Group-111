@@ -3,8 +3,10 @@ package dbReader;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 /**
@@ -13,6 +15,11 @@ import java.util.List;
  * @author Zhang Zeyu
  * @date 2022/3/20
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/22
+ * @version 1.1
+ * Add a new getter.
  */
 
 public abstract class PassengerFlightReader {
@@ -28,22 +35,6 @@ public abstract class PassengerFlightReader {
         int index = 0;
         while(arr.getJSONObject(index).getInteger("idPassengerFlight") != idPassengerFlight) { index++; }
         return index;
-    }
-
-    /**
-     * Get a list of idFlight of a given bookingNum.
-     * @param bookingNum the booking number of that passenger
-     * @return a list that contains flight ids that bookingNum matches
-     */
-    public static List<String> indexOfBooking(String bookingNum) {
-        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"));
-        JSONArray arr = obj.getJSONArray("passengerFlight");
-        List<String> list = new ArrayList<>();
-        for(int index = 0; index < arr.size(); index++) {
-            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
-                list.add(arr.getJSONObject(index).getString("idFlight"));
-        }
-        return list;
     }
 
     public static String getIdPassenger(int index) {
@@ -86,5 +77,37 @@ public abstract class PassengerFlightReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"));
         JSONArray arr = obj.getJSONArray("passengerFlight");
         return arr.getJSONObject(index).getBoolean("status");
+    }
+
+    /**
+     * Get a list of idFlight of a given bookingNum.
+     * @param bookingNum the booking number of that passenger
+     * @return a list that contains flight ids that bookingNum matches
+     */
+    public static List<String> getIdFlightByBookingNum(String bookingNum) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        List<String> list = new ArrayList<>();
+        for(int index = 0; index < arr.size(); index++) {
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
+                list.add(arr.getJSONObject(index).getString("idFlight"));
+        }
+        return list;
+    }
+
+    /**
+     * Get a list of bookNum of a given bookingNum.
+     * @param idPassenger the id of that passenger
+     * @return a linked hash set that contains book numbers that passenger matches
+     */
+    public static LinkedHashSet<String> getBookingNumByPassengerId(String idPassenger) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        LinkedHashSet<String> set = new LinkedHashSet<>();
+        for(int index = 0; index < arr.size(); index++) {
+            if(arr.getJSONObject(index).getString("idPassenger").equals(idPassenger) && !arr.getJSONObject(index).getBoolean("status"))
+                set.add(arr.getJSONObject(index).getString("bookingNum"));
+        }
+        return set;
     }
 }

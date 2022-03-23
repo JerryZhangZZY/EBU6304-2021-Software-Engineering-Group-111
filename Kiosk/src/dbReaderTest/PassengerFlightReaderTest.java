@@ -13,7 +13,6 @@ import dbReader.PassengerFlightReader;
 public class PassengerFlightReaderTest {
     public static void main(String[] args) {
         System.out.println(PassengerFlightReader.indexOf(1));
-        System.out.println(PassengerFlightReader.indexOfBooking("bn0001"));
         System.out.println(PassengerFlightReader.getIdPassenger(PassengerFlightReader.indexOf(3)));
         System.out.println(PassengerFlightReader.getIdFlight(PassengerFlightReader.indexOf(3)));
         System.out.println(PassengerFlightReader.getBookingNum(PassengerFlightReader.indexOf(3)));
@@ -21,5 +20,8 @@ public class PassengerFlightReaderTest {
         System.out.println(PassengerFlightReader.getCheckin(PassengerFlightReader.indexOf(3)));
         System.out.println(PassengerFlightReader.getBagDropCounter(PassengerFlightReader.indexOf(3)));
         System.out.println(PassengerFlightReader.getStatus(PassengerFlightReader.indexOf(3)));
+        System.out.println("--------------------------------");
+        System.out.println(PassengerFlightReader.getIdFlightByBookingNum("bn0001"));
+        System.out.println(PassengerFlightReader.getBookingNumByPassengerId("123001"));
     }
 }

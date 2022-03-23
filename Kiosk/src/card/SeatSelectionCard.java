@@ -4,6 +4,7 @@ package card;
 import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
+import main.State;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -24,6 +25,11 @@ import java.awt.event.*;
  * @author Liang Zhehao
  * @date 2022/3/21
  * @version 1.2
+ *
+ * @author Liang Zhehao
+ * @date 2022/3/23
+ * @version 1.3
+ * Add bill and OK button
  */
 public class SeatSelectionCard extends JPanel {
     private int[] avail_seat = new int[6];
@@ -32,6 +38,8 @@ public class SeatSelectionCard extends JPanel {
     private String idFlight;
     private int temp_row = -1;
     private int temp_column = -1;
+    private int bill = 0;
+    private int[] price = new int[4];
     //button init
     JButton button[] = new JButton[6];
     JLabel row_num = new JLabel();
@@ -50,15 +58,23 @@ public class SeatSelectionCard extends JPanel {
     Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
+    SmallBillCard smallBillCard;
+
     private JRadioButton rdbtnSeat1 = new JRadioButton();
     private JRadioButton rdbtnSeat2 = new JRadioButton();
     private JRadioButton rdbtnSeat3 = new JRadioButton();
     private JRadioButton rdbtnSeat4 = new JRadioButton();
 
+    private JLabel lbltip = new JLabel("Please select your seat");
+
     public SeatSelectionCard(String idFlight,
                              String seat1, String seat2, String seat3, String seat4,
-                             float price1, float price2, float price3, float price4) {
+                             int price1, int price2, int price3, int price4) {
 
+        this.price[0] = price1;
+        this.price[1] = price2;
+        this.price[2] = price3;
+        this.price[3] = price4;
         row = 4;
         this.idFlight = idFlight;
         totalrow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / 6;
@@ -234,12 +250,31 @@ public class SeatSelectionCard extends JPanel {
         rdbtnSeat2.addItemListener(prefListener);
         rdbtnSeat3.addItemListener(prefListener);
         rdbtnSeat4.addItemListener(prefListener);
+
+        OKListener okListener = new OKListener();
+        JButton btnOK = new JButton("OK");
+        btnOK.setFont(new Font("Arial", Font.PLAIN, 40));
+        btnOK.setBounds(1185, 516, 154, 72);
+        btnOK.addActionListener(okListener);
+        add(btnOK);
+
+        lbltip.setVisible(false);
+        lbltip.setFont(new Font("Arial", Font.PLAIN, 20));
+        lbltip.setForeground(Color.RED);
+        lbltip.setBounds(724, 171, 245, 134);
+        add(lbltip);
+
+        smallBillCard = new SmallBillCard(bill);
+        smallBillCard.setBounds(1126, 680, 265, 115);
+        add(smallBillCard);
     }
 
     //seat   button[0].setIcon(icon);
     public void addSeatIcon(int[] avail) {
-        if (getTemp_row() == row)
+        if (getTemp_row() == row) {
             avail[getTemp_column()] = 2;
+            avail_seat[getTemp_column()] = 2;
+        }
         for (int i = 0; i < 6; i++) {
             if (avail[i] == 1)
                 button[i].setIcon(icon_occu);
@@ -248,6 +283,9 @@ public class SeatSelectionCard extends JPanel {
             else
                 button[i].setIcon(icon_empty);
         }
+    }
+
+    public void loadBill() {
     }
 
     public void setTemp_row(int temp_row) {
@@ -287,8 +325,7 @@ public class SeatSelectionCard extends JPanel {
                 n = 3;
 
             if (n != -1) {
-                System.out.println(n);
-                //call function to show preferable seat
+                //System.out.println(n);
                 resetScrollBar(n);
             }
         }
@@ -296,6 +333,9 @@ public class SeatSelectionCard extends JPanel {
 
     private class SimpleListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            int p = row;
+            if (p >= 4)
+                p = 0;
             int click = -1;
             for (int i = 0; i < 6; i++) {
                 if (e.getSource() == button[i])
@@ -306,18 +346,26 @@ public class SeatSelectionCard extends JPanel {
                 if (getTemp_row() == row) {
                     button[getTemp_column()].setIcon(icon_empty);
                     avail_seat[getTemp_column()] = 0;
+                    smallBillCard.subPrice(price[p]);
+                    System.out.println("去掉同一行的其他的");
+                } else if (getTemp_row() <= 3 && getTemp_row() >= 1) {
+                    smallBillCard.subPrice(price[getTemp_row()]);
                 }
                 setTemp_row(row);
                 setTemp_column(click);
                 avail_seat[click] = 2;
                 button[click].setIcon(icon_chonse);
+                lbltip.setVisible(false);
+                smallBillCard.addPrice(price[p]);
+                System.out.println("选");
             } else if (avail_seat[click] == 2) {
                 setTemp_row(-1);
                 setTemp_column(-1);
                 avail_seat[click] = 0;
                 button[click].setIcon(icon_empty);
+                smallBillCard.subPrice(price[p]);
+                System.out.println("去掉已选择的");
             }
-
         }
     }
 
@@ -328,8 +376,14 @@ public class SeatSelectionCard extends JPanel {
             scrollBar.setMaximum(20);
             int k = 20 - totalrow;
             scrollBar.setVisibleAmount(k);
-            row = 4;
-            scrollBar.setValue(4);
+            if (getTemp_row() != -1) {
+                scrollBar.setValue(getTemp_row());
+                row = getTemp_row();
+            } else {
+                scrollBar.setValue(4);
+                row = 4;
+            }
+
         } else {
             scrollBar.setMinimum(pref);
             scrollBar.setMaximum(pref);
@@ -356,6 +410,20 @@ public class SeatSelectionCard extends JPanel {
             }
             setAvail_seat(s);
             addSeatIcon(s);
+        }
+    }
+
+    public class OKListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            if (getTemp_row() != -1) {
+                State.setPc(State.getPc() + 1);
+                //上传已选数据
+            } else {
+                lbltip.setVisible(true);
+            }
+
         }
     }
 }
