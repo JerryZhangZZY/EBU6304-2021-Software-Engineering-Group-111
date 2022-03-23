@@ -2,12 +2,8 @@ package panel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static java.lang.Thread.sleep;
 
 /**
  * This class can use the final panel.
@@ -15,19 +11,24 @@ import static java.lang.Thread.sleep;
  * @author Wang Chenyu
  * @date 2022/3/21
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/24
+ * @version 1.1
+ * Appearance improvement and bugs fixing.
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
     JButton exit_begin = new JButton();
     JButton exit_system = new JButton();
-    ImageIcon icon1_bcak = new ImageIcon("Kiosk/icons/initial.png");
-    Image img_bcak = icon1_bcak.getImage();
-    Image newimg_bcak= img_bcak.getScaledInstance(100, 80, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_back = new ImageIcon(newimg_bcak);
+    ImageIcon icon1_back = new ImageIcon("Kiosk/icons/initial.png");
+    Image img_back = icon1_back.getImage();
+    Image newing_back = img_back.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
+    ImageIcon icon_back = new ImageIcon(newing_back);
     ImageIcon icon1_exit = new ImageIcon("Kiosk/icons/final_exit.png");
     Image img_exit = icon1_exit.getImage();
-    Image newimg_exit= img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_exit = new ImageIcon(newimg_exit);
+    Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
+    ImageIcon icon_exit = new ImageIcon(newImg_exit);
     public FinalPanel(){
         Timer timer = new Timer();
         Timer timer1 = new Timer();
@@ -37,27 +38,28 @@ public class FinalPanel extends JPanel {
         setLayout(null);
         setSize(1920, 980);
         //headline
-        headline.setText("Printing your boarding pass, baggage tags and ticket ...");
+        headline.setText("Printing your boarding pass, baggage tags and ticket...");
         headline.setHorizontalAlignment(JLabel.CENTER);
-        headline.setFont(new Font("Arial Black", Font.PLAIN, 43));
-        headline.setBounds(323, 150, 1284, 203);
+        headline.setFont(new Font("Helvetica", Font.BOLD, 50));
+        headline.setForeground(Color.DARK_GRAY);
+        headline.setBounds(250, 200, 1400, 203);
         add(headline);
-        exit_begin.setText("continue chek-in");
-        exit_begin.setFont(new Font("Arial", Font.PLAIN, 26));
+        exit_begin.setText("Continue chek-in");
+        exit_begin.setFont(new Font("Arial", Font.PLAIN, 35));
         exit_begin.setVerticalTextPosition(SwingConstants.BOTTOM);
         exit_begin.setHorizontalTextPosition(SwingConstants.CENTER);
-        exit_begin.setBounds(507, 793, 263, 150);
-        exit_begin.setForeground(Color.GREEN);
+        exit_begin.setBounds(500, 700, 350, 120);
+        exit_begin.setForeground(new Color(0, 100, 0));
         exit_begin.setBackground(Color.WHITE);
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
         add(exit_begin);
         exit_begin.setIcon(icon_back);
-        exit_system.setText("Exit");
+        exit_system.setText("          Exit          ");
         exit_system.setVerticalTextPosition(SwingConstants.BOTTOM);
         exit_system.setHorizontalTextPosition(SwingConstants.CENTER);
-        exit_system.setFont(new Font("Arial", Font.PLAIN, 26));
-        exit_system.setBounds(1165, 803, 263, 120);
+        exit_system.setFont(new Font("Arial", Font.PLAIN, 35));
+        exit_system.setBounds(1100, 700, 350, 120);
         exit_system.setForeground(Color.RED);
         exit_system.setBackground(Color.WHITE);
         exit_system.setContentAreaFilled(false);
@@ -67,12 +69,12 @@ public class FinalPanel extends JPanel {
         exit_begin.setVisible(false);
         exit_system.setVisible(false);
         timer.schedule(new MyTask1(),3000);
-        timer1.schedule(new MyTask2(),4000);
-        timer2.schedule(new MyTask3(),10000);
+        timer1.schedule(new MyTask2(),5000);
+        timer2.schedule(new MyTask3(),15000);
     }
     class MyTask1 extends TimerTask {
         public void run() {
-            headline.setText("Have a good trip! ");
+            headline.setText("Have a good trip!");
         }
 
     }
