@@ -1,5 +1,6 @@
 package main;
 import card.FlightInfoCard;
+import card.MealSelectionCard;
 import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
@@ -36,7 +37,15 @@ public class Control {
                 "Normal", "Legroom Pro",
                 "Legroom Max", "Legroom Ultra",
                 0, 10, 20, 50));
-
+        /*
+        meal choosing panel
+         */
+        mealPanel = new ProgressPanel(3);
+        mealPanel.loadCards(new MealSelectionCard("Extra","Kweichow Moutai",
+                "Ice-cream", 5, 100, 10));
+        /*
+        control flow
+         */
         int currentPC = 1;
         State.setPc(currentPC);
         currentPC = 0;
@@ -65,7 +74,7 @@ public class Control {
                 }
                 case 5: {    //food
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-
+                    kiosk.loadPanel(mealPanel);
                     currentPC  = State.getPc();
                     kiosk.repaint();
                     break;
