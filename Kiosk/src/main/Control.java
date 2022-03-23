@@ -40,7 +40,9 @@ public class Control {
             }
             switch (State.getPc()) {
                 case 1:{    //enter ID
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(enterIDPanel);
+                    currentPC = State.getPc();
                     kiosk.repaint();
                     break;
                 }
@@ -50,6 +52,7 @@ public class Control {
                 case 4:{    //seat
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(seatPanel);
+                    currentPC = State.getPc();
                     kiosk.repaint();
                     sleep(1000);
                     State.setPc(1);

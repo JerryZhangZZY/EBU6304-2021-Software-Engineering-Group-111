@@ -172,7 +172,8 @@ public class MainFrame extends JFrame {
             return null;
     }
     public void unloadPanel(Component panel){
-        centerPanel.remove(panel);
+        if(panel != null)
+            centerPanel.remove(panel);
     }
 
     /**
