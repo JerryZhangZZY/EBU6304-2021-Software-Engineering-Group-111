@@ -22,7 +22,7 @@ import java.awt.*;
  */
 public class SmallBillCard extends JPanel{
     private int price;
-    JLabel screen = new JLabel();
+    private JLabel screen = new JLabel();
     public SmallBillCard(int price) {
         this.price = price;
 

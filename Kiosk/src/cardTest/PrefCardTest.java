@@ -1,10 +1,7 @@
 package cardTest;
 
-import card.PrefMealCard;
-import card.PrefSeatCard;
+import card.MealSelectionCard;
 import frame.MainFrame;
-
-import javax.swing.*;
 
 /**
  * @version 1.0
@@ -15,8 +12,8 @@ import javax.swing.*;
 public class PrefCardTest {
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame(1);
-        PrefMealCard prefMealCard = new PrefMealCard("Extra", "Kweichow Moutai", "Ice-cream", 5, 100, 10);
-        testMainFrame.loadPanel(prefMealCard);
+        MealSelectionCard mealSelectionCard = new MealSelectionCard("Extra", "Kweichow Moutai", "Ice-cream", 5, 100, 10);
+        testMainFrame.loadPanel(mealSelectionCard);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);
     }
