@@ -22,8 +22,8 @@ public class SeatBillCard extends JPanel{
         setLayout(null);
         setSize(1111, 170);
 
-        preference.setText("·"+prefer);
-        preference.setBounds(127, 99, 538, 50);
+        preference.setText("·"+prefer+"          ·······························   ");
+        preference.setBounds(127, 99, 831, 50);
         preference.setFont(new Font("Arial", Font.BOLD, 38));
         preference.setForeground(Color.GRAY);
         add(preference);
@@ -39,7 +39,7 @@ public class SeatBillCard extends JPanel{
         row_column.setSize(131, 61);
         add(row_column);
 
-        bill.setLocation(888, 96);
+        bill.setLocation(960, 96);
         bill.setSize(104, 40);
         bill.setForeground(Color.ORANGE);
         bill.setFont(new Font("Arial", Font.BOLD, 38));
