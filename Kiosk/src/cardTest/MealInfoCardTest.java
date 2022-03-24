@@ -1,6 +1,6 @@
 package cardTest;
 
-import card.FoodInfoCard;
+import card.MealInfoCard;
 import frame.MainFrame;
 
 /**
@@ -9,10 +9,10 @@ import frame.MainFrame;
  * @date 3/21
  * test for FoodCard, with a panel embedded
  */
-public class FoodCardTest {
+public class MealInfoCardTest {
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        FoodInfoCard f = new FoodInfoCard();
+        MealInfoCard f = new MealInfoCard();
         testMainFrame.loadPanel(f);
         testMainFrame.displayComponents(true,true,true);
         testMainFrame.setVisible(true);

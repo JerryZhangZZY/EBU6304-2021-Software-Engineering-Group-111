@@ -1,6 +1,6 @@
 package cardTest;
 
-import card.FoodSelectionCard;
+import card.MealSelectionCard;
 import frame.MainFrame;
 
 /**
@@ -9,11 +9,11 @@ import frame.MainFrame;
  * @date 3/18
  * test for prefCard, with a panel embedded
  */
-public class FoodSelectionCardTest {
+public class MealSelectionCardTest {
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        FoodSelectionCard foodSelectionCard = new FoodSelectionCard();
-        testMainFrame.loadPanel(foodSelectionCard);
+        MealSelectionCard mealSelectionCard = new MealSelectionCard();
+        testMainFrame.loadPanel(mealSelectionCard);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);
     }

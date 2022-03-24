@@ -18,7 +18,7 @@ import javax.swing.border.TitledBorder;
  * a card of food, you can choose some kinds of food in flight
  */
 
-public class FoodInfoCard extends JPanel {
+public class MealInfoCard extends JPanel {
     private char chosen='d';
     private JButton normal_food = new JButton();
     private JButton vegetarian_food = new JButton();
@@ -37,7 +37,7 @@ public class FoodInfoCard extends JPanel {
     private ImageIcon icon_halal = new ImageIcon(newimg_halal);
     private Border button_use = BorderFactory.createLineBorder(Color.DARK_GRAY,8,true);
     private Border button_chosen = BorderFactory.createLineBorder(new Color(60,179,113),8,true);
-    public FoodInfoCard(){
+    public MealInfoCard(){
         //setBorder(new LineBorder(Color.WHITE));
         setBackground(Color.WHITE);
         setLayout(null);
