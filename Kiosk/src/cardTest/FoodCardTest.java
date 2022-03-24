@@ -11,7 +11,7 @@ import frame.MainFrame;
  */
 public class FoodCardTest {
     public static void main(String[] args) {
-        MainFrame testMainFrame = new MainFrame(1);
+        MainFrame testMainFrame = new MainFrame();
         FoodInfoCard f = new FoodInfoCard();
         testMainFrame.loadPanel(f);
         testMainFrame.displayComponents(true,true,true);

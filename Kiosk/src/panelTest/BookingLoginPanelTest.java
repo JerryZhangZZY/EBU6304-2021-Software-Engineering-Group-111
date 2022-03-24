@@ -20,7 +20,7 @@ public class BookingLoginPanelTest {
 
     public static void main(String[] args) throws InterruptedException {
         // TODO Auto-generated method stub
-        MainFrame testMainFrame = new MainFrame(1);
+        MainFrame testMainFrame = new MainFrame();
 
         BookingLoginPanel testBookingLoginPanel = new BookingLoginPanel();
         testMainFrame.loadPanel(testBookingLoginPanel);

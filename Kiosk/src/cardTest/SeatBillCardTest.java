@@ -11,7 +11,7 @@ import frame.MainFrame;
  */
 public class SeatBillCardTest {
     public static void main(String[] args) {
-        MainFrame testMainFrame = new MainFrame(1);
+        MainFrame testMainFrame = new MainFrame();
         SeatBillCard h = new SeatBillCard(10,'A',"Large room",30);
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true, true, false);

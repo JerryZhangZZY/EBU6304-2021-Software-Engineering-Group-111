@@ -1,7 +1,5 @@
 package panelTest;
 
-import javax.swing.JPanel;
-
 import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
@@ -15,7 +13,7 @@ public class ProgressPanelTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		MainFrame testMainFrame = new MainFrame(1);
+		MainFrame testMainFrame = new MainFrame();
         ProgressPanel testProgressPanel = new ProgressPanel(0);
         testProgressPanel.loadCards(new SeatSelectionCard( "AC0001",
                 "Normal", "Legroom Pro",

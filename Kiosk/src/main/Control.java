@@ -21,7 +21,7 @@ public class Control {
         /*
         main frame
          */
-        kiosk = new MainFrame(1);
+        kiosk = new MainFrame();
         kiosk.displayComponents(true, true, true);
         /*
         welcoming panel

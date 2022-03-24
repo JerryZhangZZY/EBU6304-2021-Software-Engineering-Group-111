@@ -11,7 +11,7 @@ import card.SmallBillCard;
 public class SmallBillCardTest {
     public static void main(String[] args) {
         int b = 5000;
-        MainFrame testMainFrame = new MainFrame(1);
+        MainFrame testMainFrame = new MainFrame();
         SmallBillCard h = new SmallBillCard(b);
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true, true, false);

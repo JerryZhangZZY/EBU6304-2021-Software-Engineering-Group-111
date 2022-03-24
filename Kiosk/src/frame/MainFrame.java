@@ -1,7 +1,5 @@
 package frame;
 
-import dbReader.PassengerFlightReader;
-import dbReader.PassengerReader;
 import main.State;
 
 import javax.swing.*;
@@ -47,7 +45,7 @@ public class MainFrame extends JFrame {
     /**
      * Main frame with panels initialized.
      */
-    public MainFrame(int idPassengerFlight) {
+    public MainFrame() {
         /*
          * basic settings
          */

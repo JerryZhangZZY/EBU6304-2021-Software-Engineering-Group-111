@@ -28,7 +28,7 @@ public class FlightInfoCardTest extends JFrame{
 
     public static void main(String[] args) throws IOException {
 
-        MainFrame frame = new MainFrame(1);
+        MainFrame frame = new MainFrame();
         frame.loadPanel(new FlightInfoCard("CA0001"));
         frame.displayComponents(true, true, true);
         frame.setVisible(true);

@@ -5,7 +5,7 @@ import panel.WelcomePanel;
 
 public class WelcomePanelTest {
     public static void main(String[] args) {
-        MainFrame mainFrame = new MainFrame(2);
+        MainFrame mainFrame = new MainFrame();
         WelcomePanel welcomePanel = new WelcomePanel();
         mainFrame.hideBars(true);
         mainFrame.loadPanel(welcomePanel);

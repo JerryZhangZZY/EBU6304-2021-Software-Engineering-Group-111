@@ -6,16 +6,13 @@ package cardTest;
  * @date 3/24
  * a card of paymentCard test
  */
-import card.FlightInfoCard;
 import card.PaymentCard;
 import frame.MainFrame;
-
-import javax.swing.*;
 
 public class PaymentCardTest {
     public static void main(String[] args) {
         PaymentCard payment = new PaymentCard();
-        MainFrame testMainFrame = new MainFrame(1);
+        MainFrame testMainFrame = new MainFrame();
         testMainFrame.loadPanel(payment);
         testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);
