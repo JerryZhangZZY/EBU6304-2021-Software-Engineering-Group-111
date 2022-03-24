@@ -30,9 +30,10 @@ public class FoodSelectionCard extends JPanel {
 
     private FoodInfoCard foodInfoCard;
     private SmallBillCard smallBillCard;
-    private int bill;
 
     private int[] price = new int[3];
+    private String[] foodName = new String[3];
+    private boolean[] select = State.getSelectedPrefFood();
 
     private Border tipBorder1 = BorderFactory
             .createTitledBorder(BorderFactory.createLineBorder(Color.WHITE)
@@ -46,22 +47,12 @@ public class FoodSelectionCard extends JPanel {
     private Border tipBorder = BorderFactory
             .createCompoundBorder(tipBorder1,tipBorder2);
 
-    /**
-     *
-     * @param meal1 preference food 1
-     * @param meal2 preference food 2
-     * @param meal3 preference food 3
-     * @param price1 the price of food 1
-     * @param price2 the price of food 2
-     * @param price3 the price of food 3
-     */
-    public FoodSelectionCard(String meal1, String meal2, String meal3,
-                             int price1, int price2, int price3) {
+    public FoodSelectionCard() {
 
-        bill = 0;
-        this.price[0] = price1;
-        this.price[1] = price2;
-        this.price[2] = price3;
+        for(int i = 0; i < 3; i++) {
+            this.price[i] = State.getPrefFoodPrice()[i];
+            this.foodName[i] = State.getPrefFoodName()[i];
+        }
 
         rdbtnMeal[0] = new JRadioButton();
         rdbtnMeal[1] = new JRadioButton();
@@ -83,37 +74,37 @@ public class FoodSelectionCard extends JPanel {
         lblNewLabel.setBounds(114, 584, 229, 40);
         add(lblNewLabel);
 
-        JLabel lblNewLabel_1 = new JLabel(":  $" + price1);
+        JLabel lblNewLabel_1 = new JLabel(":  $" + price[0]);
         lblNewLabel_1.setForeground(Color.DARK_GRAY);
         lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1.setBounds(340, 641, 90, 24);
         add(lblNewLabel_1);
 
-        JLabel lblNewLabel_1_1 = new JLabel(":  $" + price2);
+        JLabel lblNewLabel_1_1 = new JLabel(":  $" + price[1]);
         lblNewLabel_1_1.setForeground(Color.DARK_GRAY);
         lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1_1.setBounds(340, 681, 90, 24);
         add(lblNewLabel_1_1);
 
-        JLabel lblNewLabel_1_2 = new JLabel(":  $" + price3);
+        JLabel lblNewLabel_1_2 = new JLabel(":  $" + price[2]);
         lblNewLabel_1_2.setForeground(Color.DARK_GRAY);
         lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1_2.setBounds(340, 721, 90, 24);
         add(lblNewLabel_1_2);
         
-        rdbtnMeal[0].setText(meal1);
+        rdbtnMeal[0].setText(foodName[0]);
         rdbtnMeal[0].setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnMeal[0].setForeground(Color.DARK_GRAY);
         rdbtnMeal[0].setBounds(96, 642, 220, 23);
         add(rdbtnMeal[0]);
         
-        rdbtnMeal[1].setText(meal2);
+        rdbtnMeal[1].setText(foodName[1]);
         rdbtnMeal[1].setForeground(Color.DARK_GRAY);
         rdbtnMeal[1].setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnMeal[1].setBounds(96, 682, 220, 23);
         add(rdbtnMeal[1]);
         
-        rdbtnMeal[2].setText(meal3);
+        rdbtnMeal[2].setText(foodName[2]);
         rdbtnMeal[2].setForeground(Color.DARK_GRAY);
         rdbtnMeal[2].setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnMeal[2].setBounds(96, 722, 220, 23);
@@ -136,7 +127,7 @@ public class FoodSelectionCard extends JPanel {
         btnOK.addActionListener(okListener);
         add(btnOK);
 
-        smallBillCard = new SmallBillCard(bill);
+        smallBillCard = new SmallBillCard(0);
         smallBillCard.setBounds(1126, 667, 265, 115);
         add(smallBillCard);
     }
@@ -148,6 +139,9 @@ public class FoodSelectionCard extends JPanel {
             if (foodInfoCard.getChosen() != 'd') {
                 State.setPc(State.getPc() + 1);
                 //上传已选数据
+                State.setMeal(foodInfoCard.getChosen());
+                State.setSelectedPrefFood(select);
+                State.setBill(smallBillCard.getPrice());
             } else {
                 foodInfoCard.setBorder(tipBorder);
             }
@@ -159,10 +153,14 @@ public class FoodSelectionCard extends JPanel {
         @Override
         public void itemStateChanged(ItemEvent e) {
             for (int i=0 ; i<3 ; i++) {
-                if (e.getSource() == rdbtnMeal[i] && rdbtnMeal[i].isSelected())
+                if (e.getSource() == rdbtnMeal[i] && rdbtnMeal[i].isSelected()) {
                     smallBillCard.addPrice(price[i]);
-                else if (e.getSource() == rdbtnMeal[i] && !rdbtnMeal[i].isSelected())
+                    select[i] = true;
+                }
+                else if (e.getSource() == rdbtnMeal[i] && !rdbtnMeal[i].isSelected()) {
                     smallBillCard.subPrice(price[i]);
+                    select[i] = false;
+                }
             }
         }
     }

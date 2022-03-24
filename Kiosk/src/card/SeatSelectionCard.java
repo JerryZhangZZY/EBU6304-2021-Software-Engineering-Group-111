@@ -40,6 +40,7 @@ public class SeatSelectionCard extends JPanel {
     private int temp_column = -1;
     private int bill = 0;
     private int[] price = new int[4];
+    private String[] seatName = new String[4];
     //button init
     private JButton[] button = new JButton[6];
     private JLabel row_num = new JLabel();
@@ -67,28 +68,14 @@ public class SeatSelectionCard extends JPanel {
 
     private JLabel lbltip = new JLabel("Please select your seat");
 
-    /**
-     *
-     * @param idFlight the flight id
-     * @param seat1 preference seat 1 (default normal seat)
-     * @param seat2 preference seat 2
-     * @param seat3 preference seat 3
-     * @param seat4 preference seat 4
-     * @param price1 the price of seat 1
-     * @param price2 the price of seat 2
-     * @param price3 the price of seat 3
-     * @param price4 the price of seat 4
-     */
-    public SeatSelectionCard(String idFlight,
-                             String seat1, String seat2, String seat3, String seat4,
-                             int price1, int price2, int price3, int price4) {
+    public SeatSelectionCard() {
 
-        this.price[0] = price1;
-        this.price[1] = price2;
-        this.price[2] = price3;
-        this.price[3] = price4;
+        for (int i = 0; i < 4; i++) {
+            this.price[i] = State.getPrefSeatPrice()[i];
+            this.seatName[i] = State.getPrefSeat()[i];
+        }
         row = 4;
-        this.idFlight = idFlight;
+        this.idFlight = State.getIdFlight();
         totalrow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / 6;
 
         setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -198,50 +185,50 @@ public class SeatSelectionCard extends JPanel {
         lblNewLabel1.setBounds(117, 438, 229, 40);
         add(lblNewLabel1);
 
-        JLabel lblNewLabel_1 = new JLabel(":  $" + price1);
+        JLabel lblNewLabel_1 = new JLabel(":  $" + price[0]);
         lblNewLabel_1.setForeground(Color.DARK_GRAY);
         lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1.setBounds(317, 510, 90, 28);
         add(lblNewLabel_1);
 
-        JLabel lblNewLabel_1_1 = new JLabel(":  $" + price2);
+        JLabel lblNewLabel_1_1 = new JLabel(":  $" + price[1]);
         lblNewLabel_1_1.setForeground(Color.DARK_GRAY);
         lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1_1.setBounds(317, 560, 90, 28);
         add(lblNewLabel_1_1);
 
-        JLabel lblNewLabel_1_2 = new JLabel(":  $" + price3);
+        JLabel lblNewLabel_1_2 = new JLabel(":  $" + price[2]);
         lblNewLabel_1_2.setForeground(Color.DARK_GRAY);
         lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1_2.setBounds(317, 610, 90, 28);
         add(lblNewLabel_1_2);
 
-        JLabel lblNewLabel_1_3 = new JLabel(":  $" + price4);
+        JLabel lblNewLabel_1_3 = new JLabel(":  $" + price[3]);
         lblNewLabel_1_3.setForeground(Color.DARK_GRAY);
         lblNewLabel_1_3.setFont(new Font("Arial", Font.PLAIN, 20));
         lblNewLabel_1_3.setBounds(317, 660, 90, 28);
         add(lblNewLabel_1_3);
 
-        rdbtnSeat1.setText(seat1);
+        rdbtnSeat1.setText(seatName[0]);
         rdbtnSeat1.setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnSeat1.setForeground(Color.DARK_GRAY);
         rdbtnSeat1.setBounds(101, 510, 144, 28);
         add(rdbtnSeat1);
         rdbtnSeat1.setSelected(true);
 
-        rdbtnSeat2.setText(seat2);
+        rdbtnSeat2.setText(seatName[1]);
         rdbtnSeat2.setForeground(Color.DARK_GRAY);
         rdbtnSeat2.setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnSeat2.setBounds(101, 560, 144, 28);
         add(rdbtnSeat2);
 
-        rdbtnSeat3.setText(seat3);
+        rdbtnSeat3.setText(seatName[2]);
         rdbtnSeat3.setForeground(Color.DARK_GRAY);
         rdbtnSeat3.setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnSeat3.setBounds(101, 610, 159, 28);
         add(rdbtnSeat3);
 
-        rdbtnSeat4.setText(seat4);
+        rdbtnSeat4.setText(seatName[3]);
         rdbtnSeat4.setForeground(Color.DARK_GRAY);
         rdbtnSeat4.setFont(new Font("Arial", Font.PLAIN, 20));
         rdbtnSeat4.setBounds(101, 660, 159, 28);
@@ -295,9 +282,6 @@ public class SeatSelectionCard extends JPanel {
             else
                 button[i].setIcon(icon_empty);
         }
-    }
-
-    public void loadBill() {
     }
 
     private void setTemp_row(int temp_row) {
@@ -426,6 +410,9 @@ public class SeatSelectionCard extends JPanel {
         public void actionPerformed(ActionEvent actionEvent) {
             if (getTemp_row() != -1) {
                 State.setPc(State.getPc() + 1);
+                State.setSeatRow(temp_row);
+                State.setSeatColumn(temp_column);
+                State.setBill(smallBillCard.getPrice());
                 //上传已选数据
             } else {
                 lbltip.setVisible(true);

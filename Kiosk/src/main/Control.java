@@ -36,16 +36,12 @@ public class Control {
         seat choosing panel
          */
         seatPanel = new ProgressPanel(2);
-        seatPanel.loadCards(new SeatSelectionCard( "AC0001",
-                "Normal", "Legroom Pro",
-                "Legroom Max", "Legroom Ultra",
-                0, 10, 20, 50));
+        seatPanel.loadCards(new SeatSelectionCard());
         /*
         meal choosing panel
          */
         mealPanel = new ProgressPanel(3);
-        mealPanel.loadCards(new FoodSelectionCard("Extra","Kweichow Moutai",
-                "Ice-cream", 5, 100, 10));
+        mealPanel.loadCards(new FoodSelectionCard());
         /*
         final panel
          */

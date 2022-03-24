@@ -1,5 +1,7 @@
 package card;
 
+import main.State;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -24,7 +26,8 @@ public class SmallBillCard extends JPanel{
     private int price;
     private JLabel screen = new JLabel();
     public SmallBillCard(int price) {
-        this.price = price;
+        this.price = 0;
+        loadBill();
 
         setBorder(new LineBorder(Color.DARK_GRAY, 5));
         setBackground(Color.WHITE);
@@ -49,6 +52,10 @@ public class SmallBillCard extends JPanel{
         screen.setText("$" + price);
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public void addPrice(int price) {
         this.price += price;
         screen.setText("$" + this.price);
@@ -57,5 +64,14 @@ public class SmallBillCard extends JPanel{
     public void subPrice(int price) {
         this.price -= price;
         screen.setText("$" + this.price);
+    }
+
+    public void loadBill() {
+        if (State.getSeatRow() < 4 && State.getSeatRow() > 0)
+            addPrice(State.getPrefSeatPrice()[State.getSeatRow()-1]);
+        for (int i = 0; i < 3; i++) {
+            if (State.getSelectedPrefFood()[i])
+                addPrice(State.getPrefFoodPrice()[i]);
+        }
     }
 }
