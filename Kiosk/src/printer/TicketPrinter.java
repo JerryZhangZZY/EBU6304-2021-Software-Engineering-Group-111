@@ -134,24 +134,26 @@ public class TicketPrinter {
             buffer.write(" ");
         }
         buffer.write(side_bound);
-        buffer.newLine();
-        buffer.write(side_bound);
-        buffer.write("                                       ");
-        buffer.write(side_bound);
-        buffer.newLine();
-        buffer.write(side_bound);
-        buffer.write("            Bag Drop Counter           ");
-        buffer.write(side_bound);
-        buffer.newLine();
-        buffer.write(side_bound);
-        for(int i= 0;i<(39-Integer.toString(bagDropCounter).length())/2;i++){
-            buffer.write(" ");
+        if(bagDropCounter!=-1){
+            buffer.newLine();
+            buffer.write(side_bound);
+            buffer.write("                                       ");
+            buffer.write(side_bound);
+            buffer.newLine();
+            buffer.write(side_bound);
+            buffer.write("            Bag Drop Counter           ");
+            buffer.write(side_bound);
+            buffer.newLine();
+            buffer.write(side_bound);
+            for(int i= 0;i<(39-Integer.toString(bagDropCounter).length())/2;i++){
+                buffer.write(" ");
+            }
+            buffer.write(Integer.toString(bagDropCounter));
+            for(int i= 0;i<(39-Integer.toString(bagDropCounter).length())/2+(39-Integer.toString(bagDropCounter).length())%2;i++){
+                buffer.write(" ");
+            }
+            buffer.write(side_bound);
         }
-        buffer.write(Integer.toString(bagDropCounter));
-        for(int i= 0;i<(39-Integer.toString(bagDropCounter).length())/2+(39-Integer.toString(bagDropCounter).length())%2;i++){
-            buffer.write(" ");
-        }
-        buffer.write(side_bound);
         while(checkin_left>=1){
             buffer.newLine();
             buffer.write("_________________________________________");
