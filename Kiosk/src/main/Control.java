@@ -1,5 +1,5 @@
 package main;
-import card.MealSelectionCard;
+import card.FoodSelectionCard;
 import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
@@ -43,7 +43,7 @@ public class Control {
         meal choosing panel
          */
         mealPanel = new ProgressPanel(3);
-        mealPanel.loadCards(new MealSelectionCard("Extra","Kweichow Moutai",
+        mealPanel.loadCards(new FoodSelectionCard("Extra","Kweichow Moutai",
                 "Ice-cream", 5, 100, 10));
         /*
         control flow

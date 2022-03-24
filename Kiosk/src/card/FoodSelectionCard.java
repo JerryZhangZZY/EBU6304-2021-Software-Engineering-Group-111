@@ -24,7 +24,7 @@ import java.awt.event.ItemListener;
  * @date 2022/3/23
  */
 
-public class MealSelectionCard extends JPanel {
+public class FoodSelectionCard extends JPanel {
 
     private JRadioButton[] rdbtnMeal = new JRadioButton[3];
 
@@ -34,13 +34,28 @@ public class MealSelectionCard extends JPanel {
 
     private int[] price = new int[3];
 
-    private Border tipBorder = BorderFactory
-            .createTitledBorder(BorderFactory.createLineBorder(Color.red)
+    private Border tipBorder1 = BorderFactory
+            .createTitledBorder(BorderFactory.createLineBorder(Color.WHITE)
                     , "Please select your meal", TitledBorder.CENTER
                     , TitledBorder.BOTTOM
-                    , new Font("Arial", Font.PLAIN, 20));
+                    , new Font("Arial", Font.PLAIN, 25)
+                    , Color.RED);
+    private Border tipBorder2 = BorderFactory
+            .createMatteBorder(5,5,5,5,Color.RED);
+    private JLabel tip = new JLabel("Please select your meal");
+    private Border tipBorder = BorderFactory
+            .createCompoundBorder(tipBorder1,tipBorder2);
 
-    public MealSelectionCard(String meal1, String meal2, String meal3,
+    /**
+     *
+     * @param meal1 preference food 1
+     * @param meal2 preference food 2
+     * @param meal3 preference food 3
+     * @param price1 the price of food 1
+     * @param price2 the price of food 2
+     * @param price3 the price of food 3
+     */
+    public FoodSelectionCard(String meal1, String meal2, String meal3,
                              int price1, int price2, int price3) {
 
         bill = 0;
@@ -58,7 +73,7 @@ public class MealSelectionCard extends JPanel {
         setSize(1540, 880);
 
         foodInfoCard = new FoodInfoCard();
-        foodInfoCard.setBounds(40, 20, 1450, 400);
+        foodInfoCard.setBounds(40, 20, 1450, 420);
         //foodInfoCard.setBorder(new LineBorder(Color.WHITE));
         add(foodInfoCard);
 
@@ -111,6 +126,8 @@ public class MealSelectionCard extends JPanel {
         JPanel panel = new JPanel();
         panel.setBounds(80, 562, 388, 220);
         add(panel);
+
+
 
         OKListener okListener = new OKListener();
         JButton btnOK = new JButton("OK");
