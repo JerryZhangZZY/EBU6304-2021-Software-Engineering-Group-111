@@ -15,12 +15,12 @@ import java.io.*;
 /**
  * @version 1.0
  * @author Ni Ruijie
- * @date 3/22
+ * @date 3/23
  * A Ticket Printer which can print out tickets of the check-in baggage in .txt files
  */
 public class TicketPrinter {
     /**
-     * Generate .txt form tickets
+     * Generate .txt for tickets
      * @param idPassengerFlight primary key
      */
     public static void creatTicket(int idPassengerFlight)throws IOException {
