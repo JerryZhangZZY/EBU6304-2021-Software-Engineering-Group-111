@@ -49,62 +49,30 @@ public abstract class State {
     public static String getBookingNum() { return bookingNum; }
     public static String getIdPassengerFlight() { return idPassengerFlight; }
     public static String getIdFlight() { return idFlight; }
-    public static int getSeatRow() {
-        return seatRow;
-    }
-    public static int getSeatColumn() {
-        return seatColumn;
-    }
+    public static int getSeatRow() { return seatRow; }
+    public static int getSeatColumn() { return seatColumn; }
     public static int getSeatPre() { return seatPre; }
     public static char getMeal() { return meal; }
-    public static boolean[] getSelectedPrefFood() {
-        return selectedPrefFood;
-    }
-    public static String[] getPrefSeat() {
-        return prefSeat;
-    }
-    public static int[] getPrefSeatPrice() {
-        return prefSeatPrice;
-    }
-    public static String[] getPrefFoodName() {
-        return prefFoodName;
-    }
-    public static int[] getPrefFoodPrice() {
-        return prefFoodPrice;
-    }
-    public static int getBill() {
-        return bill;
-    }
+    public static boolean[] getSelectedPrefFood() { return selectedPrefFood; }
+    public static String[] getPrefSeat() { return prefSeat; }
+    public static int[] getPrefSeatPrice() { return prefSeatPrice; }
+    public static String[] getPrefFoodName() { return prefFoodName; }
+    public static int[] getPrefFoodPrice() { return prefFoodPrice; }
+    public static int getBill() { return bill; }
 
     public static void setPc(int pcNext) { pc = pcNext; }
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
     public static void setIdPassengerFlight(String idPassengerFlight) { State.idPassengerFlight = idPassengerFlight; }
     public static void setIdFlight(String idFlight) { State.idFlight = idFlight; }
-    public static void setSeatRow(int seatRow) {
-        State.seatRow = seatRow;
-    }
-    public static void setSeatColumn(int seatColumn) {
-        State.seatColumn = seatColumn;
-    }
+    public static void setSeatRow(int seatRow) { State.seatRow = seatRow; }
+    public static void setSeatColumn(int seatColumn) { State.seatColumn = seatColumn; }
     public static void setSeatPre(int seatPre) { State.seatPre = seatPre; }
     public static void setMeal(char meal) { State.meal = meal; }
-    public static void setSelectedPrefFood(boolean[] selectedPrefFood) {
-        State.selectedPrefFood = selectedPrefFood;
-    }
-    public static void setPrefSeat(String[] prefSeat) {
-        State.prefSeat = prefSeat;
-    }
-    public static void setPrefSeatPrice(int[] prefSeatPrice) {
-        State.prefSeatPrice = prefSeatPrice;
-    }
-    public static void setPrefFoodName(String[] prefFood) {
-        State.prefFoodName = prefFood;
-    }
-    public static void setPrefFoodPrice(int[] prefFoodPrice) {
-        State.prefFoodPrice = prefFoodPrice;
-    }
-    public static void setBill(int bill) {
-        State.bill = bill;
-    }
+    public static void setSelectedPrefFood(boolean[] selectedPrefFood) { State.selectedPrefFood = selectedPrefFood; }
+    public static void setPrefSeat(String[] prefSeat) { State.prefSeat = prefSeat; }
+    public static void setPrefSeatPrice(int[] prefSeatPrice) { State.prefSeatPrice = prefSeatPrice; }
+    public static void setPrefFoodName(String[] prefFood) { State.prefFoodName = prefFood; }
+    public static void setPrefFoodPrice(int[] prefFoodPrice) { State.prefFoodPrice = prefFoodPrice; }
+    public static void setBill(int bill) { State.bill = bill; }
 }
