@@ -2,19 +2,19 @@
   "plane": [
     {
       "idPlane": 1,
-      "model": "P_small",
+      "model": "Dassault Falcon 900",
       "capacity": 36,
       "airline": "AIR CHINA"
     },
     {
       "idPlane": 2,
-      "model": "P_middle",
+      "model": "Airbus A220-100",
       "capacity": 72,
       "airline": "AIR CANADA"
     },
     {
       "idPlane": 3,
-      "model": "P_large",
+      "model": "Boeing 737-800",
       "capacity": 144,
       "airline": "UNITED AIRLINES"
     }
