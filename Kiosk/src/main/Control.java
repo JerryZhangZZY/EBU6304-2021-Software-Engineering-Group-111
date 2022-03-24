@@ -15,6 +15,7 @@ import static java.lang.Thread.sleep;
 public class Control {
     public static void main(String[] args) throws InterruptedException {
         MainFrame kiosk;
+        WelcomePanel welcomePanel;
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         /*
@@ -22,6 +23,10 @@ public class Control {
          */
         kiosk = new MainFrame(1);
         kiosk.displayComponents(true, true, true);
+        /*
+        welcoming panel
+         */
+        welcomePanel = new WelcomePanel();
         /*
         booking number login panel
          */
@@ -43,16 +48,26 @@ public class Control {
         /*
         control flow
          */
-        int currentPC = 1;
+        int currentPC = 0;
         State.setPc(currentPC);
-        currentPC = 0;
+        currentPC = -1;
         while (true){
             kiosk.setVisible(true);
             while (currentPC == State.getPc()){
                 sleep(1000);
             }
             switch (State.getPc()) {
+
+                case 0: {    //welcome
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.hideBars(true);
+                    kiosk.loadPanel(welcomePanel);
+                    currentPC = State.getPc();
+                    kiosk.repaint();
+                    break;
+                }
                 case 1:{    //enter ID
+                    kiosk.hideBars(false);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(bookingLoginPanel);
                     currentPC = State.getPc();

@@ -117,7 +117,7 @@ public class MainFrame extends JFrame {
         centerPanel = new JPanel();
         centerPanel.setBackground(new Color(244, 244, 244));
         centerPanel.setBounds(0, 100, 1920, 880);
-        contentPane.add(centerPanel);
+        contentPane.add(centerPanel, 0);
         centerPanel.setLayout(null);
         /*
          * bottom panel, with back button
@@ -191,6 +191,20 @@ public class MainFrame extends JFrame {
         }
         if(!back){
             backButton.setVisible(false);
+        }
+    }
+    public void hideBars(Boolean flag){
+        if (flag){
+//            contentPane.remove(topPanel);
+//            contentPane.remove(bottomPanel);
+            topPanel.setVisible(false);
+            bottomPanel.setVisible(false);
+            centerPanel.setBounds(0,0,1920,1080);
+        }
+        else {
+            topPanel.setVisible(true);
+            bottomPanel.setVisible(true);
+            centerPanel.setBounds(0, 100, 1920, 880);
         }
     }
 }
