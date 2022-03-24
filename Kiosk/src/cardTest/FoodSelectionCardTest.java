@@ -12,7 +12,7 @@ import frame.MainFrame;
 public class FoodSelectionCardTest {
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        FoodSelectionCard foodSelectionCard = new FoodSelectionCard("Extra", "Kweichow Moutai", "Ice-cream", 5, 100, 10);
+        FoodSelectionCard foodSelectionCard = new FoodSelectionCard();
         testMainFrame.loadPanel(foodSelectionCard);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);
