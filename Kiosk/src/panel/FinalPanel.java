@@ -16,6 +16,11 @@ import java.util.TimerTask;
  * @date 2022/3/24
  * @version 1.1
  * Appearance improvement and bugs fixing.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/24
+ * @version 1.2
+ * Appearance improvement.
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
@@ -34,7 +39,7 @@ public class FinalPanel extends JPanel {
         Timer timer1 = new Timer();
         Timer timer2 = new Timer();
         setBounds(new Rectangle(0, 0, 1920, 980));
-        setBackground(Color.WHITE);
+        setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1920, 980);
         //headline
