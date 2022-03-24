@@ -1,15 +1,9 @@
 package frameTest;
 
-import javax.swing.*;
-
 import card.FlightInfoCard;
-import frame.*;
+import frame.MainFrame;
 
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import static java.lang.Thread.sleep;
+import javax.swing.*;
 /**
  * @version 1.0
  * @author zaitian
@@ -19,12 +13,7 @@ import static java.lang.Thread.sleep;
 
 public class MainFrameTest {
     public static void main(String[] args) {
-        JPanel flightInfoCard = new FlightInfoCard("CA0001",
-                "2022-03-19",
-                "08:30",
-                "12:00",
-                "Beijing",
-                "Shanghai");
+        JPanel flightInfoCard = new FlightInfoCard("CA0001");
         MainFrame testMainFrame = new MainFrame(1);
         testMainFrame.loadPanel(flightInfoCard);
         testMainFrame.displayComponents(true, true, true);
