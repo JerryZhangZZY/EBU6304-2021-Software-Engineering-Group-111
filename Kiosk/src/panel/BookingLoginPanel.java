@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
+import javax.swing.border.*;
 
 /**
  * @version 1.0
@@ -99,10 +100,32 @@ public class BookingLoginPanel extends JPanel {
         orLabel.setHorizontalAlignment(SwingConstants.CENTER);
         orLabel.setBounds(931, 100, 60, 40);
         buttonPanel.add(orLabel);
+
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                State.setPc(4);
+                if (bookingNumberTextField.getText().isBlank()){
+                    bookingNumberTextField.setBorder(
+                            new CompoundBorder(
+                                    new TitledBorder(
+                                            new LineBorder(new Color(255, 0, 0), 3),
+                                            "Invalid booking number",
+                                            TitledBorder.LEADING, TitledBorder.BOTTOM,
+                                            new Font("Arial", Font.PLAIN,20),
+                                            new Color(255, 0, 0)),
+                                    null)
+                    );
+                }
+                else {
+                    bookingNumberTextField.setBorder(null);
+                    State.setPc(4);
+                }
+            }
+        });
+        altButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                State.setPc(2);
             }
         });
     }

@@ -304,6 +304,14 @@ public class SeatSelectionCard extends JPanel {
         return temp_column;
     }
 
+    public void setSeatName(String[] seatName) {
+        this.seatName = seatName;
+    }
+
+    public void setPrice(int[] price) {
+        this.price = price;
+    }
+
     private class PrefListener implements ItemListener {
 
         @Override

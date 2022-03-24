@@ -22,6 +22,11 @@ import java.awt.event.ItemListener;
  * @author Liang Zhehao
  * @version 1.1
  * @date 2022/3/23
+ *
+ * @author Liang Zhehao
+ * @version 1.2
+ * @date 2022/3/25
+ * Add setters and remove parameters
  */
 
 public class FoodSelectionCard extends JPanel {
@@ -130,6 +135,14 @@ public class FoodSelectionCard extends JPanel {
         smallBillCard = new SmallBillCard(0);
         smallBillCard.setBounds(1126, 667, 265, 115);
         add(smallBillCard);
+    }
+
+    public void setPrice(int[] price) {
+        this.price = price;
+    }
+
+    public void setFoodName(String[] foodName) {
+        this.foodName = foodName;
     }
 
     private class OKListener implements ActionListener {
