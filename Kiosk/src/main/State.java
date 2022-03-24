@@ -13,8 +13,15 @@ package main;
 public abstract class State {
     static private int pc = 0;
     static private String passengerName = "passenger";
+    static private String bookingNum;
 
 
+    public static String getBookingNum() {
+        return bookingNum;
+    }
+    public static void setBookingNum(String bookingNum) {
+        State.bookingNum = bookingNum;
+    }
     public static String getPassengerName() {
         return passengerName;
     }
