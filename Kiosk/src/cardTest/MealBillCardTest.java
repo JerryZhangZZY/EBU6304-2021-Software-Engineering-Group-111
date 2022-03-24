@@ -12,7 +12,7 @@ import frame.MainFrame;
 public class MealBillCardTest {
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        MealBillcard h = new MealBillcard('a',"French meal","French meal","French meal",90,90,30);
+        MealBillcard h = new MealBillcard('a',"French meal","French meal","French meal",90,90,0);
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);

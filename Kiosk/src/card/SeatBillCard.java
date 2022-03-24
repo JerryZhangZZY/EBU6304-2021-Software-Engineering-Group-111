@@ -11,10 +11,10 @@ import java.awt.*;
  * a card of seat bill
  */
 public class SeatBillCard extends JPanel{
-    JLabel headline = new JLabel("Seat:");
-    JLabel preference = new JLabel();
-    JLabel row_column = new JLabel();
-    JLabel bill = new JLabel();
+    private JLabel headline = new JLabel("Seat:");
+    private JLabel preference = new JLabel();
+    private JLabel row_column = new JLabel();
+    private JLabel bill = new JLabel();
     public SeatBillCard(int row,char column,String prefer,int pay){
 
         setBorder(new LineBorder(Color.darkGray));
