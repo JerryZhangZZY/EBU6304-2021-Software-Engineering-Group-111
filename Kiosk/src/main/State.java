@@ -28,9 +28,27 @@ public abstract class State {
     private static boolean mealPre2;
     private static boolean mealPre3;
 
-    public static String getPassengerName() { return passengerName; }
     public static int getPc() { return pc; }
+    public static String getPassengerName() { return passengerName; }
+    public static String getBookingNum() { return bookingNum; }
+    public static String getIdPassengerFlight() { return idPassengerFlight; }
+    public static String getIdFlight() { return idFlight; }
+    public static String getSeat() { return seat; }
+    public static int getSeatPre() { return seatPre; }
+    public static int getMeal() { return meal; }
+    public static boolean isMealPre1() { return mealPre1; }
+    public static boolean isMealPre2() { return mealPre2; }
+    public static boolean isMealPre3() { return mealPre3; }
 
-    public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setPc(int pcNext) { pc = pcNext; }
+    public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
+    public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
+    public static void setIdPassengerFlight(String idPassengerFlight) { State.idPassengerFlight = idPassengerFlight; }
+    public static void setIdFlight(String idFlight) { State.idFlight = idFlight; }
+    public static void setSeat(String seat) { State.seat = seat; }
+    public static void setSeatPre(int seatPre) { State.seatPre = seatPre; }
+    public static void setMeal(int meal) { State.meal = meal; }
+    public static void setMealPre1(boolean mealPre1) { State.mealPre1 = mealPre1; }
+    public static void setMealPre2(boolean mealPre2) { State.mealPre1 = mealPre2; }
+    public static void setMealPre3(boolean mealPre3) { State.mealPre1 = mealPre3; }
 }
