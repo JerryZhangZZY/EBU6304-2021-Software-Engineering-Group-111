@@ -54,7 +54,7 @@ public class Control {
         while (true){
             kiosk.setVisible(true);
             while (currentPC == State.getPc()){
-                sleep(1000);
+                sleep(1);
             }
             switch (State.getPc()) {
 
@@ -67,14 +67,17 @@ public class Control {
                     break;
                 }
                 case 1:{    //enter ID
-                    kiosk.hideBars(false);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.hideBars(false);
+                    kiosk.resetWelcomeText(1);
                     kiosk.loadPanel(bookingLoginPanel);
                     currentPC = State.getPc();
                     kiosk.repaint();
                     break;
                 }
                 case 3:{    //flights
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.setWelcomeText();
                     break;
                 }
                 case 4:{    //seat

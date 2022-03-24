@@ -12,6 +12,15 @@ package main;
  */
 public abstract class State {
     static private int pc = 0;
+    static private String passengerName = "passenger";
+
+
+    public static String getPassengerName() {
+        return passengerName;
+    }
+    public static void setPassengerName(String passengerName) {
+        State.passengerName = passengerName;
+    }
     static public int getPc(){
         return pc;
     }

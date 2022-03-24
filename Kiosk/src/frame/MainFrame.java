@@ -25,7 +25,12 @@ import java.awt.event.KeyEvent;
  * @version 1.2
  * @author zaitian
  * @date 3/22
- * main frame with restored ui design controlling methods
+ * main frame with restored ui design and controlling methods
+ *
+ * @version 1.3
+ * @author zaitian
+ * @date 3.24
+ * main frame with enhanced functions and refined coding style
  */
 
 public class MainFrame extends JFrame {
@@ -38,14 +43,6 @@ public class MainFrame extends JFrame {
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
-    ImageIcon icon1_back = new ImageIcon("Kiosk/icons/back.png");
-    Image img_back = icon1_back.getImage();
-    Image newImg_back = img_back.getScaledInstance(100, 80, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_back = new ImageIcon(newImg_back);
-    ImageIcon icon1_exit = new ImageIcon("Kiosk/icons/exit.png");
-    Image img_exit = icon1_exit.getImage();
-    Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_exit = new ImageIcon(newImg_exit);
 
     /**
      * Main frame with panels initialized.
@@ -60,8 +57,8 @@ public class MainFrame extends JFrame {
         setBounds(new Rectangle(0, 0, 1920, 1080));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = new JPanel();
-        setContentPane(contentPane);
         contentPane.setLayout(null);
+        setContentPane(contentPane);
         /*
         top panel, with welcome text and exit button
          */
@@ -70,12 +67,10 @@ public class MainFrame extends JFrame {
         topPanel.setBounds(0, 0, 1920, 100);
         contentPane.add(topPanel);
         topPanel.setLayout(null);
-        //TODO move to a control method
-        String idPassenger = PassengerFlightReader.getIdPassenger(PassengerFlightReader.indexOf(idPassengerFlight));
-        String surname = PassengerReader.getSurname(PassengerReader.indexOf(idPassenger));
-        welcomeLabel = new JLabel("Welcome, "+surname+"!");
+
+        welcomeLabel = new JLabel();
         welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 36));
-        welcomeLabel.setBounds(40, 20, 400, 60);
+        welcomeLabel.setBounds(40, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
         exitButton = new JButton("Exit");
@@ -84,8 +79,14 @@ public class MainFrame extends JFrame {
         exitButton.setBackground(Color.WHITE);
         exitButton.setContentAreaFilled(false);
         exitButton.setBorderPainted(false);
-        exitButton.setIcon(icon_exit);
+        exitButton.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
         exitButton.setBounds(1700, 8, 200, 77);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                State.setPc(0);
+            }
+        });
         topPanel.add(exitButton);
         /*
         for developers to exit program easily
@@ -94,8 +95,6 @@ public class MainFrame extends JFrame {
         ForcedExitButton = new JButton("Forced Exit");
         ForcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
         ForcedExitButton.setBounds(1400, 20, 180, 60);
-//        ForcedExitButton.setContentAreaFilled(false);
-//        ForcedExitButton.setBorderPainted(false);
         ForcedExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -135,7 +134,8 @@ public class MainFrame extends JFrame {
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
         backButton.setBounds(40, 20, 300, 60);
-        backButton.setIcon(icon_back);
+//        backButton.setIcon(icon_back);
+        backButton.setIcon(new ImageIcon("Kiosk/icons/back.png"));
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -153,7 +153,6 @@ public class MainFrame extends JFrame {
             }
         });
         bottomPanel.add(backButton);
-
     }
 
     /**
@@ -162,20 +161,27 @@ public class MainFrame extends JFrame {
      * @param panel the panel to be loaded
      */
     public void loadPanel(JPanel panel){
-//        centerPanel.add(panel);
         centerPanel.add(panel, 0);
     }
+    /**
+     * access the panel loaded in the center panel
+     * @return the panel loaded in the center panel, if exists
+     */
     public Component getLoadedPanel(){
         if(centerPanel.getComponentCount()>0)
             return centerPanel.getComponent(0);
         else
             return null;
     }
+    /**
+     * unload a panel from the center panel
+     * nothing is down if no panel exists
+     * @param panel the panel to be unloaded
+     */
     public void unloadPanel(Component panel){
         if(panel != null)
             centerPanel.remove(panel);
     }
-
     /**
      * deciding whether components are displayed
      * @param welcome welcome text
@@ -193,10 +199,12 @@ public class MainFrame extends JFrame {
             backButton.setVisible(false);
         }
     }
+    /**
+     * deciding whether bars are displayed
+     * @param flag top and bottom bars
+     */
     public void hideBars(Boolean flag){
         if (flag){
-//            contentPane.remove(topPanel);
-//            contentPane.remove(bottomPanel);
             topPanel.setVisible(false);
             bottomPanel.setVisible(false);
             centerPanel.setBounds(0,0,1920,1080);
@@ -205,6 +213,14 @@ public class MainFrame extends JFrame {
             topPanel.setVisible(true);
             bottomPanel.setVisible(true);
             centerPanel.setBounds(0, 100, 1920, 880);
+        }
+    }
+    public void setWelcomeText(){
+        welcomeLabel.setText(State.getPassengerName());
+    }
+    public void resetWelcomeText(int page){
+        if(page == 1){
+            welcomeLabel.setText("Welcome to Beijing International Airport");
         }
     }
 }
