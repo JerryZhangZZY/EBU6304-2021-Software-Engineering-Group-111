@@ -31,9 +31,9 @@ public abstract class State {
     private static int seatPre; //[0, 1, 2, 3]
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
-//    private static String[] prefSeat = new String[4];
+//    private static String[] prefSeatName = new String[4];
 //    private static int[] prefSeatPrice = new int[4];
-//    private static String[] prefFood = new String[3];
+//    private static String[] prefFoodName = new String[3];
 //    private static int[] prefFoodPrice = new int[3];
     private static int bill = 0;
 
@@ -41,7 +41,7 @@ public abstract class State {
     test data for Control
      */
     private static String idFlight = "AC0001";
-    private static String[] prefSeat = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
+    private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
     private static int[] prefFoodPrice = {5, 100, 10};
@@ -56,7 +56,7 @@ public abstract class State {
     public static int getSeatPre() { return seatPre; }
     public static char getMeal() { return meal; }
     public static boolean[] getSelectedPrefFood() { return selectedPrefFood; }
-    public static String[] getPrefSeat() { return prefSeat; }
+    public static String[] getPrefSeatName() { return prefSeatName; }
     public static int[] getPrefSeatPrice() { return prefSeatPrice; }
     public static String[] getPrefFoodName() { return prefFoodName; }
     public static int[] getPrefFoodPrice() { return prefFoodPrice; }
@@ -72,7 +72,7 @@ public abstract class State {
     public static void setSeatPre(int seatPre) { State.seatPre = seatPre; }
     public static void setMeal(char meal) { State.meal = meal; }
     public static void setSelectedPrefFood(boolean[] selectedPrefFood) { State.selectedPrefFood = selectedPrefFood; }
-    public static void setPrefSeat(String[] prefSeat) { State.prefSeat = prefSeat; }
+    public static void setPrefSeatName(String[] prefSeatName) { State.prefSeatName = prefSeatName; }
     public static void setPrefSeatPrice(int[] prefSeatPrice) { State.prefSeatPrice = prefSeatPrice; }
     public static void setPrefFoodName(String[] prefFood) { State.prefFoodName = prefFood; }
     public static void setPrefFoodPrice(int[] prefFoodPrice) { State.prefFoodPrice = prefFoodPrice; }
