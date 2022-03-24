@@ -45,7 +45,7 @@ public class ProgressPanel extends JPanel {
          */
         //TODO switch case determining which progress indicator to use
         progressLabel = new JLabel("New label");
-        ImageIcon progressImage = new ImageIcon("D:\\Desktop\\testProgress320800.png");
+        ImageIcon progressImage = new ImageIcon("Kiosk/Icons/testProgress320800.png");
         progressLabel.setIcon(progressImage);
         progressLabel.setBounds(10, 40, 300, 800);
         progressPanel.add(progressLabel);
