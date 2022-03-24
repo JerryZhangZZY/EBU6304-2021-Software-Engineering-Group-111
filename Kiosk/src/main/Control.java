@@ -1,11 +1,8 @@
 package main;
-import card.FlightInfoCard;
 import card.MealSelectionCard;
 import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
-
-import javax.swing.*;
 
 import static java.lang.Thread.sleep;
 
@@ -18,7 +15,7 @@ import static java.lang.Thread.sleep;
 public class Control {
     public static void main(String[] args) throws InterruptedException {
         MainFrame kiosk;
-        EnterIDPanel enterIDPanel;
+        BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         /*
         main frame
@@ -26,9 +23,9 @@ public class Control {
         kiosk = new MainFrame(1);
         kiosk.displayComponents(true, true, true);
         /*
-        enter id panel
+        booking number login panel
          */
-        enterIDPanel = new EnterIDPanel();
+        bookingLoginPanel = new BookingLoginPanel();
         /*
         seat choosing panel
          */
@@ -57,7 +54,7 @@ public class Control {
             switch (State.getPc()) {
                 case 1:{    //enter ID
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.loadPanel(enterIDPanel);
+                    kiosk.loadPanel(bookingLoginPanel);
                     currentPC = State.getPc();
                     kiosk.repaint();
                     break;

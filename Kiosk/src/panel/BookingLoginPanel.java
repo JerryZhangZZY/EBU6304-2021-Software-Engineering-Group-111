@@ -21,7 +21,7 @@ import javax.swing.JSeparator;
  * a panel for users to input booking number
  * to be embedded into center panel of main frame
  */
-public class EnterIDPanel extends JPanel {
+public class BookingLoginPanel extends JPanel {
     private JPanel textPanel;
     private JLabel instructLabel;
     private JPanel InputPanel;
@@ -36,7 +36,7 @@ public class EnterIDPanel extends JPanel {
     /**
      * Create the panel.
      */
-    public EnterIDPanel() {
+    public BookingLoginPanel() {
         setBounds(new Rectangle(0, 0, 1920, 880));
         setBackground(Color.PINK);
         setLayout(null);

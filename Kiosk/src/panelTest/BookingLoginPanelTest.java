@@ -2,7 +2,7 @@ package panelTest;
 
 import frame.MainFrame;
 import panel.*;
-import panel.EnterIDPanel;
+import panel.BookingLoginPanel;
 import main.*;
 
 import javax.swing.*;
@@ -16,14 +16,14 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * test for panel where users enter id
  */
-public class EnterIDPanelTest {
+public class BookingLoginPanelTest {
 
     public static void main(String[] args) throws InterruptedException {
         // TODO Auto-generated method stub
         MainFrame testMainFrame = new MainFrame(1);
 
-        EnterIDPanel testEnterIDPanel = new EnterIDPanel();
-        testMainFrame.loadPanel(testEnterIDPanel);
+        BookingLoginPanel testBookingLoginPanel = new BookingLoginPanel();
+        testMainFrame.loadPanel(testBookingLoginPanel);
         testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);
 //        String got = testEnterIDPanel.getPassedData();
