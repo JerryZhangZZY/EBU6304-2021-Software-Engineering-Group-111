@@ -1,7 +1,8 @@
 package card;
 
+import dbReader.FlightReader;
+
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**
@@ -10,18 +11,23 @@ import java.awt.*;
  * @author Zhang Zeyu
  * @date 2022/3/19
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/24
+ * @version 1.1
+ * Now accepts only idFlight one param.
  */
 
 public class FlightInfoCard extends JPanel {
 
-    public FlightInfoCard(String idFlight,
-                          String date,
-                          String departureTime,
-                          String arrivalTime,
-                          String departure,
-                          String arrival) {
+    public FlightInfoCard(String idFlight) {
+        String date = FlightReader.getDate(FlightReader.indexOf(idFlight));
+        String departureTime = FlightReader.getDepartureTime(FlightReader.indexOf(idFlight));
+        String arrivalTime = FlightReader.getArrivalTime(FlightReader.indexOf(idFlight));
+        String departure = FlightReader.getDeparture(FlightReader.indexOf(idFlight));
+        String arrival = FlightReader.getArrival(FlightReader.indexOf(idFlight));
 
-        setBorder(new LineBorder(new Color(0, 0, 0)));
+        //setBorder(new LineBorder(new Color(0, 0, 0)));
         setBackground(Color.WHITE);
         setLayout(null);
         setSize(530,150);
@@ -72,10 +78,10 @@ public class FlightInfoCard extends JPanel {
         lblArrival.setText(arrival);
         add(lblArrival);
 
-        JLabel lblNewLabel = new JLabel("--------->");
-        lblNewLabel.setForeground(Color.LIGHT_GRAY);
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 35));
-        lblNewLabel.setBounds(194, 54, 171, 34);
-        add(lblNewLabel);
+        JLabel lblArrow = new JLabel("--------->");
+        lblArrow.setForeground(Color.LIGHT_GRAY);
+        lblArrow.setFont(new Font("Tahoma", Font.PLAIN, 35));
+        lblArrow.setBounds(194, 54, 171, 34);
+        add(lblArrow);
     }
 }

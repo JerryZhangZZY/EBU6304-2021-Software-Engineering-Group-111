@@ -67,6 +67,18 @@ public class SeatSelectionCard extends JPanel {
 
     private JLabel lbltip = new JLabel("Please select your seat");
 
+    /**
+     *
+     * @param idFlight the flight id
+     * @param seat1 preference seat 1 (default normal seat)
+     * @param seat2 preference seat 2
+     * @param seat3 preference seat 3
+     * @param seat4 preference seat 4
+     * @param price1 the price of seat 1
+     * @param price2 the price of seat 2
+     * @param price3 the price of seat 3
+     * @param price4 the price of seat 4
+     */
     public SeatSelectionCard(String idFlight,
                              String seat1, String seat2, String seat3, String seat4,
                              int price1, int price2, int price3, int price4) {

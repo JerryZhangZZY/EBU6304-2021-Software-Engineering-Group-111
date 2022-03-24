@@ -1,22 +1,25 @@
-package frameTest;
+package cardTest;
 
+/**
+ * @version 1.0
+ * @author Wang Chenyu
+ * @date 3/24
+ * a card of paymentCard test
+ */
 import card.FlightInfoCard;
+import card.PaymentCard;
 import frame.MainFrame;
 
 import javax.swing.*;
-/**
- * @version 1.0
- * @author zaitian
- * @date 3/18
- * test for initial version main frame, with a panel embedded
- */
 
-public class MainFrameTest {
+public class PaymentCardTest {
     public static void main(String[] args) {
-        JPanel flightInfoCard = new FlightInfoCard("CA0001");
+        PaymentCard payment = new PaymentCard();
         MainFrame testMainFrame = new MainFrame(1);
-        testMainFrame.loadPanel(flightInfoCard);
+        testMainFrame.loadPanel(payment);
         testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);
     }
+
+
 }
