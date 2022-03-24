@@ -37,7 +37,9 @@ public abstract class State {
 //    private static int[] prefFoodPrice = new int[3];
     private static int bill = 0;
 
-    //测试数据
+    /*
+    test data for Control
+     */
     private static String idFlight = "AC0001";
     private static String[] prefSeat = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
