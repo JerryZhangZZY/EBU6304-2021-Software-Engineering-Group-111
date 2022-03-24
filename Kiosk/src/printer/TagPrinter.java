@@ -10,7 +10,7 @@ import java.io.*;
  */
 public abstract class TagPrinter {
     /**
-     * Generate .txt form tags
+     * Generate .txt for tags
      * @param idPassengerFlight primary key
      */
     public static void creatTag(int idPassengerFlight)throws IOException{
