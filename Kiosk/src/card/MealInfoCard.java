@@ -39,7 +39,7 @@ public class MealInfoCard extends JPanel {
     private Border button_chosen = BorderFactory.createLineBorder(new Color(60,179,113),8,true);
     public MealInfoCard(){
         //setBorder(new LineBorder(Color.WHITE));
-        setBackground(Color.WHITE);
+        setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1600, 880);
         ChosenListener chosenListener = new ChosenListener();

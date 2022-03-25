@@ -80,7 +80,7 @@ public class SeatSelectionCard extends JPanel {
         totalrow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / 6;
 
         setBorder(new LineBorder(new Color(0, 0, 0)));
-        setBackground(Color.WHITE);
+        setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1600, 880);
         //add bound icon
