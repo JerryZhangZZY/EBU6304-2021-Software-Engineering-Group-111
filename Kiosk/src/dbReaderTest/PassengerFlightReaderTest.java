@@ -8,6 +8,11 @@ import dbReader.PassengerFlightReader;
  * @author Zhang Zeyu
  * @date 2022/3/20
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/25
+ * @version 1.1
+ * Add some method tests.
  */
 
 public class PassengerFlightReaderTest {
@@ -23,5 +28,7 @@ public class PassengerFlightReaderTest {
         System.out.println("--------------------------------");
         System.out.println(PassengerFlightReader.getIdFlightByBookingNum("bn0001"));
         System.out.println(PassengerFlightReader.getBookingNumByPassengerId("123001"));
+        System.out.println("--------------------------------");
+        System.out.println(PassengerFlightReader.bookingValid("bn0000"));
     }
 }

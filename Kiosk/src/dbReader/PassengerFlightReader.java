@@ -20,6 +20,11 @@ import java.util.List;
  * @date 2022/3/22
  * @version 1.1
  * Add a new getter.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/25
+ * @version 1.2
+ * Add new getters.
  */
 
 public abstract class PassengerFlightReader {
@@ -109,5 +114,28 @@ public abstract class PassengerFlightReader {
                 set.add(arr.getJSONObject(index).getString("bookingNum"));
         }
         return set;
+    }
+
+    /**
+     * Check whether the given bookingNum is valid (exist and status = false).
+     * @param bookingNum booking number
+     * @return validation
+     */
+    public static Boolean bookingValid(String bookingNum) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        for(int index = 0; index < arr.size(); index++) {
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
+                return true;
+        }
+        return false;
+    }
+
+    public static String getPassengerNameByBookingNum(String bookingNum) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        int index = 0;
+        while(!arr.getJSONObject(index).getString("bookingNum").equals(bookingNum)) { index++; }
+        return PassengerReader.getSurname(PassengerReader.indexOf(PassengerFlightReader.getIdPassenger(index)));
     }
 }
