@@ -27,7 +27,7 @@ public class FlightSelectionPanel extends JPanel {
 
         idFlightList = PassengerFlightReader.getIdFlightByBookingNum(State.getBookingNum());
 
-        setBounds(new Rectangle(320, 0, 1600, 980));
+        setBounds(new Rectangle(0, 0, 1600, 980));
         setBackground(new Color(244, 244, 244));
         setLayout(null);
 
