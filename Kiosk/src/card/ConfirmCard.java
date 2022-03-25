@@ -3,6 +3,9 @@ package card;
 import main.State;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * This class can return a panel of confirm card.
@@ -18,11 +21,20 @@ public class ConfirmCard extends JPanel {
     private SeatBillCard seatBillCard;
     private MealBillcard mealBillcard;
 
+    private JTextField textBill;
+
     public ConfirmCard() {
+
+        setBackground(new Color(244, 244, 244));
+        setForeground(Color.WHITE);
+        setLayout(null);
+        setSize(1600, 880);
         /*
         Initialize flightInfoTopBarCard
          */
         flightInfoTopBarCard = new FlightInfoTopBarCard(State.getIdFlight());
+        flightInfoTopBarCard.setLocation(0, 0);
+        add(flightInfoTopBarCard);
 
         /*
         Initialize seatBillCard
@@ -50,6 +62,8 @@ public class ConfirmCard extends JPanel {
                 column = 'F';
         }
         seatBillCard = new SeatBillCard(State.getSeatRow(), column, seatPre, seatPay);
+        seatBillCard.setLocation(50, 206);
+        add(seatBillCard);
 
         /*
         Initialize mealBillcard
@@ -65,5 +79,32 @@ public class ConfirmCard extends JPanel {
         mealBillcard = new MealBillcard(State.getMeal(),
                 State.getPrefFoodName()[0], State.getPrefFoodName()[1], State.getPrefFoodName()[2],
                 foodPay[0], foodPay[1], foodPay[2]);
+        mealBillcard.setLocation(50, 402);
+        add(mealBillcard);
+
+        JLabel lblTotal = new JLabel("Total : $ " + State.getBill(), JLabel.CENTER);
+        lblTotal.setFont(new Font("Arial", Font.PLAIN, 40));
+        lblTotal.setBounds(1183, 602, 347, 86);
+        add(lblTotal);
+
+        JButton btnConfirm = new JButton("Confirm");
+        btnConfirm.setFont(new Font("Arial", Font.PLAIN, 40));
+        btnConfirm.setForeground(Color.DARK_GRAY);
+        btnConfirm.setBackground(Color.WHITE);
+        btnConfirm.setBounds(1249, 720, 215, 86);
+        add(btnConfirm);
+    }
+
+    public class ConfirmListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            if (State.getBill() != 0) {
+                State.setPc(State.getPc() + 1);
+            } else {
+                State.setPc(State.getPc() + 2);
+                //upload database
+            }
+        }
     }
 }
