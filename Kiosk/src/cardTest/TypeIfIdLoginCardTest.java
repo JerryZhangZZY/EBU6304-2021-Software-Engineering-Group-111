@@ -12,7 +12,7 @@ import frame.MainFrame;
 public class TypeIfIdLoginCardTest {
 
     public static void main(String[] args) {
-        MainFrame testMainFrame = new MainFrame(1);
+        MainFrame testMainFrame = new MainFrame();
         TypeIfIdLoginCard h = new TypeIfIdLoginCard();
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true,true,true);
