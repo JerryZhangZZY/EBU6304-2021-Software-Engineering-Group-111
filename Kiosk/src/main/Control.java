@@ -74,6 +74,7 @@ public class Control {
                 case 1:{    //enter booking number
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.hideBars(false);
+                    kiosk.displayComponents(true, true, false);
                     kiosk.resetWelcomeText(1);
                     kiosk.loadPanel(bookingLoginPanel);
                     currentPC = State.getPc();
@@ -81,12 +82,14 @@ public class Control {
                     break;
                 }
                 case 2:{    //enter or scan ID
-
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.displayComponents(true, true, true);
                 }
                 case 3:{    //flights
                     if (!State.getIsReady()[3]) {
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());
                     }
+                    kiosk.displayComponents(true, true, false);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(flightsPanel);
                     currentPC = State.getPc();
@@ -98,6 +101,7 @@ public class Control {
                     if (!State.getIsReady()[4]) {
                         seatPanel.loadCardsPanel(new SeatSelectionCard());
                     }
+                    kiosk.displayComponents(true, true, true);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(seatPanel);
                     currentPC = State.getPc();

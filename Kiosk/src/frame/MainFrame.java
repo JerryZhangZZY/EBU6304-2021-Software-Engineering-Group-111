@@ -82,6 +82,9 @@ public class MainFrame extends JFrame {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                State.setIsReady(new boolean[]{true, true, true,
+                        false, false, false, false, true, true});
+
                 State.setPc(0);
             }
         });
@@ -187,15 +190,9 @@ public class MainFrame extends JFrame {
      * @param back back button
      */
     public void displayComponents(Boolean welcome, Boolean exit, Boolean back){
-        if(!welcome){
-            welcomeLabel.setVisible(false);
-        }
-        if(!exit){
-            exitButton.setVisible(false);
-        }
-        if(!back){
-            backButton.setVisible(false);
-        }
+        welcomeLabel.setVisible(welcome);
+        exitButton.setVisible(exit);
+        backButton.setVisible(back);
     }
     /**
      * deciding whether bars are displayed

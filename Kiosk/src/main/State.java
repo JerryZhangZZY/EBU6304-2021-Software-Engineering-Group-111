@@ -77,6 +77,7 @@ public abstract class State {
     public static void setPc(int pcNext) { pc = pcNext; }
 
     public static void setIsReady(boolean isReady, int page) {State.isReady[page] = isReady;}
+    public static void setIsReady(boolean[] isReady) {State.isReady = isReady;}
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
     public static void setIdPassengerFlight(String idPassengerFlight) { State.idPassengerFlight = idPassengerFlight; }

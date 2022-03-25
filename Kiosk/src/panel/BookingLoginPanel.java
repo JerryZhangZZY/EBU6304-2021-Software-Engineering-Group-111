@@ -133,6 +133,7 @@ public class BookingLoginPanel extends JPanel {
                     bookingNumberTextField.setBorder(null);
                     State.setBookingNum(bookingNumberTextField.getText());
                     State.setPassengerName(PassengerFlightReader.getPassengerNameByBookingNum(bookingNumberTextField.getText()));
+                    bookingNumberTextField.setText("");
                     State.setPc(3);
                 }
             }
@@ -140,6 +141,7 @@ public class BookingLoginPanel extends JPanel {
         altButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                bookingNumberTextField.setText("");
                 State.setPc(2);
             }
         });
