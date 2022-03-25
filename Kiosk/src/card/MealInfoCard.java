@@ -75,7 +75,7 @@ public class MealInfoCard extends JPanel {
     private class ChosenListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            setBorder(new LineBorder(Color.WHITE));
+            setBorder(new LineBorder(new Color(244, 244, 244)));
             if(e.getSource()==normal_food){
                 if(chosen=='a'){
                     chosen='d';
