@@ -402,6 +402,7 @@ public class SeatSelectionPanel extends JPanel {
 
         @Override
         public void adjustmentValueChanged(AdjustmentEvent adjustmentEvent) {
+            System.out.println(adjustmentEvent.getValue());
             row_num.setText(String.valueOf(adjustmentEvent.getValue()));
             row = adjustmentEvent.getValue();
 

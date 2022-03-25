@@ -90,6 +90,7 @@ public class Control {
                 }
                 case 3:{    //flights
                     if (!State.getIsReady()[3]) {
+                        flightsPanel = new ProgressPanel(1);
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());
                     }
                     kiosk.displayComponents(true, true, false);
@@ -103,6 +104,7 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
+                        seatPanel = new ProgressPanel(2);
                         seatSelectionPanel = new SeatSelectionPanel();
                         seatPanel.loadCardsPanel(seatSelectionPanel);
                     }
@@ -117,6 +119,7 @@ public class Control {
                 }
                 case 5:{    //food
                     if (!State.getIsReady()[5]) {
+                        mealPanel = new ProgressPanel(3);
                         mealSelectionPanel = new MealSelectionPanel();
                         mealPanel.loadCardsPanel(mealSelectionPanel);
                     }
