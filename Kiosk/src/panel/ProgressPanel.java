@@ -1,20 +1,20 @@
 package panel;
 
-import card.SeatSelectionCard;
-
-import java.awt.Color;
-import java.awt.Rectangle;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @version 1.0
  * @author zaitian
  * @date 3/22
  * panel that holds cards for customers to choose their meal, seat, etc.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/25
+ * @version 1.1
+ * Appearance improvement.
  */
+
 public class ProgressPanel extends JPanel {
     private JPanel progressPanel;
     private JLabel progressLabel;
@@ -30,7 +30,7 @@ public class ProgressPanel extends JPanel {
 	    this.progress = progress;
 
 		setBounds(new Rectangle(0, 0, 1920, 880));
-        setBackground(Color.PINK);
+        setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1920, 880);
         /*
@@ -44,7 +44,7 @@ public class ProgressPanel extends JPanel {
         progress indicator
          */
         //TODO switch case determining which progress indicator to use
-        progressLabel = new JLabel("New label");
+        progressLabel = new JLabel();
         ImageIcon progressImage = new ImageIcon("Kiosk/Icons/testProgress320800.png");
         progressLabel.setIcon(progressImage);
         progressLabel.setBounds(10, 40, 300, 800);
