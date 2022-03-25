@@ -1,6 +1,5 @@
 package main;
-import card.MealSelectionCard;
-import card.SeatSelectionCard;
+
 import frame.*;
 import panel.*;
 
@@ -19,8 +18,8 @@ public class Control {
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
-        SeatSelectionCard seatSelectionCard = new SeatSelectionCard();
-        MealSelectionCard mealSelectionCard = new MealSelectionCard();
+        SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
+        MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();
         /*
         main frame
          */
@@ -102,10 +101,10 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
-                        seatSelectionCard = new SeatSelectionCard();
-                        seatPanel.loadCardsPanel(seatSelectionCard);
+                        seatSelectionPanel = new SeatSelectionPanel();
+                        seatPanel.loadCardsPanel(seatSelectionPanel);
                     }
-                    seatSelectionCard.add(State.smallBillCard);
+                    seatSelectionPanel.add(State.smallBillCard);
                     kiosk.displayComponents(true, true, true);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(seatPanel);
@@ -115,10 +114,10 @@ public class Control {
                 }
                 case 5:{    //food
                     if (!State.getIsReady()[5]) {
-                        mealSelectionCard = new MealSelectionCard();
-                        mealPanel.loadCardsPanel(mealSelectionCard);
+                        mealSelectionPanel = new MealSelectionPanel();
+                        mealPanel.loadCardsPanel(mealSelectionPanel);
                     }
-                    mealSelectionCard.add(State.smallBillCard);
+                    mealSelectionPanel.add(State.smallBillCard);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(mealPanel);
                     currentPC  = State.getPc();
