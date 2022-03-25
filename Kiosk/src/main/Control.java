@@ -53,9 +53,10 @@ public class Control {
         /*
         control flow
          */
-        int currentPC = 0;
-        State.setPc(currentPC);
-        currentPC = -1;
+        int currentPC = -1;
+        State.setPc(0);
+        State.setIsReady(new boolean[]{true, true, true,
+                false, false, false, false, true, true});
         while (true){
             kiosk.setVisible(true);
             while (currentPC == State.getPc()){

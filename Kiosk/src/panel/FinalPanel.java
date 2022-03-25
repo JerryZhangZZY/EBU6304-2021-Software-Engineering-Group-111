@@ -25,6 +25,11 @@ import java.util.TimerTask;
  * @date 2022/3/24
  * @version 1.2
  * Appearance improvement.
+ *
+ * @author zaitian
+ * @date  2022/3/25
+ * @version 1.3
+ * Exiting functions added
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
