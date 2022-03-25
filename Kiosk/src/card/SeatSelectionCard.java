@@ -7,7 +7,9 @@ import dbReader.SeatReader;
 import main.State;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -45,6 +47,7 @@ public class SeatSelectionCard extends JPanel {
     //button init
     private JButton[] button = new JButton[6];
     private JLabel row_num = new JLabel();
+    private JPanel warn;
     private static JScrollBar scrollBar = new JScrollBar();
     //icon loading
     private ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
@@ -67,8 +70,6 @@ public class SeatSelectionCard extends JPanel {
     private JRadioButton rdbtnSeat3 = new JRadioButton();
     private JRadioButton rdbtnSeat4 = new JRadioButton();
 
-    private JLabel lbltip = new JLabel("Please select your seat");
-
     public SeatSelectionCard() {
 
         for (int i = 0; i < 4; i++) {
@@ -79,7 +80,6 @@ public class SeatSelectionCard extends JPanel {
         this.idFlight = State.getIdFlight();
         totalrow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / 6;
 
-        setBorder(new LineBorder(new Color(0, 0, 0)));
         setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1600, 880);
@@ -92,8 +92,8 @@ public class SeatSelectionCard extends JPanel {
         left_label.setIcon(new ImageIcon("Kiosk/icons/leftbound.png"));
         add(right_label);
         add(left_label);
-        right_label.setLocation(1460, -19);
-        left_label.setLocation(145, 10);
+        right_label.setLocation(1460, 1);
+        left_label.setLocation(145, 30);
         //add mid_line
         JLabel mright_label = new JLabel();
         mright_label.setSize(118, 199);
@@ -103,8 +103,8 @@ public class SeatSelectionCard extends JPanel {
         mleft_label.setIcon(new ImageIcon("Kiosk/icons/mid.png"));
         add(mright_label);
         add(mleft_label);
-        mright_label.setLocation(851, 10);
-        mleft_label.setLocation(734, 25);
+        mright_label.setLocation(851, 30);
+        mleft_label.setLocation(734, 45);
 
         SimpleListener ourListener = new SimpleListener();
         for (int i = 0; i < 6; i++) {
@@ -116,50 +116,63 @@ public class SeatSelectionCard extends JPanel {
             add(button[i]);
             button[i].addActionListener(ourListener);
         }
-        button[0].setBounds(165, -19, 221, 220);
-        button[1].setBounds(332, -19, 221, 220);
-        button[2].setBounds(495, -19, 221, 220);
-        button[3].setBounds(931, -19, 221, 220);
-        button[4].setBounds(1103, -19, 221, 220);
-        button[5].setBounds(1268, -19, 221, 220);
+        button[0].setBounds(165, 1, 221, 220);
+        button[1].setBounds(332, 1, 221, 220);
+        button[2].setBounds(495, 1, 221, 220);
+        button[3].setBounds(931, 1, 221, 220);
+        button[4].setBounds(1103, 1, 221, 220);
+        button[5].setBounds(1268, 1, 221, 220);
         //row number
         row_num.setFont(new Font("Arial", Font.PLAIN, 26));
         row_num.setText(String.valueOf(row));
-        row_num.setBounds(88, 83, 41, 50);
+        row_num.setBounds(88, 103, 41, 50);
         add(row_num);
         //seat label
         JLabel lblNewLabel = new JLabel("A");
         lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblNewLabel.setBounds(260, 190, 19, 26);
+        lblNewLabel.setBounds(260, 210, 19, 26);
         add(lblNewLabel);
 
 
         JLabel lblB = new JLabel("B");
         lblB.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblB.setBounds(436, 190, 19, 26);
+        lblB.setBounds(436, 210, 19, 26);
         add(lblB);
 
         JLabel lblC = new JLabel("C");
         lblC.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblC.setBounds(595, 190, 19, 26);
+        lblC.setBounds(595, 210, 19, 26);
         add(lblC);
 
         JLabel lblD = new JLabel("D");
         lblD.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblD.setBounds(1034, 190, 19, 26);
+        lblD.setBounds(1034, 210, 19, 26);
         add(lblD);
 
         JLabel lblE = new JLabel("E");
         lblE.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblE.setBounds(1208, 190, 19, 26);
+        lblE.setBounds(1208, 210, 19, 26);
         add(lblE);
 
         JLabel lblF = new JLabel("F");
         lblF.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblF.setBounds(1372, 190, 19, 26);
+        lblF.setBounds(1372, 210, 19, 26);
         add(lblF);
 
-        scrollBar.setBounds(34, 59, 34, 101);
+        Border tipBorder = BorderFactory
+                .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.RED)
+                        , "Please select your seat", TitledBorder.CENTER
+                        , TitledBorder.BOTTOM
+                        , new Font("Arial", Font.PLAIN, 25)
+                        , Color.RED);
+        warn = new JPanel();
+        warn.setBounds(117, 15, 1413, 255);
+        warn.setBackground(new Color(244, 244, 244));
+        warn.setBorder(tipBorder);
+        warn.setVisible(false);
+        add(warn);
+
+        scrollBar.setBounds(34, 59, 34, 157);
         scrollBar.setBlockIncrement(1);
         resetScrollBar(0);
         add(scrollBar);
@@ -253,16 +266,12 @@ public class SeatSelectionCard extends JPanel {
 
         OKListener okListener = new OKListener();
         JButton btnOK = new JButton("OK");
-        btnOK.setFont(new Font("Arial", Font.PLAIN, 40));
-        btnOK.setBounds(1185, 516, 154, 72);
+        btnOK.setFont(new Font("Arial", Font.PLAIN, 28));
+        btnOK.setBounds(1160, 516, 200, 60);
+        btnOK.setForeground(Color.DARK_GRAY);
+        btnOK.setBackground(Color.WHITE);
         btnOK.addActionListener(okListener);
         add(btnOK);
-
-        lbltip.setVisible(false);
-        lbltip.setFont(new Font("Arial", Font.PLAIN, 20));
-        lbltip.setForeground(Color.RED);
-        lbltip.setBounds(724, 171, 245, 134);
-        add(lbltip);
 
         smallBillCard = new SmallBillCard(bill);
         smallBillCard.setBounds(1126, 680, 265, 115);
@@ -357,7 +366,7 @@ public class SeatSelectionCard extends JPanel {
                 setTemp_column(click);
                 avail_seat[click] = 2;
                 button[click].setIcon(icon_chonse);
-                lbltip.setVisible(false);
+                warn.setVisible(false);
                 smallBillCard.addPrice(price[p]);
             } else if (avail_seat[click] == 2) {
                 setTemp_row(-1);
@@ -425,7 +434,7 @@ public class SeatSelectionCard extends JPanel {
                 State.setSeatPre(seatPre);
                 //上传已选数据
             } else {
-                lbltip.setVisible(true);
+                warn.setVisible(true);
             }
         }
     }

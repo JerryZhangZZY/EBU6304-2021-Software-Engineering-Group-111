@@ -11,7 +11,7 @@ public class SeatSelectionPanel extends JPanel {
 
     public SeatSelectionPanel() {
         setBounds(320, 0, 1600, 880);
-        setBackground(new Color(244, 244, 244));
+        setBackground(Color.PINK);
         setLayout(null);
 
         seatSelectionCard = new SeatSelectionCard();
