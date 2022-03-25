@@ -75,12 +75,13 @@ public class Control {
                 }
                 case 1:{    //enter booking number
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.repaint();
                     kiosk.hideBars(false);
                     kiosk.displayComponents(true, true, false);
                     kiosk.resetWelcomeText(1);
                     kiosk.loadPanel(bookingLoginPanel);
+                    kiosk.revalidate();
                     currentPC = State.getPc();
-                    kiosk.repaint();
                     break;
                 }
                 case 2:{    //enter or scan ID
@@ -93,10 +94,11 @@ public class Control {
                     }
                     kiosk.displayComponents(true, true, false);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.loadPanel(flightsPanel);
-                    currentPC = State.getPc();
-                    kiosk.setWelcomeText();
                     kiosk.repaint();
+                    kiosk.loadPanel(flightsPanel);
+                    kiosk.revalidate();
+                    kiosk.setWelcomeText();
+                    currentPC = State.getPc();
                     break;
                 }
                 case 4:{    //seat
@@ -107,9 +109,10 @@ public class Control {
                     seatSelectionPanel.add(State.smallBillCard);
                     kiosk.displayComponents(true, true, true);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.loadPanel(seatPanel);
-                    currentPC = State.getPc();
                     kiosk.repaint();
+                    kiosk.loadPanel(seatPanel);
+                    kiosk.revalidate();
+                    currentPC = State.getPc();
                     break;
                 }
                 case 5:{    //food
@@ -119,9 +122,10 @@ public class Control {
                     }
                     mealSelectionPanel.add(State.smallBillCard);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.loadPanel(mealPanel);
-                    currentPC  = State.getPc();
                     kiosk.repaint();
+                    kiosk.loadPanel(mealPanel);
+                    kiosk.revalidate();
+                    currentPC  = State.getPc();
                     break;
                 }
                 case 6: {    //bill
@@ -132,9 +136,10 @@ public class Control {
                 }
                 case 8:{    //finish
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.loadPanel(finalPanel);
-                    currentPC = State.getPc();
                     kiosk.repaint();
+                    kiosk.loadPanel(finalPanel);
+                    kiosk.revalidate();
+                    currentPC = State.getPc();
                     break;
                 }
             }
