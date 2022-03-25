@@ -1,5 +1,7 @@
 package panel;
 
+import main.State;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -61,5 +63,6 @@ public class ProgressPanel extends JPanel {
     }
 	public void loadCardsPanel(JPanel cardsPanel){
 	    this.cardsPanel.add(cardsPanel, 0);
+        State.setIsReady(true,  progress+2);
     }
 }
