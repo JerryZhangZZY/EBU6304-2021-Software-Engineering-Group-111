@@ -1,7 +1,11 @@
 package panel;
 
+import main.State;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -58,6 +62,14 @@ public class FinalPanel extends JPanel {
         exit_begin.setBackground(Color.WHITE);
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
+        exit_begin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                State.setPc(3);
+                State.setIsReady(new boolean[]{true, true, true,
+                        false, false, false, false, true, true});
+            }
+        });
         add(exit_begin);
         exit_begin.setIcon(icon_back);
         exit_system.setText("          Exit          ");
@@ -69,6 +81,14 @@ public class FinalPanel extends JPanel {
         exit_system.setBackground(Color.WHITE);
         exit_system.setContentAreaFilled(false);
         exit_system.setBorderPainted(false);
+        exit_system.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                State.setPc(0);
+                State.setIsReady(new boolean[]{true, true, true,
+                        false, false, false, false, true, true});
+            }
+        });
         add(exit_system);
         exit_system.setIcon(icon_exit);
         exit_begin.setVisible(false);
