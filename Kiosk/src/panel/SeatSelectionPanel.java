@@ -379,8 +379,8 @@ public class SeatSelectionPanel extends JPanel {
     private void resetScrollBar(int pref) {
         if (pref == 0) {
             scrollBar.setMinimum(4);
-            scrollBar.setMaximum(20);
-            int k = 20 - totalrow;
+            scrollBar.setMaximum(24);
+            int k = 24 - totalrow;
             scrollBar.setVisibleAmount(k);
             if (getTemp_row() >= 4) {
                 scrollBar.setValue(getTemp_row());
