@@ -62,7 +62,7 @@ public class MealSelectionCard extends JPanel {
         rdbtnMeal[1] = new JRadioButton();
         rdbtnMeal[2] = new JRadioButton();
 
-        setBackground(Color.WHITE);
+        setBackground(new Color(244, 244, 244));
         setForeground(Color.WHITE);
         setLayout(null);
         setSize(1540, 880);
