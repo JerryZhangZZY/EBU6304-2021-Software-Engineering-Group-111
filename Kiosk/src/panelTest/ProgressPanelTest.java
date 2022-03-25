@@ -15,7 +15,7 @@ public class ProgressPanelTest {
 		// TODO Auto-generated method stub
 		MainFrame testMainFrame = new MainFrame();
         ProgressPanel testProgressPanel = new ProgressPanel(0);
-        testProgressPanel.loadCards(new SeatSelectionCard());
+        testProgressPanel.loadCards(new FlightSelectionPanel());
         testMainFrame.loadPanel(testProgressPanel);
         testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);

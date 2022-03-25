@@ -118,7 +118,7 @@ public class BookingLoginPanel extends JPanel {
                 }
                 else {
                     bookingNumberTextField.setBorder(null);
-                    State.setPc(4);
+                    State.setPc(3);
                 }
             }
         });

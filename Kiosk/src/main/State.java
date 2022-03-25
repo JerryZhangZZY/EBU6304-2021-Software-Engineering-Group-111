@@ -23,7 +23,7 @@ package main;
 public abstract class State {
     private static int pc = 0;
     private static String passengerName = "passenger";
-    private static String bookingNum;
+    private static String bookingNum = "bn0001";
     private static String idPassengerFlight;
 //    private static String idFlight;
     private static int seatRow = -1;
@@ -37,16 +37,22 @@ public abstract class State {
 //    private static int[] prefFoodPrice = new int[3];
     private static int bill = 0;
 
+    private static boolean[] isReady = {true, true, true,
+            false, false, false, false, true, true};
+
+
     /*
     test data for Control
      */
     private static String idFlight = "AC0001";
+
     private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
     private static int[] prefFoodPrice = {5, 100, 10};
-
     public static int getPc() { return pc; }
+
+    public static boolean[] getIsReady() {return isReady;}
     public static String getPassengerName() { return passengerName; }
     public static String getBookingNum() { return bookingNum; }
     public static String getIdPassengerFlight() { return idPassengerFlight; }
@@ -61,8 +67,9 @@ public abstract class State {
     public static String[] getPrefFoodName() { return prefFoodName; }
     public static int[] getPrefFoodPrice() { return prefFoodPrice; }
     public static int getBill() { return bill; }
-
     public static void setPc(int pcNext) { pc = pcNext; }
+
+    public static void setIsReady(boolean[] isReady) {State.isReady = isReady;}
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
     public static void setIdPassengerFlight(String idPassengerFlight) { State.idPassengerFlight = idPassengerFlight; }

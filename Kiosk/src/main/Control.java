@@ -4,6 +4,8 @@ import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
 
+import javax.swing.*;
+
 import static java.lang.Thread.sleep;
 
 /**
@@ -32,6 +34,10 @@ public class Control {
         booking number login panel
          */
         bookingLoginPanel = new BookingLoginPanel();
+        /*
+        flight choosing panel
+         */
+        flightsPanel = new ProgressPanel(1);
         /*
         seat choosing panel
          */
@@ -80,8 +86,14 @@ public class Control {
 
                 }
                 case 3:{    //flights
+                    if (!State.getIsReady()[3]) {
+                        flightsPanel.loadCards(new FlightSelectionPanel());
+                    }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.loadPanel(flightsPanel);
+                    currentPC = State.getPc();
                     kiosk.setWelcomeText();
+                    kiosk.repaint();
                     break;
                 }
                 case 4:{    //seat
