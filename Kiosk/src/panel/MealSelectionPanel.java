@@ -14,7 +14,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 /**
- * This class can return a panel of a meal preference info card.
+ * This class can return a meal selection panel.
  *
  * @author Liang Zhehao
  * @version 1.0

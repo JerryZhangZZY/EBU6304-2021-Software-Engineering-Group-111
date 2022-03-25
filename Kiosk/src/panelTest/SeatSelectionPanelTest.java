@@ -4,7 +4,6 @@ import frame.MainFrame;
 import panel.SeatSelectionPanel;
 
 /**
- * This class can return a panel of confirm card.
  *
  * @author Liang Zhehao
  * @date 2022/3/24
