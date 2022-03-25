@@ -32,7 +32,7 @@ public class ProgressPanel extends JPanel {
 	    this.progress = progress;
 
 		setBounds(new Rectangle(0, 0, 1920, 880));
-        setBackground(new Color(244, 244, 244));
+		setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1920, 880);
         /*
@@ -40,6 +40,7 @@ public class ProgressPanel extends JPanel {
          */
         progressPanel = new JPanel();
         progressPanel.setBounds(0, 0, 320, 880);
+        progressPanel.setBackground(new Color(244, 244, 244));
         add(progressPanel);
         progressPanel.setLayout(null);
         /*
@@ -47,9 +48,30 @@ public class ProgressPanel extends JPanel {
          */
         //TODO switch case determining which progress indicator to use
         progressLabel = new JLabel();
-        ImageIcon progressImage = new ImageIcon("Kiosk/Icons/testProgress320800.png");
+        ImageIcon progressImage = new ImageIcon();
+        switch(progress) {
+            case 1: {
+                progressImage = new ImageIcon("Kiosk/Icons/progressIndicator1.png");
+                break;
+            }
+            case 2: {
+                progressImage = new ImageIcon("Kiosk/Icons/progressIndicator2.png");
+                break;
+            }
+            case 3: {
+                progressImage = new ImageIcon("Kiosk/Icons/progressIndicator3.png");
+                break;
+            }
+            case 4: {
+                progressImage = new ImageIcon("Kiosk/Icons/progressIndicator4.png");
+                break;
+            }
+            default: {
+                break;
+            }
+        }
         progressLabel.setIcon(progressImage);
-        progressLabel.setBounds(10, 40, 300, 800);
+        progressLabel.setBounds(20, 20, 320, 840);
         progressPanel.add(progressLabel);
         /*
         right panel to hold option cards
