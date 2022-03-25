@@ -39,17 +39,12 @@ public class MealSelectionCard extends JPanel {
     private String[] foodName = new String[3];
     private boolean[] select = State.getSelectedPrefFood();
 
-    private Border tipBorder1 = BorderFactory
-            .createTitledBorder(BorderFactory.createLineBorder(Color.WHITE)
+    private Border tipBorder = BorderFactory
+            .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.RED)
                     , "Please select your meal", TitledBorder.CENTER
                     , TitledBorder.BOTTOM
                     , new Font("Arial", Font.PLAIN, 25)
                     , Color.RED);
-    private Border tipBorder2 = BorderFactory
-            .createMatteBorder(5,5,5,5,Color.RED);
-    private JLabel tip = new JLabel("Please select your meal");
-    private Border tipBorder = BorderFactory
-            .createCompoundBorder(tipBorder1,tipBorder2);
 
     public MealSelectionCard() {
 
@@ -68,7 +63,7 @@ public class MealSelectionCard extends JPanel {
         setSize(1540, 880);
 
         mealInfoCard = new MealInfoCard();
-        mealInfoCard.setBounds(40, 20, 1450, 420);
+        mealInfoCard.setBounds(40, 20, 1450, 400);
         //foodInfoCard.setBorder(new LineBorder(Color.WHITE));
         add(mealInfoCard);
 

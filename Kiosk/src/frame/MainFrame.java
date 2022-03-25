@@ -221,4 +221,5 @@ public class MainFrame extends JFrame {
             welcomeLabel.setText("Welcome to Beijing International Airport");
         }
     }
+
 }
