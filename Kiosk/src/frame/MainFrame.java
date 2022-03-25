@@ -141,8 +141,12 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 switch (State.getPc()){
-                    case 2://alt ID
                     case 4://seat
+                    {
+                        State.setIsReady(new boolean[]{true, true, true,
+                                false, false, false, false, true, true});
+                    }
+                    case 2://alt ID
                     case 5://food
                     case 6://bill
                     case 7://pay
