@@ -267,15 +267,11 @@ public class SeatSelectionCard extends JPanel {
         OKListener okListener = new OKListener();
         JButton btnOK = new JButton("OK");
         btnOK.setFont(new Font("Arial", Font.PLAIN, 28));
-        btnOK.setBounds(1160, 516, 200, 60);
+        btnOK.setBounds(1255, 562, 154, 72);
         btnOK.setForeground(Color.DARK_GRAY);
         btnOK.setBackground(Color.WHITE);
         btnOK.addActionListener(okListener);
         add(btnOK);
-
-        //smallBillCard = new SmallBillCard(bill);
-        //smallBillCard.setBounds(1126, 680, 265, 115);
-        add(smallBillCard);
     }
 
     //seat   button[0].setIcon(icon);

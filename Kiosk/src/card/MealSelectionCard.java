@@ -38,7 +38,7 @@ public class MealSelectionCard extends JPanel {
     private JRadioButton[] rdbtnMeal = new JRadioButton[3];
 
     private MealInfoCard mealInfoCard;
-    private SmallBillCard smallBillCard;
+    private SmallBillCard smallBillCard = State.smallBillCard;
 
     private int[] price = new int[3];
     private String[] foodName = new String[3];
@@ -134,10 +134,6 @@ public class MealSelectionCard extends JPanel {
         btnOK.setBounds(1255, 562, 154, 72);
         btnOK.addActionListener(okListener);
         add(btnOK);
-
-        smallBillCard = new SmallBillCard(0);
-        smallBillCard.setBounds(1200, 715, 265, 115);
-        add(smallBillCard);
     }
 
     public void setPrice(int[] price) {

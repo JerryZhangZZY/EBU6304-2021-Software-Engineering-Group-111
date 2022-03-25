@@ -33,7 +33,7 @@ public class SmallBillCard extends JPanel{
         setBackground(Color.WHITE);
         setLayout(null);
         //setSize(265, 115);
-        setBounds(1126, 680, 265, 115);
+        setBounds(1200, 715, 265, 115);
         screen.setHorizontalAlignment(SwingConstants.RIGHT);
         screen.setText("$"+ price);
         screen.setBounds(45, 53, 200, 59);
@@ -65,14 +65,5 @@ public class SmallBillCard extends JPanel{
     public void subPrice(int price) {
         this.price -= price;
         screen.setText("$" + this.price);
-    }
-
-    public void loadBill() {
-        if (State.getSeatRow() < 4 && State.getSeatRow() > 0)
-            addPrice(State.getPrefSeatPrice()[State.getSeatRow()-1]);
-        for (int i = 0; i < 3; i++) {
-            if (State.getSelectedPrefFood()[i])
-                addPrice(State.getPrefFoodPrice()[i]);
-        }
     }
 }

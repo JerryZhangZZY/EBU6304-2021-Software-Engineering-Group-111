@@ -19,6 +19,8 @@ public class Control {
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
+        SeatSelectionCard seatSelectionCard = new SeatSelectionCard();
+        MealSelectionCard mealSelectionCard = new MealSelectionCard();
         /*
         main frame
          */
@@ -100,8 +102,10 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
-                        seatPanel.loadCardsPanel(new SeatSelectionCard());
+                        seatSelectionCard = new SeatSelectionCard();
+                        seatPanel.loadCardsPanel(seatSelectionCard);
                     }
+                    seatSelectionCard.add(State.smallBillCard);
                     kiosk.displayComponents(true, true, true);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(seatPanel);
@@ -111,8 +115,10 @@ public class Control {
                 }
                 case 5:{    //food
                     if (!State.getIsReady()[5]) {
-                        mealPanel.loadCardsPanel(new MealSelectionCard());
+                        mealSelectionCard = new MealSelectionCard();
+                        mealPanel.loadCardsPanel(mealSelectionCard);
                     }
+                    mealSelectionCard.add(State.smallBillCard);
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(mealPanel);
                     currentPC  = State.getPc();
