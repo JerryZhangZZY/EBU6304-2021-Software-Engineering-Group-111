@@ -19,11 +19,17 @@ package main;
  * @date 2022/3/24
  * @version 1.2
  * Modify some vars
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/25
+ * @version 1.3
+ * Delete some initials.
  */
+
 public abstract class State {
     private static int pc = 0;
-    private static String passengerName = "passenger";
-    private static String bookingNum = "bn0001";
+    private static String passengerName;
+    private static String bookingNum;
     private static String idPassengerFlight;
 //    private static String idFlight;
     private static int seatRow = -1;
