@@ -4,7 +4,6 @@ import main.State;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,13 +21,18 @@ import java.awt.event.ItemListener;
  * @author Liang Zhehao
  * @version 1.1
  * @date 2022/3/23
+ *
+ * @author Liang Zhehao
+ * @version 1.2
+ * @date 2022/3/25
+ * Add setters and remove parameters
  */
 
-public class FoodSelectionCard extends JPanel {
+public class MealSelectionCard extends JPanel {
 
     private JRadioButton[] rdbtnMeal = new JRadioButton[3];
 
-    private FoodInfoCard foodInfoCard;
+    private MealInfoCard mealInfoCard;
     private SmallBillCard smallBillCard;
 
     private int[] price = new int[3];
@@ -47,7 +51,7 @@ public class FoodSelectionCard extends JPanel {
     private Border tipBorder = BorderFactory
             .createCompoundBorder(tipBorder1,tipBorder2);
 
-    public FoodSelectionCard() {
+    public MealSelectionCard() {
 
         for(int i = 0; i < 3; i++) {
             this.price[i] = State.getPrefFoodPrice()[i];
@@ -58,15 +62,15 @@ public class FoodSelectionCard extends JPanel {
         rdbtnMeal[1] = new JRadioButton();
         rdbtnMeal[2] = new JRadioButton();
 
-        setBackground(Color.WHITE);
+        setBackground(new Color(244, 244, 244));
         setForeground(Color.WHITE);
         setLayout(null);
         setSize(1540, 880);
 
-        foodInfoCard = new FoodInfoCard();
-        foodInfoCard.setBounds(40, 20, 1450, 420);
+        mealInfoCard = new MealInfoCard();
+        mealInfoCard.setBounds(40, 20, 1450, 420);
         //foodInfoCard.setBorder(new LineBorder(Color.WHITE));
-        add(foodInfoCard);
+        add(mealInfoCard);
 
         JLabel lblNewLabel = new JLabel("Preference");
         lblNewLabel.setForeground(Color.DARK_GRAY);
@@ -132,18 +136,26 @@ public class FoodSelectionCard extends JPanel {
         add(smallBillCard);
     }
 
+    public void setPrice(int[] price) {
+        this.price = price;
+    }
+
+    public void setFoodName(String[] foodName) {
+        this.foodName = foodName;
+    }
+
     private class OKListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            if (foodInfoCard.getChosen() != 'd') {
+            if (mealInfoCard.getChosen() != 'd') {
                 State.setPc(State.getPc() + 1);
                 //上传已选数据
-                State.setMeal(foodInfoCard.getChosen());
+                State.setMeal(mealInfoCard.getChosen());
                 State.setSelectedPrefFood(select);
                 State.setBill(smallBillCard.getPrice());
             } else {
-                foodInfoCard.setBorder(tipBorder);
+                mealInfoCard.setBorder(tipBorder);
             }
         }
     }

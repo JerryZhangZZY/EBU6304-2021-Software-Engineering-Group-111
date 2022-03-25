@@ -41,6 +41,7 @@ public class SeatSelectionCard extends JPanel {
     private int bill = 0;
     private int[] price = new int[4];
     private String[] seatName = new String[4];
+    private int seatPre;
     //button init
     private JButton[] button = new JButton[6];
     private JLabel row_num = new JLabel();
@@ -72,14 +73,14 @@ public class SeatSelectionCard extends JPanel {
 
         for (int i = 0; i < 4; i++) {
             this.price[i] = State.getPrefSeatPrice()[i];
-            this.seatName[i] = State.getPrefSeat()[i];
+            this.seatName[i] = State.getPrefSeatName()[i];
         }
         row = 4;
         this.idFlight = State.getIdFlight();
         totalrow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / 6;
 
         setBorder(new LineBorder(new Color(0, 0, 0)));
-        setBackground(Color.WHITE);
+        setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1600, 880);
         //add bound icon
@@ -304,6 +305,14 @@ public class SeatSelectionCard extends JPanel {
         return temp_column;
     }
 
+    public void setSeatName(String[] seatName) {
+        this.seatName = seatName;
+    }
+
+    public void setPrice(int[] price) {
+        this.price = price;
+    }
+
     private class PrefListener implements ItemListener {
 
         @Override
@@ -319,7 +328,7 @@ public class SeatSelectionCard extends JPanel {
                 n = 3;
 
             if (n != -1) {
-                //System.out.println(n);
+                seatPre = n;
                 resetScrollBar(n);
             }
         }
@@ -413,6 +422,7 @@ public class SeatSelectionCard extends JPanel {
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column);
                 State.setBill(smallBillCard.getPrice());
+                State.setSeatPre(seatPre);
                 //上传已选数据
             } else {
                 lbltip.setVisible(true);

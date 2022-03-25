@@ -1,5 +1,5 @@
 package main;
-import card.FoodSelectionCard;
+import card.MealSelectionCard;
 import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
@@ -18,6 +18,7 @@ public class Control {
         WelcomePanel welcomePanel;
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
+        FinalPanel finalPanel;
         /*
         main frame
          */
@@ -40,7 +41,11 @@ public class Control {
         meal choosing panel
          */
         mealPanel = new ProgressPanel(3);
-        mealPanel.loadCards(new FoodSelectionCard());
+        mealPanel.loadCards(new MealSelectionCard());
+        /*
+        final panel
+         */
+        finalPanel = new FinalPanel();
         /*
         control flow
          */
@@ -62,7 +67,7 @@ public class Control {
                     kiosk.repaint();
                     break;
                 }
-                case 1:{    //enter ID
+                case 1:{    //enter booking number
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.hideBars(false);
                     kiosk.resetWelcomeText(1);
@@ -70,6 +75,9 @@ public class Control {
                     currentPC = State.getPc();
                     kiosk.repaint();
                     break;
+                }
+                case 2:{    //enter or scan ID
+
                 }
                 case 3:{    //flights
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
@@ -83,23 +91,27 @@ public class Control {
                     kiosk.repaint();
                     break;
                 }
-                case 5: {    //food
+                case 5:{    //food
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(mealPanel);
                     currentPC  = State.getPc();
                     kiosk.repaint();
                     break;
                 }
+                case 6: {    //bill
 
+                }
+                case 7: {   //pay
 
+                }
+                case 8:{    //finish
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.loadPanel(finalPanel);
+                    currentPC = State.getPc();
+                    kiosk.repaint();
+                    break;
+                }
             }
         }
-//            kiosk.loadPanel(new FlightInfoCard("idFlight",
-//                    "date",
-//                    "departureTime",
-//                    "arrivalTime",
-//                    "departure",
-//                    "arrival"));
-
     }
 }
