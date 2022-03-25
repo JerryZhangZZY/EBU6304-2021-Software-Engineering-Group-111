@@ -1,5 +1,7 @@
 package main;
 
+import card.SmallBillCard;
+
 /**
  * @version 1.0
  * @author zaitian
@@ -47,6 +49,7 @@ public abstract class State {
     private static boolean[] isReady = {true, true, true,
             false, false, false, false, true, true};
 
+    public static SmallBillCard smallBillCard = new SmallBillCard(0);
 
     /*
     test data for Control

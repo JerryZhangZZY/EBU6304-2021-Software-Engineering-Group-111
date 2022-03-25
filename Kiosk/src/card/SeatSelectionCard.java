@@ -63,7 +63,7 @@ public class SeatSelectionCard extends JPanel {
     private Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     private ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
-    private SmallBillCard smallBillCard;
+    private SmallBillCard smallBillCard = State.smallBillCard;
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
     private JRadioButton rdbtnSeat2 = new JRadioButton();
@@ -273,8 +273,8 @@ public class SeatSelectionCard extends JPanel {
         btnOK.addActionListener(okListener);
         add(btnOK);
 
-        smallBillCard = new SmallBillCard(bill);
-        smallBillCard.setBounds(1126, 680, 265, 115);
+        //smallBillCard = new SmallBillCard(bill);
+        //smallBillCard.setBounds(1126, 680, 265, 115);
         add(smallBillCard);
     }
 
@@ -385,7 +385,7 @@ public class SeatSelectionCard extends JPanel {
             scrollBar.setMaximum(20);
             int k = 20 - totalrow;
             scrollBar.setVisibleAmount(k);
-            if (getTemp_row() != -1) {
+            if (getTemp_row() >= 4) {
                 scrollBar.setValue(getTemp_row());
                 row = getTemp_row();
             } else {

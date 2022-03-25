@@ -27,12 +27,13 @@ public class SmallBillCard extends JPanel{
     private JLabel screen = new JLabel();
     public SmallBillCard(int price) {
         this.price = 0;
-        loadBill();
+        //loadBill();
 
         setBorder(new LineBorder(Color.DARK_GRAY, 5));
         setBackground(Color.WHITE);
         setLayout(null);
-        setSize(265, 115);
+        //setSize(265, 115);
+        setBounds(1126, 680, 265, 115);
         screen.setHorizontalAlignment(SwingConstants.RIGHT);
         screen.setText("$"+ price);
         screen.setBounds(45, 53, 200, 59);
