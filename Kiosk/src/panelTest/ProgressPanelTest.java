@@ -1,6 +1,5 @@
 package panelTest;
 
-import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
 
@@ -15,7 +14,7 @@ public class ProgressPanelTest {
 		// TODO Auto-generated method stub
 		MainFrame testMainFrame = new MainFrame();
         ProgressPanel testProgressPanel = new ProgressPanel(0);
-        testProgressPanel.loadCards(new FlightSelectionPanel());
+        testProgressPanel.loadCardsPanel(new FlightSelectionPanel());
         testMainFrame.loadPanel(testProgressPanel);
         testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);

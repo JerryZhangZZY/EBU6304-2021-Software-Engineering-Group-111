@@ -4,8 +4,6 @@ import card.SeatSelectionCard;
 import frame.*;
 import panel.*;
 
-import javax.swing.*;
-
 import static java.lang.Thread.sleep;
 
 /**
@@ -87,7 +85,7 @@ public class Control {
                 }
                 case 3:{    //flights
                     if (!State.getIsReady()[3]) {
-                        flightsPanel.loadCards(new FlightSelectionPanel());
+                        flightsPanel.loadCardsPanel(new FlightSelectionPanel());
                     }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(flightsPanel);
@@ -98,7 +96,7 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
-                        seatPanel.loadCards(new SeatSelectionCard());
+                        seatPanel.loadCardsPanel(new SeatSelectionCard());
                     }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(seatPanel);
@@ -108,7 +106,7 @@ public class Control {
                 }
                 case 5:{    //food
                     if (!State.getIsReady()[5]) {
-                        mealPanel.loadCards(new MealSelectionCard());
+                        mealPanel.loadCardsPanel(new MealSelectionCard());
                     }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(mealPanel);

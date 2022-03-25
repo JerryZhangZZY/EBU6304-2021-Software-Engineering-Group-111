@@ -59,7 +59,7 @@ public class ProgressPanel extends JPanel {
         add(cardsPanel);
 
     }
-	public void loadCards(JPanel cards){
-	    cardsPanel.add(cards, 0);
+	public void loadCardsPanel(JPanel cardsPanel){
+	    this.cardsPanel.add(cardsPanel, 0);
     }
 }
