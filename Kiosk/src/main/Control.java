@@ -42,12 +42,12 @@ public class Control {
         seat choosing panel
          */
         seatPanel = new ProgressPanel(2);
-        seatPanel.loadCards(new SeatSelectionCard());
+//        seatPanel.loadCards(new SeatSelectionCard());
         /*
         meal choosing panel
          */
         mealPanel = new ProgressPanel(3);
-        mealPanel.loadCards(new MealSelectionCard());
+//        mealPanel.loadCards(new MealSelectionCard());
         /*
         final panel
          */
@@ -97,6 +97,9 @@ public class Control {
                     break;
                 }
                 case 4:{    //seat
+                    if (!State.getIsReady()[4]) {
+                        seatPanel.loadCards(new SeatSelectionCard());
+                    }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(seatPanel);
                     currentPC = State.getPc();
@@ -104,6 +107,9 @@ public class Control {
                     break;
                 }
                 case 5:{    //food
+                    if (!State.getIsReady()[5]) {
+                        mealPanel.loadCards(new MealSelectionCard());
+                    }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(mealPanel);
                     currentPC  = State.getPc();

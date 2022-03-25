@@ -214,7 +214,7 @@ public class MainFrame extends JFrame {
         }
     }
     public void setWelcomeText(){
-        welcomeLabel.setText(State.getPassengerName());
+        welcomeLabel.setText("Welcome, " + State.getPassengerName());
     }
     public void resetWelcomeText(int page){
         if(page == 1){
