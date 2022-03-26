@@ -44,7 +44,6 @@ public class SeatSelectionPanel extends JPanel {
     private int bill = 0;
     private int[] price = new int[4];
     private String[] seatName = new String[4];
-    private int seatPre;
     //button init
     private JButton[] button = new JButton[6];
     private JLabel row_num = new JLabel();
@@ -334,7 +333,6 @@ public class SeatSelectionPanel extends JPanel {
                 n = 3;
 
             if (n != -1) {
-                seatPre = n;
                 resetScrollBar(n);
             }
         }
@@ -402,7 +400,6 @@ public class SeatSelectionPanel extends JPanel {
 
         @Override
         public void adjustmentValueChanged(AdjustmentEvent adjustmentEvent) {
-            System.out.println(adjustmentEvent.getValue());
             row_num.setText(String.valueOf(adjustmentEvent.getValue()));
             row = adjustmentEvent.getValue();
 
@@ -429,8 +426,10 @@ public class SeatSelectionPanel extends JPanel {
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column);
                 State.setBill(smallBillCard.getPrice());
-                State.setSeatPre(seatPre);
-                //上传已选数据
+                if (temp_row >= 4)
+                    State.setSeatPre(0);
+                else
+                    State.setSeatPre(temp_row);
             } else {
                 warn.setVisible(true);
             }
