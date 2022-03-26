@@ -1,0 +1,41 @@
+﻿idPassenger,idFlight,bookingNum,status,seat,meal,mealPre1,mealPre2,mealPre3,airline
+1,CA1002,464666,1,15D,halal,ice,curry,alcohol,Shan Dong
+2,CA1003,131313,0,NULL,NULL,NULL,NULL,NULL,NULL
+3,CA1004,333232,1,12A,vegetarian,curry,ice,alcohol,AIR China
+4,CA1005,456789,1,23B,vegetarian,French,Japan,ice,Shan Dong
+5,CA1006,283908,1,04D,standard,ice,curry,alcohol,China Southern
+6,CA1007,647119,1,35F,standard,curry,ice,alcohol,AIR China
+7,CA1008,245361,1,27E,standard,curry,ice,alcohol,Shan Dong
+8,CA1009,259823,0,NULL,NULL,NULL,NULL,NULL,NULL
+9,CA1010,95480,0,NULL,NULL,NULL,NULL,NULL,NULL
+10,CA1011,748438,1,29A,standard,curry,ice,alcohol,AIR China
+11,CA1012,653864,1,18F,vegetarian,ice,curry,alcohol,China Southern
+12,CA1013,852529,1,38C,halal,ice,curry,alcohol,Shan Dong
+13,CA1014,928105,1,27A,standard,ice,curry,alcohol,China Eastern
+14,CA1015,994253,1,13E,standard,French,Japan,ice,Kun Peng
+15,CA1016,311920,0,NULL,NULL,NULL,NULL,NULL,NULL
+16,CA1017,689820,1,23E,standard,French,Japan,ice,AIR China
+17,CA1018,915364,0,NULL,NULL,NULL,NULL,NULL,NULL
+18,CA1019,996858,0,NULL,NULL,NULL,NULL,NULL,NULL
+19,CA1020,359031,1,19C,standard,ice,curry,alcohol,Shan Dong
+20,CA1021,186379,0,NULL,NULL,NULL,NULL,NULL,NULL
+21,CA1022,7628,1,11A,halal,ice,curry,alcohol,Kun Peng
+22,CA1023,5741,1,21D,vegetarian,ice,curry,alcohol,AIR China
+23,CA1024,242612,1,24B,vegetarian,French,Japan,ice,Shan Dong
+24,CA1025,990886,0,NULL,NULL,NULL,NULL,NULL,NULL
+25,CA1026,870138,0,NULL,NULL,NULL,NULL,NULL,NULL
+26,CA1027,804086,1,31D,standard,French,Japan,ice,Shan Dong
+27,CA1028,809941,1,42C,standard,curry,ice,alcohol,Kun Peng
+28,CA1029,369331,0,NULL,NULL,NULL,NULL,NULL,NULL
+29,CA1030,340659,1,24E,standard,curry,ice,alcohol,China Southern
+30,CA1031,702616,0,NULL,NULL,NULL,NULL,NULL,NULL
+31,CA1032,794305,1,46F,standard,ice,curry,alcohol,Shan Dong
+32,CA1033,577669,0,NULL,NULL,NULL,NULL,NULL,NULL
+33,CA1034,424141,0,NULL,NULL,NULL,NULL,NULL,NULL
+34,CA1035,582687,1,28E,halal,curry,ice,alcohol,Shan Dong
+35,CA1036,960178,1,30A,vegetarian,French,Japan,ice,China Southern
+36,CA1037,900437,0,NULL,NULL,NULL,NULL,NULL,NULL
+37,CA1038,298442,1,20D,standard,ice,curry,alcohol,Kun Peng
+38,CA1039,692690,1,40C,standard,ice,curry,alcohol,China Southern
+39,CA1040,859433,1,23E,standard,French,Japan,ice,AIR China
+40,CA1041,424250,1,41F,halal,French,Japan,ice,Kun Peng
