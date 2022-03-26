@@ -20,6 +20,7 @@ public class Control {
         FinalPanel finalPanel;
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();
+        ConfirmPanel billConfirmPanel = new ConfirmPanel();
         /*
         main frame
          */
@@ -47,6 +48,10 @@ public class Control {
          */
         mealPanel = new ProgressPanel(3);
 //        mealPanel.loadCards(new MealSelectionCard());
+        /*
+        confirm and bill panel
+         */
+        billPanel = new ProgressPanel(4);
         /*
         final panel
          */
@@ -128,11 +133,22 @@ public class Control {
                     kiosk.repaint();
                     kiosk.loadPanel(mealPanel);
                     kiosk.revalidate();
-                    currentPC  = State.getPc();
+                    currentPC = State.getPc();
                     break;
                 }
                 case 6: {    //bill
-
+                    if (!State.getIsReady()[6]) {
+                        billPanel = new ProgressPanel(4);
+                        billPanel.unloadCardsPanel(billPanel.getLoadedCardsPanel());
+                        billConfirmPanel = new ConfirmPanel();
+                        billPanel.loadCardsPanel(billConfirmPanel);
+                    }
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.repaint();
+                    kiosk.loadPanel(billPanel);
+                    kiosk.revalidate();
+                    currentPC = State.getPc();
+                    break;
                 }
                 case 7: {   //pay
 
