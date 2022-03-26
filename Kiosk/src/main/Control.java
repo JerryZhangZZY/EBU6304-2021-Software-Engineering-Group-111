@@ -18,6 +18,7 @@ public class Control {
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
+        PaymentPanel paymentPanel = new PaymentPanel();
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel(true);
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel(false);
 //        BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
@@ -109,6 +110,7 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
+                        State.resetSmallBillCard();
                         seatPanel = new ProgressPanel(2);
                         seatSelectionPanel = new SeatSelectionPanel();
                         seatPanel.loadCardsPanel(seatSelectionPanel);
@@ -149,7 +151,14 @@ public class Control {
                     break;
                 }
                 case 7: {   //pay
-
+                    payPanel = new ProgressPanel(4);
+                    payPanel.loadCardsPanel(paymentPanel);
+                    kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.repaint();
+                    kiosk.loadPanel(paymentPanel);
+                    kiosk.revalidate();
+                    currentPC = State.getPc();
+                    break;
                 }
                 case 8:{    //finish
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
