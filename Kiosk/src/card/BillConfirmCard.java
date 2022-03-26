@@ -79,7 +79,7 @@ public class BillConfirmCard extends JPanel {
         mealBillcard = new MealBillcard(State.getMeal(),
                 State.getPrefFoodName()[0], State.getPrefFoodName()[1], State.getPrefFoodName()[2],
                 foodPay[0], foodPay[1], foodPay[2]);
-        mealBillcard.setLocation(50, 402);
+        mealBillcard.setLocation(50, 422);
         add(mealBillcard);
 
         JLabel lblTotal = new JLabel("Total : $ " + State.getBill(), JLabel.CENTER);
