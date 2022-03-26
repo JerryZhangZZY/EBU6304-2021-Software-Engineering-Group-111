@@ -63,12 +63,15 @@ public class SeatSelectionPanel extends JPanel {
     private Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     private ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
 
-    private SmallBillCard smallBillCard = State.smallBillCard;
+//    private SmallBillCard smallBillCard = new SmallBillCard(0);
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
     private JRadioButton rdbtnSeat2 = new JRadioButton();
     private JRadioButton rdbtnSeat3 = new JRadioButton();
     private JRadioButton rdbtnSeat4 = new JRadioButton();
+
+    public SeatSelectionPanel(boolean cheat) {
+    }
 
     public SeatSelectionPanel() {
 
@@ -132,7 +135,6 @@ public class SeatSelectionPanel extends JPanel {
         lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 26));
         lblNewLabel.setBounds(260, 210, 19, 26);
         add(lblNewLabel);
-
 
         JLabel lblB = new JLabel("B");
         lblB.setFont(new Font("Arial", Font.PLAIN, 26));
@@ -359,22 +361,22 @@ public class SeatSelectionPanel extends JPanel {
                 if (getTemp_row() == row) {
                     button[getTemp_column()].setIcon(icon_empty);
                     avail_seat[getTemp_column()] = 0;
-                    smallBillCard.subPrice(price[p]);
+                    State.smallBillCard.subPrice(price[p]);
                 } else if (getTemp_row() <= 3 && getTemp_row() >= 1) {
-                    smallBillCard.subPrice(price[getTemp_row()]);
+                    State.smallBillCard.subPrice(price[getTemp_row()]);
                 }
                 setTemp_row(row);
                 setTemp_column(click);
                 avail_seat[click] = 2;
                 button[click].setIcon(icon_chonse);
                 warn.setVisible(false);
-                smallBillCard.addPrice(price[p]);
+                State.smallBillCard.addPrice(price[p]);
             } else if (avail_seat[click] == 2) {
                 setTemp_row(-1);
                 setTemp_column(-1);
                 avail_seat[click] = 0;
                 button[click].setIcon(icon_empty);
-                smallBillCard.subPrice(price[p]);
+                State.smallBillCard.subPrice(price[p]);
             }
         }
     }
@@ -431,7 +433,7 @@ public class SeatSelectionPanel extends JPanel {
                 State.setPc(State.getPc() + 1);
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column + 1);
-                State.setBill(smallBillCard.getPrice());
+                State.setBill(State.smallBillCard.getPrice());
                 if (temp_row >= 4)
                     State.setSeatPre(0);
                 else

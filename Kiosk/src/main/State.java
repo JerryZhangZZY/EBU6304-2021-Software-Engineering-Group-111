@@ -33,7 +33,7 @@ public abstract class State {
     private static String passengerName;
     private static String bookingNum;
     private static String idPassengerFlight;
-//    private static String idFlight;
+    private static String idFlight;
     private static int seatRow = -1;
     private static int seatColumn = -1;
     private static int seatPre; //[0, 1, 2, 3]
@@ -58,8 +58,6 @@ public abstract class State {
     /*
     test data for Control
      */
-    private static String idFlight = "AC0001";
-
     private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};

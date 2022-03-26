@@ -5,14 +5,16 @@ package Backendmain;
  * @author Wang Chenyu
  * @date 2022/3/26
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/27
+ * @version 1.1
+ * bug fixed
  */
 import BackendSystemFrame.BackendMainFrame;
 import BackendSystemPanel.LogINPanel;
 import BackendSystemPanel.TablePanel;
-import main.State;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 import static java.lang.Thread.sleep;
@@ -23,7 +25,7 @@ public class ControlBackSystem{
         TablePanel table=new TablePanel();
         LogINPanel log=new LogINPanel();
         int currentPC =-1;
-        State.setPc(0);
+        Systempointer.setPc(0);
         while (true){
             backend.setVisible(true);
                 while (currentPC == Systempointer.getPc()) {

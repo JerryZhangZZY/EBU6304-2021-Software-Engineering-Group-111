@@ -40,7 +40,7 @@ public class MealSelectionPanel extends JPanel {
     private JRadioButton[] rdbtnMeal = new JRadioButton[3];
 
     private MealInfoCard mealInfoCard;
-    private SmallBillCard smallBillCard = State.smallBillCard;
+//    private SmallBillCard smallBillCard = State.smallBillCard;
 
     private int[] price = new int[3];
     private String[] foodName = new String[3];
@@ -52,6 +52,8 @@ public class MealSelectionPanel extends JPanel {
                     , TitledBorder.BOTTOM
                     , new Font("Arial", Font.PLAIN, 25)
                     , Color.RED);
+
+    public MealSelectionPanel(boolean cheat) {}
 
     public MealSelectionPanel() {
 
@@ -154,7 +156,7 @@ public class MealSelectionPanel extends JPanel {
                 State.setPc(State.getPc() + 1);
                 State.setMeal(mealInfoCard.getChosen());
                 State.setSelectedPrefFood(select);
-                State.setBill(smallBillCard.getPrice());
+                State.setBill(State.smallBillCard.getPrice());
             } else {
                 mealInfoCard.setBorder(tipBorder);
             }
@@ -167,11 +169,11 @@ public class MealSelectionPanel extends JPanel {
         public void itemStateChanged(ItemEvent e) {
             for (int i=0 ; i<3 ; i++) {
                 if (e.getSource() == rdbtnMeal[i] && rdbtnMeal[i].isSelected()) {
-                    smallBillCard.addPrice(price[i]);
+                    State.smallBillCard.addPrice(price[i]);
                     select[i] = true;
                 }
                 else if (e.getSource() == rdbtnMeal[i] && !rdbtnMeal[i].isSelected()) {
-                    smallBillCard.subPrice(price[i]);
+                    State.smallBillCard.subPrice(price[i]);
                     select[i] = false;
                 }
             }
