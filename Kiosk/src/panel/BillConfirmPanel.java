@@ -12,11 +12,11 @@ import java.awt.*;
  * @date 2022/3/25
  * @version 1.0
  */
-public class ConfirmPanel extends JPanel {
+public class BillConfirmPanel extends JPanel {
 
     private ConfirmCard confirmCard;
 
-    public ConfirmPanel() {
+    public BillConfirmPanel() {
         setBounds(0, 0, 1600, 880);
         setBackground(Color.PINK);
         setLayout(null);

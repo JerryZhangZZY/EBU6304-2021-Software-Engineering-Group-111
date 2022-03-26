@@ -20,7 +20,7 @@ public class Control {
         FinalPanel finalPanel;
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();
-        ConfirmPanel billConfirmPanel = new ConfirmPanel();
+        BillConfirmPanel billConfirmPanel = new BillConfirmPanel();
         /*
         main frame
          */
@@ -140,7 +140,7 @@ public class Control {
                     if (!State.getIsReady()[6]) {
                         billPanel = new ProgressPanel(4);
                         billPanel.unloadCardsPanel(billPanel.getLoadedCardsPanel());
-                        billConfirmPanel = new ConfirmPanel();
+                        billConfirmPanel = new BillConfirmPanel();
                         billPanel.loadCardsPanel(billConfirmPanel);
                     }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
