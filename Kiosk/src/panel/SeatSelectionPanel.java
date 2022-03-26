@@ -193,70 +193,76 @@ public class SeatSelectionPanel extends JPanel {
         ScrollListener scrollListener = new ScrollListener();
         scrollBar.addAdjustmentListener(scrollListener);
 
+        JPanel prefPanel = new JPanel();
+        prefPanel.setBackground(Color.WHITE);
+        prefPanel.setLayout(null);
+        prefPanel.setBounds(50, 562, 388, 280);
+        add(prefPanel);
+
         JLabel lblNewLabel1 = new JLabel("Preference");
         lblNewLabel1.setForeground(Color.DARK_GRAY);
         lblNewLabel1.setFont(new Font("Arial", Font.BOLD, 45));
-        lblNewLabel1.setBounds(117, 438, 250, 40);
-        add(lblNewLabel1);
+        lblNewLabel1.setBounds(34, 22, 250, 40);
+        prefPanel.add(lblNewLabel1);
 
         JLabel lblNewLabel_1 = new JLabel(":  $" + price[0]);
         lblNewLabel_1.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 20));
-        lblNewLabel_1.setBounds(317, 510, 90, 28);
-        add(lblNewLabel_1);
+        lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblNewLabel_1.setBounds(260, 90, 90, 30);
+        prefPanel.add(lblNewLabel_1);
 
         JLabel lblNewLabel_1_1 = new JLabel(":  $" + price[1]);
         lblNewLabel_1_1.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 20));
-        lblNewLabel_1_1.setBounds(317, 560, 90, 28);
-        add(lblNewLabel_1_1);
+        lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblNewLabel_1_1.setBounds(260, 130, 90, 30);
+        prefPanel.add(lblNewLabel_1_1);
 
         JLabel lblNewLabel_1_2 = new JLabel(":  $" + price[2]);
         lblNewLabel_1_2.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 20));
-        lblNewLabel_1_2.setBounds(317, 610, 90, 28);
-        add(lblNewLabel_1_2);
+        lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblNewLabel_1_2.setBounds(260, 170, 90, 30);
+        prefPanel.add(lblNewLabel_1_2);
 
         JLabel lblNewLabel_1_3 = new JLabel(":  $" + price[3]);
         lblNewLabel_1_3.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1_3.setFont(new Font("Arial", Font.PLAIN, 20));
-        lblNewLabel_1_3.setBounds(317, 660, 90, 28);
-        add(lblNewLabel_1_3);
+        lblNewLabel_1_3.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblNewLabel_1_3.setBounds(260, 210, 90, 30);
+        prefPanel.add(lblNewLabel_1_3);
 
         rdbtnSeat1.setText(seatName[0]);
-        rdbtnSeat1.setFont(new Font("Arial", Font.PLAIN, 20));
+        rdbtnSeat1.setFont(new Font("Arial", Font.PLAIN, 25));
         rdbtnSeat1.setForeground(Color.DARK_GRAY);
-        rdbtnSeat1.setBounds(101, 510, 144, 28);
-        add(rdbtnSeat1);
+        rdbtnSeat1.setBackground(Color.WHITE);
+        rdbtnSeat1.setBounds(16, 90, 240, 30);
+        prefPanel.add(rdbtnSeat1);
         rdbtnSeat1.setSelected(true);
 
         rdbtnSeat2.setText(seatName[1]);
         rdbtnSeat2.setForeground(Color.DARK_GRAY);
-        rdbtnSeat2.setFont(new Font("Arial", Font.PLAIN, 20));
-        rdbtnSeat2.setBounds(101, 560, 144, 28);
-        add(rdbtnSeat2);
+        rdbtnSeat2.setBackground(Color.WHITE);
+        rdbtnSeat2.setFont(new Font("Arial", Font.PLAIN, 25));
+        rdbtnSeat2.setBounds(16, 130, 240, 30);
+        prefPanel.add(rdbtnSeat2);
 
         rdbtnSeat3.setText(seatName[2]);
         rdbtnSeat3.setForeground(Color.DARK_GRAY);
-        rdbtnSeat3.setFont(new Font("Arial", Font.PLAIN, 20));
-        rdbtnSeat3.setBounds(101, 610, 159, 28);
-        add(rdbtnSeat3);
+        rdbtnSeat3.setBackground(Color.WHITE);
+        rdbtnSeat3.setFont(new Font("Arial", Font.PLAIN, 25));
+        rdbtnSeat3.setBounds(16, 170, 240, 30);
+        prefPanel.add(rdbtnSeat3);
 
         rdbtnSeat4.setText(seatName[3]);
         rdbtnSeat4.setForeground(Color.DARK_GRAY);
-        rdbtnSeat4.setFont(new Font("Arial", Font.PLAIN, 20));
-        rdbtnSeat4.setBounds(101, 660, 159, 28);
-        add(rdbtnSeat4);
+        rdbtnSeat4.setBackground(Color.WHITE);
+        rdbtnSeat4.setFont(new Font("Arial", Font.PLAIN, 25));
+        rdbtnSeat4.setBounds(16, 210, 240, 30);
+        prefPanel.add(rdbtnSeat4);
 
         ButtonGroup group = new ButtonGroup();
         group.add(rdbtnSeat4);
         group.add(rdbtnSeat3);
         group.add(rdbtnSeat1);
         group.add(rdbtnSeat2);
-
-        JPanel panel = new JPanel();
-        panel.setBounds(49, 336, 544, 459);
-        add(panel);
 
         PrefListener prefListener = new PrefListener();
         rdbtnSeat1.addItemListener(prefListener);

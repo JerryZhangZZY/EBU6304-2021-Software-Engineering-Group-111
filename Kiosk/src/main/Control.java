@@ -109,6 +109,7 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
+                        State.resetSmallBillCard();
                         seatPanel = new ProgressPanel(2);
                         seatSelectionPanel = new SeatSelectionPanel();
                         seatPanel.loadCardsPanel(seatSelectionPanel);

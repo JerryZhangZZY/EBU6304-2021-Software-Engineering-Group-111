@@ -105,6 +105,7 @@ public class BillConfirmCard extends JPanel {
             } else {
                 State.setPc(State.getPc() + 2);
                 //upload database
+
             }
         }
     }

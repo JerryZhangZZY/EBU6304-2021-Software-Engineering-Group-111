@@ -51,6 +51,10 @@ public abstract class State {
 
     public static SmallBillCard smallBillCard = new SmallBillCard(0);
 
+    public static void resetSmallBillCard() {
+        smallBillCard = new SmallBillCard(0);
+    }
+
     /*
     test data for Control
      */
