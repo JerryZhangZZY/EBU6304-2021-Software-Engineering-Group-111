@@ -144,7 +144,6 @@ public class MainFrame extends JFrame {
                     case 2://alt ID
                         break;
                     case 4://seat
-                        State.resetSmallBillCard();
                         break;
                     case 5://food
                         break;
