@@ -99,6 +99,7 @@ public class ProgressPanel extends JPanel {
         if (progress == 1){
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
+            State.resetSmallBillCard();
         }
     }
     /**

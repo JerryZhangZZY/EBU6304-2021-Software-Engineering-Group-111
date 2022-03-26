@@ -18,9 +18,9 @@ public class Control {
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
-        SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
-        MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();
-        BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
+        SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel(true);
+        MealSelectionPanel mealSelectionPanel = new MealSelectionPanel(false);
+//        BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
         /*
         main frame
          */
@@ -109,7 +109,6 @@ public class Control {
                 }
                 case 4:{    //seat
                     if (!State.getIsReady()[4]) {
-                        State.resetSmallBillCard();
                         seatPanel = new ProgressPanel(2);
                         seatSelectionPanel = new SeatSelectionPanel();
                         seatPanel.loadCardsPanel(seatSelectionPanel);
@@ -140,8 +139,7 @@ public class Control {
                 case 6: {    //bill
                     if (!State.getIsReady()[6]) {
                         billPanel = new ProgressPanel(4);
-                        billConfirmationPanel = new BillConfirmationPanel();
-                        billPanel.loadCardsPanel(billConfirmationPanel);
+                        billPanel.loadCardsPanel(new BillConfirmationPanel());
                     }
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.repaint();
