@@ -2,6 +2,12 @@ package panel;
 
 import javax.swing.*;
 import java.awt.*;
+/**
+ * @version 1.0
+ * @author Ni Ruijie
+ * @date 3/26
+ * Generate class which can enter the credit card ID of users
+ */
 public class PaymentPanel extends JPanel {
 	private JPanel paymentPanel;
     private JLabel progressLabel;
