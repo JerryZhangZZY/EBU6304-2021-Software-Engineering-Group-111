@@ -10,7 +10,7 @@ import frame.MainFrame;
  * @date 2022/3/25
  * @version 1.0
  */
-public class ConfirmCardTest {
+public class BillConfirmCardTest {
 
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
