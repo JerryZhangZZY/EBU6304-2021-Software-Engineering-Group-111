@@ -44,7 +44,7 @@ public class MealSelectionPanel extends JPanel {
 
     private int[] price = new int[3];
     private String[] foodName = new String[3];
-    private boolean[] select = State.getSelectedPrefFood();
+    private boolean[] select = {false, false, false};
 
     private Border tipBorder = BorderFactory
             .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.RED)

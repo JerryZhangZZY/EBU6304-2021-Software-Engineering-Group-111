@@ -18,7 +18,6 @@ public class Control {
         BookingLoginPanel bookingLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
-        PaymentPanel paymentPanel = new PaymentPanel();
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel(true);
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel(false);
 //        BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
@@ -152,10 +151,10 @@ public class Control {
                 }
                 case 7: {   //pay
                     payPanel = new ProgressPanel(4);
-                    payPanel.loadCardsPanel(paymentPanel);
+                    payPanel.loadCardsPanel(new PaymentPanel());
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.repaint();
-                    kiosk.loadPanel(paymentPanel);
+                    kiosk.loadPanel(payPanel);
                     kiosk.revalidate();
                     currentPC = State.getPc();
                     break;
