@@ -140,17 +140,17 @@ public class MainFrame extends JFrame {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switch (State.getPc()){
+                switch (State.getPc()) {
                     case 2://alt ID
                     case 4://seat
                     case 5://food
-                    case 6://bill
-                    case 7://pay
-                    {
-                        State.setPc(State.getPc() - 1);
                         break;
-                    }
+                    case 6://bill
+                        State.setIsReady(false, State.getPc());
+                        break;
+                    case 7://pay
                 }
+                State.setPc(State.getPc() - 1);
             }
         });
         bottomPanel.add(backButton);
