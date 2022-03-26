@@ -142,7 +142,10 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 switch (State.getPc()) {
                     case 2://alt ID
+                        break;
                     case 4://seat
+                        State.resetSmallBillCard();
+                        break;
                     case 5://food
                         break;
                     case 6://bill
