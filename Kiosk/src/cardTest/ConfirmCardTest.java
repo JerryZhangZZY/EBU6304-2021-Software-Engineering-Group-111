@@ -1,6 +1,6 @@
 package cardTest;
 
-import card.ConfirmCard;
+import card.BillConfirmCard;
 import frame.MainFrame;
 
 /**
@@ -14,7 +14,7 @@ public class ConfirmCardTest {
 
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
-        frame.loadPanel(new ConfirmCard());
+        frame.loadPanel(new BillConfirmCard());
         frame.displayComponents(true, true, true);
         frame.setVisible(true);
     }

@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  * @version 1.0
  */
 
-public class ConfirmCard extends JPanel {
+public class BillConfirmCard extends JPanel {
 
     private FlightInfoTopBarCard flightInfoTopBarCard;
     private SeatBillCard seatBillCard;
@@ -23,7 +23,7 @@ public class ConfirmCard extends JPanel {
 
     private JTextField textBill;
 
-    public ConfirmCard() {
+    public BillConfirmCard() {
 
         setBackground(new Color(244, 244, 244));
         setForeground(Color.WHITE);
@@ -93,6 +93,7 @@ public class ConfirmCard extends JPanel {
         btnConfirm.setBackground(Color.WHITE);
         btnConfirm.setBounds(1249, 720, 215, 86);
         add(btnConfirm);
+        btnConfirm.addActionListener(new ConfirmListener());
     }
 
     public class ConfirmListener implements ActionListener {

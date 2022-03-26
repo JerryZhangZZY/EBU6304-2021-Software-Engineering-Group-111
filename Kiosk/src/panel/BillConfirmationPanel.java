@@ -1,6 +1,6 @@
 package panel;
 
-import card.ConfirmCard;
+import card.BillConfirmCard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,14 +14,14 @@ import java.awt.*;
  */
 public class BillConfirmationPanel extends JPanel {
 
-    private ConfirmCard confirmCard;
+    private BillConfirmCard billConfirmCard;
 
     public BillConfirmationPanel() {
         setBounds(0, 0, 1600, 880);
         setBackground(Color.PINK);
         setLayout(null);
 
-        confirmCard = new ConfirmCard();
-        add(confirmCard);
+        billConfirmCard = new BillConfirmCard();
+        add(billConfirmCard);
     }
 }
