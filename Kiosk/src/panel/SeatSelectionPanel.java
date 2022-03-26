@@ -49,7 +49,7 @@ public class SeatSelectionPanel extends JPanel {
     private JButton[] button = new JButton[6];
     private JLabel row_num = new JLabel();
     private JPanel warn;
-    private static JScrollBar scrollBar = new JScrollBar();
+    private JScrollBar scrollBar = new JScrollBar();
     //icon loading
     private ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
     private Image img_empty = icon1_empty.getImage();
