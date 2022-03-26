@@ -195,8 +195,8 @@ public class SeatSelectionPanel extends JPanel {
 
         JLabel lblNewLabel1 = new JLabel("Preference");
         lblNewLabel1.setForeground(Color.DARK_GRAY);
-        lblNewLabel1.setFont(new Font("Arial", Font.PLAIN, 30));
-        lblNewLabel1.setBounds(117, 438, 229, 40);
+        lblNewLabel1.setFont(new Font("Arial", Font.BOLD, 45));
+        lblNewLabel1.setBounds(117, 438, 250, 40);
         add(lblNewLabel1);
 
         JLabel lblNewLabel_1 = new JLabel(":  $" + price[0]);
@@ -424,7 +424,7 @@ public class SeatSelectionPanel extends JPanel {
             if (getTemp_row() != -1) {
                 State.setPc(State.getPc() + 1);
                 State.setSeatRow(temp_row);
-                State.setSeatColumn(temp_column);
+                State.setSeatColumn(temp_column + 1);
                 State.setBill(smallBillCard.getPrice());
                 if (temp_row >= 4)
                     State.setSeatPre(0);
