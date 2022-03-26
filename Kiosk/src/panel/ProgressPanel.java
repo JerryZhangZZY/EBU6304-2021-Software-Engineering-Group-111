@@ -15,6 +15,11 @@ import java.awt.*;
  * @date 2022/3/25
  * @version 1.1
  * Appearance improvement.
+ *
+ * @author zaitian
+ * @date 3/26
+ * @version 1.2
+ * Enhanced loading process
  */
 
 public class ProgressPanel extends JPanel {
@@ -83,8 +88,38 @@ public class ProgressPanel extends JPanel {
         add(cardsPanel);
 
     }
+    /**
+     * loading the panel that contains one or more cards
+     * which takes four fifth of the center panel on the right
+     * @param cardsPanel panel with cards to be loaded
+     */
 	public void loadCardsPanel(JPanel cardsPanel){
 	    this.cardsPanel.add(cardsPanel, 0);
         State.setIsReady(true,  progress+2);
+        if (progress == 1){
+            State.setIsReady(new boolean[]{true, true, true,
+                    false, false, false, false, true, true});
+        }
+    }
+    /**
+     * access the cards panel loaded
+     * @return the cards panel loaded
+     */
+    public Component getLoadedCardsPanel(){
+	    if (cardsPanel.getComponentCount()>0){
+	        return cardsPanel.getComponent(0);
+        }
+	    else{
+	        return null;
+        }
+    }
+    /**
+     * remove the cards panel loaded
+     * @param cardsPanel the currently loaded cards panel
+     */
+    public void unloadCardsPanel(Component cardsPanel){
+	    if (cardsPanel != null){
+	        this.cardsPanel.remove(cardsPanel);
+        }
     }
 }
