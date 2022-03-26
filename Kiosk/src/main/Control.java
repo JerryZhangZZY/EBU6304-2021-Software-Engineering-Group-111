@@ -139,7 +139,6 @@ public class Control {
                 case 6: {    //bill
                     if (!State.getIsReady()[6]) {
                         billPanel = new ProgressPanel(4);
-                        billPanel.unloadCardsPanel(billPanel.getLoadedCardsPanel());
                         billConfirmationPanel = new BillConfirmationPanel();
                         billPanel.loadCardsPanel(billConfirmationPanel);
                     }
