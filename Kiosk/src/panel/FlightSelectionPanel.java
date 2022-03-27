@@ -55,7 +55,6 @@ public class FlightSelectionPanel extends JPanel {
             lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 30));
             lblNewLabel_1.setBounds(400, 400, 800, 200);
             add(lblNewLabel_1);
-            //sleep(3000);
             State.setPc(0);
         }
 

@@ -109,6 +109,7 @@ public class Control {
                     kiosk.displayComponents(true, true, true);
                 }
                 case 3:{    //flights
+                    currentPC = State.getPc();
                     if (!State.getIsReady()[3]) {
                         flightsPanel = new ProgressPanel(1);
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());
@@ -119,7 +120,6 @@ public class Control {
                     kiosk.loadPanel(flightsPanel);
                     kiosk.revalidate();
                     kiosk.setWelcomeText();
-                    currentPC = State.getPc();
                     FlightSelectionPanel.automaticallyExit();
                     break;
                 }
