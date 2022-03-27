@@ -1,5 +1,6 @@
 package card;
 
+import dbWriter.SeatWriter;
 import main.State;
 
 import javax.swing.*;
@@ -105,8 +106,13 @@ public class BillConfirmCard extends JPanel {
             } else {
                 State.setPc(State.getPc() + 2);
                 //upload database
-
+                confirm();
             }
         }
+    }
+
+    public static void confirm() {
+        SeatWriter.setSeat(State.getIdFlight(), State.getSeatRow(), State.getSeatColumn());
+
     }
 }

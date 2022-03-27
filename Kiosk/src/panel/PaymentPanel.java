@@ -1,5 +1,6 @@
 package panel;
 
+import card.BillConfirmCard;
 import dbReader.PassengerFlightReader;
 import main.State;
 
@@ -53,6 +54,7 @@ public class PaymentPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 State.setPc(State.getPc()+1);
+                BillConfirmCard.confirm();
             }
         });
 	}
