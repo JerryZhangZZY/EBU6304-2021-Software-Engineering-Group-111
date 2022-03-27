@@ -26,7 +26,7 @@ public class TypeIdLoginCard extends JPanel {
     private JTextField tfId;
 
     public TypeIdLoginCard(){
-        setSize(1150,880);
+        setSize(1150,980);
         setBackground(new Color(244, 244, 244));
         setLayout(null);
 
