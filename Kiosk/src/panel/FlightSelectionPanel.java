@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 /**
  * This is the panel that a passenger can select a flight to check in.
  *
@@ -29,13 +31,27 @@ public class FlightSelectionPanel extends JPanel {
     private String idFlight;
     private List<String> idFlightList;
 
-    public FlightSelectionPanel() {
+    public FlightSelectionPanel(){
         bookingNum = State.getBookingNum();
         idFlightList = PassengerFlightReader.getIdFlightByBookingNum(bookingNum);
 
         setBounds(new Rectangle(0, 0, 1600, 980));
         setBackground(new Color(244, 244, 244));
         setLayout(null);
+        if(idFlightList.size()==0){
+            JLabel lblNewLabel = new JLabel("There is no flight available for check-in");
+            lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 60));
+            lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            lblNewLabel.setBounds(200, 200, 1200, 380);
+            add(lblNewLabel);
+            JLabel lblNewLabel_1 = new JLabel("Automatically back to welcome page in 3 secs...");
+            lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+            lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 30));
+            lblNewLabel_1.setBounds(400, 400, 800, 200);
+            add(lblNewLabel_1);
+            //sleep(3000);
+            State.setPc(0);
+        }
 
         for(int cardNum = 0; cardNum < idFlightList.size(); cardNum++) {
             JPanel flightInfoCard = new FlightInfoCard(idFlightList.get(cardNum));
@@ -67,6 +83,12 @@ public class FlightSelectionPanel extends JPanel {
                 public void mouseExited(MouseEvent e) {}
             });
             add(flightInfoCard);
+        }
+    }
+
+    public static void automaticallyExit() throws InterruptedException{
+        if(State.getPc()==0){
+            sleep(3500);
         }
     }
 }
