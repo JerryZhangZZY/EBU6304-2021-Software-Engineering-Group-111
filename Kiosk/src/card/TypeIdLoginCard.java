@@ -85,4 +85,9 @@ public class TypeIdLoginCard extends JPanel {
         String bookingNum = "";
         return bookingNum;
     }
+
+    public void reset() {
+        tfSurname.setText(null);
+        tfId.setText(null);
+    }
 }
