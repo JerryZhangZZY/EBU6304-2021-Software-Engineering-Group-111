@@ -25,6 +25,11 @@ import java.util.List;
  * @date 2022/3/25
  * @version 1.2
  * Add new getters.
+ *
+ * @author Ni Ruijie
+ * @date 2022/3/27
+ * @version 1.3
+ * Add method getPassengerFlight_index.
  */
 
 public abstract class PassengerFlightReader {
@@ -98,6 +103,20 @@ public abstract class PassengerFlightReader {
                 list.add(arr.getJSONObject(index).getString("idFlight"));
         }
         return list;
+    }
+
+    /**
+     * Get PassengerFlight_index of given bookingNum and idFlight.
+     * @param bookingNum the booking number of that passenger
+     * @param idFlight the flight ID of the passenger
+     * @return index of passengerFlight
+     */
+    public static int getPassengerFlight_index(String bookingNum, String idFlight) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        int index = 0;
+        while(!(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum)&&arr.getJSONObject(index).getString("idFlight").equals(idFlight))) { index++; }
+        return index;
     }
 
     /**

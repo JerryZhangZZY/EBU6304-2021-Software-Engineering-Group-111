@@ -1,5 +1,7 @@
 package panel;
 
+import dbReader.PassengerFlightReader;
+import dbWriter.StatusWriter;
 import main.State;
 
 import javax.swing.*;
@@ -30,6 +32,11 @@ import java.util.TimerTask;
  * @date  2022/3/25
  * @version 1.3
  * Exiting functions added
+ *
+ * @author Ni Ruijie
+ * @date 2022/3/27
+ * @version 1.4
+ * Exiting functions added: set the status of the idFlightPassenger to be true.
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
@@ -44,6 +51,7 @@ public class FinalPanel extends JPanel {
     Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_exit = new ImageIcon(newImg_exit);
     public FinalPanel(){
+        StatusWriter.setTrue(State.getPassengerFlight_index());
         Timer timer = new Timer();
         Timer timer1 = new Timer();
         Timer timer2 = new Timer();

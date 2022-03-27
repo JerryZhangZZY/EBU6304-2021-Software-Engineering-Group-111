@@ -16,16 +16,22 @@ import java.util.List;
  * @author Zhang Zeyu
  * @date 2022/3/24
  * @version 1.0
+ *
+ * @author Ni Ruijie
+ * @date 2022/3/27
+ * @version 1.1
+ * Adjusted actions in mouseReleased(MouseEvent e).
  */
 
 public class FlightSelectionPanel extends JPanel {
 
     private String bookingNum;
+    private String idFlight;
     private List<String> idFlightList;
 
     public FlightSelectionPanel() {
-
-        idFlightList = PassengerFlightReader.getIdFlightByBookingNum(State.getBookingNum());
+        bookingNum = State.getBookingNum();
+        idFlightList = PassengerFlightReader.getIdFlightByBookingNum(bookingNum);
 
         setBounds(new Rectangle(0, 0, 1600, 980));
         setBackground(new Color(244, 244, 244));
@@ -47,7 +53,10 @@ public class FlightSelectionPanel extends JPanel {
                 @Override
                 public void mouseReleased(MouseEvent e) {
                     flightInfoCard.setBackground(Color.WHITE);
-                    State.setIdFlight(idFlightList.get(finalCardNum));
+                    idFlight = idFlightList.get(finalCardNum);
+                    State.setIdFlight(idFlight);
+                    State.setPassengerFlight_index(PassengerFlightReader.getPassengerFlight_index(bookingNum,idFlight));
+                    System.out.println(State.getPassengerFlight_index());
                     State.setPc(State.getPc() + 1);
                 }
 
