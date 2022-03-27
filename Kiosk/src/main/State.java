@@ -26,14 +26,19 @@ import card.SmallBillCard;
  * @date 2022/3/25
  * @version 1.3
  * Delete some initials.
+ *
+ * @author Ni Ruijie
+ * @date 2022/3/27
+ * @version 1.4
+ * idPassengerFlight: TYPE String ---> int; NAME idPassengerFlight ---> passengerFlight_index.
  */
 
 public abstract class State {
     private static int pc = 0;
     private static String passengerName;
     private static String bookingNum;
-    private static String idPassengerFlight;
     private static String idFlight;
+    private static int passengerFlight_index;
     private static int seatRow = -1;
     private static int seatColumn = -1;
     private static int seatPre; //[0, 1, 2, 3]
@@ -67,7 +72,7 @@ public abstract class State {
     public static boolean[] getIsReady() {return isReady;}
     public static String getPassengerName() { return passengerName; }
     public static String getBookingNum() { return bookingNum; }
-    public static String getIdPassengerFlight() { return idPassengerFlight; }
+    public static int getPassengerFlight_index() { return passengerFlight_index; }
     public static String getIdFlight() { return idFlight; }
     public static int getSeatRow() { return seatRow; }
     public static int getSeatColumn() { return seatColumn; }
@@ -85,7 +90,7 @@ public abstract class State {
     public static void setIsReady(boolean[] isReady) {State.isReady = isReady;}
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
-    public static void setIdPassengerFlight(String idPassengerFlight) { State.idPassengerFlight = idPassengerFlight; }
+    public static void setPassengerFlight_index(int passengerFlight_index) { State.passengerFlight_index = passengerFlight_index; }
     public static void setIdFlight(String idFlight) { State.idFlight = idFlight; }
     public static void setSeatRow(int seatRow) { State.seatRow = seatRow; }
     public static void setSeatColumn(int seatColumn) { State.seatColumn = seatColumn; }

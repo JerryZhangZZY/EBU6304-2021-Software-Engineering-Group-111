@@ -10,6 +10,12 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @date 3/22
  * the core class that run with main, managing all frames and panels
+ *
+ * @version 1.1
+ * @author Ni Ruijie
+ * @date 3/27
+ * Add function: Flight selection page won't display the flight card which has been checked-in.
+ * bugs fixed
  */
 public class Control {
     public static void main(String[] args) throws InterruptedException {
@@ -55,7 +61,7 @@ public class Control {
         /*
         final panel
          */
-        finalPanel = new FinalPanel();
+//        finalPanel = new FinalPanel();
         /*
         control flow
          */
@@ -160,6 +166,7 @@ public class Control {
                     break;
                 }
                 case 8:{    //finish
+                    finalPanel = new FinalPanel();
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.repaint();
                     kiosk.loadPanel(finalPanel);
