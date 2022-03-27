@@ -1,6 +1,6 @@
 package cardTest;
 
-import card.TypeIfIdLoginCard;
+import card.TypeIdLoginCard;
 import frame.MainFrame;
 
 /**
@@ -9,11 +9,11 @@ import frame.MainFrame;
  * @date 3/24
  * test for log in the surname and id
  */
-public class TypeIfIdLoginCardTest {
+public class TypeLoginCardTest {
 
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        TypeIfIdLoginCard h = new TypeIfIdLoginCard();
+        TypeIdLoginCard h = new TypeIdLoginCard();
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true,true,true);
         testMainFrame.setVisible(true);
