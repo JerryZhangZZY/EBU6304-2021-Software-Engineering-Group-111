@@ -274,7 +274,7 @@ public class SeatSelectionPanel extends JPanel {
 
         OKListener okListener = new OKListener();
         JButton btnOK = new JButton("OK");
-        btnOK.setFont(new Font("Arial", Font.PLAIN, 28));
+        btnOK.setFont(new Font("Arial", Font.PLAIN, 40));
         btnOK.setBounds(1255, 562, 154, 72);
         btnOK.setForeground(Color.DARK_GRAY);
         btnOK.setBackground(Color.WHITE);
