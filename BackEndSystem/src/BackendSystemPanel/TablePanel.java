@@ -62,7 +62,7 @@ public class TablePanel extends JPanel {
                 new Object[][] {
 
                 },
-                new String[] {"idPassenger","idFlight","bookingNum","status","seat","meal","mealPre1","mealPre2","mealPre3","airline"}
+                new String[] {"idPassenger","surName","idFlight","bookingNum","status","seat","meal","mealPre1","mealPre2","mealPre3","airline"}
         );
         table.setModel(title);
         table.setRowHeight(30);
@@ -73,13 +73,26 @@ public class TablePanel extends JPanel {
         pane.setViewportView(table);
         add(pane);
         for(int i=1;i< data.size();i++){
-            if(data.get(i)[3].equals("0"))
+            if(data.get(i)[4].equals("0"))
                 title.addRow(data.get(i));
         }
         for(int i=1;i< data.size();i++){
-            if(data.get(i)[3].equals("1"))
+            if(data.get(i)[4].equals("1"))
                 title.addRow(data.get(i));
         }
+        table.getColumnModel().getColumn(0).setPreferredWidth(80);
+        table.getColumnModel().getColumn(1).setPreferredWidth(80);
+        table.getColumnModel().getColumn(2).setPreferredWidth(80);
+        table.getColumnModel().getColumn(3).setPreferredWidth(80);
+        table.getColumnModel().getColumn(4).setPreferredWidth(35);
+        table.getColumnModel().getColumn(5).setPreferredWidth(35);
+        table.getColumnModel().getColumn(6).setPreferredWidth(80);
+        table.getColumnModel().getColumn(7).setPreferredWidth(80);
+        table.getColumnModel().getColumn(8).setPreferredWidth(80);
+        table.getColumnModel().getColumn(9).setPreferredWidth(80);
+        table.getColumnModel().getColumn(10).setPreferredWidth(90);
+        table .getTableHeader().setReorderingAllowed(false);
+
 
         page_title.setFont(new Font("Arial", Font.BOLD, 36));
         page_title.setLocation(766, 0);
@@ -173,7 +186,7 @@ public class TablePanel extends JPanel {
                         new Object[][]{
 
                         },
-                        new String[]{"idPassenger", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
+                        new String[]{"idPassenger","surName", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
                 );
                 table.setModel(air_action);
                 table.setRowHeight(30);
@@ -181,9 +194,31 @@ public class TablePanel extends JPanel {
                 head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
                 head_table.setFont(new Font("Arial", Font.PLAIN, 25));
                 table.setFont(new Font("Arial", Font.PLAIN, 25));
+                table.getColumnModel().getColumn(0).setPreferredWidth(80);
+                table.getColumnModel().getColumn(1).setPreferredWidth(80);
+                table.getColumnModel().getColumn(2).setPreferredWidth(80);
+                table.getColumnModel().getColumn(3).setPreferredWidth(80);
+                table.getColumnModel().getColumn(4).setPreferredWidth(35);
+                table.getColumnModel().getColumn(5).setPreferredWidth(35);
+                table.getColumnModel().getColumn(6).setPreferredWidth(80);
+                table.getColumnModel().getColumn(7).setPreferredWidth(80);
+                table.getColumnModel().getColumn(8).setPreferredWidth(80);
+                table.getColumnModel().getColumn(9).setPreferredWidth(80);
+                table.getColumnModel().getColumn(10).setPreferredWidth(90);
+                table .getTableHeader().setReorderingAllowed(false);
                 for(int i = 0; i < data.size(); i++) {
-                    if(airl.equals(data.get(i)[9])){
-                        air_action.addRow(data.get(i));
+                    if(airl.equals(data.get(i)[10])){
+                        if (data.get(i)[4].equals("0")){
+                            air_action.addRow(data.get(i));
+                        }
+                    }
+                }
+                for(int i = 0; i < data.size(); i++) {
+                    if(airl.equals(data.get(i)[10])){
+                        if (data.get(i)[4].equals("1"))
+                        {
+                            air_action.addRow(data.get(i));
+                        }
                     }
                 }
             }
@@ -205,7 +240,7 @@ public class TablePanel extends JPanel {
                         new Object[][]{
 
                         },
-                        new String[]{"idPassenger", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
+                        new String[]{"idPassenger","surName", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
                 );
                 table.setModel(pass_action);
                 table.setRowHeight(30);
@@ -213,9 +248,32 @@ public class TablePanel extends JPanel {
                 head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
                 head_table.setFont(new Font("Arial", Font.PLAIN, 25));
                 table.setFont(new Font("Arial", Font.PLAIN, 25));
+                table.getColumnModel().getColumn(0).setPreferredWidth(80);
+                table.getColumnModel().getColumn(1).setPreferredWidth(80);
+                table.getColumnModel().getColumn(2).setPreferredWidth(80);
+                table.getColumnModel().getColumn(3).setPreferredWidth(80);
+                table.getColumnModel().getColumn(4).setPreferredWidth(35);
+                table.getColumnModel().getColumn(5).setPreferredWidth(35);
+                table.getColumnModel().getColumn(6).setPreferredWidth(80);
+                table.getColumnModel().getColumn(7).setPreferredWidth(80);
+                table.getColumnModel().getColumn(8).setPreferredWidth(80);
+                table.getColumnModel().getColumn(9).setPreferredWidth(80);
+                table.getColumnModel().getColumn(10).setPreferredWidth(90);
+                table .getTableHeader().setReorderingAllowed(false);
                 for (int i = 1; i < data.size(); i++) {
                     if(passe.equals(data.get(i)[0])){
-                        pass_action.addRow(data.get(i));
+                        if(data.get(i)[4].equals("0"))
+                        {
+                            pass_action.addRow(data.get(i));
+                        }
+                    }
+                }
+                for (int i = 1; i < data.size(); i++) {
+                    if(passe.equals(data.get(i)[0])){
+                        if(data.get(i)[4].equals("1"))
+                        {
+                            pass_action.addRow(data.get(i));
+                        }
                     }
                 }
             }
@@ -232,12 +290,12 @@ public class TablePanel extends JPanel {
             else
             {
                 idFlight_field.setBorder(borderLine);
-                String passe = idFlight_field.getText();
+                String fli = idFlight_field.getText();
                 DefaultTableModel pass_action = new DefaultTableModel(
                         new Object[][]{
 
                         },
-                        new String[]{"idPassenger", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
+                        new String[]{"idPassenger", "surName","idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
                 );
                 table.setModel(pass_action);
                 table.setRowHeight(30);
@@ -245,9 +303,32 @@ public class TablePanel extends JPanel {
                 head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
                 head_table.setFont(new Font("Arial", Font.PLAIN, 25));
                 table.setFont(new Font("Arial", Font.PLAIN, 25));
+                table.getColumnModel().getColumn(0).setPreferredWidth(80);
+                table.getColumnModel().getColumn(1).setPreferredWidth(80);
+                table.getColumnModel().getColumn(2).setPreferredWidth(80);
+                table.getColumnModel().getColumn(3).setPreferredWidth(80);
+                table.getColumnModel().getColumn(4).setPreferredWidth(35);
+                table.getColumnModel().getColumn(5).setPreferredWidth(35);
+                table.getColumnModel().getColumn(6).setPreferredWidth(80);
+                table.getColumnModel().getColumn(7).setPreferredWidth(80);
+                table.getColumnModel().getColumn(8).setPreferredWidth(80);
+                table.getColumnModel().getColumn(9).setPreferredWidth(80);
+                table.getColumnModel().getColumn(10).setPreferredWidth(90);
+                table .getTableHeader().setReorderingAllowed(false);
                 for (int i = 1; i < data.size(); i++) {
-                    if(passe.equals(data.get(i)[1])){
-                        pass_action.addRow(data.get(i));
+                    if(fli.equals(data.get(i)[2])){
+                        if(data.get(i)[4].equals("0"))
+                        {
+                            pass_action.addRow(data.get(i));
+                        }
+                    }
+                }
+                for (int i = 1; i < data.size(); i++) {
+                    if(fli.equals(data.get(i)[2])){
+                        if(data.get(i)[4].equals("1"))
+                        {
+                            pass_action.addRow(data.get(i));
+                        }
                     }
                 }
             }
@@ -262,6 +343,9 @@ public class TablePanel extends JPanel {
             idFlight_field.setText("");
             idPassenger_field.setText("");
             airline_field.setText("");
+            idFlight_field.setBorder(borderLine);
+            idPassenger_field.setBorder(borderLine);
+            airline_field.setBorder(borderLine);
             table.setFont(new Font("Arial", Font.PLAIN, 12));
             table.setEnabled(false);
             table.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -269,7 +353,7 @@ public class TablePanel extends JPanel {
                     new Object[][] {
 
                     },
-                    new String[] {"idPassenger","idFlight","bookingNum","status","seat","meal","mealPre1","mealPre2","mealPre3","airline"}
+                    new String[] {"idPassenger","surName","idFlight","bookingNum","status","seat","meal","mealPre1","mealPre2","mealPre3","airline"}
             );
             table.setModel(title);
             table.setRowHeight(30);
@@ -277,12 +361,24 @@ public class TablePanel extends JPanel {
             head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
             head_table.setFont(new Font("Arial", Font.PLAIN, 25));
             table.setFont(new Font("Arial", Font.PLAIN, 25));
+            table.getColumnModel().getColumn(0).setPreferredWidth(80);
+            table.getColumnModel().getColumn(1).setPreferredWidth(80);
+            table.getColumnModel().getColumn(2).setPreferredWidth(80);
+            table.getColumnModel().getColumn(3).setPreferredWidth(80);
+            table.getColumnModel().getColumn(4).setPreferredWidth(35);
+            table.getColumnModel().getColumn(5).setPreferredWidth(35);
+            table.getColumnModel().getColumn(6).setPreferredWidth(80);
+            table.getColumnModel().getColumn(7).setPreferredWidth(80);
+            table.getColumnModel().getColumn(8).setPreferredWidth(80);
+            table.getColumnModel().getColumn(9).setPreferredWidth(80);
+            table.getColumnModel().getColumn(10).setPreferredWidth(90);
+            table .getTableHeader().setReorderingAllowed(false);
             for(int i=1;i< data.size();i++){
-                if(data.get(i)[3].equals("0"))
+                if(data.get(i)[4].equals("0"))
                     title.addRow(data.get(i));
             }
             for(int i=1;i< data.size();i++){
-                if(data.get(i)[3].equals("1"))
+                if(data.get(i)[4].equals("1"))
                     title.addRow(data.get(i));
             }
         }
