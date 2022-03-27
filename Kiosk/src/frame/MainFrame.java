@@ -29,6 +29,11 @@ import java.awt.event.KeyEvent;
  * @author zaitian
  * @date 3.24
  * main frame with enhanced functions and refined coding style
+ *
+ * @version 1.4
+ * @author Zhang Zeyu
+ * @date 2022/3/27
+ * appearance improvement
  */
 
 public class MainFrame extends JFrame {
@@ -61,14 +66,15 @@ public class MainFrame extends JFrame {
         top panel, with welcome text and exit button
          */
         topPanel = new JPanel();
-        topPanel.setBackground(Color.ORANGE);
+        topPanel.setBackground(new Color(11, 89, 167));
         topPanel.setBounds(0, 0, 1920, 100);
         contentPane.add(topPanel);
         topPanel.setLayout(null);
 
         welcomeLabel = new JLabel();
-        welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 36));
-        welcomeLabel.setBounds(40, 20, 1000, 60);
+        welcomeLabel.setFont(new Font("Calibre", Font.PLAIN, 45));
+        welcomeLabel.setForeground(Color.WHITE);
+        welcomeLabel.setBounds(60, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
         exitButton = new JButton("Exit");
@@ -123,7 +129,7 @@ public class MainFrame extends JFrame {
          * bottom panel, with back button
          */
         bottomPanel = new JPanel();
-        bottomPanel.setBackground(Color.CYAN);
+        bottomPanel.setBackground(new Color(11, 89, 167));
         bottomPanel.setBounds(0, 980, 1920, 100);
         contentPane.add(bottomPanel);
         bottomPanel.setLayout(null);
