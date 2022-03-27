@@ -31,42 +31,46 @@ public class Control {
         FinalPanel finalPanel;
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel(true);
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel(false);
-//        BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
         /*
         main frame
          */
         kiosk = new MainFrame();
         kiosk.displayComponents(true, true, true);
+
         /*
         welcoming panel
          */
         welcomePanel = new WelcomePanel();
+
         /*
         booking number login panel
          */
         bookingLoginPanel = new BookingLoginPanel();
+
         /*
         flight choosing panel
          */
         flightsPanel = new ProgressPanel(1);
+
         /*
         seat choosing panel
          */
         seatPanel = new ProgressPanel(2);
-//        seatPanel.loadCards(new SeatSelectionCard());
+
         /*
         meal choosing panel
          */
         mealPanel = new ProgressPanel(3);
-//        mealPanel.loadCards(new MealSelectionCard());
+
         /*
         confirm and bill panel
          */
         billPanel = new ProgressPanel(4);
+
         /*
         final panel
          */
-//        finalPanel = new FinalPanel();
+
         /*
         control flow
          */
@@ -105,7 +109,6 @@ public class Control {
                     kiosk.displayComponents(true, true, true);
                 }
                 case 3:{    //flights
-                    currentPC = State.getPc();
                     if (!State.getIsReady()[3]) {
                         flightsPanel = new ProgressPanel(1);
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());
@@ -116,7 +119,7 @@ public class Control {
                     kiosk.loadPanel(flightsPanel);
                     kiosk.revalidate();
                     kiosk.setWelcomeText();
-                    System.out.println(State.getPc());
+                    currentPC = State.getPc();
                     FlightSelectionPanel.automaticallyExit();
                     break;
                 }

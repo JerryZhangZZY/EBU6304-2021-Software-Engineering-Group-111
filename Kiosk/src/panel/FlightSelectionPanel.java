@@ -37,7 +37,7 @@ public class FlightSelectionPanel extends JPanel {
     private String idFlight;
     private List<String> idFlightList;
 
-    public FlightSelectionPanel(){
+    public FlightSelectionPanel() {
         bookingNum = State.getBookingNum();
         idFlightList = PassengerFlightReader.getIdFlightByBookingNum(bookingNum);
 
@@ -93,7 +93,7 @@ public class FlightSelectionPanel extends JPanel {
     }
 
     public static void automaticallyExit() throws InterruptedException{
-        if(State.getPc()==0){
+        if(State.getPc() == 0) {
             sleep(3500);
         }
     }
