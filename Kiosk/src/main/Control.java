@@ -21,12 +21,18 @@ import static java.lang.Thread.sleep;
  * @author Ni Ruijie
  * @date 3/27
  * Add function: Automatically back to welcome page when there is no flight available for check-in.
+ *
+ * @version 1.3
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * Add alter login panel.
  */
 public class Control {
     public static void main(String[] args) throws InterruptedException {
         MainFrame kiosk;
         WelcomePanel welcomePanel;
         BookingLoginPanel bookingLoginPanel;
+        IdLoginPanel idLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel(true);
@@ -46,6 +52,11 @@ public class Control {
         booking number login panel
          */
         bookingLoginPanel = new BookingLoginPanel();
+
+        /*
+        id login panel
+         */
+        idLoginPanel = new IdLoginPanel();
 
         /*
         flight choosing panel
@@ -70,6 +81,7 @@ public class Control {
         /*
         final panel
          */
+        //instantiate everytime.
 
         /*
         control flow
@@ -87,10 +99,11 @@ public class Control {
 
                 case 0: {    //welcome
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.repaint();
                     kiosk.hideBars(true);
                     kiosk.loadPanel(welcomePanel);
+                    kiosk.revalidate();
                     currentPC = State.getPc();
-                    kiosk.repaint();
                     break;
                 }
                 case 1:{    //enter booking number
@@ -98,7 +111,7 @@ public class Control {
                     kiosk.repaint();
                     kiosk.hideBars(false);
                     kiosk.displayComponents(true, true, false);
-                    kiosk.resetWelcomeText(1);
+                    kiosk.resetWelcomeText();
                     kiosk.loadPanel(bookingLoginPanel);
                     kiosk.revalidate();
                     currentPC = State.getPc();
@@ -106,7 +119,13 @@ public class Control {
                 }
                 case 2:{    //enter or scan ID
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.repaint();
                     kiosk.displayComponents(true, true, true);
+                    idLoginPanel.reset();
+                    kiosk.loadPanel(idLoginPanel);
+                    kiosk.revalidate();
+                    currentPC = State.getPc();
+                    break;
                 }
                 case 3:{    //flights
                     currentPC = State.getPc();
