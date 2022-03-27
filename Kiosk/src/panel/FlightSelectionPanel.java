@@ -29,6 +29,11 @@ import static java.lang.Thread.sleep;
  * @version 1.2
  * Added judgement condition.
  * Added automaticallyExit method.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/27
+ * @version 1.3
+ * Rename components, improve appearance and format.
  */
 
 public class FlightSelectionPanel extends JPanel {
@@ -44,17 +49,19 @@ public class FlightSelectionPanel extends JPanel {
         setBounds(new Rectangle(0, 0, 1600, 980));
         setBackground(new Color(244, 244, 244));
         setLayout(null);
-        if(idFlightList.size()==0){
-            JLabel lblNewLabel = new JLabel("There is no flight available for check-in");
-            lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 60));
-            lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            lblNewLabel.setBounds(200, 200, 1200, 380);
-            add(lblNewLabel);
-            JLabel lblNewLabel_1 = new JLabel("Automatically back to welcome page in 3 secs...");
-            lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-            lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 30));
-            lblNewLabel_1.setBounds(400, 400, 800, 200);
-            add(lblNewLabel_1);
+        if (idFlightList.size() == 0) {
+            JLabel lblNoFlight = new JLabel("There is no flight available for check-in");
+            lblNoFlight.setFont(new Font("Calibre", Font.BOLD, 60));
+            lblNoFlight.setForeground(Color.DARK_GRAY);
+            lblNoFlight.setHorizontalAlignment(SwingConstants.CENTER);
+            lblNoFlight.setBounds(200, 200, 1200, 380);
+            add(lblNoFlight);
+            JLabel lblAutoExit = new JLabel("Automatically exit in 3 secs...");
+            lblAutoExit.setHorizontalAlignment(SwingConstants.CENTER);
+            lblAutoExit.setFont(new Font("Calibre", Font.PLAIN, 30));
+            lblAutoExit.setForeground(Color.GRAY);
+            lblAutoExit.setBounds(400, 400, 800, 200);
+            add(lblAutoExit);
             State.setPc(0);
         }
 
