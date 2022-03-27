@@ -142,7 +142,6 @@ public class BookingLoginPanel extends JPanel {
                     bookingNumberTextField.setForeground(Color.RED);
                 }
                 else {
-                    bookingNumberTextField.setBorder(null);
                     State.setBookingNum(bookingNumberTextField.getText());
                     State.setPassengerName(PassengerFlightReader.getPassengerNameByBookingNum(bookingNumberTextField.getText()));
                     bookingNumberTextField.setText("");
