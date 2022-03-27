@@ -16,6 +16,11 @@ import static java.lang.Thread.sleep;
  * @date 3/27
  * Add function: Flight selection page won't display the flight card which has been checked-in.
  * bugs fixed
+ *
+ * @version 1.2
+ * @author Ni Ruijie
+ * @date 3/27
+ * Add function: Automatically back to welcome page when there is no flight available for check-in.
  */
 public class Control {
     public static void main(String[] args) throws InterruptedException {

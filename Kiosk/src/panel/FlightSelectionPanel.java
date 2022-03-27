@@ -23,6 +23,12 @@ import static java.lang.Thread.sleep;
  * @date 2022/3/27
  * @version 1.1
  * Adjusted actions in mouseReleased(MouseEvent e).
+ *
+ * @author Ni Ruijie
+ * @date 2022/3/27
+ * @version 1.2
+ * Added judgement condition.
+ * Added automaticallyExit method.
  */
 
 public class FlightSelectionPanel extends JPanel {
