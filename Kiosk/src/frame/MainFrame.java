@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
     private JPanel topPanel;
     private JLabel welcomeLabel;
     private JButton exitButton;
-    private JButton ForcedExitButton;
+    private JButton forcedExitButton;
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
@@ -77,14 +77,11 @@ public class MainFrame extends JFrame {
         welcomeLabel.setBounds(60, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
-        exitButton = new JButton("Exit");
-        exitButton.setFont(new Font("Arial", Font.PLAIN, 26));
-        exitButton.setForeground(Color.WHITE);
-        exitButton.setBackground(Color.WHITE);
+        exitButton = new JButton();
         exitButton.setContentAreaFilled(false);
         exitButton.setBorderPainted(false);
         exitButton.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
-        exitButton.setBounds(1700, 8, 200, 77);
+        exitButton.setBounds(1815, 12, 80, 70);
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,15 +96,18 @@ public class MainFrame extends JFrame {
         for developers to exit program easily
         note that for ordinary users, clicking the normal exit just return to welcome page
          */
-        ForcedExitButton = new JButton("Forced Exit");
-        ForcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
-        ForcedExitButton.setBounds(1400, 20, 180, 60);
-        ForcedExitButton.addActionListener(new ActionListener() {
+        forcedExitButton = new JButton("Forced Exit");
+        forcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        forcedExitButton.setBounds(1600, 20, 180, 60);
+        forcedExitButton.setBackground(new Color(11, 89, 167));
+        forcedExitButton.setForeground(Color.DARK_GRAY);
+        forcedExitButton.setBorder(null);
+        forcedExitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-        ForcedExitButton.addKeyListener(new KeyAdapter()
+        forcedExitButton.addKeyListener(new KeyAdapter()
         {
             public void keyPressed(KeyEvent e) {
                 if (e.isControlDown()&&e.getKeyCode()==KeyEvent.VK_ENTER){
@@ -115,7 +115,7 @@ public class MainFrame extends JFrame {
                 }
             }
             });
-        topPanel.add(ForcedExitButton);
+        topPanel.add(forcedExitButton);
         /*
         main panel that holds other panels
         use centerPanel.add(JPanel panel) to add components
@@ -134,14 +134,10 @@ public class MainFrame extends JFrame {
         contentPane.add(bottomPanel);
         bottomPanel.setLayout(null);
 
-        backButton = new JButton("Back");
-        backButton.setFont(new Font("Arial", Font.PLAIN, 26));
-        backButton.setForeground(Color.WHITE);
-        backButton.setBackground(Color.WHITE);
+        backButton = new JButton();
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
-        backButton.setBounds(40, 20, 300, 60);
-//        backButton.setIcon(icon_back);
+        backButton.setBounds(30, 11, 100, 80);
         backButton.setIcon(new ImageIcon("Kiosk/icons/back.png"));
         backButton.addActionListener(new ActionListener() {
             @Override
