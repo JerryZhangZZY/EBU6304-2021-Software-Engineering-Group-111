@@ -36,7 +36,7 @@ public class DBreader {
     }
     public String[] getline(int temp_row) throws IOException {
         CsvReader csvReaderline = new CsvReader(path,',',Charset.forName("UTF-8"));
-        String[] record = new String[10];
+        String[] record = new String[11];
         for(int count = -1; count < temp_row; count++) {
             try {
                 csvReaderline.readRecord();
