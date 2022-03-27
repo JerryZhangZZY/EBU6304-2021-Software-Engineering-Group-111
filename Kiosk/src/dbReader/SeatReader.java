@@ -12,6 +12,11 @@ import java.io.IOException;
  * @author Liang Zhehao
  * @date 2022/3/21
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/27
+ * @version 1.1
+ * Performance improved.
  */
 
 public class SeatReader {
@@ -42,7 +47,7 @@ public class SeatReader {
         boolean[] seat = new boolean[6];
         for(int count = 0; count < row; count++) {
             try {
-                csvReader.readRecord();
+                csvReader.skipRecord();
             } catch (IOException e) {
                 e.printStackTrace();
             }
