@@ -12,13 +12,18 @@ import dbReader.JsonReader;
  * @author Zhang Zeyu
  * @date 2022/3/21
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/27
+ * @version 1.1
+ * bug fixed
  */
 
 public abstract class StatusWriter {
     public static void setTrue(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
         JSONArray arr = obj.getJSONArray("passengerFlight");
-        arr.getJSONObject(index).put("status", false);
+        arr.getJSONObject(index).put("status", true);
         obj.put("passengerFlight", arr);
         String jsonStr = obj.toJSONString();
         JsonWriter.write("DB/passengerFlight.json", jsonStr);
