@@ -1,4 +1,4 @@
-?idPassenger,surName,idFlight,bookingNum,status,seat,meal,mealPre1,mealPre2,mealPre3,airline
+idPassenger,surName,idFlight,bookingNum,status,seat,meal,mealPre1,mealPre2,mealPre3,airline
 1,John,CA1002,464666,1,15D,halal,ice,curry,alcohol,Shan Dong
 2,Leo,CA1003,131313,0,NULL,NULL,NULL,NULL,NULL,Shan Dong
 3,Sue,CA1004,333232,1,12A,vegetarian,curry,ice,alcohol,AIR China
