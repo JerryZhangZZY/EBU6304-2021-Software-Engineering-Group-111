@@ -1,11 +1,5 @@
 package BackendSystemPanel;
-/**
- * the panel for show and check database
- *
- * @author Wang Chenyu
- * @date 2022/3/26
- * @version 1.0
- */
+
 import BackendSystemDB.DBreader;
 import Backendmain.Systempointer;
 
@@ -22,23 +16,44 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * the panel for show and check database
+ *
+ * @author Wang Chenyu
+ * @date 2022/3/26
+ * @version 1.0
+ *
+ * @author Liang Zhehao
+ * @data 2022/3/29
+ * @version 1.1
+ * Simplify the code, remove the call to getDataBase function
+ */
 public class TablePanel extends JPanel {
-    JTable table =new JTable();
-    JScrollPane pane=new JScrollPane();
-    JLabel page_title = new JLabel("Passenger information");
-    JTextField airline_field = new JTextField();
-    JTextField idPassenger_field = new JTextField();
-    JTextField idFlight_field = new JTextField();
-    JButton airline_button = new JButton("confirm");
-    JButton passenger_button = new JButton("confirm");
-    JButton flight_button = new JButton("confirm");
-    JLabel passenger = new JLabel("idPassenger");
-    JLabel airline = new JLabel("airline");
-    JLabel flight = new JLabel("idflight");
-    Border borderLine = BorderFactory.createLineBorder(Color.DARK_GRAY,2,true);
-    Border errorLine = BorderFactory.createLineBorder(Color.RED,3,true);
-    ArrayList<String[]> data = new ArrayList<String[]>();
-    public TablePanel()throws IOException {
+    private JTable table = new JTable();
+    private JScrollPane pane = new JScrollPane();
+    private JLabel page_title = new JLabel("Passenger information");
+    private JTextField airline_field = new JTextField();
+    private JTextField idPassenger_field = new JTextField();
+    private JTextField idFlight_field = new JTextField();
+    private JButton airline_button = new JButton("confirm");
+    private JButton passenger_button = new JButton("confirm");
+    private JButton flight_button = new JButton("confirm");
+    private JLabel passenger = new JLabel("idPassenger");
+    private JLabel airline = new JLabel("airline");
+    private JLabel flight = new JLabel("idflight");
+    private Border borderLine = BorderFactory.createLineBorder(Color.DARK_GRAY, 2, true);
+    private Border errorLine = BorderFactory.createLineBorder(Color.RED, 3, true);
+    private DefaultTableModel model = new DefaultTableModel(
+            new Object[][]{
+
+            },
+            new String[]{"idPassenger", "surName", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
+    );
+    //    private ArrayList<String[]> data;
+    private String[] data;
+    private DBreader dbReader = new DBreader();
+
+    public TablePanel() throws IOException {
         airlineActionListener air = new airlineActionListener();
         passengerActionListener pass = new passengerActionListener();
         flightActionListener fli = new flightActionListener();
@@ -50,7 +65,6 @@ public class TablePanel extends JPanel {
         setSize(1920, 980);
 
         DBreader reader = new DBreader();
-        data = reader.getDataBase();
         String[] head = reader.getheadline();
         pane.setBorder(new TitledBorder(null, "DataBase Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         pane.setLocation(0, 180);
@@ -58,13 +72,8 @@ public class TablePanel extends JPanel {
         table.setFont(new Font("Arial", Font.PLAIN, 12));
         table.setEnabled(false);
         table.setBorder(new LineBorder(new Color(0, 0, 0)));
-        DefaultTableModel title = new DefaultTableModel(
-                new Object[][] {
 
-                },
-                new String[] {"idPassenger","surName","idFlight","bookingNum","status","seat","meal","mealPre1","mealPre2","mealPre3","airline"}
-        );
-        table.setModel(title);
+        table.setModel(model);
         table.setRowHeight(30);
         JTableHeader head_table = table.getTableHeader();
         head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
@@ -72,13 +81,15 @@ public class TablePanel extends JPanel {
         table.setFont(new Font("Arial", Font.PLAIN, 25));
         pane.setViewportView(table);
         add(pane);
-        for(int i=1;i< data.size();i++){
-            if(data.get(i)[4].equals("0"))
-                title.addRow(data.get(i));
+        for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+            data = dbReader.getline(i);
+            if (data[4].equals("0"))
+                model.addRow(data);
         }
-        for(int i=1;i< data.size();i++){
-            if(data.get(i)[4].equals("1"))
-                title.addRow(data.get(i));
+        for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+            data = dbReader.getline(i);
+            if (data[4].equals("1"))
+                model.addRow(data);
         }
         table.getColumnModel().getColumn(0).setPreferredWidth(80);
         table.getColumnModel().getColumn(1).setPreferredWidth(80);
@@ -91,7 +102,7 @@ public class TablePanel extends JPanel {
         table.getColumnModel().getColumn(8).setPreferredWidth(80);
         table.getColumnModel().getColumn(9).setPreferredWidth(80);
         table.getColumnModel().getColumn(10).setPreferredWidth(90);
-        table .getTableHeader().setReorderingAllowed(false);
+        table.getTableHeader().setReorderingAllowed(false);
 
 
         page_title.setFont(new Font("Arial", Font.BOLD, 36));
@@ -172,171 +183,110 @@ public class TablePanel extends JPanel {
         });
         add(back);
     }
-    private class airlineActionListener implements ActionListener{
+
+    private class airlineActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(airline_field.getText().length()==0){
+            if (airline_field.getText().length() == 0) {
                 airline_field.setBorder(errorLine);
-            }
-            else
-            {
-                airline_field.setBorder(borderLine);
-                String airl = airline_field.getText();
-                DefaultTableModel air_action = new DefaultTableModel(
-                        new Object[][]{
+            } else {
+                try {
+                    model.setRowCount(0);
+                    airline_field.setBorder(borderLine);
+                    String airl = airline_field.getText();
 
-                        },
-                        new String[]{"idPassenger","surName", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
-                );
-                table.setModel(air_action);
-                table.setRowHeight(30);
-                JTableHeader head_table = table.getTableHeader();
-                head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
-                head_table.setFont(new Font("Arial", Font.PLAIN, 25));
-                table.setFont(new Font("Arial", Font.PLAIN, 25));
-                table.getColumnModel().getColumn(0).setPreferredWidth(80);
-                table.getColumnModel().getColumn(1).setPreferredWidth(80);
-                table.getColumnModel().getColumn(2).setPreferredWidth(80);
-                table.getColumnModel().getColumn(3).setPreferredWidth(80);
-                table.getColumnModel().getColumn(4).setPreferredWidth(35);
-                table.getColumnModel().getColumn(5).setPreferredWidth(35);
-                table.getColumnModel().getColumn(6).setPreferredWidth(80);
-                table.getColumnModel().getColumn(7).setPreferredWidth(80);
-                table.getColumnModel().getColumn(8).setPreferredWidth(80);
-                table.getColumnModel().getColumn(9).setPreferredWidth(80);
-                table.getColumnModel().getColumn(10).setPreferredWidth(90);
-                table .getTableHeader().setReorderingAllowed(false);
-                for(int i = 0; i < data.size(); i++) {
-                    if(airl.equals(data.get(i)[10])){
-                        if (data.get(i)[4].equals("0")){
-                            air_action.addRow(data.get(i));
+                    for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                        data = dbReader.getline(i);
+                        if (airl.equals(data[10])) {
+                            if (data[4].equals("0")) {
+                                model.addRow(data);
+                            }
                         }
                     }
-                }
-                for(int i = 0; i < data.size(); i++) {
-                    if(airl.equals(data.get(i)[10])){
-                        if (data.get(i)[4].equals("1"))
-                        {
-                            air_action.addRow(data.get(i));
+                    for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                        data = dbReader.getline(i);
+                        if (airl.equals(data[10])) {
+                            if (data[4].equals("1")) {
+                                model.addRow(data);
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
-
         }
-
     }
-    private class passengerActionListener implements ActionListener{
+
+    private class passengerActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(idPassenger_field.getText().length()==0){
+            if (idPassenger_field.getText().length() == 0) {
                 idPassenger_field.setBorder(errorLine);
-            }
-            else
-            {
-                idPassenger_field.setBorder(borderLine);
-                String passe = idPassenger_field.getText();
-                DefaultTableModel pass_action = new DefaultTableModel(
-                        new Object[][]{
+            } else {
+                try {
+                    model.setRowCount(0);
+                    idPassenger_field.setBorder(borderLine);
+                    String passe = idPassenger_field.getText();
 
-                        },
-                        new String[]{"idPassenger","surName", "idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
-                );
-                table.setModel(pass_action);
-                table.setRowHeight(30);
-                JTableHeader head_table = table.getTableHeader();
-                head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
-                head_table.setFont(new Font("Arial", Font.PLAIN, 25));
-                table.setFont(new Font("Arial", Font.PLAIN, 25));
-                table.getColumnModel().getColumn(0).setPreferredWidth(80);
-                table.getColumnModel().getColumn(1).setPreferredWidth(80);
-                table.getColumnModel().getColumn(2).setPreferredWidth(80);
-                table.getColumnModel().getColumn(3).setPreferredWidth(80);
-                table.getColumnModel().getColumn(4).setPreferredWidth(35);
-                table.getColumnModel().getColumn(5).setPreferredWidth(35);
-                table.getColumnModel().getColumn(6).setPreferredWidth(80);
-                table.getColumnModel().getColumn(7).setPreferredWidth(80);
-                table.getColumnModel().getColumn(8).setPreferredWidth(80);
-                table.getColumnModel().getColumn(9).setPreferredWidth(80);
-                table.getColumnModel().getColumn(10).setPreferredWidth(90);
-                table .getTableHeader().setReorderingAllowed(false);
-                for (int i = 1; i < data.size(); i++) {
-                    if(passe.equals(data.get(i)[0])){
-                        if(data.get(i)[4].equals("0"))
-                        {
-                            pass_action.addRow(data.get(i));
+                    for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                        data = dbReader.getline(i);
+                        if (passe.equals(data[0])) {
+                            if (data[4].equals("0")) {
+                                model.addRow(data);
+                            }
                         }
                     }
-                }
-                for (int i = 1; i < data.size(); i++) {
-                    if(passe.equals(data.get(i)[0])){
-                        if(data.get(i)[4].equals("1"))
-                        {
-                            pass_action.addRow(data.get(i));
+                    for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                        data = dbReader.getline(i);
+                        if (passe.equals(data[0])) {
+                            if (data[4].equals("1")) {
+                                model.addRow(data);
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
-
         }
-
     }
-    private class flightActionListener implements ActionListener{
+
+    private class flightActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(idFlight_field.getText().length()==0){
+            if (idFlight_field.getText().length() == 0) {
                 idFlight_field.setBorder(errorLine);
-            }
-            else
-            {
-                idFlight_field.setBorder(borderLine);
-                String fli = idFlight_field.getText();
-                DefaultTableModel pass_action = new DefaultTableModel(
-                        new Object[][]{
+            } else {
+                try {
+                    model.setRowCount(0);
+                    idFlight_field.setBorder(borderLine);
+                    String fli = idFlight_field.getText();
 
-                        },
-                        new String[]{"idPassenger", "surName","idFlight", "bookingNum", "status", "seat", "meal", "mealPre1", "mealPre2", "mealPre3", "airline"}
-                );
-                table.setModel(pass_action);
-                table.setRowHeight(30);
-                JTableHeader head_table = table.getTableHeader();
-                head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
-                head_table.setFont(new Font("Arial", Font.PLAIN, 25));
-                table.setFont(new Font("Arial", Font.PLAIN, 25));
-                table.getColumnModel().getColumn(0).setPreferredWidth(80);
-                table.getColumnModel().getColumn(1).setPreferredWidth(80);
-                table.getColumnModel().getColumn(2).setPreferredWidth(80);
-                table.getColumnModel().getColumn(3).setPreferredWidth(80);
-                table.getColumnModel().getColumn(4).setPreferredWidth(35);
-                table.getColumnModel().getColumn(5).setPreferredWidth(35);
-                table.getColumnModel().getColumn(6).setPreferredWidth(80);
-                table.getColumnModel().getColumn(7).setPreferredWidth(80);
-                table.getColumnModel().getColumn(8).setPreferredWidth(80);
-                table.getColumnModel().getColumn(9).setPreferredWidth(80);
-                table.getColumnModel().getColumn(10).setPreferredWidth(90);
-                table .getTableHeader().setReorderingAllowed(false);
-                for (int i = 1; i < data.size(); i++) {
-                    if(fli.equals(data.get(i)[2])){
-                        if(data.get(i)[4].equals("0"))
-                        {
-                            pass_action.addRow(data.get(i));
+                    for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                        data = dbReader.getline(i);
+                        if (fli.equals(data[2])) {
+                            if (data[4].equals("0")) {
+                                model.addRow(data);
+                            }
                         }
                     }
-                }
-                for (int i = 1; i < data.size(); i++) {
-                    if(fli.equals(data.get(i)[2])){
-                        if(data.get(i)[4].equals("1"))
-                        {
-                            pass_action.addRow(data.get(i));
+                    for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                        data = dbReader.getline(i);
+                        if (fli.equals(data[2])) {
+                            if (data[4].equals("1")) {
+                                model.addRow(data);
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
-
         }
-
     }
-    private class freshActionListener implements  ActionListener{
+
+    private class freshActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -346,40 +296,20 @@ public class TablePanel extends JPanel {
             idFlight_field.setBorder(borderLine);
             idPassenger_field.setBorder(borderLine);
             airline_field.setBorder(borderLine);
-            table.setFont(new Font("Arial", Font.PLAIN, 12));
-            table.setEnabled(false);
-            table.setBorder(new LineBorder(new Color(0, 0, 0)));
-            DefaultTableModel title = new DefaultTableModel(
-                    new Object[][] {
-
-                    },
-                    new String[] {"idPassenger","surName","idFlight","bookingNum","status","seat","meal","mealPre1","mealPre2","mealPre3","airline"}
-            );
-            table.setModel(title);
-            table.setRowHeight(30);
-            JTableHeader head_table = table.getTableHeader();
-            head_table.setPreferredSize(new Dimension(head_table.getWidth(), 35));
-            head_table.setFont(new Font("Arial", Font.PLAIN, 25));
-            table.setFont(new Font("Arial", Font.PLAIN, 25));
-            table.getColumnModel().getColumn(0).setPreferredWidth(80);
-            table.getColumnModel().getColumn(1).setPreferredWidth(80);
-            table.getColumnModel().getColumn(2).setPreferredWidth(80);
-            table.getColumnModel().getColumn(3).setPreferredWidth(80);
-            table.getColumnModel().getColumn(4).setPreferredWidth(35);
-            table.getColumnModel().getColumn(5).setPreferredWidth(35);
-            table.getColumnModel().getColumn(6).setPreferredWidth(80);
-            table.getColumnModel().getColumn(7).setPreferredWidth(80);
-            table.getColumnModel().getColumn(8).setPreferredWidth(80);
-            table.getColumnModel().getColumn(9).setPreferredWidth(80);
-            table.getColumnModel().getColumn(10).setPreferredWidth(90);
-            table .getTableHeader().setReorderingAllowed(false);
-            for(int i=1;i< data.size();i++){
-                if(data.get(i)[4].equals("0"))
-                    title.addRow(data.get(i));
-            }
-            for(int i=1;i< data.size();i++){
-                if(data.get(i)[4].equals("1"))
-                    title.addRow(data.get(i));
+            model.setRowCount(0);
+            try {
+                for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                    data = dbReader.getline(i);
+                    if (data[4].equals("0"))
+                        model.addRow(data);
+                }
+                for (int i = 1; i < dbReader.getNumberOfLine(); i++) {
+                    data = dbReader.getline(i);
+                    if (data[4].equals("1"))
+                        model.addRow(data);
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         }
     }
