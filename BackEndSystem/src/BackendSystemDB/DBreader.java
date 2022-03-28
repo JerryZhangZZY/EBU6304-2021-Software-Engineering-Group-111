@@ -1,12 +1,5 @@
 package BackendSystemDB;
 
-/**
- * a tool read data from DB
- *
- * @author Wang Chenyu
- * @date 2022/3/25
- * @version 1.0
- */
 import com.csvreader.CsvReader;
 
 import java.io.FileNotFoundException;
@@ -15,6 +8,18 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+/**
+ * a tool read data from DB
+ *
+ * @author Wang Chenyu
+ * @date 2022/3/25
+ * @version 1.0
+ *
+ * @author Liang Zhehao
+ * @date 2022/3/28
+ * @version 1.1
+ * Modify getNumberOfLine function
+ */
 public class DBreader {
     String path = "DB/backend.csv";
     String idPassenger;
@@ -25,7 +30,7 @@ public class DBreader {
 
     public String[] getheadline() throws IOException {
         try {
-            csvReaderhead= new CsvReader(path,',',Charset.forName("UTF-8"));
+            csvReaderhead = new CsvReader(path, ',', Charset.forName("UTF-8"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -34,10 +39,11 @@ public class DBreader {
         csvReaderhead.close();
         return head;
     }
+
     public String[] getline(int temp_row) throws IOException {
-        CsvReader csvReaderline = new CsvReader(path,',',Charset.forName("UTF-8"));
+        CsvReader csvReaderline = new CsvReader(path, ',', Charset.forName("UTF-8"));
         String[] record = new String[11];
-        for(int count = -1; count < temp_row; count++) {
+        for (int count = -1; count < temp_row; count++) {
             try {
                 csvReaderline.readRecord();
             } catch (IOException e) {
@@ -48,14 +54,15 @@ public class DBreader {
         csvReaderline.close();
         return record;
     }
+
     public ArrayList<String[]> getDataBase() throws IOException {
-        csvReaderDB = new CsvReader(path,',',Charset.forName("UTF-8"));
+        csvReaderDB = new CsvReader(path, ',', Charset.forName("UTF-8"));
         ArrayList<String[]> data = new ArrayList<String[]>();
         String[] head = this.getheadline();
         data.add(head);
         csvReaderDB.readRecord();
-        int i=1;
-        while (csvReaderDB.readRecord()){
+        int i = 1;
+        while (csvReaderDB.readRecord()) {
             String[] temp = this.getline(i);
             data.add(temp);
             i++;
@@ -63,26 +70,28 @@ public class DBreader {
         csvReaderDB.close();
         return data;
     }
-    public ArrayList<String[]> getSpecialAirline(String airline) throws IOException{
+
+    public ArrayList<String[]> getSpecialAirline(String airline) throws IOException {
         ArrayList<String[]> data = new ArrayList<String[]>();
         ArrayList<String[]> database = this.getDataBase();
         String[] head = this.getheadline();
         data.add(head);
         int i = this.getNumberOfLine();
-        for (int j =1;j<i+1;j++){
-            if(airline.equals(database.get(i)[9])){
+        for (int j = 1; j < i + 1; j++) {
+            if (airline.equals(database.get(i)[9])) {
                 data.add(database.get(i));
             }
         }
         return data;
     }
+
     public int getNumberOfLine() throws IOException {
-        csvReaderNL = new CsvReader(path,',',Charset.forName("UTF-8"));
-        int i=0;
-        while (csvReaderNL.readRecord()){
+        csvReaderNL = new CsvReader(path);
+        int i = 0;
+        while (csvReaderNL.readRecord()) {
             i++;
         }
         csvReaderNL.close();
-        return i-1;
+        return i;
     }
 }
