@@ -1,5 +1,14 @@
 package BackendSystemDB;
 
+import com.csvreader.CsvWriter;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+
 /**
  * a tool write data to DB
  *
@@ -11,15 +20,11 @@ package BackendSystemDB;
  * @date 2022/3/27
  * @version 1.1
  *
+ * @author Liang Zhehao
+ * @data 2022/3/28
+ * @version 1.2
+ * Modify changeline function
  */
-import com.csvreader.CsvWriter;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-
 public abstract class DBwrite {
     public static void writeline(String[] info) {
         File f = new File("DB/backend.csv");
@@ -33,23 +38,37 @@ public abstract class DBwrite {
             e.printStackTrace();
         }
     }
-    public static void  changeline(String[] info){
+
+    public static void changeline(String bookingNum, String idFlight, String seat,
+                                  String meal, String mealPre1, String mealPre2, String mealPre3) {
         try {
-            DBreader temp = new DBreader();
-            ArrayList<String[]> data = new ArrayList<>();
-            ArrayList<String[]> data_new = new ArrayList<>();
-            data = temp.getDataBase();
-            for(int i = 0; i<data.size();i++){
-                if(data.get(i)[0].equals(info[0])){
-                    data_new.add(info);
+            DBreader reader = new DBreader();
+            CsvWriter csvWriter = new CsvWriter("DB/backend_new.csv");
+
+            String[] data;
+
+            for (int i = 0; i < reader.getNumberOfLine(); i++) {
+                data = reader.getline(i);
+                if (data[3].equals(bookingNum) && data[2].equals(idFlight)) {
+                    data[4] = "1";
+                    data[5] = seat;
+                    data[6] = meal;
+                    data[7] = mealPre1;
+                    data[8] = mealPre2;
+                    data[9] = mealPre3;
                 }
-                else
-                    data_new.add(data.get(i));
+                 csvWriter.writeRecord(data);
             }
-            CsvWriter csvWriter = new CsvWriter("DB/backend.csv");
-            for (String[] strings : data_new)
-                csvWriter.writeRecord(strings);
             csvWriter.close();
+            File file = new File("DB/backend.csv");
+            if (file.isFile() && file.exists()) {
+                file.delete();
+            } else {
+                System.out.println("失败！");
+            }
+            File oldFile = new File("DB/backend_new.csv");
+            File newFile = new File("DB/backend.csv");
+            oldFile.renameTo(newFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
