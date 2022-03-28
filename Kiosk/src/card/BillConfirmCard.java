@@ -1,5 +1,6 @@
 package card;
 
+import BackendSystemDB.DBwrite;
 import dbWriter.SeatWriter;
 import main.State;
 
@@ -113,6 +114,40 @@ public class BillConfirmCard extends JPanel {
 
     public static void confirm() {
         SeatWriter.setSeat(State.getIdFlight(), State.getSeatRow(), State.getSeatColumn());
-
+        String column = "o";
+        switch (State.getSeatColumn()) {
+            case 1:
+                column = "A";
+                break;
+            case 2:
+                column = "B";
+                break;
+            case 3:
+                column = "C";
+                break;
+            case 4:
+                column = "D";
+                break;
+            case 5:
+                column = "E";
+                break;
+            case 6:
+                column = "F";
+        }
+        String food = "";
+        if (State.getMeal() == 'a')
+            food = "Standard";
+        else if (State.getMeal() == 'b')
+            food = "Vegetarian";
+        else if (State.getMeal() == 'c')
+            food = "Halal";
+        String[] prefFood = new String[3];
+        for (int i = 0; i < 3; i++) {
+            if (!State.getSelectedPrefFood()[i])
+                prefFood[i] = "NULL";
+            else
+                prefFood[i] = State.getPrefFoodName()[i];
+        }
+        DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), State.getSeatRow() + column, food, prefFood[0], prefFood[1], prefFood[2]);
     }
 }
