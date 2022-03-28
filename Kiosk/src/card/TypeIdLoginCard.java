@@ -1,9 +1,17 @@
 package card;
 
+import dbReader.PassengerFlightReader;
+import dbReader.PassengerReader;
+import main.State;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class returns a panel of typing login card.
@@ -24,6 +32,8 @@ public class TypeIdLoginCard extends JPanel {
     private JButton buttonOk;
     private JTextField tfSurname;
     private JTextField tfId;
+    private JLabel vertical;
+    private JLabel lblError;
 
     public TypeIdLoginCard(){
         setSize(1150,980);
@@ -63,27 +73,79 @@ public class TypeIdLoginCard extends JPanel {
         buttonOk.setBounds(375,540,400,70);
         add(buttonOk);
 
-        JLabel vertical = new JLabel();
+        vertical = new JLabel();
         vertical.setBounds(1145, 40, 5, 800);
         vertical.setOpaque(true);
         vertical.setBackground(new Color(11, 89, 167));
         add(vertical);
 
+        lblError = new JLabel("Authentication failed!");
+        lblError.setBounds(375, 495, 400, 40);
+        lblError.setFont(new Font("Arial", Font.PLAIN,35));
+        lblError.setForeground(Color.RED);
+        lblError.setHorizontalAlignment(SwingConstants.CENTER);
+        add(lblError);
+        lblError.setVisible(false);
+
+        tfSurname.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfSurname.setText(null);
+                lblError.setVisible(false);
+            }
+        });
+
+        tfId.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfId.setText(null);
+                lblError.setVisible(false);
+            }
+        });
+
         buttonOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ;
+                List<String> bookingNumList = getBookingNumByTyping(tfSurname.getText(), tfId.getText());
+                if (bookingNumList.size() == 3)
+                    lblError.setVisible(true);
+                else {
+                    State.setPassengerName(tfSurname.getText());
+                    if (bookingNumList.size() == 0)
+                        State.setBookingNum(null);
+                    else
+                        State.setBookingNum(bookingNumList.get(0));
+                    State.setPc(3);
+                }
             }
         });
     }
 
     /**
-     *
-     * @return "-1": Authentication failed; "0": No booking number; else: Booking number.
+     * Authenticate id and surname and give back booking number(s).
+     * @return [F,F,F]: Authentication failed; []: No booking number; [bn1]/[bn1,bn2]: Booking number(s).
      */
-    public String getBookingNumByTyping() {
-        String bookingNum = "";
-        return bookingNum;
+    public List<String> getBookingNumByTyping(String surName, String passengerId) {
+        List<String> list = new ArrayList<>();
+        try {
+            if (!tfSurname.getText().equals(PassengerReader.getSurname(PassengerReader.indexOf(tfId.getText())))) {
+                for(int i = 0; i < 3; i++)
+                    list.add("F");
+                return list;
+            }
+            else {
+                list.addAll(PassengerFlightReader.getBookingNumByPassengerId(passengerId));
+                return list;
+            }
+        } catch (Exception e) {
+            for(int i = 0; i < 3; i++)
+                list.add("F");
+            return list;
+        }
+
+
     }
 
     public void reset() {

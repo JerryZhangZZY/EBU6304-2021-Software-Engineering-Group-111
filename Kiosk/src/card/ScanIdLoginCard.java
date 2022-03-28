@@ -21,6 +21,11 @@ import java.util.List;
  * @author Zhang Zeyu
  * @date 2022/3/22
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * @version 1.1
+ * Performance improvement.
  */
 
 public class ScanIdLoginCard extends JPanel {
@@ -68,22 +73,16 @@ public class ScanIdLoginCard extends JPanel {
                 List<String> bookingNumList = getBookingNumByScanning();
                 if (bookingNumList.size() == 3)
                     lblError.setVisible(true);
-                else if (bookingNumList.size() == 0) {
-                    State.setBookingNum(null);
-                    try {
-                        State.setPassengerName(PassengerReader.getSurname(PassengerReader.indexOf(IdCardReader.readId())));
-                    } catch (Exception ex) {
-                        State.setPassengerName("Mr.Nobody");
-                    }
-                    State.setPc(3);
-                }
                 else {
-                    State.setBookingNum(bookingNumList.get(0));
                     try {
                         State.setPassengerName(PassengerReader.getSurname(PassengerReader.indexOf(IdCardReader.readId())));
                     } catch (Exception ex) {
                         State.setPassengerName("Mr.Nobody");
                     }
+                    if (bookingNumList.size() == 0)
+                        State.setBookingNum(null);
+                    else
+                        State.setBookingNum(bookingNumList.get(0));
                     State.setPc(3);
                 }
             }
@@ -91,7 +90,7 @@ public class ScanIdLoginCard extends JPanel {
     }
 
     /**
-     * Scan the id card and give result back.
+     * Scan the id card and give back booking number(s).
      * @return [F,F,F]: Scan failed; []: No booking number; [bn1]/[bn1,bn2]: Booking number(s).
      */
     public List<String> getBookingNumByScanning() {
