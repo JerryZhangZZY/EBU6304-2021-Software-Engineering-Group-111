@@ -36,12 +36,13 @@ public class BookingLoginPanel extends JPanel {
     private JPanel InputPanel;
     private JTextField bookingNumberTextField;
     private JPanel buttonPanel;
+
     private JButton okButton;
+
     private JButton altButton;
     private JSeparator separator1;
     private JSeparator separator2;
     private JLabel orLabel;
-
     /**
      * Create the panel.
      */
@@ -157,4 +158,14 @@ public class BookingLoginPanel extends JPanel {
             }
         });
     }
+
+    public JTextField getBookingNumberTextField() {
+        return bookingNumberTextField;
+    }
+
+    public JButton getOkButton() {
+        return okButton;
+    }
+
+
 }
