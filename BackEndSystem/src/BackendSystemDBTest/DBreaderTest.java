@@ -21,8 +21,8 @@ public class DBreaderTest {
 //        }
         String[] tmp=reader.getline(2);
         //System.out.println(tmp[0]);
-        ArrayList<String[]> data = reader.getDataBase();
-        System.out.print(data.get(4)[9]);
+//        ArrayList<String[]> data = reader.getDataBase();
+//        System.out.print(data.get(4)[9]);
         //System.out.println(reader.getNumberOfLine());
         //ArrayList<String[]> airline = reader.getSpecialAirline("AIR China");
         //System.out.println(airline.get(0)[0]);
