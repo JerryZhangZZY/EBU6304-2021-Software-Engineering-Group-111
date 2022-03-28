@@ -46,7 +46,7 @@ public class ScanIdLoginCard extends JPanel {
 
         buttonScan = new JButton("Scan");
         buttonScan.setBounds(235, 540, 300, 70);
-        buttonScan.setFont(new Font("Arial", Font.PLAIN,35));
+        buttonScan.setFont(new Font("Arial", Font.BOLD,35));
         buttonScan.setBackground(new Color(11, 89, 167));
         buttonScan.setForeground(Color.WHITE);
         add(buttonScan);

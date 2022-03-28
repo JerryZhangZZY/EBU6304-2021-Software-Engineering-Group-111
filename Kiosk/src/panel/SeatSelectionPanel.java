@@ -1,7 +1,6 @@
 package panel;
 
 
-import card.SmallBillCard;
 import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
@@ -9,7 +8,6 @@ import main.State;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
@@ -33,6 +31,11 @@ import java.awt.event.*;
  * @date 2022/3/23
  * @version 1.3
  * Add bill and OK button
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * @version 1.4
+ * Appearance improved.
  */
 public class SeatSelectionPanel extends JPanel {
     private int[] avail_seat = new int[6];
@@ -198,7 +201,7 @@ public class SeatSelectionPanel extends JPanel {
         JPanel prefPanel = new JPanel();
         prefPanel.setBackground(Color.WHITE);
         prefPanel.setLayout(null);
-        prefPanel.setBounds(50, 562, 388, 280);
+        prefPanel.setBounds(50, 550, 388, 280);
         add(prefPanel);
 
         JLabel lblNewLabel1 = new JLabel("Preference");
@@ -274,10 +277,10 @@ public class SeatSelectionPanel extends JPanel {
 
         OKListener okListener = new OKListener();
         JButton btnOK = new JButton("OK");
-        btnOK.setFont(new Font("Arial", Font.PLAIN, 40));
-        btnOK.setBounds(1255, 562, 154, 72);
-        btnOK.setForeground(Color.DARK_GRAY);
-        btnOK.setBackground(Color.WHITE);
+        btnOK.setFont(new Font("Arial", Font.BOLD, 35));
+        btnOK.setBounds(1200, 760, 330, 70);
+        btnOK.setForeground(Color.WHITE);
+        btnOK.setBackground(new Color(11, 89, 167));
         btnOK.addActionListener(okListener);
         add(btnOK);
     }

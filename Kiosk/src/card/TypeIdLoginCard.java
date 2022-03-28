@@ -67,7 +67,7 @@ public class TypeIdLoginCard extends JPanel {
         add(tfId);
 
         buttonOk = new JButton("OK");
-        buttonOk.setFont(new Font("Arial", Font.PLAIN,35));
+        buttonOk.setFont(new Font("Arial", Font.BOLD,35));
         buttonOk.setBackground(new Color(11, 89, 167));
         buttonOk.setForeground(Color.WHITE);
         buttonOk.setBounds(375,540,400,70);

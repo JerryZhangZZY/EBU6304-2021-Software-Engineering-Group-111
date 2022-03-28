@@ -28,6 +28,11 @@ import java.awt.event.MouseEvent;
  * @date 2022/3/27
  * @version 1.2
  * Appearance improved.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * @version 1.3
+ * Appearance improved.
  */
 
 public class BookingLoginPanel extends JPanel {
@@ -62,9 +67,9 @@ public class BookingLoginPanel extends JPanel {
 
         instructLabel = new JLabel("Please enter your booking number");
         instructLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        instructLabel.setFont(new Font("Arial", Font.PLAIN, 40));
+        instructLabel.setFont(new Font("Arial", Font.PLAIN, 50));
         instructLabel.setForeground(Color.DARK_GRAY);
-        instructLabel.setBounds(660, 150, 600, 80);
+        instructLabel.setBounds(560, 200, 800, 80);
         textPanel.add(instructLabel);
         /*
         input panel
@@ -77,7 +82,7 @@ public class BookingLoginPanel extends JPanel {
 
         bookingNumberTextField = new JTextField();
         bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
-        bookingNumberTextField.setBounds(710, 20, 500, 80);
+        bookingNumberTextField.setBounds(760, 60, 400, 70);
         InputPanel.add(bookingNumberTextField);
         bookingNumberTextField.setColumns(10);
         bookingNumberTextField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,17 +97,17 @@ public class BookingLoginPanel extends JPanel {
         add(buttonPanel);
 
         okButton = new JButton("OK");
-        okButton.setFont(new Font("Arial", Font.PLAIN, 28));
+        okButton.setFont(new Font("Arial", Font.BOLD, 35));
         okButton.setForeground(Color.WHITE);
         okButton.setBackground(new Color(11, 89, 167));
-        okButton.setBounds(860, 20, 200, 60);
+        okButton.setBounds(760, 10, 400, 70);
         buttonPanel.add(okButton);
 
         altButton = new JButton("Use my ID");
-        altButton.setFont(new Font("Arial", Font.PLAIN, 24));
+        altButton.setFont(new Font("Arial", Font.PLAIN, 30));
         altButton.setForeground(Color.DARK_GRAY);
         altButton.setBackground(new Color(244, 244, 244));
-        altButton.setBounds(860, 158, 200, 60);
+        altButton.setBounds(760, 161, 400, 70);
         buttonPanel.add(altButton);
 
         separator1 = new JSeparator();

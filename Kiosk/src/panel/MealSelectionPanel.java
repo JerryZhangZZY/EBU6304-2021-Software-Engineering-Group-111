@@ -1,7 +1,6 @@
 package panel;
 
 import card.MealInfoCard;
-import card.SmallBillCard;
 import main.State;
 
 import javax.swing.*;
@@ -33,6 +32,11 @@ import java.awt.event.ItemListener;
  * @date 2022/3/25
  * @version 1.3
  * GUI appearance redesigned.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * @version 1.4
+ * Appearance improved.
  */
 
 public class MealSelectionPanel extends JPanel {
@@ -40,7 +44,6 @@ public class MealSelectionPanel extends JPanel {
     private JRadioButton[] rdbtnMeal = new JRadioButton[3];
 
     private MealInfoCard mealInfoCard;
-//    private SmallBillCard smallBillCard = State.smallBillCard;
 
     private int[] price = new int[3];
     private String[] foodName = new String[3];
@@ -132,10 +135,10 @@ public class MealSelectionPanel extends JPanel {
 
         OKListener okListener = new OKListener();
         JButton btnOK = new JButton("OK");
-        btnOK.setFont(new Font("Arial", Font.PLAIN, 40));
-        btnOK.setForeground(Color.DARK_GRAY);
-        btnOK.setBackground(Color.WHITE);
-        btnOK.setBounds(1255, 562, 154, 72);
+        btnOK.setFont(new Font("Arial", Font.BOLD, 35));
+        btnOK.setBounds(1200, 760, 330, 70);
+        btnOK.setForeground(Color.WHITE);
+        btnOK.setBackground(new Color(11, 89, 167));
         btnOK.addActionListener(okListener);
         add(btnOK);
     }

@@ -22,7 +22,8 @@ import java.awt.*;
  */
 public class SmallBillCard extends JPanel{
     private int price;
-    private JLabel screen = new JLabel();
+    private final JLabel screen;
+    JLabel lblTitle;
     public SmallBillCard(int price) {
         this.price = 0;
         //loadBill();
@@ -31,19 +32,20 @@ public class SmallBillCard extends JPanel{
         setBackground(Color.WHITE);
         setLayout(null);
         //setSize(265, 115);
-        setBounds(1200, 600, 265, 115);
+        setBounds(1200, 600, 330, 115);
+        screen = new JLabel();
         screen.setHorizontalAlignment(SwingConstants.RIGHT);
         screen.setText("$"+ price);
-        screen.setBounds(45, 53, 200, 59);
-        screen.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
+        screen.setBounds(105, 50, 200, 59);
+        screen.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
         screen.setForeground(new Color(255,69,0));
         add(screen);
 
-        JLabel lblNewLabel = new JLabel("Bill");
-        lblNewLabel.setForeground(Color.DARK_GRAY);
-        lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 38));
-        lblNewLabel.setBounds(20, 3, 126, 61);
-        add(lblNewLabel);
+        lblTitle = new JLabel("Bill");
+        lblTitle.setForeground(Color.DARK_GRAY);
+        lblTitle.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 38));
+        lblTitle.setBounds(20, 3, 126, 61);
+        add(lblTitle);
     }
 
     public void setPrice(int price) {
@@ -63,5 +65,9 @@ public class SmallBillCard extends JPanel{
     public void subPrice(int price) {
         this.price -= price;
         screen.setText("$" + this.price);
+    }
+
+    public void changeTitle(String title) {
+        lblTitle.setText(title);
     }
 }

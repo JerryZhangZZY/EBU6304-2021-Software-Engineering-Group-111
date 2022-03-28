@@ -15,6 +15,12 @@ import java.awt.event.ActionListener;
  * @author Liang Zhehao
  * @date 2022/3/25
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * @version 1.1
+ * Reuse SmallBillCard
+ * and appearance improved.
  */
 
 public class BillConfirmCard extends JPanel {
@@ -35,7 +41,7 @@ public class BillConfirmCard extends JPanel {
         Initialize flightInfoTopBarCard
          */
         flightInfoTopBarCard = new FlightInfoTopBarCard(State.getIdFlight());
-        flightInfoTopBarCard.setLocation(0, 0);
+        flightInfoTopBarCard.setLocation(0, 20);
         add(flightInfoTopBarCard);
 
         /*
@@ -64,7 +70,7 @@ public class BillConfirmCard extends JPanel {
                 column = 'F';
         }
         seatBillCard = new SeatBillCard(State.getSeatRow(), column, seatPre, seatPay);
-        seatBillCard.setLocation(50, 206);
+        seatBillCard.setLocation(50, 224);
         add(seatBillCard);
 
         /*
@@ -81,19 +87,18 @@ public class BillConfirmCard extends JPanel {
         mealBillcard = new MealBillcard(State.getMeal(),
                 State.getPrefFoodName()[0], State.getPrefFoodName()[1], State.getPrefFoodName()[2],
                 foodPay[0], foodPay[1], foodPay[2]);
-        mealBillcard.setLocation(50, 422);
+        mealBillcard.setLocation(50, 437);
         add(mealBillcard);
 
-        JLabel lblTotal = new JLabel("Total : $ " + State.getBill(), JLabel.CENTER);
-        lblTotal.setFont(new Font("Arial", Font.PLAIN, 40));
-        lblTotal.setBounds(1183, 602, 347, 86);
-        add(lblTotal);
+        SmallBillCard totalBill = new SmallBillCard(State.getBill());
+        totalBill.changeTitle("Total:");
+        add(totalBill);
 
         JButton btnConfirm = new JButton("Confirm");
-        btnConfirm.setFont(new Font("Arial", Font.PLAIN, 40));
-        btnConfirm.setForeground(Color.DARK_GRAY);
-        btnConfirm.setBackground(Color.WHITE);
-        btnConfirm.setBounds(1249, 720, 215, 86);
+        btnConfirm.setFont(new Font("Arial", Font.BOLD, 35));
+        btnConfirm.setBounds(1200, 760, 330, 70);
+        btnConfirm.setForeground(Color.WHITE);
+        btnConfirm.setBackground(new Color(11, 89, 167));
         add(btnConfirm);
         btnConfirm.addActionListener(new ConfirmListener());
     }

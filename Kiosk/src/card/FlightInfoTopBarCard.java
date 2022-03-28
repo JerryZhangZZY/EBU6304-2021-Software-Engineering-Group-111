@@ -11,6 +11,11 @@ import java.awt.*;
  * @author Zhang Zeyu
  * @date 2022/3/24
  * @version 1.0
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/28
+ * @version 1.1
+ * Panel size changed.
  */
 
 public class FlightInfoTopBarCard extends JPanel {
@@ -23,7 +28,7 @@ public class FlightInfoTopBarCard extends JPanel {
         String arrival = FlightReader.getArrival(FlightReader.indexOf(idFlight));
         setBackground(Color.WHITE);
         setLayout(null);
-        setSize(1600,180);
+        setSize(1580,180);
 
         JLabel lblIdFlight = new JLabel(idFlight);
         lblIdFlight.setForeground(Color.DARK_GRAY);
