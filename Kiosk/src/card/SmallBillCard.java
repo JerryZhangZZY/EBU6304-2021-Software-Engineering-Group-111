@@ -1,7 +1,5 @@
 package card;
 
-import main.State;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -33,7 +31,7 @@ public class SmallBillCard extends JPanel{
         setBackground(Color.WHITE);
         setLayout(null);
         //setSize(265, 115);
-        setBounds(1200, 715, 265, 115);
+        setBounds(1200, 600, 265, 115);
         screen.setHorizontalAlignment(SwingConstants.RIGHT);
         screen.setText("$"+ price);
         screen.setBounds(45, 53, 200, 59);
