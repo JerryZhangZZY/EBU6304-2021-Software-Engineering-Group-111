@@ -137,8 +137,10 @@ public class MainFrame extends JFrame {
         backButton = new JButton();
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
-        backButton.setBounds(30, 11, 100, 80);
-        backButton.setIcon(new ImageIcon("Kiosk/icons/back.png"));
+        backButton.setBounds(25, 11, 80, 80);
+        ImageIcon backIcon = new ImageIcon("Kiosk/icons/back.png");
+        backIcon.setImage(backIcon.getImage().getScaledInstance(80, 70, Image.SCALE_SMOOTH));
+        backButton.setIcon(backIcon);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
