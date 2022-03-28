@@ -197,6 +197,7 @@ public class Control {
                 case 8:{    //finish
                     finalPanel = new FinalPanel();
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
+                    kiosk.displayComponents(true, true, false);
                     kiosk.repaint();
                     kiosk.loadPanel(finalPanel);
                     kiosk.revalidate();
