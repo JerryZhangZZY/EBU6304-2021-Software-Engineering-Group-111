@@ -1,61 +1,151 @@
 package panel;
 
 import card.BillConfirmCard;
-import dbReader.PassengerFlightReader;
 import main.State;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * @version 1.0
  * @author Ni Ruijie
  * @date 3/26
  * Generate class which can enter the credit card ID of users
+ *
  * @version 1.1
  * @author Ni Ruijie
  * @date 3/27
  * Bound 1920*800 ---> 1600*800
+ *
+ * @version 1.2
+ * @author Zhang Zeyu
+ * @date 2022/3/29
+ * Redesigned GUI.
  */
 public class PaymentPanel extends JPanel {
-	private JPanel paymentPanel;
-    private JLabel progressLabel;
-    private JTextField txtTry;
-	/**
-	 * Create the panel.
-	 */
-	public PaymentPanel() {
-		//setBounds(new Rectangle(0, 0, 1920, 880));
+    private JTextField tfCreditId;
+    private JLabel lblPrice;
+    private int price;
+
+	public PaymentPanel(int price) {
 		setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1600, 880);
         setVisible(true);
-        
-        txtTry = new JTextField();
-        txtTry.setFont(new Font("Arial", Font.PLAIN, 35));
-        txtTry.setBounds(500, 431, 600, 70);
-        add(txtTry);
-        txtTry.setColumns(10);
-        
-        JLabel creditNotice = new JLabel("Credit Card ID:");
-        creditNotice.setHorizontalAlignment(SwingConstants.CENTER);
-        creditNotice.setFont(new Font("Arial", Font.PLAIN, 55));
-        creditNotice.setBounds(500, 277, 600, 87);
-        add(creditNotice);
-        
-        JButton payButton = new JButton("Pay");
-        payButton.setFont(new Font("Arial", Font.PLAIN, 50));
-        payButton.setBounds(735, 615, 150, 80);
-        add(payButton);
 
-        payButton.addActionListener(new ActionListener() {
+        JPanel panelUnionPay = new JPanel();
+        panelUnionPay.setBackground(new Color(244, 244, 244));
+        panelUnionPay.setBorder(new LineBorder(new Color(165, 42, 42), 10, true));
+        panelUnionPay.setBounds(new Rectangle(400, 140, 800, 600));
+        add(panelUnionPay);
+        panelUnionPay.setLayout(null);
+
+        JPanel panelTopBar = new JPanel();
+        panelTopBar.setBackground(new Color(165, 42, 42));
+        panelTopBar.setBounds(10, 10, 780, 90);
+        panelUnionPay.add(panelTopBar);
+        panelTopBar.setLayout(null);
+
+        JLabel lblTitle = new JLabel(" China UnionPay");
+        lblTitle.setForeground(Color.WHITE);
+        lblTitle.setFont(new Font("Tahoma", Font.BOLD, 40));
+        lblTitle.setIcon(new ImageIcon("Kiosk/icons/unionpay.png"));
+        lblTitle.setBounds(10, 10, 450, 63);
+        panelTopBar.add(lblTitle);
+
+        JPanel panelInput = new JPanel();
+        panelInput.setBackground(Color.WHITE);
+        panelInput.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
+        panelInput.setBounds(225, 325, 350, 60);
+        panelUnionPay.add(panelInput);
+        panelInput.setLayout(null);
+
+        tfCreditId = new JTextField();
+        tfCreditId.setText("Credit card ID");
+        tfCreditId.setForeground(new Color(128, 0, 0));
+        tfCreditId.setBackground(new Color(165, 42, 42));
+        tfCreditId.setFont(new Font("Arial", Font.BOLD, 35));
+        tfCreditId.setBorder(null);
+        tfCreditId.setBounds(68, 10, 270, 40);
+        tfCreditId.setEditable(false);
+        panelInput.add(tfCreditId);
+        tfCreditId.setColumns(10);
+
+        JLabel lblUnionCardIcon = new JLabel("");
+        lblUnionCardIcon.setIcon(new ImageIcon("Kiosk/icons/unioncard.png"));
+        lblUnionCardIcon.setBounds(12, 10, 44, 40);
+        panelInput.add(lblUnionCardIcon);
+
+        JPanel panelPay = new JPanel();
+        panelPay.setLayout(null);
+        panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
+        panelPay.setBackground(Color.WHITE);
+        panelPay.setBounds(225, 425, 350, 60);
+        panelUnionPay.add(panelPay);
+
+        JLabel lblPay = new JLabel("Pay");
+        lblPay.setForeground(Color.WHITE);
+        lblPay.setHorizontalAlignment(SwingConstants.CENTER);
+        lblPay.setFont(new Font("Tahoma", Font.BOLD, 35));
+        lblPay.setBounds(135, 10, 80, 40);
+        panelPay.add(lblPay);
+
+        lblPrice = new JLabel("$" + price);
+        lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
+        lblPrice.setForeground(Color.DARK_GRAY);
+        lblPrice.setFont(new Font("Tahoma", Font.BOLD, 60));
+        lblPrice.setBounds(300, 170, 200, 60);
+        panelUnionPay.add(lblPrice);
+
+        JLabel lblPayTo = new JLabel("To: Beijing International Airport");
+        lblPayTo.setForeground(Color.GRAY);
+        lblPayTo.setFont(new Font("Calibri", Font.BOLD, 20));
+        lblPayTo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblPayTo.setBounds(250, 250, 300, 28);
+        panelUnionPay.add(lblPayTo);
+
+        panelPay.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                State.setPc(State.getPc()+1);
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
+                lblPay.setForeground(Color.WHITE);
+                State.setPc(State.getPc() + 1);
                 BillConfirmCard.confirm();
             }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
+                lblPay.setForeground(Color.LIGHT_GRAY);
+            }
         });
-	}
+
+        tfCreditId.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mouseClicked(e);
+                tfCreditId.setEditable(true);
+                if (tfCreditId.getText().equals("Credit card ID")) {
+                    tfCreditId.setText(null);
+                    tfCreditId.setForeground(Color.WHITE);
+                }
+            }
+        });
+
+        panelUnionPay.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfCreditId.setEditable(false);
+                if (tfCreditId.getText().equals("")) {
+                    tfCreditId.setText("Credit card ID");
+                    tfCreditId.setForeground(new Color(128, 0, 0));
+                }
+            }
+        });
+    }
 }
