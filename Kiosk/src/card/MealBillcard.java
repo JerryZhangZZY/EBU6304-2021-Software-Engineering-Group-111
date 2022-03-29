@@ -1,7 +1,6 @@
 package card;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**
@@ -34,7 +33,7 @@ public class MealBillcard extends JPanel {
         pay[1] = bill2;
         pay[2] = bill3;
 
-        setBorder(new LineBorder(Color.darkGray));
+//        setBorder(new LineBorder(Color.darkGray));
         setBackground(Color.WHITE);
         setLayout(null);
 
@@ -46,16 +45,10 @@ public class MealBillcard extends JPanel {
         else if (basis == 'c')
             food = "Halal";
         JLabel headline = new JLabel("Meal:  " + food);
-        headline.setBounds(24, 20, 600, 69);
+        headline.setBounds(40, 20, 600, 69);
         headline.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
+        headline.setForeground(Color.DARK_GRAY);
         add(headline);
-
-//        basis_meal = new JLabel();
-//        basis_meal.setBounds(174, 25, 300, 58);
-//
-//        basis_meal.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
-//        basis_meal.setText(food);
-//        add(basis_meal);
 
         int n = 0;
         for (int i = 0; i < 3; i++) {
@@ -63,25 +56,25 @@ public class MealBillcard extends JPanel {
                 continue;
             }
             extr[n] = new JLabel();
-            extr[n].setText("·" + pref[i]);
-            extr[n].setLocation(127, 122 + 91 * n);
+            extr[n].setText("· " + pref[i]);
+            extr[n].setLocation(120, 105 + 91 * n);
             extr[n].setFont(new Font("Arial", Font.BOLD, 38));
-            extr[n].setForeground(Color.GRAY);
+            extr[n].setForeground(Color.DARK_GRAY);
             extr[n].setSize(350, 69);
             add(extr[n]);
 
             bill[n] = new JLabel();
-            bill[n].setLocation(970, 122 + 91 * n);
+            bill[n].setLocation(970, 105 + 91 * n);
             bill[n].setSize(127, 69);
             bill[n].setText("$" + pay[i]);
-            bill[n].setForeground(Color.ORANGE);
+            bill[n].setForeground(new Color(255,69,0));
             bill[n].setFont(new Font("Arial", Font.BOLD, 38));
             add(bill[n]);
 
             line[n] = new JLabel("·······························");
-            line[n].setLocation(495, 122 + 91 * n);
+            line[n].setLocation(495, 105 + 91 * n);
             line[n].setSize(413, 69);
-            line[n].setForeground(Color.GRAY);
+            line[n].setForeground(Color.LIGHT_GRAY);
             line[n].setFont(new Font("Arial", Font.BOLD, 38));
             add(line[n]);
 

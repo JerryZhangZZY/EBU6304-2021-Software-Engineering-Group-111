@@ -1,7 +1,6 @@
 package card;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**
@@ -21,33 +20,34 @@ public class SeatBillCard extends JPanel {
 
     public SeatBillCard(int row, char column, String prefer, int pay) {
 
-        setBorder(new LineBorder(Color.darkGray));
+//        setBorder(new LineBorder(Color.darkGray));
         setBackground(Color.WHITE);
         setLayout(null);
         setSize(1111, 190);
 
-        preference.setText("·" + prefer);
-        preference.setBounds(127, 89, 831, 69);
+        preference.setText("· " + prefer);
+        preference.setBounds(120, 105, 831, 69);
         preference.setFont(new Font("Arial", Font.BOLD, 38));
-        preference.setForeground(Color.GRAY);
+        preference.setForeground(Color.DARK_GRAY);
         add(preference);
 
         JLabel line = new JLabel("·······························");
-        line.setLocation(495, 89);
+        line.setLocation(495, 105);
         line.setSize(413, 69);
-        line.setForeground(Color.GRAY);
+        line.setForeground(Color.LIGHT_GRAY);
         line.setFont(new Font("Arial", Font.BOLD, 38));
         add(line);
 
-        headline.setLocation(20, 10);
+        headline.setLocation(40, 20);
         headline.setSize(500, 69);
         headline.setText("Seat:  " + row + column);
         headline.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
+        headline.setForeground(Color.DARK_GRAY);
         add(headline);
 
-        bill.setLocation(970, 89);
+        bill.setLocation(970, 105);
         bill.setSize(104, 69);
-        bill.setForeground(Color.ORANGE);
+        bill.setForeground(new Color(255,69,0));
         bill.setFont(new Font("Arial", Font.BOLD, 38));
         bill.setText("$" + pay);
         add(bill);
