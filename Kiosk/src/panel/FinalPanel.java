@@ -3,11 +3,15 @@ package panel;
 import dbReader.PassengerFlightReader;
 import dbWriter.StatusWriter;
 import main.State;
+import printer.BoardingPassPrinter;
+import printer.TagPrinter;
+import printer.TicketPrinter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -107,8 +111,17 @@ public class FinalPanel extends JPanel {
         exit_begin.setVisible(false);
         exit_system.setVisible(false);
         timer.schedule(new MyTask1(),3000);
-        timer1.schedule(new MyTask2(),5000);
+        timer1.schedule(new MyTask2(),3700);
         timer2.schedule(new MyTask3(),15000);
+        try {
+            char columnInLetter = (char)(State.getSeatColumn()+(int)'A'-1);
+            BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);
+            TagPrinter.creatTag(State.getPassengerFlight_index());
+            TicketPrinter.creatTicket(State.getPassengerFlight_index());
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     class MyTask1 extends TimerTask {
         public void run() {

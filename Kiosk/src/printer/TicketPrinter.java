@@ -21,10 +21,9 @@ import java.io.*;
 public class TicketPrinter {
     /**
      * Generate .txt for tickets
-     * @param idPassengerFlight primary key
+     * @param idPassengerFlight_index primary key
      */
-    public static void creatTicket(int idPassengerFlight)throws IOException {
-        int idPassengerFlight_index= PassengerFlightReader.indexOf(idPassengerFlight);
+    public static void creatTicket(int idPassengerFlight_index)throws IOException {
         int checkin_num = PassengerFlightReader.getCheckin(idPassengerFlight_index);
         int bagDropCounter = PassengerFlightReader.getBagDropCounter(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);

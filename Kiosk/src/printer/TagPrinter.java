@@ -11,10 +11,9 @@ import java.io.*;
 public abstract class TagPrinter {
     /**
      * Generate .txt for tags
-     * @param idPassengerFlight primary key
+     * @param idPassengerFlight_index primary key
      */
-    public static void creatTag(int idPassengerFlight)throws IOException{
-        int idPassengerFlight_index= PassengerFlightReader.indexOf(idPassengerFlight);
+    public static void creatTag(int idPassengerFlight_index)throws IOException{
         int carryon_num = PassengerFlightReader.getCarryon(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
         int idPassenger_index = PassengerReader.indexOf(idPassenger);

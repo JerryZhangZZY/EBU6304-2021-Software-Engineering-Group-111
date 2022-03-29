@@ -18,8 +18,7 @@ import java.io.IOException;
  */
 
 public abstract class BoardingPassPrinter {
-    public static void creatBoardingPass(int idPassengerFlight, String seat) throws IOException {
-        int idPassengerFlight_index = PassengerFlightReader.indexOf(idPassengerFlight);
+    public static void creatBoardingPass(int idPassengerFlight_index, String seat) throws IOException {
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         int idFlight_index = FlightReader.indexOf(idFlight);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
