@@ -111,7 +111,7 @@ public class FinalPanel extends JPanel {
         exit_begin.setVisible(false);
         exit_system.setVisible(false);
         timer.schedule(new MyTask1(),3000);
-        timer1.schedule(new MyTask2(),5000);
+        timer1.schedule(new MyTask2(),3700);
         timer2.schedule(new MyTask3(),15000);
         try {
             char columnInLetter = (char)(State.getSeatColumn()+(int)'A'-1);
