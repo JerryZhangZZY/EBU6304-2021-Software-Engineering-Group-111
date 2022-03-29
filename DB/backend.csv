@@ -41,3 +41,6 @@ idPassenger,surName,idFlight,bookingNum,status,seat,meal,mealPre1,mealPre2,mealP
 40,Edith,CA1004,401400,1,41F,halal,French,Japan,ice,Kun Peng
 66,John,CA1002,879689,1,23C,vegetarian,French,Japan,ice,Shan Dong
 74,Panda,CA1006,879456,0,24A,NULL,NULL,NULL,NULL,Shan Dong
+123001,Jack,CA0001,bn0001,0,NULL,NULL,NULL,NULL,NULL,AIR CHINA
+123001,Jack,AC0001,bn0001,0,NULL,NULL,NULL,NULL,NULL,AIR CANADA
+123001,Jack,CA0003,bn0002,0,NULL,NULL,NULL,NULL,NULL,AIR CANADA
