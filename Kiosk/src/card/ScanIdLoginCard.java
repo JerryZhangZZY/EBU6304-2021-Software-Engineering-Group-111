@@ -26,6 +26,11 @@ import java.util.List;
  * @date 2022/3/28
  * @version 1.1
  * Performance improvement.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/29
+ * @version 1.2
+ * Fixed a bug.
  */
 
 public class ScanIdLoginCard extends JPanel {
@@ -74,6 +79,7 @@ public class ScanIdLoginCard extends JPanel {
                 if (bookingNumList.size() == 3)
                     lblError.setVisible(true);
                 else {
+                    lblError.setVisible(false);
                     try {
                         State.setPassengerName(PassengerReader.getSurname(PassengerReader.indexOf(IdCardReader.readId())));
                     } catch (Exception ex) {
