@@ -16,6 +16,11 @@ import java.awt.*;
  * @date 2022/3/28
  * @version 1.1
  * Panel size changed.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/29
+ * @version 1.2
+ * Labels relocation.
  */
 
 public class FlightInfoTopBarCard extends JPanel {
@@ -33,14 +38,14 @@ public class FlightInfoTopBarCard extends JPanel {
         JLabel lblIdFlight = new JLabel(idFlight);
         lblIdFlight.setForeground(Color.DARK_GRAY);
         lblIdFlight.setFont(new Font("Arial", Font.PLAIN, 55));
-        lblIdFlight.setBounds(100, 50, 237, 70);
+        lblIdFlight.setBounds(100, 55, 237, 70);
         add(lblIdFlight);
 
         JLabel lblDate = new JLabel();
         lblDate.setFont(new Font("Arial", Font.PLAIN, 45));
         lblDate.setForeground(Color.DARK_GRAY);
         lblDate.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblDate.setBounds(1194, 50, 274, 70);
+        lblDate.setBounds(1194, 55, 274, 70);
         lblDate.setText(date);
         add(lblDate);
 
