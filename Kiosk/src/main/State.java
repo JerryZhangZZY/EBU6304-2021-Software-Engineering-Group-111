@@ -44,13 +44,8 @@ public abstract class State {
     private static int seatPre; //[0, 1, 2, 3]
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
-//    private static String[] prefSeatName = new String[4];
-//    private static int[] prefSeatPrice = new int[4];
-//    private static String[] prefFoodName = new String[3];
-//    private static int[] prefFoodPrice = new int[3];
     private static int bill = 0;
 
-    //welcome, book, id, flight, seat, food, bill, pay, final
     private static boolean[] isReady = {true, true, true,
             false, false, false, false, true, true};
 
@@ -60,16 +55,13 @@ public abstract class State {
         smallBillCard = new SmallBillCard(0);
     }
 
-    /*
-    test data for Control
-     */
     private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
     private static int[] prefFoodPrice = {5, 100, 10};
     public static int getPc() { return pc; }
 
-    public static boolean[] getIsReady() {return isReady;}
+    public static boolean[] getIsReady() { return isReady; }
     public static String getPassengerName() { return passengerName; }
     public static String getBookingNum() { return bookingNum; }
     public static int getPassengerFlight_index() { return passengerFlight_index; }
@@ -86,8 +78,8 @@ public abstract class State {
     public static int getBill() { return bill; }
     public static void setPc(int pcNext) { pc = pcNext; }
 
-    public static void setIsReady(boolean isReady, int page) {State.isReady[page] = isReady;}
-    public static void setIsReady(boolean[] isReady) {State.isReady = isReady;}
+    public static void setIsReady(boolean isReady, int page) { State.isReady[page] = isReady; }
+    public static void setIsReady(boolean[] isReady) { State.isReady = isReady; }
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
     public static void setPassengerFlight_index(int passengerFlight_index) { State.passengerFlight_index = passengerFlight_index; }
