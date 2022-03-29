@@ -5,10 +5,7 @@ import main.State;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 /**
  * @version 1.0
@@ -33,6 +30,11 @@ import java.awt.event.MouseEvent;
  * @date 2022/3/28
  * @version 1.3
  * Appearance improved.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/29
+ * @version 1.4
+ * Add ENTER listener.
  */
 
 public class BookingLoginPanel extends JPanel {
@@ -155,11 +157,21 @@ public class BookingLoginPanel extends JPanel {
                 }
             }
         });
+
         altButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 bookingNumberTextField.setText("");
                 State.setPc(2);
+            }
+        });
+
+        bookingNumberTextField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                    okButton.doClick();
             }
         });
     }
