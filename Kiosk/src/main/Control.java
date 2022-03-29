@@ -26,6 +26,11 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @date 2022/3/28
  * Add alter login panel.
+ *
+ * @version 1.4
+ * @author Zhang Zeyu
+ * @date 2022/3/29
+ * Performance improved.
  */
 public class Control {
     public static void main(String[] args) throws InterruptedException {
@@ -77,6 +82,11 @@ public class Control {
         confirm and bill panel
          */
         billPanel = new ProgressPanel(4);
+
+        /*
+        payment panel
+         */
+        payPanel = new ProgressPanel(4);
 
         /*
         final panel
@@ -185,8 +195,7 @@ public class Control {
                     break;
                 }
                 case 7: {   //pay
-                    payPanel = new ProgressPanel(4);
-                    payPanel.loadCardsPanel(new PaymentPanel());
+                    payPanel.loadCardsPanel(new PaymentPanel(State.getBill()));
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.repaint();
                     kiosk.loadPanel(payPanel);
