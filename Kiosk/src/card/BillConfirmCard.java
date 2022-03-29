@@ -10,9 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * This class can return a panel of confirm card.
@@ -26,6 +25,12 @@ import java.util.List;
  * @version 1.1
  * Reuse SmallBillCard
  * and appearance improved.
+ *
+ * @author Zhang Zeyu
+ * @date 2022/3/29
+ * @version 1.2
+ * Add function: scanning card to confirm
+ * and appearance improved.
  */
 
 public class BillConfirmCard extends JPanel {
@@ -33,12 +38,9 @@ public class BillConfirmCard extends JPanel {
     private FlightInfoTopBarCard flightInfoTopBarCard;
     private SeatBillCard seatBillCard;
     private MealBillcard mealBillcard;
-    private JLabel scan_label;
-    private JLabel info_label;
+    private JLabel lblScanningImg;
+    private JLabel lblInstruction;
     private JButton btnConfirm;
-    private int judge;
-
-    private JTextField textBill;
 
     public BillConfirmCard() {
 
@@ -103,64 +105,58 @@ public class BillConfirmCard extends JPanel {
         totalBill.changeTitle("Total:");
         add(totalBill);
 
+        lblScanningImg = new JLabel();
+        lblScanningImg.setBounds(1190, 150, 400, 400);
+        lblScanningImg.setIcon(new ImageIcon("Kiosk/icons/scan.png"));
+        add(lblScanningImg);
 
-        scan_label=new JLabel();
-        info_label=new JLabel();
-        info_label.setText("Scan ID to continue");
-        info_label.setHorizontalAlignment(SwingConstants.CENTER);
-        info_label.setBounds(1180, 550, 400, 40);
-        info_label.setFont(new Font("Arial", Font.PLAIN,35));
-        info_label.setForeground(Color.DARK_GRAY);
-        judge = 0;
-        add(info_label);
-
-        scan_label.setBounds(1190, 150, 400, 400);
-        scan_label.setIcon(new ImageIcon("Kiosk/icons/scan.png"));
-        add(scan_label);
-
-
-
-        JButton btnConfirm = new JButton("Confirm");
+        btnConfirm = new JButton("Confirm");
         btnConfirm.setFont(new Font("Arial", Font.BOLD, 35));
         btnConfirm.setBounds(1200, 760, 330, 70);
         btnConfirm.setForeground(Color.WHITE);
         btnConfirm.setBackground(new Color(11, 89, 167));
         add(btnConfirm);
         btnConfirm.addActionListener(new ConfirmListener());
+
+        lblInstruction = new JLabel();
+        lblInstruction.setText("Scan ID to continue");
+        lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
+        lblInstruction.setBounds(1200, 520, 330, 40);
+        lblInstruction.setFont(new Font("Arial", Font.PLAIN, 35));
+        lblInstruction.setForeground(Color.DARK_GRAY);
+        add(lblInstruction);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+            super.mousePressed(e);
+            lblInstruction.setText("Scan ID to continue");
+            lblInstruction.setForeground(Color.DARK_GRAY);
+            }
+        });
     }
 
     public class ConfirmListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-                //upload database
-            String id = null;
             try {
-                id = IdCardReader.readId();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (id.equals(PassengerFlightReader.getIdPassenger(PassengerFlightReader.indexOf(State.getPassengerFlight_index())))){
-                info_label.setText("Authentication success");
-                if(judge==0){
-                    judge=1;
-                }
-                else {
+                if (IdCardReader.readId().equals(PassengerFlightReader.getIdPassenger(State.getPassengerFlight_index()))) {
+                    lblInstruction.setText("Scan ID to continue");
+                    lblInstruction.setForeground(Color.DARK_GRAY);
                     if (State.getBill() != 0) {
                         State.setPc(State.getPc() + 1);
-                    }
-                    else
-                    {
-                        confirm();
+                    } else {
                         State.setPc(State.getPc() + 2);
+                        confirm();
                     }
-                }
                 }
                 else
-                {
-                    info_label.setText("Authentication error");
-                }
+                    throw new Exception();
+            } catch (Exception e) {
+                lblInstruction.setText("Authentication failed!");
+                lblInstruction.setForeground(Color.RED);
             }
+        }
     }
 
     public static void confirm() {
@@ -200,18 +196,5 @@ public class BillConfirmCard extends JPanel {
                 prefFood[i] = State.getPrefFoodName()[i];
         }
         DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), State.getSeatRow() + column, food, prefFood[0], prefFood[1], prefFood[2]);
-    }
-
-
-    public List<String> getBookingNumByScanning() {
-        List<String> list = new ArrayList<>();
-        try {
-            list.addAll(PassengerFlightReader.getBookingNumByPassengerId(IdCardReader.readId()));
-            return list;
-        } catch (IOException e) {
-            for(int i = 0; i < 3; i++)
-                list.add("F");
-            return list;
-        }
     }
 }
