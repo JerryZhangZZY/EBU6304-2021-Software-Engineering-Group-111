@@ -70,6 +70,8 @@ public class PaymentPanel extends JPanel {
         tfCreditId.setFont(new Font("Arial", Font.BOLD, 35));
         tfCreditId.setBorder(null);
         tfCreditId.setBounds(68, 10, 270, 40);
+        tfCreditId.setSelectionColor(new Color(128, 0, 0));
+        tfCreditId.setSelectedTextColor(Color.BLACK);
         tfCreditId.setEditable(false);
         panelInput.add(tfCreditId);
         tfCreditId.setColumns(10);
