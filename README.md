@@ -25,7 +25,7 @@ Satisflight is a smart flight check-in software system, featuring a kiosk softwa
 |    |Minimal|Recommended|
 |----|-------|-----------|
 |Operating System|Ubuntu 20 or Windows 10| Ubuntu 20 or Windows 10|
-|Processor|Intel(R) Core(TM) i5-9300|Intel(R) Core(TM) i5-9300|
+|Processor|Intel(R) Core(TM) i3-530|Intel(R) Core(TM) i5-9300|
 |RAM|4GB|16GB|
 |Storage|128MB|32GB|
 |Runtime Environment|Java 10|Java 10|
