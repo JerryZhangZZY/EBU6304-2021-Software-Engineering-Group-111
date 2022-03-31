@@ -6,6 +6,8 @@
 [![QMPlus Hub](https://img.shields.io/badge/QMPlus%20Hub-here-orange)](https://hub.qmplus.qmul.ac.uk/group/ebu6304-2022-software-engin-35)
 [![Gitee Mirror](https://img.shields.io/badge/Gitee%20Mirror-here-red)](https://gitee.com/jerryzhangzzy/EBU6304-2021-Software-Engineering-Group-111)
 
+### *version 1.0 - Jiuquan*
+
 ## Overview
 
 Satisflight is a smart flight check-in software system, featuring a kiosk software which offers passengers self-service check-in, so they can choose seats and print boarding passes in no time. The software is equipped with a back-end management system that enables airport and airlines staffs to view check-in status and get better prepared for passengers' boarding.
