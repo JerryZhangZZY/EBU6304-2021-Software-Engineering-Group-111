@@ -34,6 +34,11 @@ import java.awt.event.KeyEvent;
  * @author Zhang Zeyu
  * @date 2022/3/27
  * appearance improvement
+ *
+ * @version 2.0
+ * @author Zhang Zeyu
+ * @date 2022/4/1
+ * Add Satisflight logo.
  */
 
 public class MainFrame extends JFrame {
@@ -46,6 +51,7 @@ public class MainFrame extends JFrame {
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
+    private JLabel satisflightLabel;
 
     /**
      * Main frame with panels initialized.
@@ -54,7 +60,7 @@ public class MainFrame extends JFrame {
         /*
          * basic settings
          */
-        setTitle("KIOSK");
+        setTitle("Satisflight - Kiosk");
         setResizable(false);
         setUndecorated(true);
         setBounds(new Rectangle(0, 0, 1920, 1080));
@@ -160,6 +166,13 @@ public class MainFrame extends JFrame {
             }
         });
         bottomPanel.add(backButton);
+
+        satisflightLabel = new JLabel("Satisflight Check-in System");
+        satisflightLabel.setBounds(1350, 10, 550, 80);
+        satisflightLabel.setFont(new Font("Arial", Font.PLAIN, 40));
+        satisflightLabel.setForeground(Color.WHITE);
+        satisflightLabel.setIcon(new ImageIcon("Kiosk/icons/satisflight.png"));
+        bottomPanel.add(satisflightLabel);
     }
 
     /**
