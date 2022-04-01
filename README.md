@@ -25,28 +25,39 @@ Satisflight is a smart flight check-in software system, featuring a kiosk softwa
 
 ### Environment Requirements
 
-|    |Minimal|Recommended|
-|----|-------|-----------|
-|Operating System|Ubuntu 20 or Windows 10| Ubuntu 20 or Windows 10|
-|Processor|Intel(R) Core(TM) i3-530|Intel(R) Core(TM) i5-9300|
-|RAM|4GB|16GB|
-|Storage|128MB|32GB|
-|Runtime Environment|Java 10|Java 10|
+|    | Minimal                  | Recommended               |
+|----|--------------------------|---------------------------|
+|Operating System| Ubuntu 19 or Windows 7   | macOS 12 or Windows 10    |
+|Processor| Intel(R) Core(TM) i3-530 | Intel(R) Core(TM) i5-9300 |
+|RAM| 1GB                      | 4GB                       |
+|Storage| 128MB                    | 32GB                      |
+|Runtime Environment| Java 10                  | Java 10                   |
 
-### Usage Example
+### How To Use
 
 #### Windows
 
-1. Click `WIN` + `R`
-2. Run `cmd`
-3. To use kiosk software, run `sbin/start-kiosk.bat`
-4. To use back-end system, run `sbin/start-backend.bat`
+1. To use kiosk software, run:
+```shell
+sbin\start-kiosk.bat
+```
+2. To use back-end system, run:
+```shell
+sbin\start-backend.bat
+```
 
 #### Linux
 
-1. Change directory to where Satisflight is held using `cd`
-2. To use kiosk software, run `java "-Dsun.java2d.uiScale=1.0" -jar Kiosk.jar`
-3. To use back-end system, run `java "-Dsun.java2d.uiScale=1.0" -jar BackEndSystem.jar`
+1. To use kiosk software, run:
+```shell
+cd sbin
+./start-kiosk.sh
+```
+2. To use back-end system, run:
+```shell
+cd sbin
+./start-backend.sh
+```
 
 ## Development team
 
