@@ -14,6 +14,7 @@ Satisflight is a smart flight check-in software system, featuring a kiosk softwa
 
 ## Main Features
 
+![v1 GUI](Docs/v1.0%20GUI.jpg)
 - Multiple ways of identification available when check-in
 - Checking-in for all sequential flights in one trip
 - Free-choice of seat and customized meal
