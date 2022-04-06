@@ -8,33 +8,32 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * @version 1.0
- * @date 3/19
- * @author zaitian
  * a panel for users to input booking number
  * to be embedded into center panel of main frame
  *
+ * @author zaitian
  * @author Zhang Zeyu
- * @date 2022/3/25
+ *
+ * @version 1.4
+ * Add ENTER listener.
+ * @date 2022/3/29
+ *
+ * @version 1.3
+ * Appearance improved.
+ * @date 2022/3/28
+ *
+ * @version 1.2
+ * Appearance improved.
+ * @date 2022/3/27
+ *
  * @version 1.1
  * Set bookingNum and passengerName to State
  * and add bookingNumber validation check
  * and appearance improvement.
+ * @date 2022/3/25
  *
- * @author Zhang Zeyu
- * @date 2022/3/27
- * @version 1.2
- * Appearance improved.
- *
- * @author Zhang Zeyu
- * @date 2022/3/28
- * @version 1.3
- * Appearance improved.
- *
- * @author Zhang Zeyu
- * @date 2022/3/29
- * @version 1.4
- * Add ENTER listener.
+ * @version 1.0
+ * @date 3/19
  */
 
 public class BookingLoginPanel extends JPanel {
@@ -43,9 +42,7 @@ public class BookingLoginPanel extends JPanel {
     private JPanel InputPanel;
     private JTextField bookingNumberTextField;
     private JPanel buttonPanel;
-
     private JButton okButton;
-
     private JButton altButton;
     private JSeparator separator1;
     private JSeparator separator2;
@@ -59,7 +56,7 @@ public class BookingLoginPanel extends JPanel {
         setLayout(null);
         setSize(1920, 880);
         /*
-        text panel
+         * text panel
          */
         textPanel = new JPanel();
         textPanel.setBounds(0, 0, 1920, 280);
@@ -74,7 +71,7 @@ public class BookingLoginPanel extends JPanel {
         instructLabel.setBounds(560, 200, 800, 80);
         textPanel.add(instructLabel);
         /*
-        input panel
+         * input panel
          */
         InputPanel = new JPanel();
         InputPanel.setBounds(0, 280, 1920, 200);
@@ -90,7 +87,7 @@ public class BookingLoginPanel extends JPanel {
         bookingNumberTextField.setHorizontalAlignment(SwingConstants.CENTER);
 
         /*
-        button panel
+         * button panel
          */
         buttonPanel = new JPanel();
         buttonPanel.setBounds(0, 480, 1920, 400);
@@ -131,28 +128,17 @@ public class BookingLoginPanel extends JPanel {
         orLabel.setBounds(931, 100, 60, 40);
         buttonPanel.add(orLabel);
 
-        bookingNumberTextField.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                bookingNumberTextField.setText("");
-                bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
-                bookingNumberTextField.setForeground(Color.BLACK);
-            }
-        });
 
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(bookingNumberTextField.getText().isBlank() || !PassengerFlightReader.bookingValid(bookingNumberTextField.getText())){
-                    bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
-                    bookingNumberTextField.setText("Invalid booking number!");
-                    bookingNumberTextField.setForeground(Color.RED);
+                    setWaring();
                 }
                 else {
                     State.setBookingNum(bookingNumberTextField.getText());
                     State.setPassengerName(PassengerFlightReader.getPassengerNameByBookingNum(bookingNumberTextField.getText()));
-                    bookingNumberTextField.setText("");
+                    reset();
                     State.setPc(3);
                 }
             }
@@ -161,19 +147,44 @@ public class BookingLoginPanel extends JPanel {
         altButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                bookingNumberTextField.setText("");
+                reset();
                 State.setPc(2);
             }
         });
 
+        bookingNumberTextField.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(bookingNumberTextField.getForeground().equals(Color.RED)) {
+                    bookingNumberTextField.setText("");
+                    bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
+                    bookingNumberTextField.setForeground(Color.BLACK);
+                }
+            }
+        });
         bookingNumberTextField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER)
                     okButton.doClick();
+                else if (bookingNumberTextField.getForeground().equals(Color.RED)){
+                    reset();
+                }
             }
         });
+    }
+
+    public void reset(){
+        bookingNumberTextField.setText("");
+        bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
+        bookingNumberTextField.setForeground(Color.BLACK);
+    }
+    public void setWaring(){
+        bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
+        bookingNumberTextField.setText("Invalid booking number!");
+        bookingNumberTextField.setForeground(Color.RED);
     }
 
     public JTextField getBookingNumberTextField() {

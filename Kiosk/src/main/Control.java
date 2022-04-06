@@ -126,6 +126,7 @@ public class Control {
                     kiosk.repaint();
                     kiosk.hideBars(false);
                     kiosk.displayComponents(true, true, false);
+                    bookingLoginPanel.reset();
                     kiosk.resetWelcomeText();
                     kiosk.loadPanel(bookingLoginPanel);
                     kiosk.revalidate();
