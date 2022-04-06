@@ -17,13 +17,19 @@ import java.util.List;
  * This class returns a panel of typing login card.
  *
  * @author Li Chunlin
- * @date 2022/3/24
- * @version 1.0
- *
  * @author Zhang Zeyu
- * @date 2022/3/27
+ * @author zaitian
+ *
+ * @version 2.0
+ * fix wrongly clear input bug
+ * @date 4/6
+ *
  * @version 1.1
  * Rewrite...
+ * @date 2022/3/27
+ *
+ * @version 1.0
+ * @date 2022/3/24
  */
 
 public class TypeIdLoginCard extends JPanel {
@@ -34,7 +40,6 @@ public class TypeIdLoginCard extends JPanel {
     private JTextField tfId;
     private JLabel vertical;
     private JLabel lblError;
-
     public TypeIdLoginCard(){
         setSize(1150,980);
         setBackground(new Color(244, 244, 244));
@@ -91,8 +96,10 @@ public class TypeIdLoginCard extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                tfSurname.setText(null);
-                lblError.setVisible(false);
+                if (lblError.isVisible()){
+                    tfSurname.setText(null);
+                    lblError.setVisible(false);
+                }
             }
         });
 
@@ -100,8 +107,10 @@ public class TypeIdLoginCard extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                tfId.setText(null);
-                lblError.setVisible(false);
+                if (lblError.isVisible()) {
+                    tfId.setText(null);
+                    lblError.setVisible(false);
+                }
             }
         });
 
@@ -133,12 +142,11 @@ public class TypeIdLoginCard extends JPanel {
             if (!tfSurname.getText().equals(PassengerReader.getSurname(PassengerReader.indexOf(tfId.getText())))) {
                 for(int i = 0; i < 3; i++)
                     list.add("F");
-                return list;
             }
             else {
                 list.addAll(PassengerFlightReader.getBookingNumByPassengerId(passengerId));
-                return list;
             }
+            return list;
         } catch (Exception e) {
             for(int i = 0; i < 3; i++)
                 list.add("F");
@@ -151,5 +159,21 @@ public class TypeIdLoginCard extends JPanel {
     public void reset() {
         tfSurname.setText(null);
         tfId.setText(null);
+    }
+
+    public JButton getButtonOk() {
+        return buttonOk;
+    }
+
+    public JTextField getTfSurname() {
+        return tfSurname;
+    }
+
+    public JTextField getTfId() {
+        return tfId;
+    }
+
+    public JLabel getLblError() {
+        return lblError;
     }
 }

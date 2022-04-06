@@ -7,10 +7,10 @@ import javax.swing.*;
 
 /**
  * This is the panel that passengers can use their ids to login.
- *
  * @author Zhang Zeyu
- * @date 2022/3/27
+ *
  * @version 1.0
+ * @date 2022/3/27
  */
 
 public class IdLoginPanel extends JPanel {

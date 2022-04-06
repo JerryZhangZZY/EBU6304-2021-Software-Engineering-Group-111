@@ -8,20 +8,22 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * @version 1.0
- * @date 3/24
- * @author zaitian
  * the panel that displays when kiosk is vaccant
- *
+ * @author zaitian
  * @author Zhang Zeyu
- * @date 2022/3/26
+ *
  * @version 1.1
  * Change font.
+ * @date 2022/3/26
+ *
+ * @version 1.0
+ * @date 3/24
  */
 public class WelcomePanel extends JPanel {
     JLabel background;
     JLabel welcomeLabel;
     JLabel hintLabel;
+    /** mask over other components, to be clicked**/
     JPanel mask;
 
     public WelcomePanel(){
@@ -64,5 +66,12 @@ public class WelcomePanel extends JPanel {
             }
         });
         add(mask, 0);
+    }
+    /**
+     * mask getter
+     * @return mask that lies over other components
+     */
+    public JPanel getMask(){
+        return mask;
     }
 }
