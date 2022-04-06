@@ -6,33 +6,38 @@ import panel.*;
 import static java.lang.Thread.sleep;
 
 /**
- * @version 1.0
- * @author zaitian
- * @date 3/22
- * the core class that run with main, managing all frames and panels
+ * the core class that runs main method, managing all frames and panels
  *
- * @version 1.1
- * @author Ni Ruijie
- * @date 3/27
- * Add function: Flight selection page won't display the flight card which has been checked-in.
- * bugs fixed
- *
- * @version 1.2
- * @author Ni Ruijie
- * @date 3/27
- * Add function: Automatically back to welcome page when there is no flight available for check-in.
- *
- * @version 1.3
  * @author Zhang Zeyu
- * @date 2022/3/28
- * Add alter login panel.
+ * @author Ni Ruijie
+ * @author zaitian
  *
  * @version 1.4
- * @author Zhang Zeyu
- * @date 2022/3/29
  * Performance improved.
+ * @date 2022/3/29
+ *
+ * @version 1.3
+ * Add alter login panel.
+ * @date 2022/3/28
+ *
+ * @version 1.2
+ * Add function: Automatically back to welcome page when there is no flight available for check-in.
+ * @date 3/27
+ *
+ * @version 1.1
+ * Add function: Flight selection page won't display the flight card which has been checked-in.
+ * bugs fixed
+ * @date 3/27
+ *
+ * @version 1.0
+ * @date 3/22
  */
 public class Control {
+    /**
+     * main method to control
+     * @param args potential configurations
+     * @throws InterruptedException if interrupted when sleeping, not designed to occur
+     */
     public static void main(String[] args) throws InterruptedException {
         MainFrame kiosk;
         WelcomePanel welcomePanel;

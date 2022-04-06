@@ -6,20 +6,21 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @version 1.0
- * @author zaitian
- * @date 3/22
  * panel that holds cards for customers to choose their meal, seat, etc.
  *
+ * @author zaitian
  * @author Zhang Zeyu
+ *
+ * @date 3/26
+ * @version 1.2
+ * Enhanced loading process
+ *
  * @date 2022/3/25
  * @version 1.1
  * Appearance improvement.
  *
- * @author zaitian
- * @date 3/26
- * @version 1.2
- * Enhanced loading process
+ * @version 1.0
+ * @date 3/22
  */
 
 public class ProgressPanel extends JPanel {

@@ -10,35 +10,37 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * @version 1.0
- * @author zaitian
- * @date 3/18
- * initial version main frame
+ * main frame that holds panels for different pages
+ * only one panel is loaded at a time
+ * a panel must be unloaded before loading another one
  *
- * @version 1.1
+ * @author zaitian
  * @author wcy
- * @date 3/21
- * main frame with icon added and db_reader embedded
- *
- * @version 1.2
- * @author zaitian
- * @date 3/22
- * main frame with restored ui design and controlling methods
- *
- * @version 1.3
- * @author zaitian
- * @date 3.24
- * main frame with enhanced functions and refined coding style
- *
- * @version 1.4
  * @author Zhang Zeyu
- * @date 2022/3/27
- * appearance improvement
  *
  * @version 2.0
- * @author Zhang Zeyu
- * @date 2022/4/1
  * Add Satisflight logo.
+ * @date 2022/4/1
+ *
+ * @version 1.4
+ * appearance improvement
+ * @date 2022/3/27
+ *
+ * @version 1.3
+ * main frame with enhanced functions and refined coding style
+ * @date 3.24
+ *
+ * @version 1.2
+ * main frame with restored ui design and controlling methods
+ * @date 3/22
+ *
+ * @version 1.1
+ * main frame with icon added and db_reader embedded
+ * @date 3/21
+ *
+ * @version 1.0
+ * initial version main frame
+ * @date 3/18
  */
 
 public class MainFrame extends JFrame {
@@ -69,7 +71,7 @@ public class MainFrame extends JFrame {
         contentPane.setLayout(null);
         setContentPane(contentPane);
         /*
-        top panel, with welcome text and exit button
+         * top panel, with welcome text and exit button
          */
         topPanel = new JPanel();
         topPanel.setBackground(new Color(11, 89, 167));
@@ -99,8 +101,8 @@ public class MainFrame extends JFrame {
         });
         topPanel.add(exitButton);
         /*
-        for developers to exit program easily
-        note that for ordinary users, clicking the normal exit just return to welcome page
+         * for developers to exit program easily
+         * note that for ordinary users, clicking the normal exit just return to welcome page
          */
         forcedExitButton = new JButton("Forced Exit");
         forcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
@@ -123,8 +125,8 @@ public class MainFrame extends JFrame {
             });
         topPanel.add(forcedExitButton);
         /*
-        main panel that holds other panels
-        use centerPanel.add(JPanel panel) to add components
+         * main panel that holds other panels
+         * use centerPanel.add(JPanel panel) to add components
          */
         centerPanel = new JPanel();
         centerPanel.setBackground(new Color(244, 244, 244));
@@ -195,7 +197,7 @@ public class MainFrame extends JFrame {
     }
     /**
      * unload a panel from the center panel
-     * nothing is down if no panel exists
+     * nothing is done if no panel exists
      * @param panel the panel to be unloaded
      */
     public void unloadPanel(Component panel){
@@ -229,9 +231,16 @@ public class MainFrame extends JFrame {
             centerPanel.setBounds(0, 100, 1920, 880);
         }
     }
+    /**
+     * set welcome text with passenger's name when available
+     */
     public void setWelcomeText(){
         welcomeLabel.setText("Welcome, " + State.getPassengerName());
     }
+
+    /**
+     * reset welcome text to default when passenger's name is not available
+     */
     public void resetWelcomeText() {
         welcomeLabel.setText("Welcome to Beijing International Airport");
     }
