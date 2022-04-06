@@ -3,34 +3,35 @@ package main;
 import card.SmallBillCard;
 
 /**
- * @version 1.0
- * @author zaitian
- * @date 3/22
  * Designed to temporarily save data
  * before forwarding to json database
  * at the final page. Add static variables
  * as you need it. Do remember to
  * add getter/setter and avoid name-collision
  *
+ * @author zaitian
  * @author Zhang Zeyu
- * @date 2022/3/24
+ * @author Liang Zhehao
+ * @author Ni Ruijie
+ *
+ * @version 1.0
+ * @date 3/22
+ *
  * @version 1.1
  * Add temp vars.
- *
- * @author Liang Zhehao
  * @date 2022/3/24
+ *
  * @version 1.2
  * Modify some vars
+ * @date 2022/3/24
  *
- * @author Zhang Zeyu
- * @date 2022/3/25
  * @version 1.3
  * Delete some initials.
+ * @date 2022/3/25
  *
- * @author Ni Ruijie
- * @date 2022/3/27
  * @version 1.4
  * idPassengerFlight: TYPE String ---> int; NAME idPassengerFlight ---> passengerFlight_index.
+ * @date 2022/3/27
  */
 
 public abstract class State {
@@ -40,7 +41,7 @@ public abstract class State {
     private static String idFlight;
     private static int passengerFlight_index;
     private static int seatRow = -1;
-    private static int seatColumn = -1;
+    private static int seatColumn = -1;  //start from 1
     private static int seatPre; //[0, 1, 2, 3]
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
