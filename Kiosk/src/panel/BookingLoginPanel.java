@@ -47,6 +47,7 @@ public class BookingLoginPanel extends JPanel {
     private JSeparator separator1;
     private JSeparator separator2;
     private JLabel orLabel;
+
     /**
      * Create the panel.
      */
@@ -181,18 +182,22 @@ public class BookingLoginPanel extends JPanel {
         bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
         bookingNumberTextField.setForeground(Color.BLACK);
     }
+
     public void setWaring(){
         bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
         bookingNumberTextField.setText("Invalid booking number!");
         bookingNumberTextField.setForeground(Color.RED);
     }
-
     public JTextField getBookingNumberTextField() {
         return bookingNumberTextField;
     }
 
     public JButton getOkButton() {
         return okButton;
+    }
+
+    public JButton getAltButton() {
+        return altButton;
     }
 
 
