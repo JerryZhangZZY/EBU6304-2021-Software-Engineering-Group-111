@@ -16,26 +16,25 @@ import java.awt.event.*;
  * This class can return a seat selection panel.
  *
  * @author Wang Chenyu
- * @date 2022/3/19
+ * @author Liang Zhehao
+ * @author Zhang Zeyu
+ *
  * @version 1.0
+ * @date 2022/3/19
  *
- * @author Liang Zhehao
- * @date 2022/3/21
  * @version 1.1
- *
- * @author Liang Zhehao
  * @date 2022/3/21
- * @version 1.2
  *
- * @author Liang Zhehao
- * @date 2022/3/23
+ * @version 1.2
+ * @date 2022/3/21
+ *
  * @version 1.3
  * Add bill and OK button
+ * @date 2022/3/23
  *
- * @author Zhang Zeyu
- * @date 2022/3/28
  * @version 1.4
  * Appearance improved.
+ * @date 2022/3/28
  */
 public class SeatSelectionPanel extends JPanel {
     private int[] avail_seat = new int[6];
@@ -48,7 +47,7 @@ public class SeatSelectionPanel extends JPanel {
     private int[] price = new int[4];
     private String[] seatName = new String[4];
     //button init
-    private JButton[] button = new JButton[6];
+    private JButton[] seatButton = new JButton[6];
     private JLabel row_num = new JLabel();
     private JPanel warn;
     private JScrollBar scrollBar = new JScrollBar();
@@ -65,14 +64,13 @@ public class SeatSelectionPanel extends JPanel {
     private Image img_chonse = icon1_chonse.getImage();
     private Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
     private ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
-
-//    private SmallBillCard smallBillCard = new SmallBillCard(0);
+    private JButton btnOK = new JButton("OK");
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
+
     private JRadioButton rdbtnSeat2 = new JRadioButton();
     private JRadioButton rdbtnSeat3 = new JRadioButton();
     private JRadioButton rdbtnSeat4 = new JRadioButton();
-
     public SeatSelectionPanel(boolean cheat) {
     }
 
@@ -114,20 +112,20 @@ public class SeatSelectionPanel extends JPanel {
 
         SimpleListener ourListener = new SimpleListener();
         for (int i = 0; i < 6; i++) {
-            button[i] = new JButton("");
-            button[i].setForeground(Color.WHITE);
-            button[i].setBackground(Color.WHITE);
-            button[i].setContentAreaFilled(false);
-            button[i].setBorderPainted(false);
-            add(button[i]);
-            button[i].addActionListener(ourListener);
+            seatButton[i] = new JButton("");
+            seatButton[i].setForeground(Color.WHITE);
+            seatButton[i].setBackground(Color.WHITE);
+            seatButton[i].setContentAreaFilled(false);
+            seatButton[i].setBorderPainted(false);
+            add(seatButton[i]);
+            seatButton[i].addActionListener(ourListener);
         }
-        button[0].setBounds(165, 1, 221, 220);
-        button[1].setBounds(332, 1, 221, 220);
-        button[2].setBounds(495, 1, 221, 220);
-        button[3].setBounds(931, 1, 221, 220);
-        button[4].setBounds(1103, 1, 221, 220);
-        button[5].setBounds(1268, 1, 221, 220);
+        seatButton[0].setBounds(165, 1, 221, 220);
+        seatButton[1].setBounds(332, 1, 221, 220);
+        seatButton[2].setBounds(495, 1, 221, 220);
+        seatButton[3].setBounds(931, 1, 221, 220);
+        seatButton[4].setBounds(1103, 1, 221, 220);
+        seatButton[5].setBounds(1268, 1, 221, 220);
         //row number
         row_num.setFont(new Font("Arial", Font.PLAIN, 26));
         row_num.setText(String.valueOf(row));
@@ -192,7 +190,6 @@ public class SeatSelectionPanel extends JPanel {
                 s[i] = 1;
         }
         setAvail_seat(s);
-        addSeatIcon(s);
 
         addSeatIcon(avail_seat);
         ScrollListener scrollListener = new ScrollListener();
@@ -276,7 +273,6 @@ public class SeatSelectionPanel extends JPanel {
         rdbtnSeat4.addItemListener(prefListener);
 
         OKListener okListener = new OKListener();
-        JButton btnOK = new JButton("OK");
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
         btnOK.setBounds(1200, 760, 330, 70);
         btnOK.setForeground(Color.WHITE);
@@ -285,7 +281,6 @@ public class SeatSelectionPanel extends JPanel {
         add(btnOK);
     }
 
-    //seat   button[0].setIcon(icon);
     private void addSeatIcon(int[] avail) {
         if (getTemp_row() == row) {
             avail[getTemp_column()] = 2;
@@ -293,11 +288,11 @@ public class SeatSelectionPanel extends JPanel {
         }
         for (int i = 0; i < 6; i++) {
             if (avail[i] == 1)
-                button[i].setIcon(icon_occu);
+                seatButton[i].setIcon(icon_occu);
             else if (avail[i] == 2)
-                button[i].setIcon(icon_chonse);
+                seatButton[i].setIcon(icon_chonse);
             else
-                button[i].setIcon(icon_empty);
+                seatButton[i].setIcon(icon_empty);
         }
     }
 
@@ -321,13 +316,43 @@ public class SeatSelectionPanel extends JPanel {
         return temp_column;
     }
 
-    public void setSeatName(String[] seatName) {
-        this.seatName = seatName;
+    public JRadioButton getRdbtnSeat1() {
+        return rdbtnSeat1;
     }
 
-    public void setPrice(int[] price) {
-        this.price = price;
+    public JRadioButton getRdbtnSeat2() {
+        return rdbtnSeat2;
     }
+
+    public JRadioButton getRdbtnSeat3() {
+        return rdbtnSeat3;
+    }
+
+    public JRadioButton getRdbtnSeat4() {
+        return rdbtnSeat4;
+    }
+
+    public JButton[] getSeatButton() {
+        return seatButton;
+    }
+
+    public JScrollBar getScrollBar() {
+        return scrollBar;
+    }
+
+    public JButton getBtnOK() {
+        return btnOK;
+    }
+
+    public int getTotalrow() {
+        return totalrow;
+    }
+
+    public int[] getAvail_seat() {
+        return avail_seat;
+    }
+
+
 
     private class PrefListener implements ItemListener {
 
@@ -350,19 +375,20 @@ public class SeatSelectionPanel extends JPanel {
     }
 
     private class SimpleListener implements ActionListener {
+
         public void actionPerformed(ActionEvent e) {
             int p = row;
             if (p >= 4)
                 p = 0;
             int click = -1;
             for (int i = 0; i < 6; i++) {
-                if (e.getSource() == button[i])
+                if (e.getSource() == seatButton[i])
                     click = i;
             }
 
             if (avail_seat[click] == 0) {
                 if (getTemp_row() == row) {
-                    button[getTemp_column()].setIcon(icon_empty);
+                    seatButton[getTemp_column()].setIcon(icon_empty);
                     avail_seat[getTemp_column()] = 0;
                     State.smallBillCard.subPrice(price[p]);
                 } else if (getTemp_row() <= 3 && getTemp_row() >= 1) {
@@ -371,20 +397,18 @@ public class SeatSelectionPanel extends JPanel {
                 setTemp_row(row);
                 setTemp_column(click);
                 avail_seat[click] = 2;
-                button[click].setIcon(icon_chonse);
+                seatButton[click].setIcon(icon_chonse);
                 warn.setVisible(false);
                 State.smallBillCard.addPrice(price[p]);
             } else if (avail_seat[click] == 2) {
                 setTemp_row(-1);
                 setTemp_column(-1);
                 avail_seat[click] = 0;
-                button[click].setIcon(icon_empty);
+                seatButton[click].setIcon(icon_empty);
                 State.smallBillCard.subPrice(price[p]);
             }
         }
     }
-
-
     private void resetScrollBar(int pref) {
         if (pref == 0) {
             scrollBar.setMinimum(4);
