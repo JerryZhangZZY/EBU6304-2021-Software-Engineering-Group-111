@@ -138,8 +138,14 @@ public class FinalPanel extends JPanel {
     }
     class MyTask3 extends TimerTask {
         public void run() {
-            //auto exit
+            State.setPc(0);
+            State.setIsReady(new boolean[]{true, true, true,
+                    false, false, false, false, true, true});
         }
 
     }
+
+    public JButton getExit_begin(){return exit_begin;}
+
+    public JButton getExit_system(){return exit_system;}
 }
