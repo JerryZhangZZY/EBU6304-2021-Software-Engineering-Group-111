@@ -3,22 +3,24 @@ package card;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+
 /**
  * This class can return the price of you select.
  *
  * @author Wang Chenyu
- * @date 2022/3/21
- * @version 1.0
- *
  * @author Zhang Zeyu
- * @date 2022/3/21
- * @version 1.1
- * Appearance improved and bug fixed.
- *
  * @author Liang Zhehao
- * @date 2022/3/23
+ *
  * @version 1.2
  * Add addPrice and subPrice function
+ * @date 2022/3/23
+ *
+ * @version 1.1
+ * Appearance improved and bug fixed.
+ * @date 2022/3/21
+ *
+ * @version 1.0
+ * @date 2022/3/21
  */
 public class SmallBillCard extends JPanel{
     private int price;
