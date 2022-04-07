@@ -66,7 +66,7 @@ public class FlightSelectionPanel extends JPanel {
         }
 
         for(int cardNum = 0; cardNum < idFlightList.size(); cardNum++) {
-            JPanel flightInfoCard = new FlightInfoCard(idFlightList.get(cardNum));
+            FlightInfoCard flightInfoCard = new FlightInfoCard(idFlightList.get(cardNum));
             flightInfoCard.setBounds(500, 150 + 250 * cardNum, 530, 150);
             int finalCardNum = cardNum;
             flightInfoCard.addMouseListener(new MouseListener() {
@@ -84,7 +84,6 @@ public class FlightSelectionPanel extends JPanel {
                     idFlight = idFlightList.get(finalCardNum);
                     State.setIdFlight(idFlight);
                     State.setPassengerFlight_index(PassengerFlightReader.getPassengerFlight_index(bookingNum,idFlight));
-                    System.out.println(State.getPassengerFlight_index());
                     State.setPc(State.getPc() + 1);
                 }
 
