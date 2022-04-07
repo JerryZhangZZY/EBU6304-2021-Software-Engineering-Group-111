@@ -9,8 +9,18 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Test class for booking number login panel
+ * @author zaitian
+ *
+ * @version 2.0
+ * @date 4/6
+ *
+ * @version 1.0
+ * @date 3/28
+ */
 
 class BookingLoginPanelTest {
     String[] expectedName = {"Jack", "Jack", "Mike", "nay"};
@@ -43,7 +53,7 @@ class BookingLoginPanelTest {
                             () -> assertEquals(Color.RED, bookingLoginPanel.getBookingNumberTextField().getForeground()),
                             () -> assertEquals(new Font("Arial", Font.ITALIC, 25), bookingLoginPanel.getBookingNumberTextField().getFont())
                     );
-                    System.out.println("failed\n--------");
+                    System.out.println("check-in failed\n----------------");
         }
         else {
             String actualName = State.getPassengerName();
@@ -51,7 +61,7 @@ class BookingLoginPanelTest {
             assertEquals(expectedName[bn], actualName, "name recorded");
             assertEquals(expectedBookingNumber[bn], actualBookingNumber, "book num recorded");
             assertEquals(3, State.getPc());
-            System.out.println("passed\n--------");
+            System.out.println("check-in passed\n----------------");
         }
     }
     @DisplayName("use other ways to check-in")
