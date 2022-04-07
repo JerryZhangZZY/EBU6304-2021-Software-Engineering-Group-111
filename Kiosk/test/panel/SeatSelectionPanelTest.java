@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author Liang Zhehao
  *
- * @version 1.0
+ * @version 2.0
  * @date 2022/4/6
  */
 class SeatSelectionPanelTest {
