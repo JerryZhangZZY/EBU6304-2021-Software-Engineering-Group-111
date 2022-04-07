@@ -1,0 +1,44 @@
+{
+  "passengerFlight": [
+    {
+      "idPassengerFlight": 1,
+      "idPassenger": "123001",
+      "idFlight": "CA0001",
+      "bookingNum": "bn0001",
+      "carryon": 2,
+      "checkin": 1,
+      "bagDropCounter": 15,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 2,
+      "idPassenger": "123001",
+      "idFlight": "AC0001",
+      "bookingNum": "bn0001",
+      "carryon": 2,
+      "checkin": 3,
+      "bagDropCounter": 15,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 3,
+      "idPassenger": "123001",
+      "idFlight": "CA0003",
+      "bookingNum": "bn0002",
+      "carryon": 1,
+      "checkin": 0,
+      "bagDropCounter": -1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 4,
+      "idPassenger": "123002",
+      "idFlight": "CA0002",
+      "bookingNum": "bn0003",
+      "carryon": 1,
+      "checkin": 0,
+      "bagDropCounter": -1,
+      "status": false
+    }
+  ]
+}
