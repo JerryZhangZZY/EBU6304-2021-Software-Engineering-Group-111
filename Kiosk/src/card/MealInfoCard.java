@@ -136,6 +136,12 @@ public class MealInfoCard extends JPanel {
         return this.chosen;
     }
 
+    public JButton getNormal_food(){return normal_food;}
+
+    public JButton getVegetarian_food(){return vegetarian_food;}
+
+    public JButton getHalal_food(){return halal_food;}
+
 }
 
 

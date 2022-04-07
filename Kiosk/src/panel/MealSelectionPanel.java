@@ -48,6 +48,7 @@ public class MealSelectionPanel extends JPanel {
     private int[] price = new int[3];
     private String[] foodName = new String[3];
     private boolean[] select = {false, false, false};
+    JButton btnOK = new JButton("OK");
 
     private Border tipBorder = BorderFactory
             .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.RED)
@@ -134,7 +135,6 @@ public class MealSelectionPanel extends JPanel {
             rdbtnMeal[i].addItemListener(prefListener);
 
         OKListener okListener = new OKListener();
-        JButton btnOK = new JButton("OK");
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
         btnOK.setBounds(1200, 760, 330, 70);
         btnOK.setForeground(Color.WHITE);
@@ -151,6 +151,16 @@ public class MealSelectionPanel extends JPanel {
         this.foodName = foodName;
     }
 
+    public JButton getNormal_food(){return mealInfoCard.getNormal_food();}
+
+    public JButton getVegetarian_food(){return mealInfoCard.getVegetarian_food();}
+
+    public JButton getHalal_food(){return mealInfoCard.getHalal_food();}
+
+    public  JButton getConfirm(){return btnOK;}
+
+    public  JRadioButton[] getrdbtnMeal(){return rdbtnMeal;}
+
     private class OKListener implements ActionListener {
 
         @Override
@@ -162,6 +172,7 @@ public class MealSelectionPanel extends JPanel {
                 State.setBill(State.smallBillCard.getPrice());
             } else {
                 mealInfoCard.setBorder(tipBorder);
+                State.setMeal('d');
             }
         }
     }
