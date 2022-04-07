@@ -11,13 +11,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
+ * test for Print ticket
+ *
  * @author wcy
  * @version 1.0
  * @date 3/20
- * test for Print ticket
  */
 
 public abstract class BoardingPassPrinter {
+    static String ticket_temp;
     public static void creatBoardingPass(int idPassengerFlight_index, String seat) throws IOException {
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         int idFlight_index = FlightReader.indexOf(idFlight);
@@ -33,7 +35,7 @@ public abstract class BoardingPassPrinter {
         String airLine = PlaneReader.getAirline(idPlane);
         String ticket_file = idPassenger + "-" + idFlight + "-" + date;
         String ticket_path = "Kiosk/printerOutPut/";
-        String ticket_temp = ticket_path + ticket_file + ".txt";
+        ticket_temp = ticket_path + ticket_file + ".txt";
         File ticket = new File(ticket_temp);
         ticket.createNewFile();
         FileWriter bucket = new FileWriter(ticket_temp);
@@ -111,5 +113,9 @@ public abstract class BoardingPassPrinter {
         buffer.write("________________________________________________________________________________________________________________________________________________________");
         buffer.write(side_bound);
         buffer.close();
+    }
+
+    public static String getFilePath(){
+        return ticket_temp;
     }
 }

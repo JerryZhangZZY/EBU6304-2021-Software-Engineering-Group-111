@@ -13,12 +13,14 @@ import java.io.IOException;
 import dbReader.*;
 import java.io.*;
 /**
- * @version 1.0
- * @author Ni Ruijie
- * @date 3/23
  * A Ticket Printer which can print out tickets of the check-in baggage in .txt files
+ *
+ * @author Ni Ruijie
+ * @version 1.0
+ * @date 3/23
  */
 public class TicketPrinter {
+    static String ticket_temp;
     /**
      * Generate .txt for tickets
      * @param idPassengerFlight_index primary key
@@ -40,7 +42,7 @@ public class TicketPrinter {
 
         String ticket_file = idPassenger +"-"+idPassengerFlight_index+"-ticket";
         String ticket_path ="Kiosk/printerOutPut/";
-        String ticket_temp = ticket_path +ticket_file +".txt";
+        ticket_temp = ticket_path +ticket_file +".txt";
         File ticket = new File(ticket_temp);
         ticket.createNewFile();
         FileWriter bucket=new FileWriter(ticket_temp);
@@ -173,6 +175,10 @@ public class TicketPrinter {
         buffer.newLine();
         buffer.write("_________________________________________");
         buffer.close();
+    }
+
+    public static String getFilePath(){
+        return ticket_temp;
     }
 }
 

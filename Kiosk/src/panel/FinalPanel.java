@@ -19,28 +19,29 @@ import java.util.TimerTask;
  * This class can use the final panel.
  *
  * @author Wang Chenyu
- * @date 2022/3/21
- * @version 1.0
- *
  * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.1
- * Appearance improvement and bugs fixing.
- *
- * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.2
- * Appearance improvement.
- *
+ * @author Ni Ruijie
  * @author zaitian
- * @date  2022/3/25
+ *
+ * @version 1.4
+ * Functions added: set the status of the idFlightPassenger to be true.
+ * @date 2022/3/27
+ *
  * @version 1.3
  * Exiting functions added
+ * @date  2022/3/25
  *
- * @author Ni Ruijie
- * @date 2022/3/27
- * @version 1.4
- * Exiting functions added: set the status of the idFlightPassenger to be true.
+ * @version 1.2
+ * Appearance improvement.
+ * @date 2022/3/24
+ *
+ * @version 1.1
+ * Appearance improvement and bugs fixing.
+ * @date 2022/3/24
+ *
+ * @version 1.0
+ * @date 2022/3/21
+ *
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();

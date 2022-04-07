@@ -5,10 +5,11 @@ import printer.TicketPrinter;
 
 import java.io.IOException;
 /**
- * @version 1.0
+ * Test program for Ticket Printer
+ *
  * @author Ni Ruijie
+ * @version 1.0
  * @date 3/24
- * Test for Ticket Printer
  */
 public class TicketPrinterTest {
     public static void main(String[] args) {
