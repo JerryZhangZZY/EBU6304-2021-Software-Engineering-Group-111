@@ -14,24 +14,24 @@ import card.SmallBillCard;
  * @author Liang Zhehao
  * @author Ni Ruijie
  *
- * @version 1.0
- * @date 3/22
- *
- * @version 1.1
- * Add temp vars.
- * @date 2022/3/24
- *
- * @version 1.2
- * Modify some vars
- * @date 2022/3/24
+ * @version 1.4
+ * idPassengerFlight: TYPE String ---> int; NAME idPassengerFlight ---> passengerFlight_index.
+ * @date 2022/3/27
  *
  * @version 1.3
  * Delete some initials.
  * @date 2022/3/25
  *
- * @version 1.4
- * idPassengerFlight: TYPE String ---> int; NAME idPassengerFlight ---> passengerFlight_index.
- * @date 2022/3/27
+ * @version 1.2
+ * Modify some vars
+ * @date 2022/3/24
+ *
+ * @version 1.1
+ * Add temp vars.
+ * @date 2022/3/24
+ *
+ * @version 1.0
+ * @date 3/22
  */
 
 public abstract class State {

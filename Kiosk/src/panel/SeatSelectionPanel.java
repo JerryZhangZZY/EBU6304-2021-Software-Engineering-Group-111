@@ -19,22 +19,22 @@ import java.awt.event.*;
  * @author Liang Zhehao
  * @author Zhang Zeyu
  *
- * @version 1.0
- * @date 2022/3/19
- *
- * @version 1.1
- * @date 2022/3/21
- *
- * @version 1.2
- * @date 2022/3/21
+ * @version 1.4
+ * Appearance improved.
+ * @date 2022/3/28
  *
  * @version 1.3
  * Add bill and OK button
  * @date 2022/3/23
  *
- * @version 1.4
- * Appearance improved.
- * @date 2022/3/28
+ * @version 1.2
+ * @date 2022/3/21
+ *
+ * @version 1.1
+ * @date 2022/3/21
+ *
+ * @version 1.0
+ * @date 2022/3/19
  */
 public class SeatSelectionPanel extends JPanel {
     private int[] avail_seat = new int[6];
@@ -67,12 +67,11 @@ public class SeatSelectionPanel extends JPanel {
     private JButton btnOK = new JButton("OK");
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
-
     private JRadioButton rdbtnSeat2 = new JRadioButton();
     private JRadioButton rdbtnSeat3 = new JRadioButton();
     private JRadioButton rdbtnSeat4 = new JRadioButton();
-    public SeatSelectionPanel(boolean cheat) {
-    }
+
+    public SeatSelectionPanel(boolean cheat) {}
 
     public SeatSelectionPanel() {
 
@@ -352,7 +351,9 @@ public class SeatSelectionPanel extends JPanel {
         return avail_seat;
     }
 
-
+    public JPanel getWarn() {
+        return warn;
+    }
 
     private class PrefListener implements ItemListener {
 
