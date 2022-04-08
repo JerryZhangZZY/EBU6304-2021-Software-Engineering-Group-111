@@ -1,6 +1,5 @@
 package panel;
 
-import dbReader.PassengerFlightReader;
 import dbWriter.StatusWriter;
 import main.State;
 import printer.BoardingPassPrinter;
@@ -9,8 +8,6 @@ import printer.TicketPrinter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,28 +16,33 @@ import java.util.TimerTask;
  * This class can use the final panel.
  *
  * @author Wang Chenyu
- * @date 2022/3/21
- * @version 1.0
- *
  * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.1
- * Appearance improvement and bugs fixing.
+ * @author Wang Zaitian
+ * @author Ni Ruijie
+ * @author Liang Zhehao
  *
- * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.2
- * Appearance improvement.
+ * @date 2022/4/8
+ * @version 2.0
+ * Big bug fixed.
  *
- * @author zaitian
+ * @date 2022/3/27
+ * @version 1.4
+ * Exiting functions added: set the status of the idFlightPassenger to be true.
+ *
  * @date  2022/3/25
  * @version 1.3
  * Exiting functions added
  *
- * @author Ni Ruijie
- * @date 2022/3/27
- * @version 1.4
- * Exiting functions added: set the status of the idFlightPassenger to be true.
+ * @date 2022/3/24
+ * @version 1.2
+ * Appearance improvement.
+ *
+ * @date 2022/3/24
+ * @version 1.1
+ * Appearance improvement and bugs fixing.
+ *
+ * @date 2022/3/21
+ * @version 1.0
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
@@ -79,13 +81,11 @@ public class FinalPanel extends JPanel {
         exit_begin.setBackground(Color.WHITE);
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
-        exit_begin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                State.setPc(3);
-                State.setIsReady(new boolean[]{true, true, true,
-                        false, false, false, false, true, true});
-            }
+        exit_begin.addActionListener(e -> {
+            timer2.cancel();
+            State.setPc(3);
+            State.setIsReady(new boolean[]{true, true, true,
+                    false, false, false, false, true, true});
         });
         add(exit_begin);
         exit_begin.setIcon(icon_back);
@@ -98,13 +98,11 @@ public class FinalPanel extends JPanel {
         exit_system.setBackground(Color.WHITE);
         exit_system.setContentAreaFilled(false);
         exit_system.setBorderPainted(false);
-        exit_system.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                State.setPc(0);
-                State.setIsReady(new boolean[]{true, true, true,
-                        false, false, false, false, true, true});
-            }
+        exit_system.addActionListener(e -> {
+            timer2.cancel();
+            State.setPc(0);
+            State.setIsReady(new boolean[]{true, true, true,
+                    false, false, false, false, true, true});
         });
         add(exit_system);
         exit_system.setIcon(icon_exit);
