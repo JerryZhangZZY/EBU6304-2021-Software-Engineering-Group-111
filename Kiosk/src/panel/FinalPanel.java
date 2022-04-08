@@ -1,6 +1,7 @@
 package panel;
 
-import dbReader.PassengerFlightReader;
+import BackendSystemDB.DBwrite;
+import dbWriter.SeatWriter;
 import dbWriter.StatusWriter;
 import main.State;
 import printer.BoardingPassPrinter;
@@ -9,8 +10,6 @@ import printer.TicketPrinter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,28 +18,33 @@ import java.util.TimerTask;
  * This class can use the final panel.
  *
  * @author Wang Chenyu
- * @date 2022/3/21
- * @version 1.0
- *
  * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.1
- * Appearance improvement and bugs fixing.
+ * @author Wang Zaitian
+ * @author Ni Ruijie
+ * @author Liang Zhehao
  *
- * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.2
- * Appearance improvement.
+ * @date 2022/4/8
+ * @version 2.0
+ * Big bug fixed.
  *
- * @author zaitian
+ * @date 2022/3/27
+ * @version 1.4
+ * Exiting functions added: set the status of the idFlightPassenger to be true.
+ *
  * @date  2022/3/25
  * @version 1.3
  * Exiting functions added
  *
- * @author Ni Ruijie
- * @date 2022/3/27
- * @version 1.4
- * Exiting functions added: set the status of the idFlightPassenger to be true.
+ * @date 2022/3/24
+ * @version 1.2
+ * Appearance improvement.
+ *
+ * @date 2022/3/24
+ * @version 1.1
+ * Appearance improvement and bugs fixing.
+ *
+ * @date 2022/3/21
+ * @version 1.0
  */
 public class FinalPanel extends JPanel {
     JLabel headline =  new JLabel();
@@ -55,6 +59,7 @@ public class FinalPanel extends JPanel {
     Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
     ImageIcon icon_exit = new ImageIcon(newImg_exit);
     public FinalPanel(){
+        confirm();
         StatusWriter.setTrue(State.getPassengerFlight_index());
         Timer timer = new Timer();
         Timer timer1 = new Timer();
@@ -79,13 +84,11 @@ public class FinalPanel extends JPanel {
         exit_begin.setBackground(Color.WHITE);
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
-        exit_begin.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                State.setPc(3);
-                State.setIsReady(new boolean[]{true, true, true,
-                        false, false, false, false, true, true});
-            }
+        exit_begin.addActionListener(e -> {
+            timer2.cancel();
+            State.setPc(3);
+            State.setIsReady(new boolean[]{true, true, true,
+                    false, false, false, false, true, true});
         });
         add(exit_begin);
         exit_begin.setIcon(icon_back);
@@ -98,13 +101,11 @@ public class FinalPanel extends JPanel {
         exit_system.setBackground(Color.WHITE);
         exit_system.setContentAreaFilled(false);
         exit_system.setBorderPainted(false);
-        exit_system.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                State.setPc(0);
-                State.setIsReady(new boolean[]{true, true, true,
-                        false, false, false, false, true, true});
-            }
+        exit_system.addActionListener(e -> {
+            timer2.cancel();
+            State.setPc(0);
+            State.setIsReady(new boolean[]{true, true, true,
+                    false, false, false, false, true, true});
         });
         add(exit_system);
         exit_system.setIcon(icon_exit);
@@ -143,6 +144,45 @@ public class FinalPanel extends JPanel {
                     false, false, false, false, true, true});
         }
 
+    }
+
+    public void confirm() {
+        SeatWriter.setSeat(State.getIdFlight(), State.getSeatRow(), State.getSeatColumn());
+        String column = "o";
+        switch (State.getSeatColumn()) {
+            case 1:
+                column = "A";
+                break;
+            case 2:
+                column = "B";
+                break;
+            case 3:
+                column = "C";
+                break;
+            case 4:
+                column = "D";
+                break;
+            case 5:
+                column = "E";
+                break;
+            case 6:
+                column = "F";
+        }
+        String food = "";
+        if (State.getMeal() == 'a')
+            food = "Standard";
+        else if (State.getMeal() == 'b')
+            food = "Vegetarian";
+        else if (State.getMeal() == 'c')
+            food = "Halal";
+        String[] prefFood = new String[3];
+        for (int i = 0; i < 3; i++) {
+            if (!State.getSelectedPrefFood()[i])
+                prefFood[i] = "NULL";
+            else
+                prefFood[i] = State.getPrefFoodName()[i];
+        }
+        DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), State.getSeatRow() + column, food, prefFood[0], prefFood[1], prefFood[2]);
     }
 
     public JButton getExit_begin(){return exit_begin;}

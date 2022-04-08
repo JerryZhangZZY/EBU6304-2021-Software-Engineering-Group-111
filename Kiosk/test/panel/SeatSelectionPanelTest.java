@@ -2,7 +2,7 @@ package panel;
 
 import main.State;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import javax.swing.*;
 
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Liang Zhehao
  *
- * @version 1.0
+ * @version 2.0
  * @date 2022/4/6
  */
 class SeatSelectionPanelTest {
@@ -28,7 +28,7 @@ class SeatSelectionPanelTest {
         State.resetSmallBillCard();
     }
 
-    @Test
+    @RepeatedTest(5)
     void testNormalSeat() {
 
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
@@ -43,7 +43,7 @@ class SeatSelectionPanelTest {
         boolean chosen = false;
         Random random = new Random();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             int r1 = random.nextInt(seatSelectionPanel.getTotalrow() - 3) + 4;
             scrollBar.setValue(r1);
             for (int j = 0; j < random.nextInt(10); j++) {
@@ -65,13 +65,12 @@ class SeatSelectionPanelTest {
                     assertEquals(expectedSeatRow, State.getSeatRow());
                     assertEquals(expectedSeatColumn, State.getSeatColumn());
                     assertEquals(State.getPrefSeatPrice()[0], State.smallBillCard.getPrice());
+                    assertEquals(State.smallBillCard.getPrice(), State.getBill());
                     assertEquals(tempPc + 1, State.getPc());
                     assertFalse(seatSelectionPanel.getWarn().isVisible());
-                    System.out.println(1);
                 } else {
                     assertEquals(tempPc, State.getPc());
                     assertTrue(seatSelectionPanel.getWarn().isVisible());
-                    System.out.println(0);
                 }
 
             }
@@ -79,7 +78,7 @@ class SeatSelectionPanelTest {
 
     }
 
-    @Test
+    @RepeatedTest(5)
     void testPrefSeat() {
 
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
@@ -96,7 +95,7 @@ class SeatSelectionPanelTest {
         boolean chosen = false;
         Random random = new Random();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             int r1 = random.nextInt(4);
             prefSeat[r1].doClick();
 

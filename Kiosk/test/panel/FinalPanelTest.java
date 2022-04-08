@@ -9,7 +9,14 @@ import org.junit.jupiter.api.Test;
 import javax.swing.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/**
+ * This is a unit test of final panel
+ *
+ * @author Wang Chenyu
+ *
+ * @version 2.0
+ * @date 2022/4/7
+ */
 public class FinalPanelTest {
     @BeforeEach
     void pull() {
