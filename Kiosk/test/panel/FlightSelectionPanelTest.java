@@ -8,8 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -39,7 +37,7 @@ class FlightSelectionPanelTest {
     }
 
     @Test
-    void testNoBookingNum() throws InterruptedException {
+    void testNoBookingNum() {
         State.setBookingNum("bn0002");
         StatusWriter.setTrue(2);
 
@@ -51,7 +49,7 @@ class FlightSelectionPanelTest {
     }
 
     @Test
-    void testOneBookingNum() throws AWTException, InterruptedException {
+    void testOneBookingNum() {
         State.setBookingNum("bn0001");
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
