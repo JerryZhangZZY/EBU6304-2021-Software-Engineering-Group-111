@@ -17,8 +17,7 @@ import java.awt.*;
  */
 public class MealBillcard extends JPanel {
 
-    private JLabel basis_meal;
-    
+    private JLabel headline;
     private JLabel[] extr = new JLabel[3];
     private JLabel[] bill = new JLabel[3];
     private JLabel[] line = new JLabel[3];
@@ -35,18 +34,17 @@ public class MealBillcard extends JPanel {
         pay[1] = bill2;
         pay[2] = bill3;
 
-//        setBorder(new LineBorder(Color.darkGray));
         setBackground(Color.WHITE);
         setLayout(null);
 
         String food = "";
         if (basis == 'a')
-            food = "Standard";
+            food = "Normal";
         else if (basis == 'b')
             food = "Vegetarian";
         else if (basis == 'c')
             food = "Halal";
-        JLabel headline = new JLabel("Meal:  " + food);
+        headline = new JLabel("Meal:  " + food);
         headline.setBounds(40, 20, 600, 69);
         headline.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
         headline.setForeground(Color.DARK_GRAY);
@@ -84,6 +82,22 @@ public class MealBillcard extends JPanel {
         }
 
         setSize(1111, 121 + n * 91);
-
     }
+
+    public JLabel getHeadline() {
+        return headline;
+    }
+
+    public JLabel[] getExtr() {
+        return extr;
+    }
+
+    public JLabel[] getBill() {
+        return bill;
+    }
+
+    public JLabel[] getLine() {
+        return line;
+    }
+
 }
