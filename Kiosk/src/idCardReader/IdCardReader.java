@@ -11,12 +11,14 @@ import java.nio.charset.StandardCharsets;
  * This class simulates a card reader.
  *
  * @author Zhang Zeyu
- *
- * @version 1.0
- * @date 2022/3/23
+ * @author Wang Zaitian
  *
  * @version 2.0
  * enable choose-drive-by-config
+ * @date 2022/4/8
+ *
+ * @version 1.0
+ * @date 2022/3/23
  */
 
 public abstract class IdCardReader {
