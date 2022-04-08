@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author Zhang Zeyu
  *
- * @version 2.0
- * @date 2022/4/7
- *
  * @version 2.1
  * @date 2022/4/8
  * Use new doPress() and doRelease() methods to simulate clicks
  * and add interrupt() to skip timer.
+ *
+ * @version 2.0
+ * @date 2022/4/7
  */
 
 class FlightSelectionPanelTest {

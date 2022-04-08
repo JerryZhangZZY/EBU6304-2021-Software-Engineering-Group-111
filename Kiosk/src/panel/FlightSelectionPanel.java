@@ -18,24 +18,24 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
- * @version 1.0
- * @date 2022/3/24
- *
- * @version 1.1
- * @date 2022/3/27
- * Adjusted actions in mouseReleased(MouseEvent e).
- *
- * @version 1.2
- * @date 2022/3/27
- * Added judgement condition and automaticallyExit method.
+ * @version 2.0
+ * @date 2022/4/8
+ * Migrate event handlers into FlightInfoCard.
  *
  * @version 1.3
  * @date 2022/3/27
  * Rename components, improve appearance and format.
  *
- * @version 2.0
- * @date 2022/4/8
- * Migrate event handlers into FlightInfoCard.
+ * @version 1.2
+ * @date 2022/3/27
+ * Added judgement condition and automaticallyExit method.
+ *
+ * @version 1.1
+ * @date 2022/3/27
+ * Adjusted actions in mouseReleased(MouseEvent e).
+ *
+ * @version 1.0
+ * @date 2022/3/24
  */
 
 public class FlightSelectionPanel extends JPanel {
