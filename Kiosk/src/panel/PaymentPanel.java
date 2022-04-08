@@ -116,7 +116,6 @@ public class PaymentPanel extends JPanel {
                 panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
                 lblPay.setForeground(Color.WHITE);
                 State.setPc(State.getPc() + 1);
-                BillConfirmCard.confirm();
             }
             @Override
             public void mousePressed(MouseEvent e) {
