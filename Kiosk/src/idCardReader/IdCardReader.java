@@ -28,6 +28,10 @@ public abstract class IdCardReader {
         JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "://ID info.json"));
         return obj.getString("id");
     }
+    public static String readName() throws IOException {
+        JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "://ID info.json"));
+        return obj.getString("surname");
+    }
 
     public static String read(String path) throws IOException {
         File jsonFile = new File(path);

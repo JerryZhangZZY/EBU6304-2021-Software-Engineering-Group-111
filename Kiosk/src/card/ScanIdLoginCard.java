@@ -35,9 +35,11 @@ import java.util.List;
 
 public class ScanIdLoginCard extends JPanel {
 
-    JLabel lblScanningImg;
-    JButton buttonScan;
-    JLabel lblError;
+    private JLabel lblScanningImg;
+
+    private JButton buttonScan;
+
+    private JLabel lblError;
 
     public ScanIdLoginCard() {
         setSize(770, 980);
@@ -113,5 +115,13 @@ public class ScanIdLoginCard extends JPanel {
 
     public void reset() {
         lblError.setVisible(false);
+    }
+
+    public JButton getButtonScan() {
+        return buttonScan;
+    }
+
+    public JLabel getLblError() {
+        return lblError;
     }
 }
