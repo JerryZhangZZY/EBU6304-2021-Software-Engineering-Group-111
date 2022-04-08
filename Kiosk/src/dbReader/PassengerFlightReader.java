@@ -15,6 +15,10 @@ import java.util.List;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 2.1
+ * Rename: getPassengerFlight_index() -> indexOf().
+ * @date 2022/4/8
+ *
  * @version 2.0
  * Improve booking number validation judgement logic.
  * @date 2022/4/8
