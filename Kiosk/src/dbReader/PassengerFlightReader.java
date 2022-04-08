@@ -13,23 +13,26 @@ import java.util.List;
  * This class is a tool that can help you search and get values of passenger's flight info quickly.
  *
  * @author Zhang Zeyu
- * @date 2022/3/20
- * @version 1.0
- *
- * @author Zhang Zeyu
- * @date 2022/3/22
- * @version 1.1
- * Add a new getter.
- *
- * @author Zhang Zeyu
- * @date 2022/3/25
- * @version 1.2
- * Add new getters.
- *
  * @author Ni Ruijie
- * @date 2022/3/27
+ *
+ * @version 2.0
+ * Improve booking number validation judgement logic.
+ * @date 2022/4/8
+ *
  * @version 1.3
  * Add method getPassengerFlight_index.
+ * @date 2022/3/27
+ *
+ * @version 1.2
+ * Add new getters.
+ * @date 2022/3/25
+ *
+ * @version 1.1
+ * Add a new getter.
+ * @date 2022/3/22
+ *
+ * @version 1.0
+ * @date 2022/3/20
  */
 
 public abstract class PassengerFlightReader {
@@ -144,7 +147,7 @@ public abstract class PassengerFlightReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
         JSONArray arr = obj.getJSONArray("passengerFlight");
         for(int index = 0; index < arr.size(); index++) {
-            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum))
                 return true;
         }
         return false;
