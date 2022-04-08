@@ -21,6 +21,11 @@ class FlightReaderTest {
     }
 
     @Test
+    void getIdFlight() {
+        assertEquals("CA0001", FlightReader.getIdFlight(0));
+    }
+
+    @Test
     void getDeparture() {
         assertEquals("Beijing T3", FlightReader.getDeparture(0));
     }

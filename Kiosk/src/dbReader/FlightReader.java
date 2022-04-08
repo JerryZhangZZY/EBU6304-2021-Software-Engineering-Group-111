@@ -8,8 +8,13 @@ import com.alibaba.fastjson.JSONObject;
  * This class is a tool that can help you search and get values of flight info quickly.
  *
  * @author Zhang Zeyu
- * @date 2022/3/20
+ *
+ * @version 2.0
+ * Add getIdFlight() by index.
+ * @date 2022/4/8
+ *
  * @version 1.0
+ * @date 2022/3/20
  */
 
 public abstract class FlightReader {
@@ -25,6 +30,12 @@ public abstract class FlightReader {
         int index = 0;
         while(!arr.getJSONObject(index).getString("idFlight").equals(idFlight)) { index++; }
         return index;
+    }
+
+    public static String getIdFlight(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("idFlight");
     }
 
     public static String getDeparture(int index) {
