@@ -1,6 +1,5 @@
 package panel;
 
-import card.BillConfirmCard;
 import main.State;
 
 import javax.swing.*;
