@@ -8,6 +8,14 @@ import javax.swing.*;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
+/**
+ * This is a unit test of Meal selection
+ *
+ * @author Wang Chenyu
+ *
+ * @version 2.0
+ * @date 2022/4/7
+ */
 public class MealSelectionPanelTest {
     @BeforeEach
     void reset(){

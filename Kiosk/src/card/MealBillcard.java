@@ -4,14 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @author Wang Chenyu
- * @version 1.0
- * @date 3/23
  * a card of meal bill
- *
  * @author Liang Zhehao
+ * @author Wang Chenyu
+ *
  * @version 1.1
  * @date 2022/3/26
+ *
+ * @version 1.0
+ * @date 3/23
+ *
  */
 public class MealBillcard extends JPanel {
 
