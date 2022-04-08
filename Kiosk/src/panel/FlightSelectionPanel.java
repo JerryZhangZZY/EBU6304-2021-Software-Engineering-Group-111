@@ -16,35 +16,33 @@ import static java.lang.Thread.sleep;
  * This is the panel that a passenger can select a flight to check in.
  *
  * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.0
- *
  * @author Ni Ruijie
- * @date 2022/3/27
+ *
+ * @version 1.0
+ * @date 2022/3/24
+ *
  * @version 1.1
+ * @date 2022/3/27
  * Adjusted actions in mouseReleased(MouseEvent e).
  *
- * @author Ni Ruijie
- * @date 2022/3/27
  * @version 1.2
- * Added judgement condition.
- * Added automaticallyExit method.
- *
- * @author Zhang Zeyu
  * @date 2022/3/27
+ * Added judgement condition and automaticallyExit method.
+ *
  * @version 1.3
+ * @date 2022/3/27
  * Rename components, improve appearance and format.
+ *
+ * @version 2.0
+ * @date 2022/4/8
+ * Migrate event handlers into FlightInfoCard.
  */
 
 public class FlightSelectionPanel extends JPanel {
 
-    private String bookingNum;
-    private String idFlight;
-    private List<String> idFlightList;
-
     public FlightSelectionPanel() {
-        bookingNum = State.getBookingNum();
-        idFlightList = PassengerFlightReader.getIdFlightByBookingNum(bookingNum);
+        String bookingNum = State.getBookingNum();
+        List<String> idFlightList = PassengerFlightReader.getIdFlightByBookingNum(bookingNum);
 
         setBounds(new Rectangle(0, 0, 1600, 980));
         setBackground(new Color(244, 244, 244));
@@ -68,23 +66,18 @@ public class FlightSelectionPanel extends JPanel {
         for(int cardNum = 0; cardNum < idFlightList.size(); cardNum++) {
             FlightInfoCard flightInfoCard = new FlightInfoCard(idFlightList.get(cardNum));
             flightInfoCard.setBounds(500, 150 + 250 * cardNum, 530, 150);
-            int finalCardNum = cardNum;
             flightInfoCard.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {}
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    flightInfoCard.setBackground(new Color(235, 235, 235));
+                    flightInfoCard.doPress();
                 }
 
                 @Override
                 public void mouseReleased(MouseEvent e) {
-                    flightInfoCard.setBackground(Color.WHITE);
-                    idFlight = idFlightList.get(finalCardNum);
-                    State.setIdFlight(idFlight);
-                    State.setPassengerFlight_index(PassengerFlightReader.getPassengerFlight_index(bookingNum,idFlight));
-                    State.setPc(State.getPc() + 1);
+                    flightInfoCard.doRelease();
                 }
 
                 @Override
@@ -97,9 +90,11 @@ public class FlightSelectionPanel extends JPanel {
         }
     }
 
-    public static void automaticallyExit() throws InterruptedException{
+    public static void automaticallyExit(){
         if(State.getPc() == 0) {
-            sleep(3500);
+            try {
+                sleep(3500);
+            } catch (InterruptedException ignored) {}
         }
     }
 }

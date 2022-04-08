@@ -1,15 +1,14 @@
 package panel;
 
 import backupDbOperation.BackupDbOperator;
+import card.FlightInfoCard;
 import dbWriter.StatusWriter;
-import frame.MainFrame;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,6 +19,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @version 2.0
  * @date 2022/4/7
+ *
+ * @version 2.1
+ * @date 2022/4/8
+ * Use new doPress() and doRelease() methods to simulate clicks
+ * and add interrupt() to skip timer.
  */
 
 class FlightSelectionPanelTest {
@@ -40,6 +44,7 @@ class FlightSelectionPanelTest {
         StatusWriter.setTrue(2);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
+        Thread.currentThread().interrupt();
         FlightSelectionPanel.automaticallyExit();
 
         assertEquals(0, State.getPc());
@@ -54,19 +59,9 @@ class FlightSelectionPanelTest {
 
         assertEquals(3, State.getPc());
 
-        MainFrame mainFrame = new MainFrame();
-        ProgressPanel progressPanel = new ProgressPanel(1);
-        progressPanel.loadCardsPanel(flightSelectionPanel);
-        mainFrame.loadPanel(progressPanel);
-        mainFrame.setVisible(true);
-        Point point = flightSelectionPanel.getComponent(0).getLocationOnScreen();
-        Robot robot = new Robot();
-        robot.delay(1000);
-        robot.mouseMove((int) (point.getX() + 1), (int) (point.getY() + 1));
-        robot.mousePress(InputEvent.BUTTON1_MASK);
-        robot.mouseRelease(InputEvent.BUTTON1_MASK);
-        mainFrame.setVisible(false);
-        robot.delay(10);
+        FlightInfoCard flightInfoCard = (FlightInfoCard)flightSelectionPanel.getComponent(0);
+        flightInfoCard.doPress();
+        flightInfoCard.doRelease();
 
         assertEquals(4, State.getPc());
         assertEquals("CA0001", State.getIdFlight());
