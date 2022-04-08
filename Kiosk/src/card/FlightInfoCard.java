@@ -101,7 +101,7 @@ public class FlightInfoCard extends JPanel {
     public void doRelease() {
         setBackground(Color.WHITE);
         State.setIdFlight(idFlight);
-        State.setPassengerFlight_index(PassengerFlightReader.getPassengerFlight_index(State.getBookingNum(), idFlight));
+        State.setPassengerFlight_index(PassengerFlightReader.indexOf(State.getBookingNum(), idFlight));
         State.setPc(State.getPc() + 1);
     }
 }
