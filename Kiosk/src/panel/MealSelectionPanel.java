@@ -14,29 +14,26 @@ import java.awt.event.ItemListener;
 
 /**
  * This class can return a meal selection panel.
- *
- * @author Liang Zhehao
- * @version 1.0
- * @date 2022/3/19
- *
- * @author Liang Zhehao
- * @version 1.1
- * @date 2022/3/23
- *
- * @author Liang Zhehao
- * @version 1.2
- * @date 2022/3/25
- * Add setters and remove parameters
- *
  * @author Zhang Zeyu
+ * @author Liang Zhehao
+ *
+ * @date 2022/3/28
+ * @version 1.4
+ * Appearance improved.
+ *
  * @date 2022/3/25
  * @version 1.3
  * GUI appearance redesigned.
  *
- * @author Zhang Zeyu
- * @date 2022/3/28
- * @version 1.4
- * Appearance improved.
+ * @version 1.2
+ * @date 2022/3/25
+ * Add setters and remove parameters
+ *
+ * @version 1.1
+ * @date 2022/3/23
+ *
+ * @version 1.0
+ * @date 2022/3/19
  */
 
 public class MealSelectionPanel extends JPanel {
@@ -48,6 +45,7 @@ public class MealSelectionPanel extends JPanel {
     private int[] price = new int[3];
     private String[] foodName = new String[3];
     private boolean[] select = {false, false, false};
+    JButton btnOK = new JButton("OK");
 
     private Border tipBorder = BorderFactory
             .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.RED)
@@ -134,7 +132,6 @@ public class MealSelectionPanel extends JPanel {
             rdbtnMeal[i].addItemListener(prefListener);
 
         OKListener okListener = new OKListener();
-        JButton btnOK = new JButton("OK");
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
         btnOK.setBounds(1200, 760, 330, 70);
         btnOK.setForeground(Color.WHITE);
@@ -151,6 +148,16 @@ public class MealSelectionPanel extends JPanel {
         this.foodName = foodName;
     }
 
+    public JButton getNormal_food(){return mealInfoCard.getNormal_food();}
+
+    public JButton getVegetarian_food(){return mealInfoCard.getVegetarian_food();}
+
+    public JButton getHalal_food(){return mealInfoCard.getHalal_food();}
+
+    public  JButton getConfirm(){return btnOK;}
+
+    public  JRadioButton[] getrdbtnMeal(){return rdbtnMeal;}
+
     private class OKListener implements ActionListener {
 
         @Override
@@ -162,6 +169,7 @@ public class MealSelectionPanel extends JPanel {
                 State.setBill(State.smallBillCard.getPrice());
             } else {
                 mealInfoCard.setBorder(tipBorder);
+                State.setMeal('d');
             }
         }
     }

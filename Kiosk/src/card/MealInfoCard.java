@@ -9,15 +9,19 @@ import java.awt.event.ActionListener;
 
 
 /**
- * @version 1.0
- * @author Wang Chenyu
- * @date 3/23
  * a card of food, you can choose some kinds of food in flight
  *
  * @author Zhang Zeyu
- * @date 2022/3/25
+ * @author Wang Chenyu
+ *
+ *
  * @version 1.1
+ * @date 2022/3/25
  * GUI appearance redesigned and code formatted.
+ *
+ * @version 1.0
+ * @date 3/23
+ *
  */
 
 public class MealInfoCard extends JPanel {
@@ -135,6 +139,12 @@ public class MealInfoCard extends JPanel {
     public char getChosen(){
         return this.chosen;
     }
+
+    public JButton getNormal_food(){return normal_food;}
+
+    public JButton getVegetarian_food(){return vegetarian_food;}
+
+    public JButton getHalal_food(){return halal_food;}
 
 }
 

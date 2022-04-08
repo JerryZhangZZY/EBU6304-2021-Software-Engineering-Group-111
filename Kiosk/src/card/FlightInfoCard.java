@@ -1,6 +1,8 @@
 package card;
 
 import dbReader.FlightReader;
+import dbReader.PassengerFlightReader;
+import main.State;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,25 +11,32 @@ import java.awt.*;
  * This class can return a panel of a flight info card.
  *
  * @author Zhang Zeyu
- * @date 2022/3/19
- * @version 1.0
  *
- * @author Zhang Zeyu
- * @date 2022/3/24
+ * @version 1.0
+ * @date 2022/3/19
+ *
  * @version 1.1
+ * @date 2022/3/24
  * Now accepts only idFlight one param.
+ *
+ * @version 2.0
+ * @date 2022/4/8
+ * Write own doPress() and doRelease()
+ * and add instance variable idFlight.
  */
 
 public class FlightInfoCard extends JPanel {
 
+    String idFlight;
+
     public FlightInfoCard(String idFlight) {
+        this.idFlight = idFlight;
         String date = FlightReader.getDate(FlightReader.indexOf(idFlight));
         String departureTime = FlightReader.getDepartureTime(FlightReader.indexOf(idFlight));
         String arrivalTime = FlightReader.getArrivalTime(FlightReader.indexOf(idFlight));
         String departure = FlightReader.getDeparture(FlightReader.indexOf(idFlight));
         String arrival = FlightReader.getArrival(FlightReader.indexOf(idFlight));
 
-        //setBorder(new LineBorder(new Color(0, 0, 0)));
         setBackground(Color.WHITE);
         setLayout(null);
         setSize(530,150);
@@ -83,5 +92,16 @@ public class FlightInfoCard extends JPanel {
         lblArrow.setFont(new Font("Tahoma", Font.PLAIN, 35));
         lblArrow.setBounds(194, 54, 171, 34);
         add(lblArrow);
+    }
+
+    public void doPress() {
+        setBackground(new Color(235, 235, 235));
+    }
+
+    public void doRelease() {
+        setBackground(Color.WHITE);
+        State.setIdFlight(idFlight);
+        State.setPassengerFlight_index(PassengerFlightReader.getPassengerFlight_index(State.getBookingNum(), idFlight));
+        State.setPc(State.getPc() + 1);
     }
 }

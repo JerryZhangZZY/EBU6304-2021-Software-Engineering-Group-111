@@ -9,12 +9,22 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for booking number login panel
+ * @author zaitian
+ *
+ * @version 2.0
+ * @date 4/6
+ *
+ * @version 1.0
+ * @date 3/28
+ */
+
 class BookingLoginPanelTest {
-    String[] expectedName = {"Jack", "Jack", "Mike", "nay"};
-    String[] expectedBookingNumber = {"bn0001", "bn0002", "bn0003", "nil"};
+    String[] candidateName = {"Jack", "Jack", "Mike", "nay"};
+    String[] candidateBookingNumber = {"bn0001", "bn0002", "bn0003", "nil"};
     MainFrame mainFrame = new MainFrame();
     BookingLoginPanel bookingLoginPanel = new BookingLoginPanel();
 
@@ -27,31 +37,31 @@ class BookingLoginPanelTest {
     @DisplayName("try entering a booking number")
     @RepeatedTest(10)
     void testBookingLoginPanel(){
-        int bn = new Random().nextInt(expectedBookingNumber.length);
-        bookingLoginPanel.getBookingNumberTextField().setText(expectedBookingNumber[bn]);
+        int bn = new Random().nextInt(candidateBookingNumber.length);
+        bookingLoginPanel.getBookingNumberTextField().setText(candidateBookingNumber[bn]);
         JButton okBtn = bookingLoginPanel.getOkButton();
         okBtn.doClick();
 
         System.out.println(bn);
-        System.out.println(expectedBookingNumber[bn]);
-        System.out.println(expectedName[bn]);
+        System.out.println(candidateBookingNumber[bn]);
+        System.out.println(candidateName[bn]);
 
-        if(expectedBookingNumber[bn].isBlank() ||
-                !PassengerFlightReader.bookingValid(expectedBookingNumber[bn])){
+        if(candidateBookingNumber[bn].isBlank() ||
+                !PassengerFlightReader.bookingValid(candidateBookingNumber[bn])){
                     assertAll("proper warning",
                             () -> assertEquals("Invalid booking number!", bookingLoginPanel.getBookingNumberTextField().getText()),
                             () -> assertEquals(Color.RED, bookingLoginPanel.getBookingNumberTextField().getForeground()),
                             () -> assertEquals(new Font("Arial", Font.ITALIC, 25), bookingLoginPanel.getBookingNumberTextField().getFont())
                     );
-                    System.out.println("failed\n--------");
+                    System.out.println("check-in failed\n----------------");
         }
         else {
             String actualName = State.getPassengerName();
             String actualBookingNumber = State.getBookingNum();
-            assertEquals(expectedName[bn], actualName, "name recorded");
-            assertEquals(expectedBookingNumber[bn], actualBookingNumber, "book num recorded");
+            assertEquals(candidateName[bn], actualName, "name retrieved");
+            assertEquals(candidateBookingNumber[bn], actualBookingNumber, "book num recorded");
             assertEquals(3, State.getPc());
-            System.out.println("passed\n--------");
+            System.out.println("check-in passed\n----------------");
         }
     }
     @DisplayName("use other ways to check-in")

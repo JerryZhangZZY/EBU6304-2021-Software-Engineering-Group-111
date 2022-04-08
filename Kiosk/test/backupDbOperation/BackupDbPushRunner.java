@@ -1,3 +1,5 @@
+package backupDbOperation;
+
 /**
  * Run this class manually to recover master database from backup database.
  *
