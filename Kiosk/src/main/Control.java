@@ -11,6 +11,11 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  * @author zaitian
+ * @author Liang Zhehao
+ *
+ * @version 2.0
+ * Replace automaticallyExit() with a simpler Thread.
+ * @date 2022/4/8
  *
  * @version 1.4
  * Performance improved.
@@ -155,7 +160,6 @@ public class Control {
                     kiosk.loadPanel(flightsPanel);
                     kiosk.revalidate();
                     kiosk.setWelcomeText();
-                    FlightSelectionPanel.automaticallyExit();
                     break;
                 }
                 case 4:{    //seat

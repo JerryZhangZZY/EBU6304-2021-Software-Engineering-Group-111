@@ -14,11 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * This is a unit test of flight selection.
  *
  * @author Zhang Zeyu
+ * @author Liang Zhehao
+ *
+ * @version 2.2
+ * Replace automaticallyExit() with a simpler Thread.
+ * @date 2022/4/8
  *
  * @version 2.1
- * @date 2022/4/8
  * Use new doPress() and doRelease() methods to simulate clicks
  * and add interrupt() to skip timer.
+ * @date 2022/4/8
  *
  * @version 2.0
  * @date 2022/4/7
@@ -42,8 +47,12 @@ class FlightSelectionPanelTest {
         StatusWriter.setTrue(2);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
-        Thread.currentThread().interrupt();
-        FlightSelectionPanel.automaticallyExit();
+        flightSelectionPanel.getThread().interrupt();
+        try {
+            flightSelectionPanel.getThread().join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         assertEquals(0, State.getPc());
     }
@@ -53,7 +62,6 @@ class FlightSelectionPanelTest {
         State.setBookingNum("bn0001");
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
-        FlightSelectionPanel.automaticallyExit();
 
         assertEquals(3, State.getPc());
 
