@@ -103,7 +103,7 @@ public class FinalPanelTest {
                 () -> assertEquals(prefFood[1], finalData[8]),
                 () -> assertEquals(prefFood[2], finalData[9])
         );
-        assertEquals(true, PassengerFlightReader.getStatus(State.getPassengerFlight_index()));
+        assertTrue(PassengerFlightReader.getStatus(State.getPassengerFlight_index()));
     }
 
     @AfterEach
