@@ -23,6 +23,10 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @date 2022/4/9
+ * @version 2.1
+ * Add confirm function
+ *
  * @date 2022/4/8
  * @version 2.0
  * Big bug fixed.
@@ -47,17 +51,17 @@ import java.util.TimerTask;
  * @version 1.0
  */
 public class FinalPanel extends JPanel {
-    JLabel headline =  new JLabel();
-    JButton exit_begin = new JButton();
-    JButton exit_system = new JButton();
-    ImageIcon icon1_back = new ImageIcon("Kiosk/icons/initial.png");
-    Image img_back = icon1_back.getImage();
-    Image newing_back = img_back.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_back = new ImageIcon(newing_back);
-    ImageIcon icon1_exit = new ImageIcon("Kiosk/icons/final_exit.png");
-    Image img_exit = icon1_exit.getImage();
-    Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    ImageIcon icon_exit = new ImageIcon(newImg_exit);
+    private JLabel headline =  new JLabel();
+    private JButton exit_begin = new JButton();
+    private JButton exit_system = new JButton();
+    private ImageIcon icon1_back = new ImageIcon("Kiosk/icons/initial.png");
+    private Image img_back = icon1_back.getImage();
+    private Image newing_back = img_back.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
+    private ImageIcon icon_back = new ImageIcon(newing_back);
+    private ImageIcon icon1_exit = new ImageIcon("Kiosk/icons/final_exit.png");
+    private Image img_exit = icon1_exit.getImage();
+    private Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
+    private ImageIcon icon_exit = new ImageIcon(newImg_exit);
     public FinalPanel(){
         confirm();
         StatusWriter.setTrue(State.getPassengerFlight_index());
@@ -148,33 +152,8 @@ public class FinalPanel extends JPanel {
 
     public void confirm() {
         SeatWriter.setSeat(State.getIdFlight(), State.getSeatRow(), State.getSeatColumn());
-        String column = "o";
-        switch (State.getSeatColumn()) {
-            case 1:
-                column = "A";
-                break;
-            case 2:
-                column = "B";
-                break;
-            case 3:
-                column = "C";
-                break;
-            case 4:
-                column = "D";
-                break;
-            case 5:
-                column = "E";
-                break;
-            case 6:
-                column = "F";
-        }
-        String food = "";
-        if (State.getMeal() == 'a')
-            food = "Standard";
-        else if (State.getMeal() == 'b')
-            food = "Vegetarian";
-        else if (State.getMeal() == 'c')
-            food = "Halal";
+        String[] column = {"A", "B", "C", "D", "E", "F"};
+        String[] food = {"Normal", "Vegetarian", "Halal"};
         String[] prefFood = new String[3];
         for (int i = 0; i < 3; i++) {
             if (!State.getSelectedPrefFood()[i])
@@ -182,7 +161,7 @@ public class FinalPanel extends JPanel {
             else
                 prefFood[i] = State.getPrefFoodName()[i];
         }
-        DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), State.getSeatRow() + column, food, prefFood[0], prefFood[1], prefFood[2]);
+        DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), State.getSeatRow() + column[State.getSeatColumn() - 1], food[(int)State.getMeal() - 97], prefFood[0], prefFood[1], prefFood[2]);
     }
 
     public JButton getExit_begin(){return exit_begin;}
