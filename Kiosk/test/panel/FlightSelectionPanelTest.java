@@ -8,6 +8,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -15,6 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author Zhang Zeyu
  * @author Liang Zhehao
+ *
+ * @version 2.3
+ * Upgrade old tests and add a new test.
+ * @date 2022/4/10
  *
  * @version 2.2
  * Replace automaticallyExit() with a simpler Thread.
@@ -42,8 +49,10 @@ class FlightSelectionPanelTest {
     }
 
     @Test
-    void testNoBookingNum() {
-        State.setBookingNum("bn0002");
+    void testNoMore() {
+        List<String> list = new ArrayList<>();
+        list.add("bn0002");
+        State.setBookingNumList(list);
         StatusWriter.setTrue(2);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
@@ -59,13 +68,34 @@ class FlightSelectionPanelTest {
 
     @Test
     void testOneBookingNum() {
-        State.setBookingNum("bn0001");
+        List<String> list = new ArrayList<>();
+        list.add("bn0001");
+        State.setBookingNumList(list);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
 
-        assertEquals(3, State.getPc());
+        State.setPc(3);
 
-        FlightInfoCard flightInfoCard = (FlightInfoCard)flightSelectionPanel.getComponent(0);
+        FlightInfoCard flightInfoCard = (FlightInfoCard)flightSelectionPanel.getComponent(1);
+        flightInfoCard.doPress();
+        flightInfoCard.doRelease();
+
+        assertEquals(4, State.getPc());
+        assertEquals("CA0001", State.getIdFlight());
+    }
+
+    @Test
+    void testTwoBookingNum() {
+        List<String> list = new ArrayList<>();
+        list.add("bn0001");
+        list.add("bn0002");
+        State.setBookingNumList(list);
+
+        FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
+
+        State.setPc(3);
+
+        FlightInfoCard flightInfoCard = (FlightInfoCard)flightSelectionPanel.getComponent(2);
         flightInfoCard.doPress();
         flightInfoCard.doRelease();
 

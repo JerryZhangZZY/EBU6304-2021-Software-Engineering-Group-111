@@ -13,6 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Zhang Zeyu
  *
+ * @version 2.1
+ * Add test for new getStatusByBookingNum().
+ * @date 2022/4/10
+ *
  * @version 2.0
  * @date 2022/4/8
  */
@@ -66,6 +70,14 @@ class PassengerFlightReaderTest {
         list.add("CA0001");
         list.add("AC0001");
         assertEquals(list, PassengerFlightReader.getIdFlightByBookingNum("bn0001"));
+    }
+
+    @Test
+    void getStatusByBookingNum() {
+        List<Boolean> list = new ArrayList<>();
+        list.add(false);
+        list.add(false);
+        assertEquals(list, PassengerFlightReader.getStatusByBookingNum("bn0001"));
     }
 
     @Test

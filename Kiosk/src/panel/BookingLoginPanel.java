@@ -6,6 +6,8 @@ import main.State;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * a panel for users to input booking number
@@ -13,6 +15,10 @@ import java.awt.event.*;
  *
  * @author zaitian
  * @author Zhang Zeyu
+ *
+ * @version 2.0
+ * setBookingNum() -> setBookingNumList().
+ * @date 2022/4/10
  *
  * @version 1.4
  * Add ENTER listener.
@@ -137,7 +143,9 @@ public class BookingLoginPanel extends JPanel {
                     setWaring();
                 }
                 else {
-                    State.setBookingNum(bookingNumberTextField.getText());
+                    List<String> bookingNumList = new ArrayList<>();
+                    bookingNumList.add(bookingNumberTextField.getText());
+                    State.setBookingNumList(bookingNumList);
                     State.setPassengerName(PassengerFlightReader.getPassengerNameByBookingNum(bookingNumberTextField.getText()));
                     reset();
                     State.setPc(3);

@@ -20,6 +20,10 @@ import java.util.List;
  *
  * @author Zhang Zeyu
  *
+ * @version 2.0
+ * setBookingNum() -> setBookingNumList().
+ * @date 2022/4/10
+ *
  * @version 1.2
  * Fixed a bug.
  * @date 2022/3/29
@@ -88,9 +92,9 @@ public class ScanIdLoginCard extends JPanel {
                         State.setPassengerName("Mr.Nobody");
                     }
                     if (bookingNumList.size() == 0)
-                        State.setBookingNum(null);
+                        State.setBookingNumList(new ArrayList<>());
                     else
-                        State.setBookingNum(bookingNumList.get(0));
+                        State.setBookingNumList(bookingNumList);
                     State.setPc(3);
                 }
             }

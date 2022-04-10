@@ -20,6 +20,10 @@ import java.util.List;
  * @author Zhang Zeyu
  * @author zaitian
  *
+ * @version 2.1
+ * setBookingNum() -> setBookingNumList.
+ * @date 2022/4/10
+ *
  * @version 2.0
  * fix wrongly clear input bug
  * @date 4/6
@@ -123,9 +127,9 @@ public class TypeIdLoginCard extends JPanel {
                 else {
                     State.setPassengerName(tfSurname.getText());
                     if (bookingNumList.size() == 0)
-                        State.setBookingNum(null);
+                        State.setBookingNumList(new ArrayList<>());
                     else
-                        State.setBookingNum(bookingNumList.get(0));
+                        State.setBookingNumList(bookingNumList);
                     State.setPc(3);
                 }
             }

@@ -12,25 +12,38 @@ import java.awt.*;
  *
  * @author Zhang Zeyu
  *
- * @version 1.0
- * @date 2022/3/19
- *
- * @version 1.1
- * @date 2022/3/24
- * Now accepts only idFlight one param.
+ * @version 2.1
+ * Add setGrey() to make this card looks unavailable.
+ * @date 2022/4/10
  *
  * @version 2.0
- * @date 2022/4/8
  * Write own doPress() and doRelease()
  * and add instance variable idFlight.
+ * @date 2022/4/8
+ *
+ * @version 1.1
+ * Now accepts only idFlight one param.
+ * @date 2022/3/24
+ *
+ * @version 1.0
+ * @date 2022/3/19
  */
 
 public class FlightInfoCard extends JPanel {
 
     String idFlight;
+    int column;
+    JLabel lblIdFlight = new JLabel();
+    JLabel lblDate = new JLabel();
+    JLabel lblDepartureTime = new JLabel();
+    JLabel lblArrivalTime = new JLabel();
+    JLabel lblDeparture = new JLabel();
+    JLabel lblArrival = new JLabel();
+    JLabel lblArrow = new JLabel("--------->");
 
-    public FlightInfoCard(String idFlight) {
+    public FlightInfoCard(String idFlight, int column) {
         this.idFlight = idFlight;
+        this.column = column;
         String date = FlightReader.getDate(FlightReader.indexOf(idFlight));
         String departureTime = FlightReader.getDepartureTime(FlightReader.indexOf(idFlight));
         String arrivalTime = FlightReader.getArrivalTime(FlightReader.indexOf(idFlight));
@@ -41,7 +54,6 @@ public class FlightInfoCard extends JPanel {
         setLayout(null);
         setSize(530,150);
 
-        JLabel lblIdFlight = new JLabel();
         lblIdFlight.setFont(new Font("Arial", Font.PLAIN, 25));
         lblIdFlight.setForeground(Color.DARK_GRAY);
         lblIdFlight.setHorizontalAlignment(SwingConstants.LEFT);
@@ -49,7 +61,6 @@ public class FlightInfoCard extends JPanel {
         lblIdFlight.setText(idFlight);
         add(lblIdFlight);
 
-        JLabel lblDate = new JLabel();
         lblDate.setFont(new Font("Arial", Font.PLAIN, 25));
         lblDate.setForeground(Color.LIGHT_GRAY);
         lblDate.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -57,14 +68,12 @@ public class FlightInfoCard extends JPanel {
         lblDate.setText(date);
         add(lblDate);
 
-        JLabel lblDepartureTime = new JLabel();
         lblDepartureTime.setForeground(Color.DARK_GRAY);
         lblDepartureTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 40));
         lblDepartureTime.setBounds(20, 54, 135, 35);
         lblDepartureTime.setText(departureTime);
         add(lblDepartureTime);
 
-        JLabel lblArrivalTime = new JLabel();
         lblArrivalTime.setForeground(Color.DARK_GRAY);
         lblArrivalTime.setHorizontalAlignment(SwingConstants.TRAILING);
         lblArrivalTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 40));
@@ -72,14 +81,12 @@ public class FlightInfoCard extends JPanel {
         lblArrivalTime.setText(arrivalTime);
         add(lblArrivalTime);
 
-        JLabel lblDeparture = new JLabel();
         lblDeparture.setForeground(Color.DARK_GRAY);
         lblDeparture.setFont(new Font("Arial", Font.PLAIN, 25));
         lblDeparture.setBounds(20, 95, 200, 30);
         lblDeparture.setText(departure);
         add(lblDeparture);
 
-        JLabel lblArrival = new JLabel();
         lblArrival.setHorizontalAlignment(SwingConstants.TRAILING);
         lblArrival.setForeground(Color.DARK_GRAY);
         lblArrival.setFont(new Font("Arial", Font.PLAIN, 25));
@@ -87,11 +94,28 @@ public class FlightInfoCard extends JPanel {
         lblArrival.setText(arrival);
         add(lblArrival);
 
-        JLabel lblArrow = new JLabel("--------->");
         lblArrow.setForeground(Color.LIGHT_GRAY);
         lblArrow.setFont(new Font("Tahoma", Font.PLAIN, 35));
         lblArrow.setBounds(194, 54, 171, 34);
         add(lblArrow);
+    }
+
+    /**
+     * Invoke this method to make this card looks unavailable.
+     */
+    public void setGray() {
+        setBackground(new Color(230, 230, 230));
+        lblIdFlight.setForeground(Color.GRAY);
+        lblDepartureTime.setForeground(Color.GRAY);
+        lblArrivalTime.setForeground(Color.GRAY);
+        lblDeparture.setForeground(Color.GRAY);
+        lblArrival.setForeground(Color.GRAY);
+        JLabel lblCheckedIn = new JLabel("checked-in!");
+        lblCheckedIn.setBounds(190, 120, 150, 30);
+        lblCheckedIn.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheckedIn.setFont(new Font("Calibri", Font.BOLD, 30));
+        lblCheckedIn.setForeground(new Color(60,179,113));
+        add(lblCheckedIn);
     }
 
     public void doPress() {
@@ -101,6 +125,7 @@ public class FlightInfoCard extends JPanel {
     public void doRelease() {
         setBackground(Color.WHITE);
         State.setIdFlight(idFlight);
+        State.setBookingNum(State.getBookingNumList().get(column));
         State.setPassengerFlight_index(PassengerFlightReader.indexOf(State.getBookingNum(), idFlight));
         State.setPc(State.getPc() + 1);
     }

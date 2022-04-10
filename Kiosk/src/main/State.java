@@ -2,6 +2,9 @@ package main;
 
 import card.SmallBillCard;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Designed to temporarily save data
  * before forwarding to json database
@@ -13,6 +16,10 @@ import card.SmallBillCard;
  * @author Zhang Zeyu
  * @author Liang Zhehao
  * @author Ni Ruijie
+ *
+ * @version 2.0
+ * Add bookingNumList and its corresponding getter and setter.
+ * @date 2022/4/10
  *
  * @version 1.4
  * idPassengerFlight: TYPE String ---> int; NAME idPassengerFlight ---> passengerFlight_index.
@@ -36,7 +43,9 @@ import card.SmallBillCard;
 
 public abstract class State {
     private static int pc = 0;
+    private static boolean[] isReady = {true, true, true, false, false, false, false, true, true};
     private static String passengerName;
+    private static List<String> bookingNumList = new ArrayList<>();
     private static String bookingNum;
     private static String idFlight;
     private static int passengerFlight_index;
@@ -46,7 +55,6 @@ public abstract class State {
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
     private static int bill = 0;
-    private static boolean[] isReady = {true, true, true, false, false, false, false, true, true};
     private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
@@ -55,6 +63,7 @@ public abstract class State {
     public static int getPc() { return pc; }
     public static boolean[] getIsReady() { return isReady; }
     public static String getPassengerName() { return passengerName; }
+    public static List<String> getBookingNumList() { return bookingNumList; }
     public static String getBookingNum() { return bookingNum; }
     public static int getPassengerFlight_index() { return passengerFlight_index; }
     public static String getIdFlight() { return idFlight; }
@@ -73,6 +82,7 @@ public abstract class State {
 
     public static void setIsReady(boolean[] isReady) { State.isReady = isReady; }
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
+    public static void setBookingNumList(List<String> bookingNumList) { State.bookingNumList = bookingNumList; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
     public static void setPassengerFlight_index(int passengerFlight_index) { State.passengerFlight_index = passengerFlight_index; }
     public static void setIdFlight(String idFlight) { State.idFlight = idFlight; }

@@ -15,6 +15,11 @@ import java.util.List;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 2.2
+ * Make getIdFlightByBookingNum() ignore status
+ * and add getStatusByBookingNum().
+ * @date 2022/4/10
+ *
  * @version 2.1
  * Rename: getPassengerFlight_index() -> indexOf().
  * @date 2022/4/8
@@ -113,15 +118,34 @@ public abstract class PassengerFlightReader {
     /**
      * Get a list of idFlight of a given bookingNum.
      * @param bookingNum the booking number of that passenger
-     * @return a list that contains flight ids that bookingNum matches
+     * @return a list that contains flight ids that bookingNum matches(ignore status)
      */
     public static List<String> getIdFlightByBookingNum(String bookingNum) {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
         JSONArray arr = obj.getJSONArray("passengerFlight");
         List<String> list = new ArrayList<>();
         for(int index = 0; index < arr.size(); index++) {
-            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum))
                 list.add(arr.getJSONObject(index).getString("idFlight"));
+        }
+        return list;
+    }
+
+    /**
+     * Get a list of status corresponding to idFlights of a given bookingNum.
+     * @param bookingNum the booking number of that passenger
+     * @return a list that contains status of idFlights that bookingNum matches(ignore status)
+     */
+    public static List<Boolean> getStatusByBookingNum(String bookingNum) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        List<Boolean> list = new ArrayList<>();
+        for(int index = 0; index < arr.size(); index++) {
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum))
+                if(arr.getJSONObject(index).getBoolean("status"))
+                    list.add(true);
+                else
+                    list.add(false);
         }
         return list;
     }
