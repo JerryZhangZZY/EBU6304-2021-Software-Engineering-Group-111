@@ -46,22 +46,13 @@ public abstract class State {
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
     private static int bill = 0;
-
-    private static boolean[] isReady = {true, true, true,
-            false, false, false, false, true, true};
-
-    public static SmallBillCard smallBillCard = new SmallBillCard(0);
-
-    public static void resetSmallBillCard() {
-        smallBillCard = new SmallBillCard(0);
-    }
-
+    private static boolean[] isReady = {true, true, true, false, false, false, false, true, true};
     private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
     private static int[] prefFoodPrice = {5, 100, 10};
-    public static int getPc() { return pc; }
 
+    public static int getPc() { return pc; }
     public static boolean[] getIsReady() { return isReady; }
     public static String getPassengerName() { return passengerName; }
     public static String getBookingNum() { return bookingNum; }
@@ -78,8 +69,8 @@ public abstract class State {
     public static int[] getPrefFoodPrice() { return prefFoodPrice; }
     public static int getBill() { return bill; }
     public static void setPc(int pcNext) { pc = pcNext; }
-
     public static void setIsReady(boolean isReady, int page) { State.isReady[page] = isReady; }
+
     public static void setIsReady(boolean[] isReady) { State.isReady = isReady; }
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNum(String bookingNum) { State.bookingNum = bookingNum; }
@@ -95,4 +86,9 @@ public abstract class State {
     public static void setPrefFoodName(String[] prefFood) { State.prefFoodName = prefFood; }
     public static void setPrefFoodPrice(int[] prefFoodPrice) { State.prefFoodPrice = prefFoodPrice; }
     public static void setBill(int bill) { State.bill = bill; }
+
+    public static SmallBillCard smallBillCard = new SmallBillCard(0);
+    public static void resetSmallBillCard() {
+        smallBillCard = new SmallBillCard(0);
+    }
 }
