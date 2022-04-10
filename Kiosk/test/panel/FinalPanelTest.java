@@ -38,6 +38,19 @@ public class FinalPanelTest {
 
     @Test
     void exitTest() {
+        Random random = new Random();
+        char[] food = {'a', 'b', 'c'};
+        String[] column = {"A", "B", "C", "D", "E", "F"};
+        String[] foodName = {"Normal", "Vegetarian", "Halal"};
+
+        State.setIdFlight("CA0001");
+        State.setSeatRow(random.nextInt(6) + 1);
+        State.setSeatColumn(random.nextInt(6) + 1);
+        State.setSelectedPrefFood(new boolean[]{random.nextBoolean(), random.nextBoolean(), random.nextBoolean()});
+        State.setPrefFoodName(new String[]{"food1", "food2", "food3"});
+        State.setBookingNum("bn0001");
+        State.setMeal(food[random.nextInt(3)]);
+        State.setPassengerFlight_index(0);
         FinalPanel finalPanel = new FinalPanel();
         JButton exit = finalPanel.getExit_begin();
         exit.doClick();
@@ -47,6 +60,19 @@ public class FinalPanelTest {
 
     @Test
     void systemExitTest() {
+        Random random = new Random();
+        char[] food = {'a', 'b', 'c'};
+        String[] column = {"A", "B", "C", "D", "E", "F"};
+        String[] foodName = {"Normal", "Vegetarian", "Halal"};
+
+        State.setIdFlight("CA0001");
+        State.setSeatRow(random.nextInt(6) + 1);
+        State.setSeatColumn(random.nextInt(6) + 1);
+        State.setSelectedPrefFood(new boolean[]{random.nextBoolean(), random.nextBoolean(), random.nextBoolean()});
+        State.setPrefFoodName(new String[]{"food1", "food2", "food3"});
+        State.setBookingNum("bn0001");
+        State.setMeal(food[random.nextInt(3)]);
+        State.setPassengerFlight_index(0);
         FinalPanel finalPanel = new FinalPanel();
         JButton exit = finalPanel.getExit_system();
         exit.doClick();
