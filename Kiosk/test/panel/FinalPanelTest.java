@@ -6,12 +6,10 @@ import dbReader.PassengerFlightReader;
 import dbReader.SeatReader;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -22,6 +20,11 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Wang Chenyu
  * @author Liang Zhehao
+ * @author Zhang Zeyu
+ *
+ * @version 2.2
+ * Delete pull().
+ * @date 2022/4/10
  *
  * @version 2.1
  * @date 2022/4/9
@@ -30,11 +33,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2022/4/7
  */
 public class FinalPanelTest {
-
-    @BeforeEach
-    void pull() {
-        BackupDbOperator.pull();
-    }
 
     @Test
     void exitTest() {
