@@ -13,23 +13,30 @@ import java.util.List;
  * This class is a tool that can help you search and get values of passenger's flight info quickly.
  *
  * @author Zhang Zeyu
- * @date 2022/3/20
- * @version 1.0
- *
- * @author Zhang Zeyu
- * @date 2022/3/22
- * @version 1.1
- * Add a new getter.
- *
- * @author Zhang Zeyu
- * @date 2022/3/25
- * @version 1.2
- * Add new getters.
- *
  * @author Ni Ruijie
- * @date 2022/3/27
+ *
+ * @version 2.1
+ * Rename: getPassengerFlight_index() -> indexOf().
+ * @date 2022/4/8
+ *
+ * @version 2.0
+ * Improve booking number validation judgement logic.
+ * @date 2022/4/8
+ *
  * @version 1.3
  * Add method getPassengerFlight_index.
+ * @date 2022/3/27
+ *
+ * @version 1.2
+ * Add new getters.
+ * @date 2022/3/25
+ *
+ * @version 1.1
+ * Add a new getter.
+ * @date 2022/3/22
+ *
+ * @version 1.0
+ * @date 2022/3/20
  */
 
 public abstract class PassengerFlightReader {
@@ -44,6 +51,20 @@ public abstract class PassengerFlightReader {
         JSONArray arr = obj.getJSONArray("passengerFlight");
         int index = 0;
         while(arr.getJSONObject(index).getInteger("idPassengerFlight") != idPassengerFlight) { index++; }
+        return index;
+    }
+
+    /**
+     * Get index of given bookingNum and idFlight.
+     * @param bookingNum the booking number of that passenger
+     * @param idFlight the flight ID of the passenger
+     * @return index of passengerFlight
+     */
+    public static int indexOf(String bookingNum, String idFlight) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
+        JSONArray arr = obj.getJSONArray("passengerFlight");
+        int index = 0;
+        while(!(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum)&&arr.getJSONObject(index).getString("idFlight").equals(idFlight))) { index++; }
         return index;
     }
 
@@ -106,20 +127,6 @@ public abstract class PassengerFlightReader {
     }
 
     /**
-     * Get PassengerFlight_index of given bookingNum and idFlight.
-     * @param bookingNum the booking number of that passenger
-     * @param idFlight the flight ID of the passenger
-     * @return index of passengerFlight
-     */
-    public static int getPassengerFlight_index(String bookingNum, String idFlight) {
-        JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
-        JSONArray arr = obj.getJSONArray("passengerFlight");
-        int index = 0;
-        while(!(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum)&&arr.getJSONObject(index).getString("idFlight").equals(idFlight))) { index++; }
-        return index;
-    }
-
-    /**
      * Get a list of bookNum of a given bookingNum.
      * @param idPassenger the id of that passenger
      * @return a linked hash set that contains book numbers that passenger matches
@@ -144,7 +151,7 @@ public abstract class PassengerFlightReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/passengerFlight.json"), Feature.OrderedField);
         JSONArray arr = obj.getJSONArray("passengerFlight");
         for(int index = 0; index < arr.size(); index++) {
-            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum) && !arr.getJSONObject(index).getBoolean("status"))
+            if(arr.getJSONObject(index).getString("bookingNum").equals(bookingNum))
                 return true;
         }
         return false;

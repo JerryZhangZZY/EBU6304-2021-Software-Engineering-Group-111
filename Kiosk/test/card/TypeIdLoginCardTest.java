@@ -2,12 +2,10 @@ package card;
 
 import frame.MainFrame;
 import main.State;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 
 import javax.swing.*;
-import java.util.EnumMap;
 import java.util.List;
 import java.util.Random;
 

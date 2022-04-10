@@ -19,25 +19,27 @@ import java.util.List;
  * This class returns a panel of scanning login card.
  *
  * @author Zhang Zeyu
- * @date 2022/3/22
- * @version 1.0
  *
- * @author Zhang Zeyu
- * @date 2022/3/28
- * @version 1.1
- * Performance improvement.
- *
- * @author Zhang Zeyu
- * @date 2022/3/29
  * @version 1.2
  * Fixed a bug.
+ * @date 2022/3/29
+ *
+ * @version 1.1
+ * Performance improvement.
+ * @date 2022/3/28
+ *
+ * @version 1.0
+ * @date 2022/3/22
+ *
  */
 
 public class ScanIdLoginCard extends JPanel {
 
-    JLabel lblScanningImg;
-    JButton buttonScan;
-    JLabel lblError;
+    private JLabel lblScanningImg;
+
+    private JButton buttonScan;
+
+    private JLabel lblError;
 
     public ScanIdLoginCard() {
         setSize(770, 980);
@@ -113,5 +115,13 @@ public class ScanIdLoginCard extends JPanel {
 
     public void reset() {
         lblError.setVisible(false);
+    }
+
+    public JButton getButtonScan() {
+        return buttonScan;
+    }
+
+    public JLabel getLblError() {
+        return lblError;
     }
 }

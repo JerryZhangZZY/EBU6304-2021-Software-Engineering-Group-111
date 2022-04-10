@@ -2,6 +2,7 @@ package idCardReader;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import main.Config;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -10,18 +11,28 @@ import java.nio.charset.StandardCharsets;
  * This class simulates a card reader.
  *
  * @author Zhang Zeyu
- * @date 2022/3/23
+ * @author Wang Zaitian
+ *
+ * @version 2.0
+ * enable choose-drive-by-config
+ * @date 2022/4/8
+ *
  * @version 1.0
+ * @date 2022/3/23
  */
 
 public abstract class IdCardReader {
 
     //set drive letter
-    private static final char driveLetter = 'F';
+    private static final String driveLetter = Config.readConfig("idCardDrive");
 
     public static String readId() throws IOException {
         JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "://ID info.json"));
         return obj.getString("id");
+    }
+    public static String readName() throws IOException {
+        JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "://ID info.json"));
+        return obj.getString("surname");
     }
 
     public static String read(String path) throws IOException {

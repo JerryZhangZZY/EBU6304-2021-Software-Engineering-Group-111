@@ -20,7 +20,6 @@ public class SeatBillCard extends JPanel {
 
     public SeatBillCard(int row, char column, String prefer, int pay) {
 
-//        setBorder(new LineBorder(Color.darkGray));
         setBackground(Color.WHITE);
         setLayout(null);
         setSize(1111, 190);
@@ -51,6 +50,18 @@ public class SeatBillCard extends JPanel {
         bill.setFont(new Font("Arial", Font.BOLD, 38));
         bill.setText("$" + pay);
         add(bill);
+    }
+
+    public JLabel getBill() {
+        return bill;
+    }
+
+    public JLabel getPreference() {
+        return preference;
+    }
+
+    public JLabel getHeadline() {
+        return headline;
     }
 }
 
