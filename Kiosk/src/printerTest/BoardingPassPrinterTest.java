@@ -5,10 +5,11 @@ import printer.BoardingPassPrinter;
 import java.io.IOException;
 
 /**
- * @version 1.0
- * @author wcy
- * @date 3/20
  * use for print ticket and generate a TXT
+ *
+ * @author wcy
+ * @version 1.0
+ * @date 3/20
  */
 public class BoardingPassPrinterTest {
     public static void main(String[] args) {

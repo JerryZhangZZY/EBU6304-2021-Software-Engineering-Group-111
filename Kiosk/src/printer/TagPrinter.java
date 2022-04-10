@@ -3,12 +3,14 @@ package printer;
 import dbReader.*;
 import java.io.*;
 /**
- * @version 1.0
- * @author Ni Ruijie
- * @date 3/22
  * A Tag Printer which can print out tags of the carry-on baggage in .txt files
+ *
+ * @author Ni Ruijie
+ * @version 1.0
+ * @date 3/22
  */
 public abstract class TagPrinter {
+    static String tag_temp;
     /**
      * Generate .txt for tags
      * @param idPassengerFlight_index primary key
@@ -23,7 +25,7 @@ public abstract class TagPrinter {
         while(carryon_left>=1){
             String tag_file = idPassenger +"-"+idPassengerFlight_index+"-"+(carryon_num-carryon_left+1)+"of"+carryon_num;
             String tag_path ="Kiosk/printerOutPut/";
-            String tag_temp = tag_path +tag_file +".txt";
+            tag_temp = tag_path +tag_file +".txt";
             File tag = new File(tag_temp);
             tag.createNewFile();
             FileWriter bucket=new FileWriter(tag_temp);
@@ -57,5 +59,9 @@ public abstract class TagPrinter {
             carryon_left --;
             buffer.close();
         }
+    }
+
+    public static String getFilePath(){
+        return tag_temp;
     }
 }

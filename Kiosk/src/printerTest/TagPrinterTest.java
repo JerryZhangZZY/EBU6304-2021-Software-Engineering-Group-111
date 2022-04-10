@@ -3,10 +3,11 @@ import printer.TagPrinter;
 
 import java.io.IOException;
 /**
- * @version 1.0
+ * Test program for Tag Printer
+ *
  * @author Ni Ruijie
+ * @version 1.0
  * @date 3/22
- * Test for Tag Printer
  */
 public class TagPrinterTest {
     public static void main(String[] args) {
