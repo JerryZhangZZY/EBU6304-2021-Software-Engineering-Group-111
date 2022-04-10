@@ -25,6 +25,7 @@ public abstract class BoardingPassPrinter {
         int idFlight_index = FlightReader.indexOf(idFlight);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
         int idPlane = FlightReader.getIdPlane(idFlight_index);
+        int idPlane_index = PlaneReader.indexOf(idPlane);
         String date = FlightReader.getDate(idFlight_index);
         String departure = FlightReader.getDeparture(idFlight_index);
         String arrival = FlightReader.getArrival(idFlight_index);
@@ -32,7 +33,7 @@ public abstract class BoardingPassPrinter {
         String board_time = FlightReader.getBoardingTime(idFlight_index);
         int idPassenger_index = PassengerReader.indexOf(idPassenger);
         String surname = PassengerReader.getSurname(idPassenger_index);
-        String airLine = PlaneReader.getAirline(idPlane);
+        String airLine = PlaneReader.getAirline(idPlane_index);
         String ticket_file = idPassenger + "-" + idFlight + "-" + date;
         String ticket_path = "Kiosk/printerOutPut/";
         ticket_temp = ticket_path + ticket_file + ".txt";
