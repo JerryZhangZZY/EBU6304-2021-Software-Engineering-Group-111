@@ -9,18 +9,17 @@ import java.awt.*;
  * This class can return a panel of flight info top bar card.
  *
  * @author Zhang Zeyu
- * @date 2022/3/24
- * @version 1.0
  *
- * @author Zhang Zeyu
- * @date 2022/3/28
+ * @version 1.0
+ * @date 2022/3/24
+ *
  * @version 1.1
  * Panel size changed.
+ * @date 2022/3/28
  *
- * @author Zhang Zeyu
- * @date 2022/3/29
  * @version 1.2
  * Labels relocation.
+ * @date 2022/3/29
  */
 
 public class FlightInfoTopBarCard extends JPanel {
