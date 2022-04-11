@@ -113,6 +113,9 @@ public class MainFrame extends JFrame {
         time.setForeground(Color.WHITE);
         time.setBounds(940, 20, 500, 60);
         time.setFont(new Font("Arial", Font.BOLD, 30));
+        Clock.setClock(time);
+        topPanel.add(time);
+        time.setVisible(false);
 
         exitButton = new JButton();
         exitButton.setContentAreaFilled(false);
@@ -127,8 +130,7 @@ public class MainFrame extends JFrame {
                     AdminFrame adminFrame = new AdminFrame();
                 }
                 else {
-                    topPanel.remove(time);
-                    Clock.stopClock();
+                    //topPanel.remove(time);
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
                     State.setPc(0);
@@ -268,12 +270,14 @@ public class MainFrame extends JFrame {
 //            centerPanel.setBounds(0, 100, 1920, 880);
         }
     }
+    public void showClock(Boolean flag){
+        time.setVisible(flag);
+    }
     /**
      * set welcome text with passenger's name when available
      */
     public void setWelcomeText(){
-        Clock.setClock(time);
-        topPanel.add(time);
+        showClock(true);
         welcomeLabel.setText("Welcome, " + State.getPassengerName());
     }
 
@@ -373,7 +377,6 @@ public class MainFrame extends JFrame {
         });
         thread.start();
     }
-
     /**
      * Animation of locking screen.
      */

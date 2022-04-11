@@ -115,6 +115,7 @@ public class Control {
             }
             switch (State.getPc()) {
                 case 0 : {    //welcome
+                    kiosk.showClock(false);
                     kiosk.displayComponents(true, true, false);
                     kiosk.hideBars(false);
                     kiosk.resetWelcomeText();
