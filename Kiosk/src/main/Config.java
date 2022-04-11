@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**
@@ -26,14 +27,16 @@ public abstract class Config {
 
         Yaml yaml = new Yaml();
         InputStream cfg = null;
-        try {
-            cfg = new FileInputStream("Kiosk/config/Config.yaml");
-        }
-        catch (FileNotFoundException e1) {
+        while(cfg == null) {
             try {
-                Files.createFile(Path.of("Kiosk/config/Config.yaml"));
-            } catch (IOException e2) {
-                e2.printStackTrace();
+                cfg = new FileInputStream("Kiosk/config/Config.yaml");
+            } catch (FileNotFoundException e1) {
+                try {
+                    Files.writeString(Path.of("Kiosk/config/Config.yaml"),
+                            "language: English\nidCardDrive: E\n");
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
             }
         }
         LinkedHashMap data = yaml.load(cfg);
