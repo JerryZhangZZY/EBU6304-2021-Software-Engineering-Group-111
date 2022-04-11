@@ -62,7 +62,7 @@ public class WelcomePanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                State.setPc(State.getPc()+1);
+                State.setPc(1);
             }
         });
         add(mask, 0);
