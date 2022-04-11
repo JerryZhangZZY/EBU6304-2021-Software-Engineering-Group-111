@@ -5,10 +5,9 @@ import panel.WelcomePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
+
+import static java.lang.Thread.sleep;
 
 /**
  * main frame that holds panels for different pages
@@ -98,13 +97,27 @@ public class MainFrame extends JFrame {
         exitButton.setBorderPainted(false);
         exitButton.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
         exitButton.setBounds(1815, 12, 80, 70);
-        exitButton.addActionListener(new ActionListener() {
+//        exitButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                State.setIsReady(new boolean[]{true, true, true,
+//                        false, false, false, false, true, true});
+//
+//                State.setPc(0);
+//            }
+//        });
+        exitButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                State.setIsReady(new boolean[]{true, true, true,
-                        false, false, false, false, true, true});
-
-                State.setPc(0);
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (e.isAltDown()) {
+                    AdminFrame adminFrame = new AdminFrame();
+                }
+                else {
+                    State.setIsReady(new boolean[]{true, true, true,
+                            false, false, false, false, true, true});
+                    State.setPc(0);
+                }
             }
         });
         topPanel.add(exitButton);
@@ -277,7 +290,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(0.043 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        sleep(8);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -306,7 +319,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(-0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(-0.043 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        sleep(8);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -331,7 +344,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(0.052 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        sleep(8);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -354,7 +367,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(-0.052 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        sleep(8);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
