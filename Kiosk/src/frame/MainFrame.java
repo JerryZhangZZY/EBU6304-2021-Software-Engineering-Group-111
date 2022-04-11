@@ -1,6 +1,7 @@
 package frame;
 
 import main.State;
+import panel.WelcomePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,10 @@ import java.awt.event.KeyEvent;
  * @author zaitian
  * @author wcy
  * @author Zhang Zeyu
+ *
+ * @version 2.1
+ * Add animation methods and move welcome panel to here.
+ * @date 2022/4/11
  *
  * @version 2.0
  * Add Satisflight logo.
@@ -45,7 +50,6 @@ import java.awt.event.KeyEvent;
 
 public class MainFrame extends JFrame {
 
-    private JPanel contentPane;
     private JPanel topPanel;
     private JLabel welcomeLabel;
     private JButton exitButton;
@@ -54,11 +58,17 @@ public class MainFrame extends JFrame {
     private JPanel bottomPanel;
     private JButton backButton;
     private JLabel satisflightLabel;
+    private WelcomePanel welcomePanel;
 
     /**
      * Main frame with panels initialized.
      */
     public MainFrame() {
+
+        welcomePanel = new WelcomePanel();
+        welcomePanel.setLocation(0, -1080);
+        add(welcomePanel);
+
         /*
          * basic settings
          */
@@ -67,16 +77,14 @@ public class MainFrame extends JFrame {
         setUndecorated(true);
         setBounds(new Rectangle(0, 0, 1920, 1080));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        contentPane = new JPanel();
-        contentPane.setLayout(null);
-        setContentPane(contentPane);
+        setLayout(null);
         /*
          * top panel, with welcome text and exit button
          */
         topPanel = new JPanel();
         topPanel.setBackground(new Color(11, 89, 167));
         topPanel.setBounds(0, 0, 1920, 100);
-        contentPane.add(topPanel);
+        add(topPanel);
         topPanel.setLayout(null);
 
         welcomeLabel = new JLabel();
@@ -131,7 +139,7 @@ public class MainFrame extends JFrame {
         centerPanel = new JPanel();
         centerPanel.setBackground(new Color(244, 244, 244));
         centerPanel.setBounds(0, 100, 1920, 880);
-        contentPane.add(centerPanel, 0);
+        add(centerPanel);
         centerPanel.setLayout(null);
         /*
          * bottom panel, with back button
@@ -139,7 +147,7 @@ public class MainFrame extends JFrame {
         bottomPanel = new JPanel();
         bottomPanel.setBackground(new Color(11, 89, 167));
         bottomPanel.setBounds(0, 980, 1920, 100);
-        contentPane.add(bottomPanel);
+        add(bottomPanel);
         bottomPanel.setLayout(null);
 
         backButton = new JButton();
@@ -152,6 +160,7 @@ public class MainFrame extends JFrame {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                backButton.setEnabled(false);
                 switch (State.getPc()) {
                     case 2://alt ID
                         break;
@@ -223,12 +232,12 @@ public class MainFrame extends JFrame {
         if (flag){
             topPanel.setVisible(false);
             bottomPanel.setVisible(false);
-            centerPanel.setBounds(0,0,1920,1080);
+//            centerPanel.setBounds(0,0,1920,1080);
         }
         else {
             topPanel.setVisible(true);
             bottomPanel.setVisible(true);
-            centerPanel.setBounds(0, 100, 1920, 880);
+//            centerPanel.setBounds(0, 100, 1920, 880);
         }
     }
     /**
@@ -245,4 +254,116 @@ public class MainFrame extends JFrame {
         welcomeLabel.setText("Welcome to Beijing International Airport");
     }
 
+    /**
+     * Move component vertically.
+     * @param component thing you want to move
+     * @param distance how many pixels you want it to move
+     */
+    public void moveVertical(Component component, int distance) {
+        component.setLocation(component.getX(), component.getY() + distance);
+    }
+
+    /**
+     * Animation of switching to a latter panel.
+     * @param nextPanel new panel to switch to
+     */
+    public void scrollDown(JPanel nextPanel) {
+        nextPanel.setLocation(0, 880);
+        centerPanel.add(nextPanel);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int frame = 0; frame < 50; frame++) {
+                    moveVertical(centerPanel.getComponent(0), (int)(0.043 * frame * (frame - 50)));
+                    moveVertical(centerPanel.getComponent(1), (int)(0.043 * frame * (frame - 50)));
+                    try {
+                        Thread.sleep(8);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                centerPanel.getComponent(1).setLocation(0, 0);
+                centerPanel.remove(centerPanel.getComponent(0));
+                repaint();
+                revalidate();
+                backButton.setEnabled(true);
+            }
+        });
+        thread.start();
+    }
+
+    /**
+     * Animation of switching to a previous panel.
+     * @param nextPanel new panel to switch to
+     */
+    public void scrollUp(JPanel nextPanel) {
+        nextPanel.setLocation(0, -880);
+        centerPanel.add(nextPanel);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int frame = 0; frame < 50; frame++) {
+                    moveVertical(centerPanel.getComponent(0), (int)(-0.043 * frame * (frame - 50)));
+                    moveVertical(centerPanel.getComponent(1), (int)(-0.043 * frame * (frame - 50)));
+                    try {
+                        Thread.sleep(8);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                centerPanel.getComponent(1).setLocation(0, 0);
+                centerPanel.remove(centerPanel.getComponent(0));
+                repaint();
+                revalidate();
+                backButton.setEnabled(true);
+            }
+        });
+        thread.start();
+    }
+
+    /**
+    * Animation of unlocking screen.
+    */
+    public void unlockScreen() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int frame = 0; frame < 50; frame++) {
+                    moveVertical(welcomePanel, (int)(0.052 * frame * (frame - 50)));
+                    try {
+                        Thread.sleep(8);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                welcomePanel.setLocation(0, -1080);
+                repaint();
+                revalidate();
+            }
+        });
+        thread.start();
+    }
+
+    /**
+     * Animation of locking screen.
+     */
+    public void lockScreen() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int frame = 0; frame < 50; frame++) {
+                    moveVertical(welcomePanel, (int)(-0.052 * frame * (frame - 50)));
+                    try {
+                        Thread.sleep(8);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                welcomePanel.setLocation(0, 0);
+                repaint();
+                revalidate();
+            }
+        });
+        thread.start();
+    }
 }
