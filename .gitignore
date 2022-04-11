@@ -94,3 +94,6 @@ Kiosk/src/tests/*.java
 Kiosk/printerOutput/*.jpg
 Kiosk/printerOutput/*.png
 Kiosk/printerOutput/*.txt
+
+#user config
+Kiosk/config/
