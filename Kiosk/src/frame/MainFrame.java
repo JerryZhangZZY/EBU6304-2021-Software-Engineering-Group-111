@@ -12,7 +12,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.*;
 
-import static java.lang.Thread.sleep;
+
 
 /**
  * main frame that holds panels for different pages
