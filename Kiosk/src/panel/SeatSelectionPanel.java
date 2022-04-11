@@ -1,6 +1,7 @@
 package panel;
 
 
+import card.PlaneInfoCard;
 import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
@@ -18,6 +19,10 @@ import java.awt.event.*;
  * @author Wang Chenyu
  * @author Liang Zhehao
  * @author Zhang Zeyu
+ *
+ * @version 2.0
+ * Add PlaneInfoCard
+ * @date 2022/4/11
  *
  * @version 1.4
  * Appearance improved.
@@ -53,17 +58,11 @@ public class SeatSelectionPanel extends JPanel {
     private JScrollBar scrollBar = new JScrollBar();
     //icon loading
     private ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
-    private Image img_empty = icon1_empty.getImage();
-    private Image newimg_empty = img_empty.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_empty = new ImageIcon(newimg_empty);
+    private ImageIcon icon_empty = new ImageIcon(icon1_empty.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
     private ImageIcon icon1_occu = new ImageIcon("Kiosk/icons/occu.png");
-    private Image img_occu = icon1_occu.getImage();
-    private Image newimg_occu = img_occu.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_occu = new ImageIcon(newimg_occu);
+    private ImageIcon icon_occu = new ImageIcon(icon1_occu.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
     private ImageIcon icon1_chonse = new ImageIcon("Kiosk/icons/chosen.png");
-    private Image img_chonse = icon1_chonse.getImage();
-    private Image newimg_chonse = img_chonse.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_chonse = new ImageIcon(newimg_chonse);
+    private ImageIcon icon_chonse = new ImageIcon(icon1_chonse.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
     private JButton btnOK = new JButton("OK");
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
@@ -111,54 +110,54 @@ public class SeatSelectionPanel extends JPanel {
 
         SimpleListener ourListener = new SimpleListener();
         for (int i = 0; i < 6; i++) {
-            seatButton[i] = new JButton("");
+            seatButton[i] = new JButton();
             seatButton[i].setForeground(Color.WHITE);
             seatButton[i].setBackground(Color.WHITE);
             seatButton[i].setContentAreaFilled(false);
             seatButton[i].setBorderPainted(false);
-            add(seatButton[i]);
             seatButton[i].addActionListener(ourListener);
+            add(seatButton[i]);
         }
         seatButton[0].setBounds(165, 1, 221, 220);
-        seatButton[1].setBounds(332, 1, 221, 220);
+        seatButton[1].setBounds(330, 1, 221, 220);
         seatButton[2].setBounds(495, 1, 221, 220);
         seatButton[3].setBounds(931, 1, 221, 220);
-        seatButton[4].setBounds(1103, 1, 221, 220);
-        seatButton[5].setBounds(1268, 1, 221, 220);
+        seatButton[4].setBounds(1096, 1, 221, 220);
+        seatButton[5].setBounds(1261, 1, 221, 220);
         //row number
-        row_num.setFont(new Font("Arial", Font.PLAIN, 26));
+        row_num.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
         row_num.setText(String.valueOf(row));
         row_num.setBounds(88, 103, 41, 50);
         add(row_num);
         //seat label
-        JLabel lblNewLabel = new JLabel("A");
-        lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblNewLabel.setBounds(260, 210, 19, 26);
-        add(lblNewLabel);
+        JLabel lblA = new JLabel("A");
+        lblA.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        lblA.setBounds(265, 210, 25, 26);
+        add(lblA);
 
         JLabel lblB = new JLabel("B");
-        lblB.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblB.setBounds(436, 210, 19, 26);
+        lblB.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        lblB.setBounds(430, 210, 25, 26);
         add(lblB);
 
         JLabel lblC = new JLabel("C");
-        lblC.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblC.setBounds(595, 210, 19, 26);
+        lblC.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        lblC.setBounds(595, 210, 25, 26);
         add(lblC);
 
         JLabel lblD = new JLabel("D");
-        lblD.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblD.setBounds(1034, 210, 19, 26);
+        lblD.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        lblD.setBounds(1031, 210, 25, 26);
         add(lblD);
 
         JLabel lblE = new JLabel("E");
-        lblE.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblE.setBounds(1208, 210, 19, 26);
+        lblE.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        lblE.setBounds(1196, 210, 25, 26);
         add(lblE);
 
         JLabel lblF = new JLabel("F");
-        lblF.setFont(new Font("Arial", Font.PLAIN, 26));
-        lblF.setBounds(1372, 210, 19, 26);
+        lblF.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        lblF.setBounds(1361, 210, 25, 26);
         add(lblF);
 
         Border tipBorder = BorderFactory
@@ -173,6 +172,13 @@ public class SeatSelectionPanel extends JPanel {
         warn.setBorder(tipBorder);
         warn.setVisible(false);
         add(warn);
+
+        int idPlane = FlightReader.getIdPlane(FlightReader.indexOf(State.getIdFlight()));
+        PlaneInfoCard planeInfoCard = new PlaneInfoCard(PlaneReader.getModel(PlaneReader.indexOf(idPlane)),
+                PlaneReader.getCapacity(PlaneReader.indexOf(idPlane)),
+                PlaneReader.getAirline(PlaneReader.indexOf(idPlane)));
+        planeInfoCard.setLocation(50, 280);
+        add(planeInfoCard);
 
         scrollBar.setBounds(34, 59, 34, 157);
         scrollBar.setBlockIncrement(1);
@@ -200,35 +206,35 @@ public class SeatSelectionPanel extends JPanel {
         prefPanel.setBounds(50, 550, 388, 280);
         add(prefPanel);
 
-        JLabel lblNewLabel1 = new JLabel("Preference");
-        lblNewLabel1.setForeground(Color.DARK_GRAY);
-        lblNewLabel1.setFont(new Font("Arial", Font.BOLD, 45));
-        lblNewLabel1.setBounds(34, 22, 250, 40);
-        prefPanel.add(lblNewLabel1);
+        JLabel lblPref = new JLabel("Preference");
+        lblPref.setForeground(Color.DARK_GRAY);
+        lblPref.setFont(new Font("Arial", Font.BOLD, 45));
+        lblPref.setBounds(34, 22, 250, 40);
+        prefPanel.add(lblPref);
 
-        JLabel lblNewLabel_1 = new JLabel(":  $" + price[0]);
-        lblNewLabel_1.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblNewLabel_1.setBounds(260, 90, 90, 30);
-        prefPanel.add(lblNewLabel_1);
+        JLabel lblPrice1 = new JLabel(":  $" + price[0]);
+        lblPrice1.setForeground(Color.DARK_GRAY);
+        lblPrice1.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblPrice1.setBounds(260, 90, 90, 30);
+        prefPanel.add(lblPrice1);
 
-        JLabel lblNewLabel_1_1 = new JLabel(":  $" + price[1]);
-        lblNewLabel_1_1.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblNewLabel_1_1.setBounds(260, 130, 90, 30);
-        prefPanel.add(lblNewLabel_1_1);
+        JLabel lblPrice2 = new JLabel(":  $" + price[1]);
+        lblPrice2.setForeground(Color.DARK_GRAY);
+        lblPrice2.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblPrice2.setBounds(260, 130, 90, 30);
+        prefPanel.add(lblPrice2);
 
-        JLabel lblNewLabel_1_2 = new JLabel(":  $" + price[2]);
-        lblNewLabel_1_2.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblNewLabel_1_2.setBounds(260, 170, 90, 30);
-        prefPanel.add(lblNewLabel_1_2);
+        JLabel lblPrice3 = new JLabel(":  $" + price[2]);
+        lblPrice3.setForeground(Color.DARK_GRAY);
+        lblPrice3.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblPrice3.setBounds(260, 170, 90, 30);
+        prefPanel.add(lblPrice3);
 
-        JLabel lblNewLabel_1_3 = new JLabel(":  $" + price[3]);
-        lblNewLabel_1_3.setForeground(Color.DARK_GRAY);
-        lblNewLabel_1_3.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblNewLabel_1_3.setBounds(260, 210, 90, 30);
-        prefPanel.add(lblNewLabel_1_3);
+        JLabel lblPrice4 = new JLabel(":  $" + price[3]);
+        lblPrice4.setForeground(Color.DARK_GRAY);
+        lblPrice4.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblPrice4.setBounds(260, 210, 90, 30);
+        prefPanel.add(lblPrice4);
 
         rdbtnSeat1.setText(seatName[0]);
         rdbtnSeat1.setFont(new Font("Arial", Font.PLAIN, 25));
