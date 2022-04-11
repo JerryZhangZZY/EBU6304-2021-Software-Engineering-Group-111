@@ -60,6 +60,8 @@ public class MainFrame extends JFrame {
     private JLabel satisflightLabel;
     private WelcomePanel welcomePanel;
 
+    private final int TIME_INTERVAL = 8;
+
     /**
      * Main frame with panels initialized.
      */
@@ -277,7 +279,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(0.043 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -306,7 +308,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(-0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(-0.043 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -331,7 +333,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(0.052 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -354,7 +356,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(-0.052 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
