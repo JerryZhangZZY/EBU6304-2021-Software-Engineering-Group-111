@@ -20,6 +20,11 @@ import java.util.Date;
  * @author zaitian
  * @author wcy
  * @author Zhang Zeyu
+ * @author Ni Ruijie
+ *
+ * @version 2.2
+ * Added overall timer of the system
+ * @date 2022/4/11
  *
  * @version 2.1
  * Add animation methods and move welcome panel to here.
@@ -379,12 +384,15 @@ public class MainFrame extends JFrame {
         thread.start();
     }
 
+    /**
+     * Set the timer
+     * @param time panel of the timer
+     */
     private void setTimer(JLabel time) {
         final JLabel varTime = time;
         Timer timeAction = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 long timemillis = System.currentTimeMillis();
-                // 转换日期显示格式
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 varTime.setText(df.format(new Date(timemillis)));
             }
