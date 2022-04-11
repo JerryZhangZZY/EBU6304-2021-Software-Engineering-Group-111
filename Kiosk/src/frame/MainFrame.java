@@ -5,6 +5,12 @@ import panel.WelcomePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.*;
 
 import static java.lang.Thread.sleep;
@@ -17,6 +23,11 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @author wcy
  * @author Zhang Zeyu
+ * @author Ni Ruijie
+ *
+ * @version 2.2
+ * Added overall timer of the system
+ * @date 2022/4/11
  *
  * @version 2.1
  * Add animation methods and move welcome panel to here.
@@ -58,6 +69,9 @@ public class MainFrame extends JFrame {
     private JButton backButton;
     private JLabel satisflightLabel;
     private WelcomePanel welcomePanel;
+    private JLabel time;
+
+    private final int TIME_INTERVAL = 8;
 
     /**
      * Main frame with panels initialized.
@@ -91,6 +105,12 @@ public class MainFrame extends JFrame {
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setBounds(60, 20, 1000, 60);
         topPanel.add(welcomeLabel);
+
+        time = new JLabel();
+        time.setForeground(Color.WHITE);
+        time.setBounds(940, 20, 500, 60);
+        time.setFont(new Font("Arial", Font.BOLD, 30));
+        topPanel.add(time);
 
         exitButton = new JButton();
         exitButton.setContentAreaFilled(false);
@@ -257,6 +277,7 @@ public class MainFrame extends JFrame {
      * set welcome text with passenger's name when available
      */
     public void setWelcomeText(){
+        this.setTimer(time);
         welcomeLabel.setText("Welcome, " + State.getPassengerName());
     }
 
@@ -290,7 +311,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(0.043 * frame * (frame - 50)));
                     try {
-                        sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -319,7 +340,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(-0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(-0.043 * frame * (frame - 50)));
                     try {
-                        sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -344,7 +365,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(0.052 * frame * (frame - 50)));
                     try {
-                        sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -367,7 +388,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(-0.052 * frame * (frame - 50)));
                     try {
-                        sleep(8);
+                        Thread.sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -378,5 +399,21 @@ public class MainFrame extends JFrame {
             }
         });
         thread.start();
+    }
+
+    /**
+     * Set the timer
+     * @param time panel of the timer
+     */
+    private void setTimer(JLabel time) {
+        final JLabel varTime = time;
+        Timer timeAction = new Timer(100, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                long timemillis = System.currentTimeMillis();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                varTime.setText(df.format(new Date(timemillis)));
+            }
+        });
+        timeAction.start();
     }
 }
