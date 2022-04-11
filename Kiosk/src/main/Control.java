@@ -13,6 +13,10 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @author Liang Zhehao
  *
+ * @version 2.1
+ * Upgrade to new animation methods.
+ * @date 2022/4/11
+ *
  * @version 2.0
  * Replace automaticallyExit() with a simpler Thread.
  * @date 2022/4/8
@@ -45,7 +49,6 @@ public class Control {
      */
     public static void main(String[] args) throws InterruptedException {
         MainFrame kiosk;
-        WelcomePanel welcomePanel;
         BookingLoginPanel bookingLoginPanel;
         IdLoginPanel idLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
@@ -57,11 +60,6 @@ public class Control {
          */
         kiosk = new MainFrame();
         kiosk.displayComponents(true, true, true);
-
-        /*
-        welcoming panel
-         */
-        welcomePanel = new WelcomePanel();
 
         /*
         booking number login panel
@@ -113,56 +111,54 @@ public class Control {
         while (true){
             kiosk.setVisible(true);
             while (currentPC == State.getPc()){
-                sleep(1);
+                sleep(10);
             }
             switch (State.getPc()) {
-
-                case 0: {    //welcome
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.hideBars(true);
-                    kiosk.loadPanel(welcomePanel);
-                    kiosk.revalidate();
-                    currentPC = State.getPc();
-                    break;
-                }
-                case 1:{    //enter booking number
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.hideBars(false);
+                case 0 -> {    //welcome
                     kiosk.displayComponents(true, true, false);
-                    bookingLoginPanel.reset();
+                    kiosk.hideBars(false);
                     kiosk.resetWelcomeText();
-                    kiosk.loadPanel(bookingLoginPanel);
-                    kiosk.revalidate();
-                    currentPC = State.getPc();
-                    break;
-                }
-                case 2:{    //enter or scan ID
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.repaint();
+                    kiosk.loadPanel(new BookingLoginPanel());
+                    kiosk.lockScreen();
+                    currentPC = State.getPc();
+                }
+                case 1 -> {    //enter booking number
+                    if (currentPC < State.getPc())
+                        kiosk.unlockScreen();
+                    else {
+                        kiosk.displayComponents(true, true, false);
+                        kiosk.hideBars(false);
+                        kiosk.resetWelcomeText();
+                        bookingLoginPanel.reset();
+                        kiosk.scrollUp(bookingLoginPanel);
+                    }
+                    currentPC = State.getPc();
+                }
+                case 2 -> {    //enter or scan ID
                     kiosk.displayComponents(true, true, true);
                     idLoginPanel.reset();
-                    kiosk.loadPanel(idLoginPanel);
-                    kiosk.revalidate();
+                    if (currentPC < State.getPc())
+                        kiosk.scrollDown(idLoginPanel);
+                    else
+                        kiosk.scrollUp(idLoginPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 3:{    //flights
-                    currentPC = State.getPc();
+                case 3 -> {    //flights
                     if (!State.getIsReady()[3]) {
                         flightsPanel = new ProgressPanel(1);
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());
                     }
                     kiosk.displayComponents(true, true, false);
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.loadPanel(flightsPanel);
-                    kiosk.revalidate();
                     kiosk.setWelcomeText();
-                    break;
+                    if (currentPC < State.getPc())
+                        kiosk.scrollDown(flightsPanel);
+                    else
+                        kiosk.scrollUp(flightsPanel);
+                    currentPC = State.getPc();
                 }
-                case 4:{    //seat
+                case 4 -> {    //seat
                     if (!State.getIsReady()[4]) {
                         State.resetSmallBillCard();
                         seatPanel = new ProgressPanel(2);
@@ -171,57 +167,49 @@ public class Control {
                     }
                     seatSelectionPanel.add(State.smallBillCard);
                     kiosk.displayComponents(true, true, true);
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.loadPanel(seatPanel);
-                    kiosk.revalidate();
+                    if (currentPC < State.getPc())
+                        kiosk.scrollDown(seatPanel);
+                    else
+                        kiosk.scrollUp(seatPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 5:{    //food
+                case 5 -> {    //food
                     if (!State.getIsReady()[5]) {
                         mealPanel = new ProgressPanel(3);
                         mealSelectionPanel = new MealSelectionPanel();
                         mealPanel.loadCardsPanel(mealSelectionPanel);
                     }
                     mealSelectionPanel.add(State.smallBillCard);
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.loadPanel(mealPanel);
-                    kiosk.revalidate();
+                    if (currentPC < State.getPc())
+                        kiosk.scrollDown(mealPanel);
+                    else
+                        kiosk.scrollUp(mealPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 6: {    //bill
+                case 6 -> {    //bill
                     if (!State.getIsReady()[6]) {
                         billPanel = new ProgressPanel(4);
                         billPanel.loadCardsPanel(new BillConfirmationPanel());
                     }
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.loadPanel(billPanel);
-                    kiosk.revalidate();
+                    if (currentPC < State.getPc())
+                        kiosk.scrollDown(billPanel);
+                    else
+                        kiosk.scrollUp(billPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 7: {   //pay
+                case 7 -> {   //pay
                     payPanel.loadCardsPanel(new PaymentPanel(State.getBill()));
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
-                    kiosk.loadPanel(payPanel);
-                    kiosk.revalidate();
+                    if (currentPC < State.getPc())
+                        kiosk.scrollDown(payPanel);
+                    else
+                        kiosk.scrollUp(payPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 8:{    //finish
+                case 8 -> {    //finish
                     finalPanel = new FinalPanel();
-                    kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.displayComponents(true, false, false);
-                    kiosk.repaint();
-                    kiosk.loadPanel(finalPanel);
-                    kiosk.revalidate();
+                    kiosk.scrollDown(finalPanel);
                     currentPC = State.getPc();
-                    break;
                 }
             }
         }
