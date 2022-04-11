@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test class for booking number login panel
  * @author zaitian
  *
+ * @version 2.1
+ * adapt to new version panel
+ * @date 4/11
+ *
  * @version 2.0
  * @date 4/6
  *
@@ -57,7 +61,7 @@ class BookingLoginPanelTest {
         }
         else {
             String actualName = State.getPassengerName();
-            String actualBookingNumber = State.getBookingNum();
+            String actualBookingNumber = State.getBookingNumList().get(0);
             assertEquals(candidateName[bn], actualName, "name retrieved");
             assertEquals(candidateBookingNumber[bn], actualBookingNumber, "book num recorded");
             assertEquals(3, State.getPc());

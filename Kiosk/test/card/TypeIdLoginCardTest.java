@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * test class for checking-in by typing ID and name
  * @author zaitian
  *
+ * @version 1.1
+ * adapt to new login card
+ * @date 4/11
+ *
  * @version 1.0
  * @date 4/7
  */
@@ -50,7 +54,7 @@ class TypeIdLoginCardTest {
         }
         else {
             assertEquals(candidateName[candidate], State.getPassengerName());
-            assertEquals(expectedBookingNum[candidate], State.getBookingNum());
+            assertEquals(expectedBookingNum[candidate], State.getBookingNumList().get(0));
             assertEquals(3, State.getPc());
         }
     }
