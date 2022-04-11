@@ -25,6 +25,10 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 2.3
+ * add new admin exit
+ * @date 4/11
+ *
  * @version 2.2
  * Added overall timer of the system
  * @date 2022/4/11
