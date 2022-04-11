@@ -1,6 +1,6 @@
 package panel;
 
-import frame.Clock;
+import main.Clock;
 import main.State;
 
 import javax.swing.*;
