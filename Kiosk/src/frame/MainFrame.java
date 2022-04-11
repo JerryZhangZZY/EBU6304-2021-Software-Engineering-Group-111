@@ -119,15 +119,6 @@ public class MainFrame extends JFrame {
         exitButton.setBorderPainted(false);
         exitButton.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
         exitButton.setBounds(1815, 12, 80, 70);
-//        exitButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                State.setIsReady(new boolean[]{true, true, true,
-//                        false, false, false, false, true, true});
-//
-//                State.setPc(0);
-//            }
-//        });
         exitButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

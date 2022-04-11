@@ -22,7 +22,6 @@ public class AdminFrame extends JFrame {
         setContentPane(contentPane);
 
         JTextArea terminal = new JTextArea();
-//        terminal.setBounds(10, 10, 700, 340);
         terminal.setBounds(new Rectangle(10, 10, 460, 250));
         terminal.setBackground(new Color(16, 16,16));
         terminal.setForeground(Color.white);
@@ -35,7 +34,6 @@ public class AdminFrame extends JFrame {
             public void keyPressed(KeyEvent e) {
                 super.keyTyped(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER){
-                    System.out.println(e.getKeyCode());
                     String[] commands = terminal.getText().split("\n");
                     String command = commands[commands.length-1];
                     if (command.equals("exeo")){

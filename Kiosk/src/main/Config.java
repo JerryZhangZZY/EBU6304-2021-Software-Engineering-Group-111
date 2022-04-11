@@ -58,7 +58,4 @@ public abstract class Config {
     public static void writeConfig(String name, String value){
 
     }
-//    public static void main(String[] args) throws FileNotFoundException {
-//        System.out.println((loadConfig("idCardDrive")));
-//    }
 }
