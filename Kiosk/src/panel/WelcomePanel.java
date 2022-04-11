@@ -1,5 +1,6 @@
 package panel;
 
+import frame.Clock;
 import main.State;
 
 import javax.swing.*;
@@ -11,6 +12,11 @@ import java.awt.event.MouseEvent;
  * the panel that displays when kiosk is vaccant
  * @author zaitian
  * @author Zhang Zeyu
+ * @author Ni Ruijie
+ *
+ * @version 1.2
+ * Added clock
+ * @date 2022/4/11
  *
  * @version 1.1
  * Change font.
@@ -25,6 +31,7 @@ public class WelcomePanel extends JPanel {
     JLabel hintLabel;
     /** mask over other components, to be clicked**/
     JPanel mask;
+    JLabel time;
 
     public WelcomePanel(){
         setBounds(new Rectangle(0, 0, 1920, 1080));
@@ -52,6 +59,15 @@ public class WelcomePanel extends JPanel {
         hintLabel.setForeground(Color.lightGray);
         hintLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(hintLabel, 0);
+        /*
+        clock at home page
+         */
+        time = new JLabel();
+        time.setBounds(470, 130, 1000, 500);
+        time.setFont(new Font("Calibri", Font.BOLD, 90));
+        Clock.setClock(time);
+        time.setHorizontalAlignment(SwingConstants.CENTER);
+        add(time,0);
         /*
         mask to click and move on
          */

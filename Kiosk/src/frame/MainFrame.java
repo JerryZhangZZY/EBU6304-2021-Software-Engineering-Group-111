@@ -30,7 +30,7 @@ import static java.lang.Thread.sleep;
  * @date 4/11
  *
  * @version 2.2
- * Added overall timer of the system
+ * Added overall clock of the system
  * @date 2022/4/11
  *
  * @version 2.1
@@ -114,7 +114,6 @@ public class MainFrame extends JFrame {
         time.setForeground(Color.WHITE);
         time.setBounds(940, 20, 500, 60);
         time.setFont(new Font("Arial", Font.BOLD, 30));
-        topPanel.add(time);
 
         exitButton = new JButton();
         exitButton.setContentAreaFilled(false);
@@ -138,6 +137,8 @@ public class MainFrame extends JFrame {
                     AdminFrame adminFrame = new AdminFrame();
                 }
                 else {
+                    topPanel.remove(time);
+                    Clock.stopClock();
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
                     State.setPc(0);
@@ -281,7 +282,8 @@ public class MainFrame extends JFrame {
      * set welcome text with passenger's name when available
      */
     public void setWelcomeText(){
-        this.setTimer(time);
+        Clock.setClock(time);
+        topPanel.add(time);
         welcomeLabel.setText("Welcome, " + State.getPassengerName());
     }
 
@@ -405,19 +407,5 @@ public class MainFrame extends JFrame {
         thread.start();
     }
 
-    /**
-     * Set the timer
-     * @param time panel of the timer
-     */
-    private void setTimer(JLabel time) {
-        final JLabel varTime = time;
-        Timer timeAction = new Timer(100, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                long timemillis = System.currentTimeMillis();
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                varTime.setText(df.format(new Date(timemillis)));
-            }
-        });
-        timeAction.start();
-    }
+
 }
