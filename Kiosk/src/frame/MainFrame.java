@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * main frame that holds panels for different pages
@@ -59,6 +61,7 @@ public class MainFrame extends JFrame {
     private JButton backButton;
     private JLabel satisflightLabel;
     private WelcomePanel welcomePanel;
+    private JLabel time;
 
     private final int TIME_INTERVAL = 8;
 
@@ -94,6 +97,12 @@ public class MainFrame extends JFrame {
         welcomeLabel.setForeground(Color.WHITE);
         welcomeLabel.setBounds(60, 20, 1000, 60);
         topPanel.add(welcomeLabel);
+
+        time = new JLabel();
+        time.setForeground(Color.WHITE);
+        time.setBounds(940, 20, 500, 60);
+        time.setFont(new Font("Arial", Font.BOLD, 30));
+        topPanel.add(time);
 
         exitButton = new JButton();
         exitButton.setContentAreaFilled(false);
@@ -246,6 +255,7 @@ public class MainFrame extends JFrame {
      * set welcome text with passenger's name when available
      */
     public void setWelcomeText(){
+        this.setTimer(time);
         welcomeLabel.setText("Welcome, " + State.getPassengerName());
     }
 
@@ -367,5 +377,18 @@ public class MainFrame extends JFrame {
             }
         });
         thread.start();
+    }
+
+    private void setTimer(JLabel time) {
+        final JLabel varTime = time;
+        Timer timeAction = new Timer(100, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                long timemillis = System.currentTimeMillis();
+                // 转换日期显示格式
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                varTime.setText(df.format(new Date(timemillis)));
+            }
+        });
+        timeAction.start();
     }
 }
