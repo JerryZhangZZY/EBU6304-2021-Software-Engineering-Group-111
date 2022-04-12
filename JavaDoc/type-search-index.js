@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"main","l":"Control"},{"p":"frame","l":"MainFrame"},{"p":"panel","l":"ProgressPanel"},{"l":"所有类","u":"allclasses-index.html"}];updateSearchResults();
