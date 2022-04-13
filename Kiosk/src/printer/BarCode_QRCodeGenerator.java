@@ -17,16 +17,22 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Hashtable;
 
-//import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 
 /**
- * @version 1.0
- * @author QuellanAn
- * @reference https://blog.csdn.net/qq_27790011/article/details/78401450
- * @version 1.1
+ * This class can generate qr code or barcode automatically by a given String
+ *
  * @author Ni Ruijie
+ *
+ * @date 4/13
+ * @version 1.2
+ * The limit of the width and height is dismissed
+ * New function added, which can generate the qr codes of websites by idPassengerFlight_index
+ *
  * @date 3/22
- * ZXing2.3 is used to generate the auxiliary class of bar code.
+ * @version 1.1
+ *
+ * @version 1.0
+ * reference: https://blog.csdn.net/qq_27790011/article/details/78401450
  */
 public final class BarCode_QRCodeGenerator {
 
@@ -154,7 +160,10 @@ public final class BarCode_QRCodeGenerator {
                     + format);
         }
     }
-
+    /**
+     * Generate the qr codes of websites by idPassengerFlight_index
+     * @param idPassengerFlight_index primary key
+     */
     public static void generateQRcode(int idPassengerFlight_index) throws Exception{
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         int idFlight_index = FlightReader.indexOf(idFlight);

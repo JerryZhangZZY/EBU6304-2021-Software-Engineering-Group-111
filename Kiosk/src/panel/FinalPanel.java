@@ -24,6 +24,10 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @date 2022/4/13
+ * @version 2.2
+ * Add a qr code links to the airline website which the flight belongs to.
+ *
  * @date 2022/4/9
  * @version 2.1
  * Add confirm function
@@ -128,7 +132,7 @@ public class FinalPanel extends JPanel {
         exit_begin.setVisible(false);
         exit_system.setVisible(false);
 
-        qrLabel = new JLabel("Get more information in your airline website");
+        qrLabel = new JLabel("Get more information on your airline website");
         qrLabel.setBounds(700, 350, 500, 300);
         qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
         qrLabel.setIcon(new ImageIcon("Kiosk/printerOutPut/qrcode.jpg"));
