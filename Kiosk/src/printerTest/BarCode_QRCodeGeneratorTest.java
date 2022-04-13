@@ -1,5 +1,6 @@
 package printerTest;
 
+import dbReader.AirlineWebsiteReader;
 import printer.BarCode_QRCodeGenerator;
 
 import java.io.File;
@@ -18,17 +19,17 @@ public class BarCode_QRCodeGeneratorTest {
      * Test the function. Simply generate a qr code image for the specified string.
      */
     public static void main(String[] args) throws Exception {
-        String text = "1234567890";
-        String result;
+        /*String text = AirlineWebsiteReader.getWebsite(AirlineWebsiteReader.indexOf("UNITED AIRLINES"));
         String format = "jpg";
         //Generate QRCode
         File outputFile = new File("Kiosk/printerOutPut/qrcode.jpg");
-        BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toQRCodeMatrix(text, null, null), format, outputFile);
+        BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toQRCodeMatrix(text, null, null), format, outputFile);*/
+        BarCode_QRCodeGenerator.generateQRcode(1);
         System.out.println("success1");
         //Generate BarCode
-        outputFile = new File("Kiosk/printerOutPut/barcode.jpg");
+        /*outputFile = new File("Kiosk/printerOutPut/barcode.jpg");
         BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toBarCodeMatrix(text, null, null), format, outputFile);
-        System.out.println("success2");
+        System.out.println("success2");*/
     }
 
 }

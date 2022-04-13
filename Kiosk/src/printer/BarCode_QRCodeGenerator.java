@@ -5,6 +5,10 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import dbReader.AirlineWebsiteReader;
+import dbReader.FlightReader;
+import dbReader.PassengerFlightReader;
+import dbReader.PlaneReader;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -38,15 +42,7 @@ public final class BarCode_QRCodeGenerator {
      * @param text
      * @return
      */
-    public static BitMatrix toQRCodeMatrix(String text, Integer width,
-                                           Integer height) {
-        if (width == null || width < 300) {
-            width = 300;
-        }
-
-        if (height == null || height < 300) {
-            height = 300;
-        }
+    public static BitMatrix toQRCodeMatrix(String text, Integer width, Integer height) {
         // Image format of qr code
         Hashtable<EncodeHintType, String> hints = new Hashtable<EncodeHintType, String>();
         // The encoding used for the content
@@ -157,5 +153,19 @@ public final class BarCode_QRCodeGenerator {
             throw new IOException("Could not write an image of format "
                     + format);
         }
+    }
+
+    public static void generateQRcode(int idPassengerFlight_index) throws Exception{
+        String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
+        int idFlight_index = FlightReader.indexOf(idFlight);
+        int idPlane = FlightReader.getIdPlane(idFlight_index);
+        int idPlane_index = PlaneReader.indexOf(idPlane);
+        String airline = PlaneReader.getAirline(idPlane_index);
+
+        String text = AirlineWebsiteReader.getWebsite(AirlineWebsiteReader.indexOf(airline));
+        String format = "jpg";
+        //Generate QRCode
+        File outputFile = new File("Kiosk/printerOutPut/qrcode.jpg");
+        BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toQRCodeMatrix(text, 200, 200), format, outputFile);
     }
 }

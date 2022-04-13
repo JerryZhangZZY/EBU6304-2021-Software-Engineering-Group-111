@@ -4,6 +4,7 @@ import BackendSystemDB.DBwrite;
 import dbWriter.SeatWriter;
 import dbWriter.StatusWriter;
 import main.State;
+import printer.BarCode_QRCodeGenerator;
 import printer.BoardingPassPrinter;
 import printer.TagPrinter;
 import printer.TicketPrinter;
@@ -51,7 +52,8 @@ import java.util.TimerTask;
  * @version 1.0
  */
 public class FinalPanel extends JPanel {
-    private JLabel headline =  new JLabel();
+    private JLabel qrLabel;;
+    private JLabel headline = new JLabel();
     private JButton exit_begin = new JButton();
     private JButton exit_system = new JButton();
     private ImageIcon icon1_back = new ImageIcon("Kiosk/icons/initial.png");
@@ -63,6 +65,16 @@ public class FinalPanel extends JPanel {
     private Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
     private ImageIcon icon_exit = new ImageIcon(newImg_exit);
     public FinalPanel(){
+        try {
+            char columnInLetter = (char)(State.getSeatColumn()+(int)'A'-1);
+            BarCode_QRCodeGenerator.generateQRcode(State.getPassengerFlight_index());
+            BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);
+            TagPrinter.creatTag(State.getPassengerFlight_index());
+            TicketPrinter.creatTicket(State.getPassengerFlight_index());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         confirm();
         StatusWriter.setTrue(State.getPassengerFlight_index());
         Timer timer = new Timer();
@@ -77,7 +89,7 @@ public class FinalPanel extends JPanel {
         headline.setHorizontalAlignment(JLabel.CENTER);
         headline.setFont(new Font("Helvetica", Font.BOLD, 50));
         headline.setForeground(Color.DARK_GRAY);
-        headline.setBounds(250, 200, 1400, 203);
+        headline.setBounds(250, 150, 1400, 203);
         add(headline);
         exit_begin.setText("Continue chek-in");
         exit_begin.setFont(new Font("Arial", Font.PLAIN, 35));
@@ -115,21 +127,24 @@ public class FinalPanel extends JPanel {
         exit_system.setIcon(icon_exit);
         exit_begin.setVisible(false);
         exit_system.setVisible(false);
+
+        qrLabel = new JLabel("Get more information in your airline website");
+        qrLabel.setBounds(700, 350, 500, 300);
+        qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
+        qrLabel.setIcon(new ImageIcon("Kiosk/printerOutPut/qrcode.jpg"));
+        qrLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        qrLabel.setVerticalAlignment(SwingConstants.CENTER);
+        qrLabel.setHorizontalTextPosition(0);
+        qrLabel.setVerticalTextPosition(1);
+        add(qrLabel);
+        qrLabel.setVisible(false);
         timer.schedule(new MyTask1(),3000);
         timer1.schedule(new MyTask2(),3700);
         timer2.schedule(new MyTask3(),15000);
-        try {
-            char columnInLetter = (char)(State.getSeatColumn()+(int)'A'-1);
-            BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);
-            TagPrinter.creatTag(State.getPassengerFlight_index());
-            TicketPrinter.creatTicket(State.getPassengerFlight_index());
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     class MyTask1 extends TimerTask {
         public void run() {
+            qrLabel.setVisible(true);
             headline.setText("Have a good trip!");
         }
 
