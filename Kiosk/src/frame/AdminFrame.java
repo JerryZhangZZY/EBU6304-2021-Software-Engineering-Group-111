@@ -15,6 +15,10 @@ import static java.lang.Thread.sleep;
  *
  * @version 1.0
  * @date 4/11
+ *
+ * @version 1.1
+ * improve interaction
+ * @date 4/13
  */
 public class AdminFrame extends JFrame {
     JPanel contentPane = new JPanel();

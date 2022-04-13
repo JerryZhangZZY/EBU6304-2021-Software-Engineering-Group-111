@@ -16,6 +16,10 @@ import java.util.LinkedHashMap;
  *
  * @version 1.0
  * @date 4/8
+ *
+ * @version 1.1
+ * create dir and file if not exits
+ * @date 4/13
  */
 public abstract class Config {
     /**
