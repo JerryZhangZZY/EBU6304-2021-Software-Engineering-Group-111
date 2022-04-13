@@ -32,6 +32,9 @@ public abstract class Config {
                 cfg = new FileInputStream("Kiosk/config/Config.yaml");
             } catch (FileNotFoundException e1) {
                 try {
+                    if (!Files.exists(Path.of("Kiosk/config"))){
+                        Files.createDirectory(Path.of("Kiosk/config"));
+                    }
                     Files.writeString(Path.of("Kiosk/config/Config.yaml"),
                             "language: English\nidCardDrive: E\n");
                 } catch (IOException e2) {
