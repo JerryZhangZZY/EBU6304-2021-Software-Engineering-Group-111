@@ -10,6 +10,8 @@ import main.State;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -48,21 +50,20 @@ public class SeatSelectionPanel extends JPanel {
     private String idFlight;
     private int temp_row = -1;
     private int temp_column = -1;
-    private int bill = 0;
     private int[] price = new int[4];
     private String[] seatName = new String[4];
     //button init
     private JButton[] seatButton = new JButton[6];
     private JLabel row_num = new JLabel();
     private JPanel warn;
-    private JScrollBar scrollBar = new JScrollBar();
+    private JScrollBar scrollBar;
     //icon loading
     private ImageIcon icon1_empty = new ImageIcon("Kiosk/icons/avail.png");
     private ImageIcon icon_empty = new ImageIcon(icon1_empty.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
-    private ImageIcon icon1_occu = new ImageIcon("Kiosk/icons/occu.png");
-    private ImageIcon icon_occu = new ImageIcon(icon1_occu.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
-    private ImageIcon icon1_chonse = new ImageIcon("Kiosk/icons/chosen.png");
-    private ImageIcon icon_chonse = new ImageIcon(icon1_chonse.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
+    private ImageIcon icon1_occupied = new ImageIcon("Kiosk/icons/occu.png");
+    private ImageIcon icon_occupied = new ImageIcon(icon1_occupied.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
+    private ImageIcon icon1_chosen = new ImageIcon("Kiosk/icons/chosen.png");
+    private ImageIcon icon_chosen = new ImageIcon(icon1_chosen.getImage().getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH));
     private JButton btnOK = new JButton("OK");
 
     private JRadioButton rdbtnSeat1 = new JRadioButton();
@@ -125,39 +126,39 @@ public class SeatSelectionPanel extends JPanel {
         seatButton[4].setBounds(1096, 1, 221, 220);
         seatButton[5].setBounds(1261, 1, 221, 220);
         //row number
-        row_num.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
+        row_num.setFont(new Font("Arial", Font.BOLD, 35));
         row_num.setText(String.valueOf(row));
-        row_num.setBounds(88, 103, 41, 50);
+        row_num.setBounds(88, 105, 41, 50);
         add(row_num);
         //seat label
         JLabel lblA = new JLabel("A");
-        lblA.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
-        lblA.setBounds(265, 210, 25, 26);
+        lblA.setFont(new Font("Arial", Font.BOLD, 35));
+        lblA.setBounds(262, 210, 25, 26);
         add(lblA);
 
         JLabel lblB = new JLabel("B");
-        lblB.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
-        lblB.setBounds(430, 210, 25, 26);
+        lblB.setFont(new Font("Arial", Font.BOLD, 35));
+        lblB.setBounds(427, 210, 25, 26);
         add(lblB);
 
         JLabel lblC = new JLabel("C");
-        lblC.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
-        lblC.setBounds(595, 210, 25, 26);
+        lblC.setFont(new Font("Arial", Font.BOLD, 35));
+        lblC.setBounds(592, 210, 25, 26);
         add(lblC);
 
         JLabel lblD = new JLabel("D");
-        lblD.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
-        lblD.setBounds(1031, 210, 25, 26);
+        lblD.setFont(new Font("Arial", Font.BOLD, 35));
+        lblD.setBounds(1028, 210, 25, 26);
         add(lblD);
 
         JLabel lblE = new JLabel("E");
-        lblE.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
-        lblE.setBounds(1196, 210, 25, 26);
+        lblE.setFont(new Font("Arial", Font.BOLD, 35));
+        lblE.setBounds(1193, 210, 25, 26);
         add(lblE);
 
         JLabel lblF = new JLabel("F");
-        lblF.setFont(new Font("Eras Bold ITC", Font.PLAIN, 26));
-        lblF.setBounds(1361, 210, 25, 26);
+        lblF.setFont(new Font("Arial", Font.BOLD, 35));
+        lblF.setBounds(1358, 210, 25, 26);
         add(lblF);
 
         Border tipBorder = BorderFactory
@@ -180,6 +181,10 @@ public class SeatSelectionPanel extends JPanel {
         planeInfoCard.setLocation(50, 280);
         add(planeInfoCard);
 
+        UIManager.put("ScrollBar.thumb", new ColorUIResource(new Color(11, 89, 167)));
+        UIManager.put("ScrollBar.thumbDarkShadow", new ColorUIResource(Color.WHITE));
+        scrollBar = new JScrollBar();
+        scrollBar.setUI(new BasicScrollBarUI());
         scrollBar.setBounds(34, 59, 34, 157);
         scrollBar.setBlockIncrement(1);
         resetScrollBar(0);
@@ -293,9 +298,9 @@ public class SeatSelectionPanel extends JPanel {
         }
         for (int i = 0; i < 6; i++) {
             if (avail[i] == 1)
-                seatButton[i].setIcon(icon_occu);
+                seatButton[i].setIcon(icon_occupied);
             else if (avail[i] == 2)
-                seatButton[i].setIcon(icon_chonse);
+                seatButton[i].setIcon(icon_chosen);
             else
                 seatButton[i].setIcon(icon_empty);
         }
@@ -404,7 +409,7 @@ public class SeatSelectionPanel extends JPanel {
                 setTemp_row(row);
                 setTemp_column(click);
                 avail_seat[click] = 2;
-                seatButton[click].setIcon(icon_chonse);
+                seatButton[click].setIcon(icon_chosen);
                 warn.setVisible(false);
                 State.smallBillCard.addPrice(price[p]);
             } else if (avail_seat[click] == 2) {
