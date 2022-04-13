@@ -22,6 +22,10 @@ import java.awt.event.*;
  * @author Liang Zhehao
  * @author Zhang Zeyu
  *
+ * @version 2.1
+ * Improve UI appearance
+ * @date 2022/4/13
+ *
  * @version 2.0
  * Add PlaneInfoCard
  * @date 2022/4/11
@@ -54,7 +58,7 @@ public class SeatSelectionPanel extends JPanel {
     private String[] seatName = new String[4];
     //button init
     private JButton[] seatButton = new JButton[6];
-    private JLabel row_num = new JLabel();
+    private JLabel rowNum = new JLabel();
     private JPanel warn;
     private JScrollBar scrollBar;
     //icon loading
@@ -86,30 +90,38 @@ public class SeatSelectionPanel extends JPanel {
         setBackground(new Color(244, 244, 244));
         setLayout(null);
         setSize(1600, 880);
-        //add bound icon
-        JLabel right_label = new JLabel();
-        right_label.setSize(75, 262);
-        JLabel left_label = new JLabel();
-        left_label.setSize(147, 206);
-        right_label.setIcon(new ImageIcon("Kiosk/icons/rightbound.png"));
-        left_label.setIcon(new ImageIcon("Kiosk/icons/leftbound.png"));
-        add(right_label);
-        add(left_label);
-        right_label.setLocation(1460, 1);
-        left_label.setLocation(145, 30);
-        //add mid_line
-        JLabel mright_label = new JLabel();
-        mright_label.setSize(118, 199);
-        JLabel mleft_label = new JLabel();
-        mleft_label.setSize(118, 168);
-        mright_label.setIcon(new ImageIcon("Kiosk/icons/mid.png"));
-        mleft_label.setIcon(new ImageIcon("Kiosk/icons/mid.png"));
-        add(mright_label);
-        add(mleft_label);
-        mright_label.setLocation(851, 30);
-        mleft_label.setLocation(734, 45);
+
+        //add windows
+        JLabel leftWindow = new JLabel();
+        JLabel rightWindow = new JLabel();
+        leftWindow.setSize(46, 200);
+        rightWindow.setSize(46, 200);
+        leftWindow.setLocation(50, 40);
+        rightWindow.setLocation(1360, 40);
+        leftWindow.setIcon(new ImageIcon("Kiosk/icons/leftWindow.png"));
+        rightWindow.setIcon(new ImageIcon("Kiosk/icons/rightWindow.png"));
+        add(leftWindow);
+        add(rightWindow);
+
+        //add aisle
+        JLabel leftAisle = new JLabel();
+        JLabel rightAisle = new JLabel();
+        leftAisle.setSize(7, 200);
+        rightAisle.setSize(7, 200);
+        leftAisle.setLocation(805, 40);
+        rightAisle.setLocation(643, 40);
+        leftAisle.setOpaque(true);
+        rightAisle.setOpaque(true);
+        leftAisle.setBackground(new Color(18, 150, 219));
+        rightAisle.setBackground(new Color(18, 150, 219));
+        add(leftAisle);
+        add(rightAisle);
 
         SimpleListener ourListener = new SimpleListener();
+
+        int seatShortInterval = 165;
+        int seatLongIntervalDif = 270;
+        int seatX = 70;
         for (int i = 0; i < 6; i++) {
             seatButton[i] = new JButton();
             seatButton[i].setForeground(Color.WHITE);
@@ -117,49 +129,25 @@ public class SeatSelectionPanel extends JPanel {
             seatButton[i].setContentAreaFilled(false);
             seatButton[i].setBorderPainted(false);
             seatButton[i].addActionListener(ourListener);
+            if (i == 3)
+                seatX += seatLongIntervalDif;
+
+            seatButton[i].setBounds(seatX, 10, 220, 220);
             add(seatButton[i]);
+
+            JLabel lblColumn = new JLabel(String.valueOf((char)(65 + i)));
+            lblColumn.setFont(new Font("Arial", Font.BOLD, 35));
+            lblColumn.setBounds(seatX + 96, 220, 26, 26);
+            add(lblColumn);
+
+            seatX += seatShortInterval;
         }
-        seatButton[0].setBounds(165, 1, 221, 220);
-        seatButton[1].setBounds(330, 1, 221, 220);
-        seatButton[2].setBounds(495, 1, 221, 220);
-        seatButton[3].setBounds(931, 1, 221, 220);
-        seatButton[4].setBounds(1096, 1, 221, 220);
-        seatButton[5].setBounds(1261, 1, 221, 220);
+
         //row number
-        row_num.setFont(new Font("Arial", Font.BOLD, 35));
-        row_num.setText(String.valueOf(row));
-        row_num.setBounds(88, 105, 41, 50);
-        add(row_num);
-        //seat label
-        JLabel lblA = new JLabel("A");
-        lblA.setFont(new Font("Arial", Font.BOLD, 35));
-        lblA.setBounds(262, 210, 25, 26);
-        add(lblA);
-
-        JLabel lblB = new JLabel("B");
-        lblB.setFont(new Font("Arial", Font.BOLD, 35));
-        lblB.setBounds(427, 210, 25, 26);
-        add(lblB);
-
-        JLabel lblC = new JLabel("C");
-        lblC.setFont(new Font("Arial", Font.BOLD, 35));
-        lblC.setBounds(592, 210, 25, 26);
-        add(lblC);
-
-        JLabel lblD = new JLabel("D");
-        lblD.setFont(new Font("Arial", Font.BOLD, 35));
-        lblD.setBounds(1028, 210, 25, 26);
-        add(lblD);
-
-        JLabel lblE = new JLabel("E");
-        lblE.setFont(new Font("Arial", Font.BOLD, 35));
-        lblE.setBounds(1193, 210, 25, 26);
-        add(lblE);
-
-        JLabel lblF = new JLabel("F");
-        lblF.setFont(new Font("Arial", Font.BOLD, 35));
-        lblF.setBounds(1358, 210, 25, 26);
-        add(lblF);
+        rowNum.setFont(new Font("Arial", Font.BOLD, 35));
+        rowNum.setText(String.valueOf(row));
+        rowNum.setBounds(1420, 115, 41, 50);
+        add(rowNum);
 
         Border tipBorder = BorderFactory
                 .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.RED)
@@ -183,9 +171,10 @@ public class SeatSelectionPanel extends JPanel {
 
         UIManager.put("ScrollBar.thumb", new ColorUIResource(new Color(11, 89, 167)));
         UIManager.put("ScrollBar.thumbDarkShadow", new ColorUIResource(Color.WHITE));
+        UIManager.put("ScrollBar.track", new ColorUIResource(new Color(244, 244, 244)));
         scrollBar = new JScrollBar();
         scrollBar.setUI(new BasicScrollBarUI());
-        scrollBar.setBounds(34, 59, 34, 157);
+        scrollBar.setBounds(1470, 40, 60, 200);
         scrollBar.setBlockIncrement(1);
         resetScrollBar(0);
         add(scrollBar);
@@ -447,7 +436,7 @@ public class SeatSelectionPanel extends JPanel {
 
         @Override
         public void adjustmentValueChanged(AdjustmentEvent adjustmentEvent) {
-            row_num.setText(String.valueOf(adjustmentEvent.getValue()));
+            rowNum.setText(String.valueOf(adjustmentEvent.getValue()));
             row = adjustmentEvent.getValue();
 
             SeatReader seatReader = new SeatReader(idFlight);
