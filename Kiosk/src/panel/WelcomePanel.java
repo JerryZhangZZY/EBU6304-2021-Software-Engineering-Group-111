@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
- * @version 1.2
+ * @version 2.0
  * Added clock
  * @date 2022/4/11
  *
@@ -46,7 +46,7 @@ public class WelcomePanel extends JPanel {
         a big welcome
          */
         welcomeLabel = new JLabel("Welcome to Beijing International Airport!");
-        welcomeLabel.setBounds(210, 110,1500,200);
+        welcomeLabel.setBounds(210, 150,1500,200);
         welcomeLabel.setFont(new Font("Calibri", Font.BOLD, 80));
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(welcomeLabel, 0);
@@ -63,8 +63,8 @@ public class WelcomePanel extends JPanel {
         clock at home page
          */
         time = new JLabel();
-        time.setBounds(470, 130, 1000, 500);
-        time.setFont(new Font("Calibri", Font.BOLD, 90));
+        time.setBounds(760, 20, 400, 30);
+        time.setFont(new Font("Default", Font.PLAIN, 30));
         Clock.setClock(time);
         time.setHorizontalAlignment(SwingConstants.CENTER);
         add(time,0);
