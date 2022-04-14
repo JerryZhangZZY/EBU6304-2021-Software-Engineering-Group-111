@@ -29,6 +29,8 @@ class WelcomePanelTest {
     WelcomePanel welcomePanel = new WelcomePanel();
     @BeforeEach
     void reset() throws InterruptedException {
+        mainFrame.setVisible(true);
+        mainFrame.hideBars(true);
         mainFrame.lockScreen();
         Thread.sleep(5000);
     }
@@ -36,8 +38,6 @@ class WelcomePanelTest {
     void test() {
         for (int j = 0; j < 10; j++) {
             State.setPc(0);
-            mainFrame.hideBars(true);
-            mainFrame.setVisible(true);
             try {
                 Robot robot = new Robot();
                 while(!mainFrame.isVisible())
