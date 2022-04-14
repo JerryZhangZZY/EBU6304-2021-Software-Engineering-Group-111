@@ -22,31 +22,34 @@ import java.util.Hashtable;
  * This class can generate qr code or barcode automatically by a given String
  *
  * @author Ni Ruijie
+ * @author Zhang Zeyu
  *
- * @date 4/13
- * @version 1.2
+ * @version 2.1
+ * Adjust color.
+ * @date 2022/4/14
+ *
+ * @version 2.0
  * The limit of the width and height is dismissed
  * New function added, which can generate the qr codes of websites by idPassengerFlight_index
- *
- * @date 3/22
- * @version 1.1
+ * @date 2022/4/13
  *
  * @version 1.0
  * reference: https://blog.csdn.net/qq_27790011/article/details/78401450
+ * @date 2022/3/22
  */
 public final class BarCode_QRCodeGenerator {
 
     private static final String CHARSET = "utf-8";
     private static final int BLACK = 0xFF000000;
-    private static final int WHITE = 0xFFFFFFFF;
+    private static final int WHITE = 0xF4F4F4;
 
     private BarCode_QRCodeGenerator() {
     }
 
     /**
      * Generate matrix is a simple function, parameter fixed, more is used to demonstrate.
-     * @param text
-     * @return
+     * @param text text
+     * @return bitMatrix
      */
     public static BitMatrix toQRCodeMatrix(String text, Integer width, Integer height) {
         // Image format of qr code
@@ -66,10 +69,10 @@ public final class BarCode_QRCodeGenerator {
 
     /**
      * Generates a qr code image for the specified string.
-     * @param text
-     * @param file
-     * @param format
-     * @return
+     * @param text text
+     * @param file file
+     * @param format format
+     * @return boolean
      */
     public boolean toQrcodeFile(String text, File file, String format) {
         BitMatrix matrix = toQRCodeMatrix(text, null, null);
@@ -87,8 +90,8 @@ public final class BarCode_QRCodeGenerator {
 
     /**
      * Generate black and white graph from point matrix.
-     * @param matrix
-     * @return iamge
+     * @param matrix matrix
+     * @return image
      */
     public static BufferedImage toBufferedImage(BitMatrix matrix) {
         int width = matrix.getWidth();
@@ -106,10 +109,10 @@ public final class BarCode_QRCodeGenerator {
     /**
      * Encode strings into a one-dimensional barcode matrix
      *
-     * @param str
-     * @param width
-     * @param height
-     * @return
+     * @param str string
+     * @param width width
+     * @param height height
+     * @return bitMatrix
      */
     public static BitMatrix toBarCodeMatrix(String str, Integer width,
                                             Integer height) {

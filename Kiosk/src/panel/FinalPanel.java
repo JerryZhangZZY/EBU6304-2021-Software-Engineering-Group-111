@@ -11,7 +11,6 @@ import printer.TicketPrinter;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,36 +23,40 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
- * @date 2022/4/13
+ * @version 2.3
+ * Appearance improvement.
+ * @date 2022/4/14
+ *
  * @version 2.2
  * Add a qr code links to the airline website which the flight belongs to.
+ * @date 2022/4/13
  *
- * @date 2022/4/9
  * @version 2.1
  * Add confirm function
+ * @date 2022/4/9
  *
- * @date 2022/4/8
  * @version 2.0
  * Big bug fixed.
+ * @date 2022/4/8
  *
- * @date 2022/3/27
  * @version 1.4
  * Exiting functions added: set the status of the idFlightPassenger to be true.
+ * @date 2022/3/27
  *
- * @date  2022/3/25
  * @version 1.3
  * Exiting functions added
+ * @date  2022/3/25
  *
- * @date 2022/3/24
  * @version 1.2
  * Appearance improvement.
- *
  * @date 2022/3/24
+ *
  * @version 1.1
  * Appearance improvement and bugs fixing.
+ * @date 2022/3/24
  *
- * @date 2022/3/21
  * @version 1.0
+ * @date 2022/3/21
  */
 public class FinalPanel extends JPanel {
     private JLabel qrLabel;;
@@ -70,7 +73,7 @@ public class FinalPanel extends JPanel {
     private ImageIcon icon_exit = new ImageIcon(newImg_exit);
     public FinalPanel(){
         try {
-            char columnInLetter = (char)(State.getSeatColumn()+(int)'A'-1);
+            char columnInLetter = (char)(State.getSeatColumn() + (int)'A' - 1);
             BarCode_QRCodeGenerator.generateQRcode(State.getPassengerFlight_index());
             BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);
             TagPrinter.creatTag(State.getPassengerFlight_index());
@@ -135,7 +138,7 @@ public class FinalPanel extends JPanel {
         qrLabel = new JLabel("Get more information on your airline website");
         qrLabel.setBounds(700, 350, 500, 300);
         qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
-        qrLabel.setIcon(new ImageIcon("Kiosk/printerOutPut/qrcode.jpg"));
+        qrLabel.setIcon(new ImageIcon("Kiosk/printerOutput/qrcode.jpg"));
         qrLabel.setHorizontalAlignment(SwingConstants.CENTER);
         qrLabel.setVerticalAlignment(SwingConstants.CENTER);
         qrLabel.setHorizontalTextPosition(0);
@@ -143,7 +146,7 @@ public class FinalPanel extends JPanel {
         add(qrLabel);
         qrLabel.setVisible(false);
         timer.schedule(new MyTask1(),3000);
-        timer1.schedule(new MyTask2(),3700);
+        timer1.schedule(new MyTask2(),4500);
         timer2.schedule(new MyTask3(),15000);
     }
     class MyTask1 extends TimerTask {
