@@ -24,7 +24,7 @@ public abstract class TagPrinter {
 
         while(carryon_left>=1){
             String tag_file = idPassenger +"-"+idPassengerFlight_index+"-"+(carryon_num-carryon_left+1)+"of"+carryon_num;
-            String tag_path ="Kiosk/printerOutPut/";
+            String tag_path ="printerOutPut/";
             tag_temp = tag_path +tag_file +".txt";
             File tag = new File(tag_temp);
             tag.createNewFile();

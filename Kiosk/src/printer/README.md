@@ -4,4 +4,4 @@
 
  - Make sure the class is short and simple.
  - JavaDocs.
- - Please output your file to Kiosk/printerOutput.
+ - Please output your file to printerOutput.
