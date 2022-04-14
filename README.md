@@ -8,8 +8,6 @@
 
 ### *version 2.0 - Xichang*
 
----
-
 ## Update Notes
 
 ### New Features
