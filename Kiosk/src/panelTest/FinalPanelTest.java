@@ -1,6 +1,7 @@
 package panelTest;
 
 import frame.MainFrame;
+import main.State;
 import panel.FinalPanel;
 
 /**
@@ -14,6 +15,12 @@ import panel.FinalPanel;
 public class FinalPanelTest {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
+        State.setIdFlight("CA0001");
+        State.setBookingNum("bn0001");
+        State.setSeatRow(1);
+        State.setSeatColumn(4);
+        State.setSeatPre(1);
+        State.setMeal('a');
         MainFrame testMainFrame = new MainFrame();
         FinalPanel testEnterIDPanel = new FinalPanel();
         testMainFrame.loadPanel(testEnterIDPanel);
