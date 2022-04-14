@@ -104,11 +104,15 @@ The default drive name is "E", but you can choose whatever you like by [editing 
 
 Now that our early-version databases are limit in size, you may find all flights already checked-in. 
 To continue using the software, resetting the database may be necessary.
-Run
-
-- [ ] reset script
-
-to reset the databases to initial state
+To reset the databases to initial state, for Windows run:
+```shell
+sbin\reset-database.bat
+```
+or, for Linux: 
+```shell
+cd sbin
+./reset-database.sh
+```
 
 ---
 
