@@ -67,10 +67,10 @@ class SeatSelectionPanelTest {
                     assertEquals(State.getPrefSeatPrice()[0], State.smallBillCard.getPrice());
                     assertEquals(State.smallBillCard.getPrice(), State.getBill());
                     assertEquals(tempPc + 1, State.getPc());
-                    assertFalse(seatSelectionPanel.getWarn().isVisible());
+                    assertEquals(seatSelectionPanel.getWarn().getBorder(), null);
                 } else {
                     assertEquals(tempPc, State.getPc());
-                    assertTrue(seatSelectionPanel.getWarn().isVisible());
+                    assertEquals(seatSelectionPanel.getWarn().getBorder(), seatSelectionPanel.getTipBorder());
                 }
 
             }

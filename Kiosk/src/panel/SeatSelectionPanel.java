@@ -352,6 +352,10 @@ public class SeatSelectionPanel extends JPanel {
         return warn;
     }
 
+    public Border getTipBorder() {
+        return tipBorder;
+    }
+
     private class PrefListener implements ItemListener {
 
         @Override
