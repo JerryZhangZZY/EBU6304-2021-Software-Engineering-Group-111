@@ -32,9 +32,9 @@ class WelcomePanelTest {
         mainFrame.setVisible(true);
         mainFrame.hideBars(true);
         mainFrame.lockScreen();
-        Thread.sleep(5000);
+        Thread.sleep(1000);
     }
-    @RepeatedTest(2)
+    @RepeatedTest(5)
     void test() {
         for (int j = 0; j < 10; j++) {
             State.setPc(0);
