@@ -10,7 +10,7 @@ import java.util.Date;
  * The class is a tool to set a clock or stop it.
  * @author Ni Ruijie
  *
- * @version 1.0
+ * @version 2.0
  * Created 2 functions setClock & stopClock
  * @date 2022/4/11
  */
