@@ -25,6 +25,7 @@ public abstract class BackupDbOperator {
             "passenger.json",
             "passengerFlight.json",
             "plane.json",
+            "airline_website.json",
             "planes/plane1.csv",
             "planes/plane2.csv",
             "planes/plane3.csv"};
