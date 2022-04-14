@@ -2,11 +2,12 @@ package main;
 
 import org.yaml.snakeyaml.Yaml;
 
-import java.io.*;
-import java.nio.file.FileSystem;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**
@@ -33,14 +34,14 @@ public abstract class Config {
         InputStream cfg = null;
         while(cfg == null) {
             try {
-                cfg = new FileInputStream("./Conf/Config.yaml");
+                cfg = new FileInputStream("conf/Config.yaml");
             } catch (FileNotFoundException e1) {
                 try {
-                    if (!Files.exists(Path.of("./Conf"))){
-                        Files.createDirectory(Path.of("./Conf"));
+                    if (!Files.exists(Path.of("conf"))){
+                        Files.createDirectory(Path.of("conf"));
                     }
-                    Files.writeString(Path.of("./Conf/Config.yaml"),
-                            "language: English\nidCardDrive: E\n");
+                    Files.writeString(Path.of("conf/Config.yaml"),
+                            "language: English\nidCardDrive: F\n");
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
