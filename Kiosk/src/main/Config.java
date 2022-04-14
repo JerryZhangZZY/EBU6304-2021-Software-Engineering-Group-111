@@ -33,13 +33,13 @@ public abstract class Config {
         InputStream cfg = null;
         while(cfg == null) {
             try {
-                cfg = new FileInputStream("Kiosk/config/Config.yaml");
+                cfg = new FileInputStream("./Conf/Config.yaml");
             } catch (FileNotFoundException e1) {
                 try {
-                    if (!Files.exists(Path.of("Kiosk/config"))){
-                        Files.createDirectory(Path.of("Kiosk/config"));
+                    if (!Files.exists(Path.of("./Conf"))){
+                        Files.createDirectory(Path.of("./Conf"));
                     }
-                    Files.writeString(Path.of("Kiosk/config/Config.yaml"),
+                    Files.writeString(Path.of("./Conf/Config.yaml"),
                             "language: English\nidCardDrive: E\n");
                 } catch (IOException e2) {
                     e2.printStackTrace();

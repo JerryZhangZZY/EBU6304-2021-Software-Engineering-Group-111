@@ -96,4 +96,4 @@ Kiosk/printerOutput/*.png
 Kiosk/printerOutput/*.txt
 
 #user config
-Kiosk/config/*.yaml
+Conf/*.yaml
