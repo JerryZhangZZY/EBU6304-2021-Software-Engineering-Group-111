@@ -47,15 +47,18 @@ class TypeIdLoginCardTest {
         nameTF.setText(candidateName[candidate]);
         idTF.setText(candidateID[candidate]);
         okBtn.doClick();
-
         List<String> bookingNumList = card.getBookingNumByTyping(nameTF.getText(), idTF.getText());
         if (bookingNumList.size() == 3) {
             assertTrue(errLbl.isVisible());
         }
         else {
-            assertEquals(candidateName[candidate], State.getPassengerName());
-            assertEquals(expectedBookingNum[candidate], State.getBookingNumList().get(0));
-            assertEquals(3, State.getPc());
+            if (State.getBookingNumList().size() == 0)
+                assertEquals(expectedBookingNum[candidate], null);
+            else {
+                assertEquals(candidateName[candidate], State.getPassengerName());
+                assertEquals(expectedBookingNum[candidate], State.getBookingNumList().get(0));
+                assertEquals(3, State.getPc());
+            }
         }
     }
 }
