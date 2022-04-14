@@ -8,9 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -66,7 +65,7 @@ public class MainFrame extends JFrame {
     private JPanel topPanel;
     private JLabel welcomeLabel;
     private JButton exitButton;
-    private JButton forcedExitButton;
+//    private JButton forcedExitButton;
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
@@ -142,26 +141,26 @@ public class MainFrame extends JFrame {
          * for developers to exit program easily
          * note that for ordinary users, clicking the normal exit just return to welcome page
          */
-        forcedExitButton = new JButton("Forced Exit");
-        forcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
-        forcedExitButton.setBounds(1600, 20, 180, 60);
-        forcedExitButton.setBackground(new Color(11, 89, 167));
-        forcedExitButton.setForeground(Color.DARK_GRAY);
-        forcedExitButton.setBorder(null);
-        forcedExitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        forcedExitButton.addKeyListener(new KeyAdapter()
-        {
-            public void keyPressed(KeyEvent e) {
-                if (e.isControlDown()&&e.getKeyCode()==KeyEvent.VK_ENTER){
-                    System.exit(0);
-                }
-            }
-            });
-        topPanel.add(forcedExitButton);
+//        forcedExitButton = new JButton("Forced Exit");
+//        forcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
+//        forcedExitButton.setBounds(1600, 20, 180, 60);
+//        forcedExitButton.setBackground(new Color(11, 89, 167));
+//        forcedExitButton.setForeground(Color.DARK_GRAY);
+//        forcedExitButton.setBorder(null);
+//        forcedExitButton.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                System.exit(0);
+//            }
+//        });
+//        forcedExitButton.addKeyListener(new KeyAdapter()
+//        {
+//            public void keyPressed(KeyEvent e) {
+//                if (e.isControlDown()&&e.getKeyCode()==KeyEvent.VK_ENTER){
+//                    System.exit(0);
+//                }
+//            }
+//            });
+//        topPanel.add(forcedExitButton);
         /*
          * main panel that holds other panels
          * use centerPanel.add(JPanel panel) to add components
