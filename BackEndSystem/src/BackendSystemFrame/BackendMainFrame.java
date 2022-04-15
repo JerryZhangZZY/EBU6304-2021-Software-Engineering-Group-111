@@ -36,16 +36,11 @@ public class BackendMainFrame extends JFrame {
         background_Panel.add(title_Panel);
         title_Panel.setLayout(null);
 
-        ImageIcon icon1_exit = new ImageIcon("Kiosk/icons/xit.png");
-        Image img_exit = icon1_exit.getImage();
-        Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-        ImageIcon icon_exit = new ImageIcon(newImg_exit);
         exit_button1.setFont(new Font("Arial", Font.PLAIN, 26));
         exit_button1.setForeground(Color.WHITE);
         exit_button1.setBackground(Color.WHITE);
         exit_button1.setContentAreaFilled(false);
         exit_button1.setBorderPainted(false);
-        exit_button1.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
         exit_button1.setBounds(1700, 8, 200, 77);
         title_Panel.add(exit_button1);
         exit_button1.addActionListener(new action1());
