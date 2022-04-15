@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static java.lang.Thread.sleep;
 
 
 /**
@@ -125,8 +126,12 @@ public class MainFrame extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                /*
+                 * alt + exit: for developers to exit program easily and elegantly
+                 * note that for ordinary users, clicking the exit just return to welcome page
+                 */
                 if (e.isAltDown()) {
-                    AdminFrame adminFrame = new AdminFrame();
+                    callAdminConsole();
                 }
                 else {
                     //topPanel.remove(time);
@@ -137,30 +142,6 @@ public class MainFrame extends JFrame {
             }
         });
         topPanel.add(exitButton);
-        /*
-         * for developers to exit program easily
-         * note that for ordinary users, clicking the normal exit just return to welcome page
-         */
-//        forcedExitButton = new JButton("Forced Exit");
-//        forcedExitButton.setFont(new Font("Arial", Font.PLAIN, 24));
-//        forcedExitButton.setBounds(1600, 20, 180, 60);
-//        forcedExitButton.setBackground(new Color(11, 89, 167));
-//        forcedExitButton.setForeground(Color.DARK_GRAY);
-//        forcedExitButton.setBorder(null);
-//        forcedExitButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                System.exit(0);
-//            }
-//        });
-//        forcedExitButton.addKeyListener(new KeyAdapter()
-//        {
-//            public void keyPressed(KeyEvent e) {
-//                if (e.isControlDown()&&e.getKeyCode()==KeyEvent.VK_ENTER){
-//                    System.exit(0);
-//                }
-//            }
-//            });
-//        topPanel.add(forcedExitButton);
         /*
          * main panel that holds other panels
          * use centerPanel.add(JPanel panel) to add components
@@ -310,7 +291,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(0.043 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(TIME_INTERVAL);
+                        sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -339,7 +320,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(-0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(-0.043 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(TIME_INTERVAL);
+                        sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -364,7 +345,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(0.052 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(TIME_INTERVAL);
+                        sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -386,7 +367,7 @@ public class MainFrame extends JFrame {
                 for (int frame = 0; frame < 50; frame++) {
                     moveVertical(welcomePanel, (int)(-0.052 * frame * (frame - 50)));
                     try {
-                        Thread.sleep(TIME_INTERVAL);
+                        sleep(TIME_INTERVAL);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -399,5 +380,11 @@ public class MainFrame extends JFrame {
         thread.start();
     }
 
+    /**
+     * calling of admin console
+     */
+    private void callAdminConsole(){
+        AdminConsole adminConsole = new AdminConsole(this);
+    }
 
 }
