@@ -13,8 +13,43 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
+/**
+ * This class can return a seat selection panel.
+ *
+ * @author Wang Chenyu
+ * @author Liang Zhehao
+ * @author Zhang Zeyu
+ *
+ * @version 3.0
+ * add function of displaying multiple rows
+ * @date 2022/4/20
+ *
+ * @version 2.1
+ * Improve UI appearance
+ * @date 2022/4/13
+ *
+ * @version 2.0
+ * Add PlaneInfoCard
+ * @date 2022/4/11
+ *
+ * @version 1.4
+ * Appearance improved.
+ * @date 2022/3/28
+ *
+ * @version 1.3
+ * Add bill and OK button
+ * @date 2022/3/23
+ *
+ * @version 1.2
+ * @date 2022/3/21
+ *
+ * @version 1.1
+ * @date 2022/3/21
+ *
+ * @version 1.0
+ * @date 2022/3/19
+ */
 public class SeatSelectionPanel extends JPanel {
 
     private int[][] avail_seat = new int[3][];      //0: empty 1: occupied 2: selected
