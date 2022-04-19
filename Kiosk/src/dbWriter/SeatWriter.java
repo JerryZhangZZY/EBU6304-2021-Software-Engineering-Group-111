@@ -11,8 +11,13 @@ import java.util.List;
  * This class is a tool that can write seat status quickly.
  *
  * @author Zhang Zeyu
- * @date 2022/3/27
+ *
+ * @version 3.0
+ * Adapt to new database.
+ * @date 2022/4/20
+ *
  * @version 1.0
+ * @date 2022/3/27
  */
 
 public abstract class SeatWriter {
