@@ -97,4 +97,3 @@ printerOutput/*.txt
 
 #user config
 Conf/*.yaml
-Conf/Config.yaml.0
