@@ -10,7 +10,15 @@
     },
     {
       "airline": "UNITED AIRLINES",
-      "website": "https://www.united.com/"
+      "website": "https://www.united.com"
+    },
+    {
+      "airline": "LUFTHANSA",
+      "website": "https://www.lufthansa.com"
+    },
+    {
+      "airline": "CHINA EASTERN",
+      "website": "https://www.ceair.com"
     }
   ]
 }

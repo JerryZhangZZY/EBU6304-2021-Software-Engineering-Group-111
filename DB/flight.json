@@ -31,7 +31,7 @@
       "idPlane": 2
     },
     {
-      "idFlight": "CA0003",
+      "idFlight": "UA0003",
       "departure": "Guangzhou T1",
       "arrival": "Nanchang T1",
       "gate": "8F",
@@ -39,6 +39,136 @@
       "arrivalTime": "2022-03-20 09:00",
       "boardingTime": "07:30",
       "idPlane": 3
+    },
+    {
+      "idFlight": "AC3079",
+      "departure": "Edmonton T1",
+      "arrival": "Toronto T2",
+      "departureTime": "2022-04-20 12:00",
+      "arrivalTime": "2022-04-20 13:00",
+      "boardingTime": "11:30",
+      "gate": "19A",
+      "idPlane": 2
+    },
+    {
+      "idFlight": "AC3577",
+      "departure": "Munich T2",
+      "arrival": "Edmonton T1",
+      "departureTime": "2022-04-20 10:00",
+      "arrivalTime": "2022-04-20 13:00",
+      "boardingTime": "09:30",
+      "gate": "24D",
+      "idPlane": 2
+    },
+    {
+      "idFlight": "AC2485",
+      "departure": "NewYork T2",
+      "arrival": "Toronto T2",
+      "departureTime": "2022-04-20 08:00",
+      "arrivalTime": "2022-04-20 13:00",
+      "boardingTime": "07:30",
+      "gate": "20C",
+      "idPlane": 2
+    },
+    {
+      "idFlight": "LH3077",
+      "departure": "Stuttgart T2",
+      "arrival": "NewYork T2",
+      "departureTime": "2022-04-20 19:00",
+      "arrivalTime": "2022-04-20 21:00",
+      "boardingTime": "18:30",
+      "gate": "13F",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "LH2345",
+      "departure": "Guiyang T1",
+      "arrival": "Stuttgart T2",
+      "departureTime": "2022-04-20 04:00",
+      "arrivalTime": "2022-04-20 10:00",
+      "boardingTime": "07:30",
+      "gate": "2F",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "LH1365",
+      "departure": "Calgary T1",
+      "arrival": "Hangzhou T1",
+      "departureTime": "2022-04-20 06:00",
+      "arrivalTime": "2022-04-20 10:00",
+      "boardingTime": "05:30",
+      "gate": "13E",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "LH7718",
+      "departure": "Nanjing T1",
+      "arrival": "Munich T2",
+      "departureTime": "2022-04-20 08:00",
+      "arrivalTime": "2022-04-20 13:00",
+      "boardingTime": "07:30",
+      "gate": "13F",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "LH2333",
+      "departure": "NewYork T2",
+      "arrival": "Calgary T1",
+      "departureTime": "2022-04-20 12:00",
+      "arrivalTime": "2022-04-20 15:00",
+      "boardingTime": "11:30",
+      "gate": "23F",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "LH4618",
+      "departure": "Beijing T2",
+      "arrival": "Hangzhou T1",
+      "departureTime": "2022-04-20 06:00",
+      "arrivalTime": "2022-04-20 09:00",
+      "boardingTime": "05:30",
+      "gate": "12C",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "LH1607",
+      "departure": "Nanjing T1",
+      "arrival": "Calgary T1",
+      "departureTime": "2022-04-20 08:00",
+      "arrivalTime": "2022-04-20 13:00",
+      "boardingTime": "07:30",
+      "gate": "12A",
+      "idPlane": 4
+    },
+    {
+      "idFlight": "MU1314",
+      "departure": "Guiyang T1",
+      "arrival": "Nanjing T2",
+      "departureTime": "2022-04-20 13:00",
+      "arrivalTime": "2022-04-20 15:00",
+      "boardingTime": "12:30",
+      "gate": "5B",
+      "idPlane": 5
+    },
+    {
+      "idFlight": "MU3241",
+      "departure": "Calgary T1",
+      "arrival": "Munich T2",
+      "departureTime": "2022-04-20 09:00",
+      "arrivalTime": "2022-04-20 10:00",
+      "boardingTime": "08:30",
+      "gate": "17F",
+      "idPlane": 5
+    },
+    {
+      "idFlight": "MU7733",
+      "departure": "Frankfurt T1",
+      "arrival": "Toronto T2",
+      "departureTime": "2022-04-20 08:00",
+      "arrivalTime": "2022-04-20 13:00",
+      "boardingTime": "07:30",
+      "gate": "11D",
+      "idPlane": 5
     }
   ]
 }
