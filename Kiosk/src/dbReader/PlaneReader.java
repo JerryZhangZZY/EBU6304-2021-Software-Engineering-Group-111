@@ -8,8 +8,14 @@ import com.alibaba.fastjson.JSONObject;
  * This class is a tool that can help you search and get values of plane info quickly.
  *
  * @author Zhang Zeyu
- * @date 2022/3/20
+ * @author Liang Zhehao
+ *
+ * @version 3.0
+ * add getSeatModel
+ * @date 2022/4/20
+ *
  * @version 1.0
+ * @date 2022/3/20
  */
 
 public abstract class PlaneReader {
@@ -43,5 +49,11 @@ public abstract class PlaneReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/plane.json"));
         JSONArray arr = obj.getJSONArray("plane");
         return arr.getJSONObject(index).getString("airline");
+    }
+
+    public static int getSeatModel(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/plane.json"));
+        JSONArray arr = obj.getJSONArray("plane");
+        return arr.getJSONObject(index).getInteger("seatModel");
     }
 }
