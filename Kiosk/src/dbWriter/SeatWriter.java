@@ -2,7 +2,6 @@ package dbWriter;
 
 import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
-import dbReader.FlightReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,8 +17,7 @@ import java.util.List;
 
 public abstract class SeatWriter {
     public static void setSeat(String idFlight, int row, int column) {
-        int idPlane = FlightReader.getIdPlane(FlightReader.indexOf(idFlight));
-        String path = "DB/planes/plane" + idPlane + ".csv";
+        String path = "DB/flightSeatStatus/" + idFlight + ".csv";
         try {
             CsvReader csvReader = new CsvReader(path);
             CsvWriter csvWriter = new CsvWriter(path);
