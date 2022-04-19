@@ -10,13 +10,17 @@ import java.io.IOException;
  *
  * @author Zhang Zeyu
  * @author Liang Zhehao
- * @date 2022/3/21
- * @version 1.0
  *
- * @author Zhang Zeyu
- * @date 2022/3/27
+ * @version 3.0
+ * Support multiple columns.
+ * @date 2022/4/19
+ *
  * @version 1.1
  * Performance improved.
+ * @date 2022/3/27
+ *
+ * @version 1.0
+ * @date 2022/3/21
  */
 
 public class SeatReader {
@@ -44,7 +48,6 @@ public class SeatReader {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        boolean[] seat = new boolean[6];
         for(int count = 0; count < row; count++) {
             try {
                 csvReader.skipRecord();
@@ -53,7 +56,8 @@ public class SeatReader {
             }
         }
         String[] record = csvReader.getRawRecord().split(",");
-        for(int index = 0; index < 6; index++)
+        boolean[] seat = new boolean[record.length];
+        for(int index = 0; index < record.length; index++)
             seat[index] = record[index].equals("O");
         csvReader.close();
         return seat;

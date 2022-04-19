@@ -1,5 +1,6 @@
-package card;
+package dbReader.card;
 
+import card.TypeIdLoginCard;
 import frame.MainFrame;
 import main.State;
 import org.junit.jupiter.api.BeforeEach;
