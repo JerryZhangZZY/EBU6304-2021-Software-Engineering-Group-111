@@ -230,7 +230,7 @@ public class SeatSelectionPanel extends JPanel {
         warn.add(occu);
 
         //ScrollCard
-        scrollCard.setLocation(1200, 20);
+        scrollCard.setLocation(1200, 50);
         add(scrollCard);
         resetScrollBar(0, scrollBar);
 
