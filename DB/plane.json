@@ -17,6 +17,18 @@
       "model": "Boeing 737-800",
       "capacity": 144,
       "airline": "UNITED AIRLINES"
+    },
+    {
+      "idPlane": 4,
+      "model": "Boeing 747-8",
+      "capacity": 330,
+      "airline": "LUFTHANSA"
+    },
+    {
+      "idPlane": 5,
+      "model": "McDonnell Douglas MD-90",
+      "capacity": 44,
+      "airline": "CHINA EASTERN"
     }
   ]
 }

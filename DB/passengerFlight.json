@@ -23,7 +23,7 @@
     {
       "idPassengerFlight": 3,
       "idPassenger": "123001",
-      "idFlight": "CA0003",
+      "idFlight": "UA0003",
       "bookingNum": "bn0002",
       "carryon": 1,
       "checkin": 0,
@@ -38,6 +38,136 @@
       "carryon": 1,
       "checkin": 0,
       "bagDropCounter": -1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 5,
+      "idPassenger": "123842",
+      "idFlight": "AC3079",
+      "bookingNum": "bn0004",
+      "carryon": 0,
+      "checkin": 2,
+      "bagDropCounter": 1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 6,
+      "idPassenger": "123671",
+      "idFlight": "AC3577",
+      "bookingNum": "bn0005",
+      "carryon": 2,
+      "checkin": 2,
+      "bagDropCounter": 12,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 7,
+      "idPassenger": "123027",
+      "idFlight": "AC2485",
+      "bookingNum": "bn0006",
+      "carryon": 2,
+      "checkin": 3,
+      "bagDropCounter": 3,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 8,
+      "idPassenger": "123728",
+      "idFlight": "LH3077",
+      "bookingNum": "bn0007",
+      "carryon": 0,
+      "checkin": 1,
+      "bagDropCounter": 7,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 9,
+      "idPassenger": "123144",
+      "idFlight": "LH2345",
+      "bookingNum": "bn0008",
+      "carryon": 0,
+      "checkin": 2,
+      "bagDropCounter": 3,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 10,
+      "idPassenger": "123196",
+      "idFlight": "LH1365",
+      "bookingNum": "bn0009",
+      "carryon": 2,
+      "checkin": 0,
+      "bagDropCounter": -1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 11,
+      "idPassenger": "123870",
+      "idFlight": "LH7718",
+      "bookingNum": "bn0010",
+      "carryon": 0,
+      "checkin": 0,
+      "bagDropCounter": -1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 12,
+      "idPassenger": "123333",
+      "idFlight": "LH2333",
+      "bookingNum": "bn0011",
+      "carryon": 1,
+      "checkin": 3,
+      "bagDropCounter": 5,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 13,
+      "idPassenger": "123265",
+      "idFlight": "LH4618",
+      "bookingNum": "bn0012",
+      "carryon": 1,
+      "checkin": 2,
+      "bagDropCounter": 4,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 14,
+      "idPassenger": "123403",
+      "idFlight": "LH1607",
+      "bookingNum": "bn0013",
+      "carryon": 2,
+      "checkin": 0,
+      "bagDropCounter": -1,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 15,
+      "idPassenger": "123962",
+      "idFlight": "MU1314",
+      "bookingNum": "bn0014",
+      "carryon": 2,
+      "checkin": 3,
+      "bagDropCounter": 3,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 16,
+      "idPassenger": "123588",
+      "idFlight": "MU3241",
+      "bookingNum": "bn0015",
+      "carryon": 0,
+      "checkin": 2,
+      "bagDropCounter": 6,
+      "status": false
+    },
+    {
+      "idPassengerFlight": 17,
+      "idPassenger": "123745",
+      "idFlight": "MU7733",
+      "bookingNum": "bn0016",
+      "carryon": 2,
+      "checkin": 1,
+      "bagDropCounter": 8,
       "status": false
     }
   ]
