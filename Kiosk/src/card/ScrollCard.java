@@ -58,26 +58,15 @@ public class ScrollCard extends JPanel {
         protected void paintThumb(final Graphics g, final JComponent c, final Rectangle thumbBounds) {
             g.translate(thumbBounds.x, thumbBounds.y);
             g.drawRoundRect(0, 0, thumbBounds.width - 1, thumbBounds.height - 1, 5, 5);
-
-            // 消除锯齿
-
             Graphics2D g2 = (Graphics2D) g;
-
             RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
             g2.addRenderingHints(rh);
-
-            // 半透明
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
-
-            // 设置填充颜色，这里设置了渐变，由下往上
             g2.setColor(new Color(209, 215, 216));
             g2.fillRect(0, 0, 3, thumbBounds.height);
             g2.setColor(new Color(11, 89, 167));
             g2.setStroke(new BasicStroke(4.0f));
             g2.drawRoundRect(1, 1, thumbBounds.width - 3, thumbBounds.height - 3, 3, 3);
             scrollbar.repaint();
-
         }
 
         @Override

@@ -25,5 +25,7 @@ public class ScrollCardTest {
 
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        scrollCard.getScrollBar().setMaximum(10);
     }
 }
