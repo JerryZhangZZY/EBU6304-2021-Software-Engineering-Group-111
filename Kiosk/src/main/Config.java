@@ -2,68 +2,97 @@ package main;
 
 import org.yaml.snakeyaml.Yaml;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * configuration file accessor
  *
  * @author zaitian
  *
- * @version 1.0
- * @date 4/8
+ * @version 1.2
+ * redesign code structure and function call
+ * @date 4/19
  *
  * @version 1.1
  * create dir and file if not exits
  * @date 4/13
+ *
+ * @version 1.0
+ * @date 4/8
  */
 public abstract class Config {
+    final static String dirName = "conf";
+    final static String fileName = dirName + "/Config.yaml";
+    final static Path dirPath = Path.of(dirName);
+    final static Path filePath = Path.of(fileName);
+
+    static Yaml yaml = new Yaml();
+    static LinkedHashMap config;
     /**
      * retrieve configuration
      * @param name tag name
      * @return tag value
      */
     public static String readConfig(String name) {
-
-        Yaml yaml = new Yaml();
+        return config.get(name).toString();
+    }
+    /**
+     * read file to config variable
+     */
+    public static void loadConfig() {
         InputStream cfg = null;
         while(cfg == null) {
             try {
-                cfg = new FileInputStream("conf/Config.yaml");
+                cfg = new FileInputStream(fileName);
             } catch (FileNotFoundException e1) {
                 try {
-                    if (!Files.exists(Path.of("conf"))){
-                        Files.createDirectory(Path.of("conf"));
+                    if (!Files.exists(dirPath)){
+                        Files.createDirectory(dirPath);
                     }
-                    Files.writeString(Path.of("conf/Config.yaml"),
-                            "language: English\nidCardDrive: F\n");
+                    establishConfig();
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
             }
         }
-        LinkedHashMap data = yaml.load(cfg);
-        return data.get(name).toString();
+        config = yaml.load(cfg);
+        try {
+            cfg.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
     /**
      * reset configuration to default
      */
-    public static void reset(){
-
+    public static void establishConfig() throws IOException{
+        Files.writeString(filePath,
+                "# user configuration file");
+        addConfig("language", "English");
+        addConfig("idCardDrive", "F");
     }
-
     /**
      * modify configuration file
      * @param name tag name
      * @param value tag value
      */
-    public static void writeConfig(String name, String value){
-
+    public static void addConfig(String name, String value){
+        try {
+            List<String> oldConf = Files.readAllLines(filePath);
+            String newConf = "";
+            for (String s : oldConf) {
+                if (!s.startsWith(name)) {                 //if duplicate
+                    newConf = newConf.concat(s + "\n");    //discard old
+                }
+            }
+            newConf = newConf.concat(name + ": " + value + "\n");
+            Files.writeString(filePath, newConf);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

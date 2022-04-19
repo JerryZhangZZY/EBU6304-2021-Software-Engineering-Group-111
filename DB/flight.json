@@ -5,8 +5,8 @@
       "departure": "Beijing T3",
       "arrival": "Shanghai T2",
       "gate": "3A",
-      "departureTime": "2022-03-18 10:00",
-      "arrivalTime": "2022-03-18 12:00",
+      "departureTime": "2022-04-20 10:00",
+      "arrivalTime": "2022-04-20 12:00",
       "boardingTime": "09:30",
       "idPlane": 1
     },
@@ -15,8 +15,8 @@
       "departure": "Shanghai T3",
       "arrival": "Beijing T2",
       "gate": "8C",
-      "departureTime": "2022-03-18 14:30",
-      "arrivalTime": "2022-03-18 18:00",
+      "departureTime": "2022-04-20 14:30",
+      "arrivalTime": "2022-04-20 18:00",
       "boardingTime": "14:00",
       "idPlane": 1
     },
@@ -25,8 +25,8 @@
       "departure": "Shanghai T2",
       "arrival": "Vancouver T1",
       "gate": "2B",
-      "departureTime": "2022-03-18 13:00",
-      "arrivalTime": "2022-03-19 00:00",
+      "departureTime": "2022-04-20 13:00",
+      "arrivalTime": "2022-04-20 00:00",
       "boardingTime": "12:30",
       "idPlane": 2
     },
@@ -35,8 +35,8 @@
       "departure": "Guangzhou T1",
       "arrival": "Nanchang T1",
       "gate": "8F",
-      "departureTime": "2022-03-20 08:00",
-      "arrivalTime": "2022-03-20 09:00",
+      "departureTime": "2022-05-20 08:00",
+      "arrivalTime": "2022-05-20 09:00",
       "boardingTime": "07:30",
       "idPlane": 3
     },

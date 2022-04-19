@@ -11,6 +11,10 @@ import java.io.IOException;
  * @author Zhang Zeyu
  * @author Liang Zhehao
  *
+ * @version 3.1
+ * Adapt to new database.
+ * @date 2022/4/20
+ *
  * @version 3.0
  * Support multiple columns.
  * @date 2022/4/19
@@ -33,8 +37,7 @@ public class SeatReader {
      * @param idFlight the current flight id
      */
     public SeatReader(String idFlight) {
-        idPlane = FlightReader.getIdPlane(FlightReader.indexOf(idFlight));
-        path = "DB/planes/plane" + idPlane + ".csv";
+        path = "DB/flightSeatStatus/" + idFlight + ".csv";
     }
 
     /**

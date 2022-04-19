@@ -13,6 +13,10 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @author Liang Zhehao
  *
+ * @version 2.2
+ * load config at launch
+ * @date 4/19
+ *
  * @version 2.1
  * Upgrade to new animation methods.
  * @date 2022/4/11
@@ -104,6 +108,7 @@ public class Control {
         /*
         control flow
          */
+        Config.loadConfig();
         int currentPC = -1;
         State.setPc(0);
         State.setIsReady(new boolean[]{true, true, true,
