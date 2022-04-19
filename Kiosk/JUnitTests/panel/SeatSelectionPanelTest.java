@@ -6,6 +6,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import javax.swing.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,7 +35,7 @@ class SeatSelectionPanelTest {
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
 
         JButton okBtn = seatSelectionPanel.getBtnOK();
-        JButton[] seat = seatSelectionPanel.getSeatButton();
+        ArrayList<JButton>[] seat = seatSelectionPanel.getSeatButton();
         JScrollBar scrollBar = seatSelectionPanel.getScrollBar();
 
         int expectedSeatRow = -1;
@@ -43,18 +44,19 @@ class SeatSelectionPanelTest {
         boolean chosen = false;
         Random random = new Random();
 
-        for (int i = 0; i < 10; i++) {
-            int r1 = random.nextInt(seatSelectionPanel.getTotalrow() - 3) + 4;
+        for (int i = 0; i < 5; i++) {
+            int r1 = random.nextInt(seatSelectionPanel.getTotalRow() - 6) + 4;
             scrollBar.setValue(r1);
             for (int j = 0; j < random.nextInt(10); j++) {
                 int r2 = random.nextInt(6);
+                int r3 = random.nextInt(3);
                 tempPc = State.getPc();
-                seat[r2].doClick();
-                if (seatSelectionPanel.getAvail_seat()[r2] == 2) {
-                    expectedSeatRow = r1;
+                seat[r3].get(r2).doClick();
+                if (seatSelectionPanel.getAvail_seat()[r3][r2] == 2) {
+                    expectedSeatRow = r1 + r3;
                     expectedSeatColumn = r2 + 1;
                     chosen = true;
-                } else if (seatSelectionPanel.getAvail_seat()[r2] == 0) {
+                } else if (seatSelectionPanel.getAvail_seat()[r3][r2] == 0) {
                     expectedSeatRow = -1;
                     expectedSeatColumn = -1;
                     chosen = false;
@@ -83,30 +85,31 @@ class SeatSelectionPanelTest {
 
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
 
-        JRadioButton[] prefSeat = new JRadioButton[4];
-        prefSeat[0] = seatSelectionPanel.getRdbtnSeat1();
-        prefSeat[1] = seatSelectionPanel.getRdbtnSeat2();
-        prefSeat[2] = seatSelectionPanel.getRdbtnSeat3();
-        prefSeat[3] = seatSelectionPanel.getRdbtnSeat4();
+        JRadioButton[] prefSeat = new JRadioButton[2];
+        prefSeat[0] = seatSelectionPanel.getRdbtnNormalSeat();
+        prefSeat[1] = seatSelectionPanel.getRdbtnPrefSeat();
         JButton okBtn = seatSelectionPanel.getBtnOK();
-        JButton[] seat = seatSelectionPanel.getSeatButton();
+        ArrayList<JButton>[] seat = seatSelectionPanel.getSeatButton();
 
         int expectedSeatPre = 0;
         boolean chosen = false;
         Random random = new Random();
 
-        for (int i = 0; i < 10; i++) {
-            int r1 = random.nextInt(4);
+        for (int i = 0; i < 5; i++) {
+            int r1 = random.nextInt(1);
             prefSeat[r1].doClick();
 
             for (int j = 0; j < random.nextInt(10); j++) {
                 int r2 = random.nextInt(6);
-                seat[r2].doClick();
-                if (seatSelectionPanel.getAvail_seat()[r2] == 2) {
+                int r3 = random.nextInt(3);
+                seat[r3].get(r2).doClick();
+                if (seatSelectionPanel.getAvail_seat()[r3][r2] == 2) {
                     chosen = true;
                     expectedSeatPre = r1;
+                    if (r1 == 1)
+                        expectedSeatPre += r3;
                     assertEquals(State.getPrefSeatPrice()[expectedSeatPre], State.smallBillCard.getPrice());
-                } else if (seatSelectionPanel.getAvail_seat()[r2] == 0) {
+                } else if (seatSelectionPanel.getAvail_seat()[r3][r2] == 0) {
                     chosen = false;
                     assertEquals(0, State.smallBillCard.getPrice());
                 } else {
