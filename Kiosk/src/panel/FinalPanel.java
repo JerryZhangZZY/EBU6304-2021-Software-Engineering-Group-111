@@ -11,6 +11,8 @@ import printer.TicketPrinter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +24,10 @@ import java.util.TimerTask;
  * @author Wang Zaitian
  * @author Ni Ruijie
  * @author Liang Zhehao
+ *
+ * @version 2.4
+ * Create directory ./printerOutput if not exists
+ * @date 2022/4/14
  *
  * @version 2.3
  * Appearance improvement.
@@ -74,6 +80,9 @@ public class FinalPanel extends JPanel {
     public FinalPanel(){
         try {
             char columnInLetter = (char)(State.getSeatColumn() + (int)'A' - 1);
+            if (!Files.exists(Path.of("printerOutput"))){
+                Files.createDirectory(Path.of("printerOutput"));
+            }
             BarCode_QRCodeGenerator.generateQRcode(State.getPassengerFlight_index());
             BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);
             TagPrinter.creatTag(State.getPassengerFlight_index());
@@ -138,7 +147,7 @@ public class FinalPanel extends JPanel {
         qrLabel = new JLabel("Get more information on your airline website");
         qrLabel.setBounds(700, 350, 500, 300);
         qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
-        qrLabel.setIcon(new ImageIcon("Kiosk/printerOutput/qrcode.jpg"));
+        qrLabel.setIcon(new ImageIcon("printerOutput/qrcode.jpg"));
         qrLabel.setHorizontalAlignment(SwingConstants.CENTER);
         qrLabel.setVerticalAlignment(SwingConstants.CENTER);
         qrLabel.setHorizontalTextPosition(0);

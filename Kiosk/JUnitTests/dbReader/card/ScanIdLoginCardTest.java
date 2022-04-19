@@ -1,14 +1,14 @@
-package card;
+package dbReader.card;
 
+import card.ScanIdLoginCard;
+import card.TypeIdLoginCard;
 import frame.MainFrame;
 import idCardReader.IdCardReader;
 import main.State;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import panel.IdLoginPanel;
 
 import javax.swing.*;
-
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;

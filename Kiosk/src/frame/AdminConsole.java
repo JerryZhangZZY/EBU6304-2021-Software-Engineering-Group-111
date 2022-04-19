@@ -20,10 +20,10 @@ import static java.lang.Thread.sleep;
  * improve interaction
  * @date 4/13
  */
-public class AdminFrame extends JFrame {
+public class AdminConsole extends JFrame {
     JPanel contentPane = new JPanel();
 
-    public AdminFrame(){
+    public AdminConsole(JFrame parent){
         setBounds(new Rectangle(720, 360, 480, 270));
         setSize(480, 270);
         setUndecorated(true);
@@ -41,6 +41,8 @@ public class AdminFrame extends JFrame {
         terminal.setText("To resume checking-in, enter \"resumo\"\n");
         contentPane.add(terminal);
 
+        parent.setEnabled(false);
+
         terminal.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -52,6 +54,7 @@ public class AdminFrame extends JFrame {
                         System.exit(0);
                     }
                     else if (command.equals("resumo")){
+                        parent.setEnabled(true);
                         setVisible(false);
                     }
                 }
