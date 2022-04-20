@@ -36,6 +36,11 @@ class BillConfirmationPanelTest {
         State.setIdFlight("AC0001");
     }
 
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
+
     @AfterEach
     void resetDB() {
         BackupDbOperator.push();

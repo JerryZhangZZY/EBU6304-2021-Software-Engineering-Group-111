@@ -43,6 +43,10 @@ class FlightSelectionPanelTest {
         State.setPc(3);
     }
 
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
     @AfterEach
     void recoverDb() {
         BackupDbOperator.push();

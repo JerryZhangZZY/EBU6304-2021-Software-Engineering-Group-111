@@ -5,6 +5,7 @@ import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 
 import java.util.ArrayList;
@@ -23,6 +24,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 
 class SeatWriterTest {
+
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
 
     @AfterEach
     void recoverDb() {
