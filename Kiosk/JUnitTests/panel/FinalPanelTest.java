@@ -36,9 +36,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FinalPanelTest {
 
     @BeforeEach
-    void backupDb() {
-        BackupDbOperator.pull();
-    }
+    void backupDb() { BackupDbOperator.pull();}
+
+    @AfterEach
+    void reset() { BackupDbOperator.push();}
 
     @Test
     void exitTest() {
@@ -134,10 +135,5 @@ public class FinalPanelTest {
                 () -> assertEquals(prefFood[2], finalData[9])
         );
         assertTrue(PassengerFlightReader.getStatus(State.getPassengerFlight_index()));
-    }
-
-    @AfterEach
-    void reset() {
-        BackupDbOperator.push();
     }
 }

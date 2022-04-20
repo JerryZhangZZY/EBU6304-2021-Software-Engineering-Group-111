@@ -33,6 +33,9 @@ public abstract class BackupDbOperator {
      * Update backup database from master database.
      */
     public static void pull() {
+        try{
+            Thread.sleep(500);
+        }catch (Exception e){}
         try {
             if (!Files.exists(Path.of(configPath))){
                 Files.createDirectory(Path.of(configPath));

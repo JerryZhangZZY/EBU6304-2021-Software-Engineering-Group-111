@@ -1,6 +1,8 @@
 package panel;
 
+import backupDbOperation.BackupDbOperator;
 import main.State;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 
@@ -27,6 +29,16 @@ class SeatSelectionPanelTest {
         State.setPrefSeatPrice(new int[]{0, 5, 20, 10000});
         State.setIdFlight("AC0001");
         State.resetSmallBillCard();
+    }
+
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
+
+    @AfterEach
+    void recoverDb() {
+        BackupDbOperator.push();
     }
 
     @RepeatedTest(5)

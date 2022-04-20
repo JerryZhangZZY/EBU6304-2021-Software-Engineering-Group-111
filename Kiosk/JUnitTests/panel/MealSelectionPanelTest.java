@@ -1,5 +1,7 @@
 package panel;
+import backupDbOperation.BackupDbOperator;
 import main.State;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +26,15 @@ public class MealSelectionPanelTest {
         State.setMeal('d');
         State.resetSmallBillCard();
     }
+
+    @BeforeEach
+    void backupDb() {BackupDbOperator.pull();}
+
+    @AfterEach
+    void recoverDb() {
+        BackupDbOperator.push();
+    }
+
     @Test
     void testNormalFood(){
         MealSelectionPanel selectionPanel = new  MealSelectionPanel();
