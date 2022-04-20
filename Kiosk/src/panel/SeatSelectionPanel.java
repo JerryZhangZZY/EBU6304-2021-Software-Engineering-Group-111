@@ -117,8 +117,6 @@ public class SeatSelectionPanel extends JPanel {
 
         totalRow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / totalColumn;
 
-        char[] columnIndex = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'};
-
         //SeatSelection
         warn.setLayout(null);
         warn.setBounds(0, 10, 1180, 540);
@@ -154,7 +152,7 @@ public class SeatSelectionPanel extends JPanel {
         seatX = 100;
         for (int i = 0; i < totalColumn; i++) {
             t++;
-            JLabel cNum = new JLabel(String.valueOf(columnIndex[i]));
+            JLabel cNum = new JLabel(String.valueOf((char)(i + 65)));
             cNum.setFont(new Font("Arial", Font.BOLD, 35));
             cNum.setBounds(seatX + 27, 95, 80, 80);
             warn.add(cNum);

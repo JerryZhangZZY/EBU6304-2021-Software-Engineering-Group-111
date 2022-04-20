@@ -62,27 +62,8 @@ public class BillConfirmationPanel extends JPanel {
          */
         String seatPre = State.getPrefSeatName()[State.getSeatPre()];
         int seatPay = State.getPrefSeatPrice()[State.getSeatPre()];
-        char column = 'o';
-        switch (State.getSeatColumn()) {
-            case 1:
-                column = 'A';
-                break;
-            case 2:
-                column = 'B';
-                break;
-            case 3:
-                column = 'C';
-                break;
-            case 4:
-                column = 'D';
-                break;
-            case 5:
-                column = 'E';
-                break;
-            case 6:
-                column = 'F';
-        }
-        seatBillCard = new SeatBillCard(State.getSeatRow(), column, seatPre, seatPay);
+
+        seatBillCard = new SeatBillCard(State.getSeatRow(), (char)(State.getSeatColumn() + 64), seatPre, seatPay);
         seatBillCard.setLocation(50, 224);
         add(seatBillCard);
 
