@@ -1,6 +1,6 @@
 package panel;
 
-import card.PlaneInfoCard;
+import card.LegendCard;
 import card.ScrollCard;
 import dbReader.FlightReader;
 import dbReader.PlaneReader;
@@ -20,6 +20,10 @@ import java.util.ArrayList;
  * @author Wang Chenyu
  * @author Liang Zhehao
  * @author Zhang Zeyu
+ *
+ * @version 3.1
+ * redesign the UI, change the icon, enhance the function of displaying multiple rows
+ * @date 2022/4/21
  *
  * @version 3.0
  * add function of displaying multiple rows
@@ -52,29 +56,26 @@ import java.util.ArrayList;
  */
 public class SeatSelectionPanel extends JPanel {
 
-    private int[][] avail_seat = new int[3][];      //0: empty 1: occupied 2: selected
-    private int row = 4;
+    private int[][] avail_seat;      //0: empty 1: occupied 2: selected
+    private int row = 1;
     private int totalRow;
     private int totalColumn = 0;
     private String idFlight;
     private int temp_row = -1;
     private int temp_column = -1;
     private int[] price = new int[4];
-    private String[] seatName = new String[4];
     //button init
-    private ArrayList<JButton>[] seatButton = new ArrayList[3];
-    private JLabel[] rowNum = new JLabel[3];
+    private ArrayList<JButton>[] seatButton;
+    private ArrayList<JLabel>[] rowNum;
     private JPanel warn = new JPanel();
     private ScrollCard scrollCard = new ScrollCard();
     private JScrollBar scrollBar = scrollCard.getScrollBar();
     //icon loading
-    private ImageIcon icon_empty = new ImageIcon(new ImageIcon("Kiosk/icons/avail.png").getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
-    private ImageIcon icon_occupied = new ImageIcon(new ImageIcon("Kiosk/icons/occu.png").getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
-    private ImageIcon icon_chosen = new ImageIcon(new ImageIcon("Kiosk/icons/chosen.png").getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+    private ImageIcon[] iconEmpty = new ImageIcon[4];
+    private ImageIcon[] iconSelected = new ImageIcon[5];
+    private ImageIcon iconNotAvailable = new ImageIcon(new ImageIcon("Kiosk/icons/seatNotAvailable.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
     private JButton btnOK = new JButton("OK");
 
-    private JRadioButton rdbtnNormalSeat = new JRadioButton();
-    private JRadioButton rdbtnPrefSeat = new JRadioButton();
     private SeatReader seatReader;
 
     private Border tipBorder = BorderFactory
@@ -84,8 +85,10 @@ public class SeatSelectionPanel extends JPanel {
                     , new Font("Arial", Font.PLAIN, 25)
                     , Color.RED);
 
-    public SeatSelectionPanel(boolean cheat) {
-    }
+    private int[] seatPattern;
+    private int range = 12;
+
+    public SeatSelectionPanel(boolean cheat) { }
 
     public SeatSelectionPanel() {
 
@@ -93,12 +96,19 @@ public class SeatSelectionPanel extends JPanel {
         setLayout(null);
         setSize(1600, 880);
 
+        iconEmpty[0] = new ImageIcon(new ImageIcon("Kiosk/icons/seatStandard.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconEmpty[1] = new ImageIcon(new ImageIcon("Kiosk/icons/seatStandardPlus.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconEmpty[2] = new ImageIcon(new ImageIcon("Kiosk/icons/seatExtraLegroom.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconEmpty[3] = new ImageIcon(new ImageIcon("Kiosk/icons/seatPremium.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconSelected[0] = new ImageIcon(new ImageIcon("Kiosk/icons/seatStandardSelected.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconSelected[1] = new ImageIcon(new ImageIcon("Kiosk/icons/seatStandardPlusSelected.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconSelected[2] = new ImageIcon(new ImageIcon("Kiosk/icons/seatExtraLegroomSelected.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconSelected[3] = new ImageIcon(new ImageIcon("Kiosk/icons/seatPremiumSelected.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+        iconSelected[4] = new ImageIcon(new ImageIcon("Kiosk/icons/seatSelected.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+
         seatReader =  new SeatReader(State.getIdFlight());
 
-        for (int i = 0; i < 4; i++) {
-            this.price[i] = State.getPrefSeatPrice()[i];
-            this.seatName[i] = State.getPrefSeatName()[i];
-        }
+        System.arraycopy(State.getPrefSeatPrice(), 0, this.price, 0, 4);
         this.idFlight = State.getIdFlight();
 
         int seatModel = PlaneReader.getSeatModel(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight))));
@@ -116,23 +126,38 @@ public class SeatSelectionPanel extends JPanel {
         }
 
         totalRow = PlaneReader.getCapacity(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))) / totalColumn;
+        if (totalRow < range)
+            range = totalRow;
+
+        avail_seat = new int[range][];
+        seatButton = new ArrayList[range];
+        rowNum = new ArrayList[range];
+        seatPattern = new int[totalRow];
+
+        for (int i = 0; i < totalRow; i++)
+            seatPattern[i] = 0;
+        for (int i = 0; i < totalRow / 12; i++)
+            seatPattern[i] = 3;
+        for (int i = 0; i < totalRow / 6; i++)
+            seatPattern[i + totalRow / 12] = 1;
+        if (totalRow < 30)
+            seatPattern[totalRow / 2] = 2;
+        else {
+            seatPattern[totalRow / 3] = 2;
+            seatPattern[2 * totalRow / 3] = 2;
+        }
 
         //SeatSelection
         warn.setLayout(null);
-        warn.setBounds(0, 10, 1180, 540);
+        warn.setBounds(780 - (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40) / 2, 0, (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40), 880);
         warn.setBackground(new Color(244, 244, 244));
         warn.setVisible(true);
         warn.setBorder(null);
         add(warn);
 
-        ImageIcon iconLW = new ImageIcon("Kiosk/icons/leftWindow.png");
-        iconLW.setImage(iconLW.getImage().getScaledInstance(16, 100, Image.SCALE_SMOOTH));
-        ImageIcon iconRW = new ImageIcon("Kiosk/icons/rightWindow.png");
-        iconRW.setImage(iconRW.getImage().getScaledInstance(16, 100, Image.SCALE_SMOOTH));
-
-        int[][] s = new int[3][];
-        for (int i = 0; i < 3; i++) {
-            boolean[] seat = seatReader.getSeat(4 + i);
+        int[][] s = new int[range][];
+        for (int i = 0; i < range; i++) {
+            boolean[] seat = seatReader.getSeat(1 + i);
             s[i] = new int[seat.length];
             for (int j = 0; j < seat.length; j++) {
                 if (seat[j])
@@ -145,16 +170,17 @@ public class SeatSelectionPanel extends JPanel {
 
         SeatListener seatListener = new SeatListener();
 
-        int seatShortInterval = 940 / (totalColumn + corridor -1);
+        int seatShortInterval = 60;
         int seatX;
         int t = 0, n = 0;
 
-        seatX = 100;
+        seatX = 20;
         for (int i = 0; i < totalColumn; i++) {
             t++;
             JLabel cNum = new JLabel(String.valueOf((char)(i + 65)));
             cNum.setFont(new Font("Arial", Font.BOLD, 35));
-            cNum.setBounds(seatX + 27, 95, 80, 80);
+            cNum.setForeground(new Color(182, 181, 180));
+            cNum.setBounds(seatX + 13, 20, 80, 80);
             warn.add(cNum);
             if (t == seatM[n] && n !=corridor) {
                 seatX += seatShortInterval;
@@ -163,25 +189,10 @@ public class SeatSelectionPanel extends JPanel {
             }
             seatX += seatShortInterval;
         }
-        for (int i = 0; i < 3; i++) {
-            seatX = 100;
+        for (int i = 0; i < range; i++) {
+            seatX = 20;
+            rowNum[i] = new ArrayList<>();
             seatButton[i] = new ArrayList<>();
-            rowNum[i] = new JLabel(String.valueOf(row + i), SwingConstants.RIGHT);
-            rowNum[i].setFont(new Font("Arial", Font.BOLD, 35));
-            rowNum[i].setBounds(0, 200 + i * 100, 40, 50);
-            warn.add(rowNum[i]);
-
-            JLabel leftWindow = new JLabel();
-            leftWindow.setSize(20, 100);
-            leftWindow.setLocation(50, 175 + i * 100);
-            leftWindow.setIcon(iconLW);
-            warn.add(leftWindow);
-
-            JLabel rightWindow = new JLabel();
-            rightWindow.setSize(20, 100);
-            rightWindow.setLocation(1150, 175 + i * 100);
-            rightWindow.setIcon(iconRW);
-            warn.add(rightWindow);
 
             t = 0;
             n = 0;
@@ -192,27 +203,19 @@ public class SeatSelectionPanel extends JPanel {
                 seatButton[i].get(j).setBackground(Color.WHITE);
                 seatButton[i].get(j).setContentAreaFilled(false);
                 seatButton[i].get(j).setBorderPainted(false);
-                seatButton[i].get(j).setIcon(icon_empty);
                 seatButton[i].get(j).addActionListener(seatListener);
-                seatButton[i].get(j).setBounds(seatX, 185 + i * 100, 80, 80);
+                seatButton[i].get(j).setBounds(seatX, 100 + i * 60, 45, 45);
                 if (t == seatM[n] && n !=corridor) {
                     seatX += seatShortInterval;
-                    n++;
+
+                    rowNum[i].add(n, new JLabel(String.valueOf(row + i), SwingConstants.CENTER));
+                    rowNum[i].get(n).setFont(new Font("Arial", Font.BOLD, 25));
+                    rowNum[i].get(n).setForeground(new Color(182, 181, 180));
+                    rowNum[i].get(n).setBounds(seatX, 100 + i * 60, 45, 45);
+                    warn.add(rowNum[i].get(n));
+
                     t = 0;
-
-                    JLabel leftAisle = new JLabel();
-                    leftAisle.setSize(4, 300);
-                    leftAisle.setLocation(seatX + 38 - seatShortInterval / 4, 175);
-                    leftAisle.setOpaque(true);
-                    leftAisle.setBackground(new Color(18, 150, 219));
-                    warn.add(leftAisle);
-
-                    JLabel rightAisle = new JLabel();
-                    rightAisle.setSize(4, 300);
-                    rightAisle.setLocation(seatX + 38 + seatShortInterval / 4, 175);
-                    rightAisle.setOpaque(true);
-                    rightAisle.setBackground(new Color(18, 150, 219));
-                    warn.add(rightAisle);
+                    n++;
                 }
 
                 seatButton[i].add(j, seatButton[i].get(j));
@@ -223,134 +226,20 @@ public class SeatSelectionPanel extends JPanel {
         }
         addSeatIcon(avail_seat);
 
-        JLabel cutline2 = new JLabel("Selected");
-        cutline2.setForeground(Color.DARK_GRAY);
-        cutline2.setFont(new Font("Arial", Font.BOLD, 20));
-        cutline2.setBounds(580, 30, 160, 50);
-        warn.add(cutline2);
-
-        ImageIcon iconSelected = new ImageIcon("Kiosk/icons/chosen.png");
-        iconSelected.setImage(iconSelected.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-        JLabel selected = new JLabel();
-        selected.setIcon(iconSelected);
-        selected.setBounds(525, 10, 75, 75);
-        warn.add(selected);
-
-        JLabel cutline1 = new JLabel("Available");
-        cutline1.setForeground(Color.DARK_GRAY);
-        cutline1.setFont(new Font("Arial", Font.BOLD, 20));
-        cutline1.setBounds(210, 30, 160, 50);
-        warn.add(cutline1);
-
-        ImageIcon iconAvail = new ImageIcon("Kiosk/icons/avail.png");
-        iconAvail.setImage(iconAvail.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-        JLabel avail = new JLabel();
-        avail.setIcon(iconAvail);
-        avail.setBounds(155, 10, 75, 75);
-        warn.add(avail);
-
-        JLabel cutline3 = new JLabel("Occupied");
-        cutline3.setForeground(Color.DARK_GRAY);
-        cutline3.setFont(new Font("Arial", Font.BOLD, 20));
-        cutline3.setBounds(950, 30, 160, 50);
-        warn.add(cutline3);
-
-        ImageIcon iconOccu = new ImageIcon("Kiosk/icons/occu.png");
-        iconOccu.setImage(iconOccu.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-        JLabel occu = new JLabel();
-        occu.setIcon(iconOccu);
-        occu.setBounds(905, 10, 75, 75);
-        warn.add(occu);
-
         //ScrollCard
         scrollCard.setLocation(1200, 50);
         add(scrollCard);
-        resetScrollBar(0, scrollBar);
+        scrollBar.setMinimum(1);
+        scrollBar.setMaximum(totalRow + 1);
+        scrollBar.setVisibleAmount(range);
 
         ScrollListener scrollListener = new ScrollListener();
         scrollBar.addAdjustmentListener(scrollListener);
 
         //PlaneInfoCard
-        int idPlane = FlightReader.getIdPlane(FlightReader.indexOf(State.getIdFlight()));
-        PlaneInfoCard planeInfoCard = new PlaneInfoCard(PlaneReader.getModel(PlaneReader.indexOf(idPlane)),
-                PlaneReader.getCapacity(PlaneReader.indexOf(idPlane)),
-                PlaneReader.getAirline(PlaneReader.indexOf(idPlane)));
-        planeInfoCard.setLocation(500, 550);
-        add(planeInfoCard);
-
-        //PrefPanel
-        JPanel prefPanel = new JPanel();
-        prefPanel.setBackground(Color.WHITE);
-        prefPanel.setLayout(null);
-        prefPanel.setBounds(50, 550, 388, 280);
-        add(prefPanel);
-
-        JLabel lblPref = new JLabel("Preference");
-        lblPref.setForeground(Color.DARK_GRAY);
-        lblPref.setFont(new Font("Arial", Font.BOLD, 45));
-        lblPref.setBounds(34, 22, 250, 40);
-        prefPanel.add(lblPref);
-
-        JLabel lblPrice1 = new JLabel(":  $" + price[0]);
-        lblPrice1.setForeground(Color.DARK_GRAY);
-        lblPrice1.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblPrice1.setBounds(260, 90, 90, 30);
-        prefPanel.add(lblPrice1);
-
-        JLabel lblPrice2 = new JLabel(":  $" + price[1]);
-        lblPrice2.setForeground(Color.DARK_GRAY);
-        lblPrice2.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblPrice2.setBounds(260, 130, 90, 30);
-        prefPanel.add(lblPrice2);
-
-        JLabel lblPrice3 = new JLabel(":  $" + price[2]);
-        lblPrice3.setForeground(Color.DARK_GRAY);
-        lblPrice3.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblPrice3.setBounds(260, 170, 90, 30);
-        prefPanel.add(lblPrice3);
-
-        JLabel lblPrice4 = new JLabel(":  $" + price[3]);
-        lblPrice4.setForeground(Color.DARK_GRAY);
-        lblPrice4.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblPrice4.setBounds(260, 210, 90, 30);
-        prefPanel.add(lblPrice4);
-
-        rdbtnNormalSeat.setText(seatName[0]);
-        rdbtnNormalSeat.setFont(new Font("Arial", Font.PLAIN, 25));
-        rdbtnNormalSeat.setForeground(Color.DARK_GRAY);
-        rdbtnNormalSeat.setBackground(Color.WHITE);
-        rdbtnNormalSeat.setBounds(16, 90, 240, 30);
-        prefPanel.add(rdbtnNormalSeat);
-        rdbtnNormalSeat.setSelected(true);
-
-        rdbtnPrefSeat.setText(seatName[1]);
-        rdbtnPrefSeat.setForeground(Color.DARK_GRAY);
-        rdbtnPrefSeat.setBackground(Color.WHITE);
-        rdbtnPrefSeat.setFont(new Font("Arial", Font.PLAIN, 25));
-        rdbtnPrefSeat.setBounds(16, 130, 240, 30);
-        prefPanel.add(rdbtnPrefSeat);
-
-        PrefListener prefListener = new PrefListener();
-        rdbtnNormalSeat.addItemListener(prefListener);
-        rdbtnPrefSeat.addItemListener(prefListener);
-
-        JLabel lblPrefName1 = new JLabel(seatName[2]);
-        lblPrefName1.setForeground(Color.DARK_GRAY);
-        lblPrefName1.setBackground(Color.WHITE);
-        lblPrefName1.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblPrefName1.setBounds(38, 170, 240, 30);
-        prefPanel.add(lblPrefName1);
-
-        JLabel lblPrefName2 = new JLabel(seatName[3]);
-        lblPrefName2.setForeground(Color.DARK_GRAY);
-        lblPrefName2.setBackground(Color.WHITE);
-        lblPrefName2.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblPrefName2.setBounds(38, 210, 240, 30);
-        prefPanel.add(lblPrefName2);
-
-        ButtonGroup group = new ButtonGroup();
-        group.add(rdbtnNormalSeat);
-        group.add(rdbtnPrefSeat);
+        LegendCard legendCard = new LegendCard(iconEmpty, iconSelected[4], iconNotAvailable);
+        legendCard.setLocation(30, 50);
+        add(legendCard);
 
         //OKbutton
         OKListener okListener = new OKListener();
@@ -363,40 +252,19 @@ public class SeatSelectionPanel extends JPanel {
     }
 
     private void addSeatIcon(int[][] avail) {
-        if (getTemp_row() >= row && getTemp_row() <= row + 2) {
+        if (getTemp_row() >= row && getTemp_row() <= row + range - 1) {
             avail[getTemp_row() - row][getTemp_column()] = 2;
             avail_seat[getTemp_row() - row][getTemp_column()] = 2;
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < range; i++)
             for (int j = 0; j < totalColumn; j++) {
                 if (avail[i][j] == 1)
-                    seatButton[i].get(j).setIcon(icon_occupied);
+                    seatButton[i].get(j).setIcon(iconNotAvailable);
                 else if (avail[i][j] == 2)
-                    seatButton[i].get(j).setIcon(icon_chosen);
+                    seatButton[i].get(j).setIcon(iconSelected[seatPattern[i + row - 1]]);
                 else
-                    seatButton[i].get(j).setIcon(icon_empty);
+                    seatButton[i].get(j).setIcon(iconEmpty[seatPattern[i + row - 1]]);
             }
-    }
-
-    private void resetScrollBar(int pref, JScrollBar scrollBar) {
-        if (pref == 0) {
-            scrollBar.setMinimum(4);
-            scrollBar.setMaximum(totalRow + 1);
-            scrollBar.setVisibleAmount(3);
-            if (getTemp_row() >= 4) {
-                scrollBar.setValue(getTemp_row());
-                row = getTemp_row();
-            } else {
-                scrollBar.setValue(4);
-                row = 4;
-            }
-        } else {
-            scrollBar.setMinimum(1);
-            scrollBar.setMaximum(4);
-            scrollBar.setValue(1);
-            scrollBar.setVisibleAmount(3);
-            row = 1;
-        }
     }
 
     private void setTemp_row(int temp_row) {
@@ -419,20 +287,8 @@ public class SeatSelectionPanel extends JPanel {
         return temp_column;
     }
 
-    public JRadioButton getRdbtnNormalSeat() {
-        return rdbtnNormalSeat;
-    }
-
-    public JRadioButton getRdbtnPrefSeat() {
-        return rdbtnPrefSeat;
-    }
-
     public ArrayList<JButton>[] getSeatButton() {
         return seatButton;
-    }
-
-    public ScrollCard getScrollCard() {
-        return scrollCard;
     }
 
     public JScrollBar getScrollBar() {
@@ -467,7 +323,7 @@ public class SeatSelectionPanel extends JPanel {
 
         public void actionPerformed(ActionEvent e) {
             int clickRow = -1, clickColumn = -1;
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < range; i++) {
                 for (int j = 0; j < totalColumn; j++)
                     if (e.getSource() == seatButton[i].get(j)) {
                         clickRow = i;
@@ -482,25 +338,25 @@ public class SeatSelectionPanel extends JPanel {
                 p2 = 0;
 
             if (avail_seat[clickRow][clickColumn] == 0) {
-                if (getTemp_row() >= row && getTemp_row() <= row + 2) {
-                    seatButton[getTemp_row() - row].get(getTemp_column()).setIcon(icon_empty);
+                if (getTemp_row() >= row && getTemp_row() <= row + range - 1) {
+                    seatButton[getTemp_row() - row].get(getTemp_column()).setIcon(iconEmpty[seatPattern[getTemp_row() - 1]]);
                     avail_seat[getTemp_row() - row][getTemp_column()] = 0;
-                    State.smallBillCard.subPrice(price[p2]);
-                } else if (getTemp_row() <= 3 && getTemp_row() >= 1) {
-                    State.smallBillCard.subPrice(price[getTemp_row()]);
+                    State.smallBillCard.subPrice(price[seatPattern[getTemp_row() - 1]]);
+                } else if (getTemp_row() != -1) {
+                    State.smallBillCard.subPrice(price[seatPattern[getTemp_row() - 1]]);
                 }
                 setTemp_row(row + clickRow);
                 setTemp_column(clickColumn);
                 avail_seat[clickRow][clickColumn] = 2;
-                seatButton[clickRow].get(clickColumn).setIcon(icon_chosen);
+                seatButton[clickRow].get(clickColumn).setIcon(iconSelected[seatPattern[getTemp_row() - 1]]);
                 warn.setBorder(null);
-                State.smallBillCard.addPrice(price[p1]);
+                State.smallBillCard.addPrice(price[seatPattern[getTemp_row() - 1]]);
             } else if (avail_seat[clickRow][clickColumn] == 2) {
                 setTemp_row(-1);
                 setTemp_column(-1);
                 avail_seat[clickRow][clickColumn] = 0;
-                seatButton[clickRow].get(clickColumn).setIcon(icon_empty);
-                State.smallBillCard.subPrice(price[p1]);
+                seatButton[clickRow].get(clickColumn).setIcon(iconEmpty[seatPattern[row + clickRow - 1]]);
+                State.smallBillCard.subPrice(price[seatPattern[row + clickRow - 1]]);
             }
         }
     }
@@ -510,9 +366,10 @@ public class SeatSelectionPanel extends JPanel {
         @Override
         public void adjustmentValueChanged(AdjustmentEvent adjustmentEvent) {
             row = adjustmentEvent.getValue();
-            int[][] s = new int[3][];
-            for (int i = 0; i < 3; i++) {
-                rowNum[i].setText(String.valueOf(adjustmentEvent.getValue() + i));
+            int[][] s = new int[range][];
+            for (int i = 0; i < range; i++) {
+                for (int j = 0; j < rowNum[i].size(); j++)
+                    rowNum[i].get(j).setText(String.valueOf(adjustmentEvent.getValue() + i));
                 boolean[] seat = seatReader.getSeat(adjustmentEvent.getValue() + i);
                 s[i] = new int[seat.length];
                 for (int j = 0; j < seat.length; j++) {
@@ -527,22 +384,6 @@ public class SeatSelectionPanel extends JPanel {
         }
     }
 
-    private class PrefListener implements ItemListener {
-
-        @Override
-        public void itemStateChanged(ItemEvent e) {
-            int n = -1;
-            if (e.getSource() == rdbtnNormalSeat && rdbtnNormalSeat.isSelected())
-                n = 0;
-            else if (e.getSource() == rdbtnPrefSeat && rdbtnPrefSeat.isSelected())
-                n = 1;
-
-            if (n != -1) {
-                resetScrollBar(n, scrollBar);
-            }
-        }
-    }
-
     public class OKListener implements ActionListener {
 
         @Override
@@ -552,10 +393,7 @@ public class SeatSelectionPanel extends JPanel {
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column + 1);
                 State.setBill(State.smallBillCard.getPrice());
-                if (temp_row >= 4)
-                    State.setSeatPre(0);
-                else
-                    State.setSeatPre(temp_row);
+                State.setSeatPre(seatPattern[getTemp_row() - 1]);
             } else {
                 warn.setBorder(tipBorder);
             }
