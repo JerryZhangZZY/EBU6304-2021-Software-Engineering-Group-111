@@ -35,23 +35,21 @@ import java.util.List;
  */
 public abstract class Config {
 
-    private static boolean init = false;
     final static String dirName = "conf";
     final static String fileName = dirName + "/Config.yaml";
     final static Path dirPath = Path.of(dirName);
     final static Path filePath = Path.of(fileName);
 
     static Yaml yaml = new Yaml();
-    static LinkedHashMap config;
+    static LinkedHashMap config = null;
     /**
      * retrieve configuration
      * @param name tag name
      * @return tag value
      */
     public static String readConfig(String name) {
-        if (!init) {
+        if (config == null) {
             loadConfig();
-            init = true;
         }
         return config.get(name).toString();
     }
