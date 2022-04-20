@@ -1,4 +1,4 @@
-package dbReader.card;
+package card;
 
 import card.TypeIdLoginCard;
 import frame.MainFrame;

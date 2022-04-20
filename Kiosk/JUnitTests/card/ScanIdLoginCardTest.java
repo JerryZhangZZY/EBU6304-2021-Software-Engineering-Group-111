@@ -1,7 +1,5 @@
-package dbReader.card;
+package card;
 
-import card.ScanIdLoginCard;
-import card.TypeIdLoginCard;
 import frame.MainFrame;
 import idCardReader.IdCardReader;
 import main.State;
