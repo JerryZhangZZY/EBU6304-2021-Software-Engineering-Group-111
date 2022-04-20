@@ -1,7 +1,9 @@
 package panel;
 
 import card.FlightInfoCard;
+import dbReader.FlightReader;
 import dbReader.PassengerFlightReader;
+import main.Config;
 import main.State;
 
 import javax.swing.*;
@@ -9,6 +11,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +20,11 @@ import java.util.List;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  * @author Liang Zhehao
+ *
+ * @version 3.0
+ * Those flight info cards that are before the set time
+ * will be set gray.
+ * @date 2022/4/20
  *
  * @version 2.2
  * Display multiple booking numbers' flights.
@@ -58,15 +66,24 @@ public class FlightSelectionPanel extends JPanel {
     public FlightSelectionPanel() {
         List<String> bookingNumList = State.getBookingNumList();
         List<String>[] idFlightList = new ArrayList[2];
+        List<Boolean>[] unavailableList = new ArrayList[2];
         List<Boolean>[] statusList = new ArrayList[2];
         for (int i = 0; i < 2; i++) {
             if (i < bookingNumList.size()) {
                 idFlightList[i] = PassengerFlightReader.getIdFlightByBookingNum(bookingNumList.get(i));
                 statusList[i] = PassengerFlightReader.getStatusByBookingNum(bookingNumList.get(i));
+                if (Boolean.parseBoolean(Config.readConfig("enableCheckinLeadingTime")))
+                    unavailableList[i] = getUnavailableList(idFlightList[i]);
+                else {
+                    unavailableList[i] = new ArrayList<>();
+                    for (int j = 0; j < idFlightList[i].size(); j++)
+                        unavailableList[i].add(false);
+                }
             }
             else {
                 idFlightList[i] = new ArrayList<>();
                 statusList[i] = new ArrayList<>();
+                unavailableList[i] = new ArrayList<>();
             }
         }
 
@@ -75,7 +92,7 @@ public class FlightSelectionPanel extends JPanel {
         setLayout(null);
 
         if (hasNoMore(statusList)) {
-            JLabel lblNoFlight = new JLabel("There is no flight available for check-in");
+            JLabel lblNoFlight = new JLabel("All flights you booked are checked-in!");
             lblNoFlight.setFont(new Font("Calibri", Font.BOLD, 60));
             lblNoFlight.setForeground(Color.DARK_GRAY);
             lblNoFlight.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,20 +127,20 @@ public class FlightSelectionPanel extends JPanel {
                 vertical.setBackground(new Color(11, 89, 167));
                 add(vertical);
             }
-            for (int column = 0; column < 2; column++) {
-                if (column < bookingNumList.size()) {
-                    JLabel lblBookingNum = new JLabel(bookingNumList.get(column));
-                    lblBookingNum.setBounds(x + 670 * column, 150, 530, 60);
-                    lblBookingNum.setHorizontalAlignment(SwingConstants.CENTER);
-                    lblBookingNum.setForeground(Color.DARK_GRAY);
-                    lblBookingNum.setFont(new Font("Arial", Font.BOLD, 50));
-                    add(lblBookingNum);
-                }
+            for (int column = 0; column < bookingNumList.size(); column++) {
+                JLabel lblBookingNum = new JLabel(bookingNumList.get(column));
+                lblBookingNum.setBounds(x + 670 * column, 150, 530, 60);
+                lblBookingNum.setHorizontalAlignment(SwingConstants.CENTER);
+                lblBookingNum.setForeground(Color.DARK_GRAY);
+                lblBookingNum.setFont(new Font("Arial", Font.BOLD, 50));
+                add(lblBookingNum);
                 for (int cardNum = 0; cardNum < idFlightList[column].size(); cardNum++) {
                     FlightInfoCard flightInfoCard = new FlightInfoCard(idFlightList[column].get(cardNum), column);
                     flightInfoCard.setBounds(x + 670 * column, 250 + 250 * cardNum, 530, 150);
-                    if (statusList[column].get(cardNum))
-                        flightInfoCard.setGray();
+                    if (unavailableList[column].get(cardNum))
+                        flightInfoCard.setGray(false);
+                    else if (statusList[column].get(cardNum))
+                        flightInfoCard.setGray(true);
                     else {
                         flightInfoCard.addMouseListener(new MouseListener() {
                             @Override
@@ -150,7 +167,7 @@ public class FlightSelectionPanel extends JPanel {
                 }
             }
         }
-        }
+    }
 
 
 
@@ -162,5 +179,21 @@ public class FlightSelectionPanel extends JPanel {
             }
         }
         return true;
+    }
+
+    public boolean isUnavailable(String idFlight) {
+        long departureTimeInMs = FlightReader.getDepartureDateTime(FlightReader.indexOf(idFlight)).getTime();
+        long currentTimeInMs = new Date().getTime();
+        long startCheckinTime = departureTimeInMs - (Long.parseLong(Config.readConfig("startCheckinLeadingTime")) * 3600000L);
+        long stopCheckinTime = departureTimeInMs - (Long.parseLong(Config.readConfig("stopCheckinLeadingTime")) * 60000L);
+        return currentTimeInMs < startCheckinTime || currentTimeInMs >= stopCheckinTime;
+    }
+
+    public List<Boolean> getUnavailableList(List<String> idFlightList) {
+        List<Boolean> unavailableList = new ArrayList<>();
+        for (String idFlight : idFlightList) {
+            unavailableList.add(isUnavailable(idFlight));
+        }
+        return unavailableList;
     }
 }

@@ -11,6 +11,10 @@ import java.io.IOException;
  *
  * @author Zhang Zeyu
  *
+ * @version 3.0
+ * Add unavailable label.
+ * @date 2022/4/20
+ *
  * @version 2.0
  * Change params and test setGray().
  * @date 2022/4/10
@@ -42,6 +46,12 @@ public class FlightInfoCardTest extends JFrame{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        flightInfoCard.setGray();
+        flightInfoCard.setGray(true);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        flightInfoCard.setGray(false);
     }
 }
