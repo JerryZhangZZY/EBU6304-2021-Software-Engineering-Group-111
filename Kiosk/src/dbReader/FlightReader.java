@@ -4,10 +4,18 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * This class is a tool that can help you search and get values of flight info quickly.
  *
  * @author Zhang Zeyu
+ *
+ * @version 3.0
+ * Add getDepartureDateTime().
+ * @date 2022/4/20
  *
  * @version 2.0
  * Add getIdFlight() by index.
@@ -99,5 +107,21 @@ public abstract class FlightReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");
         return arr.getJSONObject(index).getString("departureTime").substring(0, 10);
+    }
+
+    /**
+     * Get full departure time in Date.
+     * @param index got from indexOf()
+     * @return departure datetime in Date
+     */
+    public static Date getDepartureDateTime(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try {
+            return simpleDateFormat.parse(arr.getJSONObject(index).getString("departureTime"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

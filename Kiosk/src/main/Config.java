@@ -12,16 +12,21 @@ import java.util.List;
  * configuration file accessor
  *
  * @author zaitian
+ * @author Zhang Zeyu
  *
- * @version 1.2
+ * @version 3.1
+ * Add 3 leading time configs.
+ * @date 2022/4/20
+ *
+ * @version 3.0
  * redesign code structure and function call
  * @date 4/19
  *
- * @version 1.1
+ * @version 2.1
  * create dir and file if not exits
  * @date 4/13
  *
- * @version 1.0
+ * @version 2.0
  * @date 4/8
  */
 public abstract class Config {
@@ -70,10 +75,12 @@ public abstract class Config {
      * reset configuration to default
      */
     public static void establishConfig() throws IOException{
-        Files.writeString(filePath,
-                "# user configuration file");
+        Files.writeString(filePath, "# user configuration file");
         addConfig("language", "English");
         addConfig("idCardDrive", "F");
+        addConfig("enableCheckinLeadingTime", "false");
+        addConfig("startCheckinLeadingTime", "24");
+        addConfig("stopCheckinLeadingTime", "30");
     }
     /**
      * modify configuration file

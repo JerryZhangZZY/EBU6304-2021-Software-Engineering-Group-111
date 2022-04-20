@@ -2,12 +2,19 @@ package dbReader;
 
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * This is a unit test of FlightReader.
  *
  * @author Zhang Zeyu
+ *
+ * @version 3.0
+ * Add test for getDepartureDateTime().
+ * @date 2022/4/20
  *
  * @version 2.0
  * @date 2022/4/8
@@ -62,6 +69,20 @@ class FlightReaderTest {
 
     @Test
     void getDate() {
-        assertEquals("2022-03-18", FlightReader.getDate(0));
+        assertEquals("2022-04-20", FlightReader.getDate(0));
     }
+
+    @Test
+    void getDepartureDateTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        long actual = FlightReader.getDepartureDateTime(0).getTime();
+        long expected = 0;
+        try {
+            expected = simpleDateFormat.parse("2022-04-20 10:00").getTime();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        assertEquals(expected, actual);
+    }
+
 }

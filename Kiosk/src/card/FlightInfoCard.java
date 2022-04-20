@@ -12,6 +12,10 @@ import java.awt.*;
  *
  * @author Zhang Zeyu
  *
+ * @version 3.0
+ * Add unavailable label.
+ * @date 2022/4/20
+ *
  * @version 2.1
  * Add setGrey() to make this card looks unavailable.
  * @date 2022/4/10
@@ -40,6 +44,7 @@ public class FlightInfoCard extends JPanel {
     JLabel lblDeparture = new JLabel();
     JLabel lblArrival = new JLabel();
     JLabel lblArrow = new JLabel("--------->");
+    JLabel lblGray = new JLabel();
 
     public FlightInfoCard(String idFlight, int column) {
         this.idFlight = idFlight;
@@ -102,20 +107,28 @@ public class FlightInfoCard extends JPanel {
 
     /**
      * Invoke this method to make this card looks unavailable.
+     *
+     * @param type true: checked-in; false: unavailable
      */
-    public void setGray() {
+    public void setGray(boolean type) {
         setBackground(new Color(230, 230, 230));
         lblIdFlight.setForeground(Color.GRAY);
         lblDepartureTime.setForeground(Color.GRAY);
         lblArrivalTime.setForeground(Color.GRAY);
         lblDeparture.setForeground(Color.GRAY);
         lblArrival.setForeground(Color.GRAY);
-        JLabel lblCheckedIn = new JLabel("checked-in!");
-        lblCheckedIn.setBounds(190, 120, 150, 30);
-        lblCheckedIn.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheckedIn.setFont(new Font("Calibri", Font.BOLD, 30));
-        lblCheckedIn.setForeground(new Color(60,179,113));
-        add(lblCheckedIn);
+        if (type) {
+            lblGray.setText("checked-in");
+            lblGray.setForeground(new Color(60,179,113));
+        }
+        else {
+            lblGray.setText("unavailable");
+            lblGray.setForeground(new Color(205,92,92));
+        }
+        lblGray.setBounds(190, 120, 150, 30);
+        lblGray.setHorizontalAlignment(SwingConstants.CENTER);
+        lblGray.setFont(new Font("Calibri", Font.BOLD, 30));
+        add(lblGray);
     }
 
     public void doPress() {
