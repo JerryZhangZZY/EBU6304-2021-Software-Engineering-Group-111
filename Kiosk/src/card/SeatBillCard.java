@@ -30,7 +30,7 @@ public class SeatBillCard extends JPanel {
         preference.setForeground(Color.DARK_GRAY);
         add(preference);
 
-        JLabel line = new JLabel("·······························");
+        JLabel line = new JLabel("  ·····························");
         line.setLocation(495, 105);
         line.setSize(413, 69);
         line.setForeground(Color.LIGHT_GRAY);
