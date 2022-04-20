@@ -14,6 +14,10 @@ import java.util.List;
  * @author zaitian
  * @author Zhang Zeyu
  *
+ * @version 3.2
+ * Automatically call loadConfig().
+ * @date 2022/4/20
+ *
  * @version 3.1
  * Add 3 leading time configs.
  * @date 2022/4/20
@@ -30,6 +34,8 @@ import java.util.List;
  * @date 4/8
  */
 public abstract class Config {
+
+    private static boolean init = false;
     final static String dirName = "conf";
     final static String fileName = dirName + "/Config.yaml";
     final static Path dirPath = Path.of(dirName);
@@ -43,6 +49,10 @@ public abstract class Config {
      * @return tag value
      */
     public static String readConfig(String name) {
+        if (!init) {
+            loadConfig();
+            init = true;
+        }
         return config.get(name).toString();
     }
     /**
