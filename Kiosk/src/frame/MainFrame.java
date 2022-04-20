@@ -1,6 +1,7 @@
 package frame;
 
 import main.Clock;
+import main.Config;
 import main.State;
 import panel.WelcomePanel;
 
@@ -265,7 +266,8 @@ public class MainFrame extends JFrame {
      * reset welcome text to default when passenger's name is not available
      */
     public void resetWelcomeText() {
-        welcomeLabel.setText("Welcome to Beijing International Airport");
+        welcomeLabel.setText(
+                "Welcome to " + Config.readConfig(("airportName")) + "!");
     }
 
     /**

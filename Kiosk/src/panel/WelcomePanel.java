@@ -1,6 +1,7 @@
 package panel;
 
 import main.Clock;
+import main.Config;
 import main.State;
 
 import javax.swing.*;
@@ -45,7 +46,8 @@ public class WelcomePanel extends JPanel {
         /*
         a big welcome
          */
-        welcomeLabel = new JLabel("Welcome to Beijing International Airport!");
+        welcomeLabel = new JLabel(
+                "Welcome to " + Config.readConfig(("airportName")) + "!");
         welcomeLabel.setBounds(210, 150,1500,200);
         welcomeLabel.setFont(new Font("Calibri", Font.BOLD, 80));
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);

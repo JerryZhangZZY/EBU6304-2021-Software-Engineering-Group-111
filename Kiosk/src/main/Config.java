@@ -81,6 +81,8 @@ public abstract class Config {
         addConfig("enableCheckInLeadingTime", "false");
         addConfig("startCheckInLeadingTime", "24");
         addConfig("stopCheckInLeadingTime", "30");
+        addConfig("airportName", "Beijing International Airport");
+        addConfig("theme", "winter2022");
     }
     /**
      * modify configuration file

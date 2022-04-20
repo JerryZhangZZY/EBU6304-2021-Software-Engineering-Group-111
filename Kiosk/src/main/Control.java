@@ -52,6 +52,8 @@ public class Control {
      * @throws InterruptedException if interrupted when sleeping, not designed to occur
      */
     public static void main(String[] args) throws InterruptedException {
+        Config.loadConfig();
+
         MainFrame kiosk;
         BookingLoginPanel bookingLoginPanel;
         IdLoginPanel idLoginPanel;
@@ -108,7 +110,6 @@ public class Control {
         /*
         control flow
          */
-        Config.loadConfig();
         int currentPC = -1;
         State.setPc(0);
         State.setIsReady(new boolean[]{true, true, true,
