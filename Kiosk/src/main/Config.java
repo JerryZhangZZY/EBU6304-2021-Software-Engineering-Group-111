@@ -78,9 +78,9 @@ public abstract class Config {
         Files.writeString(filePath, "# user configuration file");
         addConfig("language", "English");
         addConfig("idCardDrive", "F");
-        addConfig("enableCheckinLeadingTime", "false");
-        addConfig("startCheckinLeadingTime", "24");
-        addConfig("stopCheckinLeadingTime", "30");
+        addConfig("enableCheckInLeadingTime", "false");
+        addConfig("startCheckInLeadingTime", "24");
+        addConfig("stopCheckInLeadingTime", "30");
     }
     /**
      * modify configuration file

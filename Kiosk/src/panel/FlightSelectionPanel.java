@@ -72,7 +72,7 @@ public class FlightSelectionPanel extends JPanel {
             if (i < bookingNumList.size()) {
                 idFlightList[i] = PassengerFlightReader.getIdFlightByBookingNum(bookingNumList.get(i));
                 statusList[i] = PassengerFlightReader.getStatusByBookingNum(bookingNumList.get(i));
-                if (Boolean.parseBoolean(Config.readConfig("enableCheckinLeadingTime")))
+                if (Boolean.parseBoolean(Config.readConfig("enableCheckInLeadingTime")))
                     unavailableList[i] = getUnavailableList(idFlightList[i]);
                 else {
                     unavailableList[i] = new ArrayList<>();
@@ -184,9 +184,9 @@ public class FlightSelectionPanel extends JPanel {
     public boolean isUnavailable(String idFlight) {
         long departureTimeInMs = FlightReader.getDepartureDateTime(FlightReader.indexOf(idFlight)).getTime();
         long currentTimeInMs = new Date().getTime();
-        long startCheckinTime = departureTimeInMs - (Long.parseLong(Config.readConfig("startCheckinLeadingTime")) * 3600000L);
-        long stopCheckinTime = departureTimeInMs - (Long.parseLong(Config.readConfig("stopCheckinLeadingTime")) * 60000L);
-        return currentTimeInMs < startCheckinTime || currentTimeInMs >= stopCheckinTime;
+        long startCheckInTime = departureTimeInMs - (Long.parseLong(Config.readConfig("startCheckInLeadingTime")) * 3600000L);
+        long stopCheckInTime = departureTimeInMs - (Long.parseLong(Config.readConfig("stopCheckInLeadingTime")) * 60000L);
+        return currentTimeInMs < startCheckInTime || currentTimeInMs >= stopCheckInTime;
     }
 
     public List<Boolean> getUnavailableList(List<String> idFlightList) {
