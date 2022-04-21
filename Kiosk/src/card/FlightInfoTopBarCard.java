@@ -33,7 +33,7 @@ public class FlightInfoTopBarCard extends JPanel {
         String arrival = FlightReader.getArrival(FlightReader.indexOf(idFlight));
         setBackground(Theme.getCardColor());
         setLayout(null);
-        setSize(1580,180);
+        setSize(1560,180);
 
         JLabel lblIdFlight = new JLabel(idFlight);
         lblIdFlight.setForeground(Theme.getMainFontColor());

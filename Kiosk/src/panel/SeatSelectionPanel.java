@@ -250,6 +250,7 @@ public class SeatSelectionPanel extends JPanel {
         btnOK.setForeground(Theme.getMinorFontColor());
         btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
+        btnOK.setBorderPainted(false);
         add(btnOK);
     }
 

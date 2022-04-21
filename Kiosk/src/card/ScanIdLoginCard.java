@@ -61,6 +61,7 @@ public class ScanIdLoginCard extends JPanel {
         buttonScan.setFont(new Font("Arial", Font.BOLD,35));
         buttonScan.setBackground(Theme.getThemeColor());
         buttonScan.setForeground(Theme.getMinorFontColor());
+        buttonScan.setBorderPainted(false);
         add(buttonScan);
 
         lblError = new JLabel("Scanning failed!");

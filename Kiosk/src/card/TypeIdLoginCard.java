@@ -6,6 +6,7 @@ import main.State;
 import main.Theme;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -69,6 +70,7 @@ public class TypeIdLoginCard extends JPanel {
         tfSurname.setBounds(375,240,400,70);
         tfSurname.setHorizontalAlignment(SwingConstants.CENTER);
         tfSurname.setColumns(20);
+        tfSurname.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
         add(tfSurname);
 
         tfId = new JTextField();
@@ -78,6 +80,7 @@ public class TypeIdLoginCard extends JPanel {
         tfId.setBounds(375,390,400,70);
         tfId.setHorizontalAlignment(SwingConstants.CENTER);
         tfId.setColumns(10);
+        tfId.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
         add(tfId);
 
         buttonOk = new JButton("OK");
@@ -85,6 +88,7 @@ public class TypeIdLoginCard extends JPanel {
         buttonOk.setBackground(Theme.getThemeColor());
         buttonOk.setForeground(Theme.getMinorFontColor());
         buttonOk.setBounds(375,540,400,70);
+        buttonOk.setBorderPainted(false);
         add(buttonOk);
 
         vertical = new JLabel();

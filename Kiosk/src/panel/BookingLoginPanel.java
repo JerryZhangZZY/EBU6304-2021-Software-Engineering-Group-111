@@ -5,6 +5,7 @@ import main.State;
 import main.Theme;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -93,6 +94,7 @@ public class BookingLoginPanel extends JPanel {
         bookingNumberTextField.setBackground(Theme.getCardColor());
         bookingNumberTextField.setColumns(10);
         bookingNumberTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        bookingNumberTextField.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
         InputPanel.add(bookingNumberTextField);
 
         /*
@@ -109,6 +111,7 @@ public class BookingLoginPanel extends JPanel {
         okButton.setForeground(Theme.getMinorFontColor());
         okButton.setBackground(Theme.getThemeColor());
         okButton.setBounds(760, 10, 400, 70);
+        okButton.setBorderPainted(false);
         buttonPanel.add(okButton);
 
         altButton = new JButton("Use my ID");
@@ -116,6 +119,7 @@ public class BookingLoginPanel extends JPanel {
         altButton.setForeground(Theme.getMainFontColor());
         altButton.setBackground(Theme.getBackgroundColor());
         altButton.setBounds(760, 161, 400, 70);
+        altButton.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
         buttonPanel.add(altButton);
 
         separator1 = new JSeparator();

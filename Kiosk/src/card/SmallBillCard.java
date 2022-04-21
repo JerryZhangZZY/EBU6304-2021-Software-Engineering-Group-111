@@ -32,7 +32,7 @@ public class SmallBillCard extends JPanel{
         this.price = 0;
         //loadBill();
 
-        setBorder(new LineBorder(Theme.getMainFontColor(), 5));
+        setBorder(new LineBorder(Theme.getMainFontColor(), 2));
         setBackground(Theme.getCardColor());
         setLayout(null);
         //setSize(265, 115);
@@ -47,8 +47,8 @@ public class SmallBillCard extends JPanel{
 
         lblTitle = new JLabel("Bill");
         lblTitle.setForeground(Theme.getMainFontColor());
-        lblTitle.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 38));
-        lblTitle.setBounds(20, 3, 126, 61);
+        lblTitle.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 45));
+        lblTitle.setBounds(20, 8, 126, 61);
         add(lblTitle);
     }
 

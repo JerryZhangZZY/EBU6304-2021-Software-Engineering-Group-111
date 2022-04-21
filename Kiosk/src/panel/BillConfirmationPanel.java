@@ -54,7 +54,7 @@ public class BillConfirmationPanel extends JPanel {
         Initialize flightInfoTopBarCard
          */
         flightInfoTopBarCard = new FlightInfoTopBarCard(State.getIdFlight());
-        flightInfoTopBarCard.setLocation(0, 20);
+        flightInfoTopBarCard.setLocation(20, 20);
         add(flightInfoTopBarCard);
 
         /*
@@ -98,8 +98,9 @@ public class BillConfirmationPanel extends JPanel {
         btnConfirm.setBounds(1200, 760, 330, 70);
         btnConfirm.setForeground(Theme.getMinorFontColor());
         btnConfirm.setBackground(Theme.getThemeColor());
-        add(btnConfirm);
         btnConfirm.addActionListener(new ConfirmListener());
+        btnConfirm.setBorderPainted(false);
+        add(btnConfirm);
 
         lblInstruction = new JLabel();
         lblInstruction.setText("Scan ID to continue");

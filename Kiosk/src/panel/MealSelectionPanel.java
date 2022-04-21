@@ -111,21 +111,21 @@ public class MealSelectionPanel extends JPanel {
         rdbtnMeal[0].setForeground(Theme.getMainFontColor());
         rdbtnMeal[0].setBackground(Theme.getCardColor());
         rdbtnMeal[0].setFont(new Font("Arial", Font.PLAIN, 25));
-        rdbtnMeal[0].setBounds(16, 90, 240, 30);
+        rdbtnMeal[0].setBounds(32, 90, 240, 30);
         panelPref.add(rdbtnMeal[0]);
 
         rdbtnMeal[1].setText(foodName[1]);
         rdbtnMeal[1].setForeground(Theme.getMainFontColor());
         rdbtnMeal[1].setBackground(Theme.getCardColor());
         rdbtnMeal[1].setFont(new Font("Arial", Font.PLAIN, 25));
-        rdbtnMeal[1].setBounds(16, 130, 240, 30);
+        rdbtnMeal[1].setBounds(32, 130, 240, 30);
         panelPref.add(rdbtnMeal[1]);
 
         rdbtnMeal[2].setText(foodName[2]);
         rdbtnMeal[2].setForeground(Theme.getMainFontColor());
         rdbtnMeal[2].setBackground(Theme.getCardColor());
         rdbtnMeal[2].setFont(new Font("Arial", Font.PLAIN, 25));
-        rdbtnMeal[2].setBounds(16, 170, 240, 30);
+        rdbtnMeal[2].setBounds(32, 170, 240, 30);
         panelPref.add(rdbtnMeal[2]);
 
         PrefListener prefListener = new PrefListener();
@@ -138,6 +138,7 @@ public class MealSelectionPanel extends JPanel {
         btnOK.setForeground(Theme.getMinorFontColor());
         btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
+        btnOK.setBorderPainted(false);
         add(btnOK);
     }
 
