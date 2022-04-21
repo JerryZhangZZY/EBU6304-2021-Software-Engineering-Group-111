@@ -40,8 +40,8 @@ import java.util.Hashtable;
 public final class BarCode_QRCodeGenerator {
 
     private static final String CHARSET = "utf-8";
-    private static final int BLACK = 0xFF000000;
-    private static final int WHITE = 0xF4F4F4;
+    private static final int FOREGROUND = 0xFF000000;
+    private static final int BACKGROUND = 0xF4F4F4;
 
     private BarCode_QRCodeGenerator() {
     }
@@ -100,7 +100,7 @@ public final class BarCode_QRCodeGenerator {
                 BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                image.setRGB(x, y, matrix.get(x, y) ? BLACK : WHITE);
+                image.setRGB(x, y, matrix.get(x, y) ? FOREGROUND : BACKGROUND);
             }
         }
         return image;

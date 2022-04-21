@@ -27,7 +27,6 @@ public abstract class JsonReader {
             reader.close();
             return sb.toString();
         } catch (IOException e) {
-            e.printStackTrace();
             return null;
         }
     }

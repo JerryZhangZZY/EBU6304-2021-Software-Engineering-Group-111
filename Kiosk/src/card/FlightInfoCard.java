@@ -133,7 +133,7 @@ public class FlightInfoCard extends JPanel {
     }
 
     public void doPress() {
-        setBackground(new Color(235, 235, 235));
+        setBackground(new Color(184, 207, 229));
     }
 
     public void doRelease() {

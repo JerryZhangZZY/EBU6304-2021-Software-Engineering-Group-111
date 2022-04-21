@@ -65,6 +65,7 @@ public class TypeIdLoginCard extends JPanel {
         tfSurname = new JTextField();
         tfSurname.setFont(new Font("Arial", Font.PLAIN,35));
         tfSurname.setBackground(Theme.getCardColor());
+        tfSurname.setForeground(Theme.getMainFontColor());
         tfSurname.setBounds(375,240,400,70);
         tfSurname.setHorizontalAlignment(SwingConstants.CENTER);
         tfSurname.setColumns(20);
@@ -73,6 +74,7 @@ public class TypeIdLoginCard extends JPanel {
         tfId = new JTextField();
         tfId.setFont(new Font("Arial", Font.PLAIN,35));
         tfId.setBackground(Theme.getCardColor());
+        tfId.setForeground(Theme.getMainFontColor());
         tfId.setBounds(375,390,400,70);
         tfId.setHorizontalAlignment(SwingConstants.CENTER);
         tfId.setColumns(10);

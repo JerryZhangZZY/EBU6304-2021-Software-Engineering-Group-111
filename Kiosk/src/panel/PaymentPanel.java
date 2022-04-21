@@ -37,7 +37,7 @@ public class PaymentPanel extends JPanel {
         setVisible(true);
 
         JPanel panelUnionPay = new JPanel();
-        panelUnionPay.setBackground(Color.WHITE);
+        panelUnionPay.setBackground(Theme.getBackgroundColor());
         panelUnionPay.setBorder(new LineBorder(new Color(165, 42, 42), 10, true));
         panelUnionPay.setBounds(new Rectangle(400, 140, 800, 600));
         add(panelUnionPay);

@@ -108,7 +108,9 @@ public class FinalPanel extends JPanel {
         headline.setForeground(Theme.getMainFontColor());
         headline.setBounds(250, 150, 1400, 203);
         add(headline);
-        exit_begin.setText("Continue chek-in");
+
+        exit_begin.setText("Continue check-in");
+        exit_begin.setForeground(Theme.getMainFontColor());
         exit_begin.setFont(new Font("Arial", Font.PLAIN, 35));
         exit_begin.setVerticalTextPosition(SwingConstants.BOTTOM);
         exit_begin.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -126,6 +128,7 @@ public class FinalPanel extends JPanel {
         add(exit_begin);
 
         exit_system.setText("          Exit          ");
+        exit_system.setForeground(Theme.getMainFontColor());
         exit_system.setVerticalTextPosition(SwingConstants.BOTTOM);
         exit_system.setHorizontalTextPosition(SwingConstants.CENTER);
         exit_system.setFont(new Font("Arial", Font.PLAIN, 35));
@@ -143,6 +146,7 @@ public class FinalPanel extends JPanel {
         add(exit_system);
 
         qrLabel = new JLabel("Get more information on your airline website");
+        qrLabel.setForeground(Theme.getMainFontColor());
         qrLabel.setBounds(700, 350, 500, 300);
         qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
         qrLabel.setIcon(new ImageIcon("printerOutput/qrcode.jpg"));

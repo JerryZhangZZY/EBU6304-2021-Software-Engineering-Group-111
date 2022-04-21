@@ -89,6 +89,7 @@ public class BookingLoginPanel extends JPanel {
         bookingNumberTextField = new JTextField();
         bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
         bookingNumberTextField.setBounds(760, 60, 400, 70);
+        bookingNumberTextField.setForeground(Theme.getMainFontColor());
         bookingNumberTextField.setBackground(Theme.getCardColor());
         bookingNumberTextField.setColumns(10);
         bookingNumberTextField.setHorizontalAlignment(SwingConstants.CENTER);
