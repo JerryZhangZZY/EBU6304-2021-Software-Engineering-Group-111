@@ -5,6 +5,8 @@ import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 
 /**
  * This class can return a legend card
@@ -35,7 +37,7 @@ public class LegendCard extends JPanel {
         }
         for (int i = 0; i < 7; i++) {
             JLabel line = new JLabel();
-            line.setBounds(15, i * 120 + 25, 300, 2);
+            line.setBounds(15, i * 120 + 29, 300, 2);
             line.setOpaque(true);
             line.setBackground(Theme.getTertiaryFontColor());
             add(line);
@@ -43,27 +45,27 @@ public class LegendCard extends JPanel {
             if (i == 6)
                 break;
 
-            iconlbl[i].setLocation(15, i * 120 + 35);
+            iconlbl[i].setLocation(15, i * 120 + 42);
             add(iconlbl[i]);
 
             JLabel seatName = new JLabel();
             seatName.setFont(new Font("Arial", Font.PLAIN, 25));
             seatName.setForeground(Theme.getMainFontColor());
-            seatName.setBounds(70, i * 120 + 35, 250, 35);
+            seatName.setBounds(70, i * 120 + 39, 250, 35);
             add(seatName);
 
             JLabel detail = new JLabel();
             detail.setFont(new Font("Arial", Font.PLAIN, 18));
             detail.setForeground(Theme.getSecondaryFontColor());
             detail.setVerticalAlignment(SwingConstants.TOP);
-            detail.setBounds(70, i * 120 + 70, 250, 80);
+            detail.setBounds(70, i * 120 + 74, 250, 80);
             add(detail);
 
             JLabel price = new JLabel();
             price.setFont(new Font("Arial", Font.PLAIN, 25));
             price.setForeground(Theme.getMainFontColor());
             price.setHorizontalAlignment(SwingConstants.RIGHT);
-            price.setBounds(200, i * 120 + 110, 115, 35);
+            price.setBounds(200, i * 120 + 112, 115, 35);
             add(price);
 
             if (i == 0) {
