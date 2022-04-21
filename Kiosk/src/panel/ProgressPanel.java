@@ -11,13 +11,13 @@ import java.awt.*;
  * @author zaitian
  * @author Zhang Zeyu
  *
- * @date 3/26
  * @version 1.2
  * Enhanced loading process
+ * @date 3/26
  *
- * @date 2022/3/25
  * @version 1.1
  * Appearance improvement.
+ * @date 2022/3/25
  *
  * @version 1.0
  * @date 3/22
@@ -46,7 +46,7 @@ public class ProgressPanel extends JPanel {
          */
         progressPanel = new JPanel();
         progressPanel.setBounds(0, 0, 320, 880);
-        progressPanel.setBackground(new Color(244, 244, 244));
+        progressPanel.setBackground(Color.WHITE);
         add(progressPanel);
         progressPanel.setLayout(null);
         /*
