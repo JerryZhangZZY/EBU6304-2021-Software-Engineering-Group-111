@@ -59,7 +59,6 @@ public class BookingLoginPanel extends JPanel {
      */
     public BookingLoginPanel() {
         setBounds(new Rectangle(0, 0, 1920, 880));
-        setBackground(Color.PINK);
         setLayout(null);
         setSize(1920, 880);
         /*

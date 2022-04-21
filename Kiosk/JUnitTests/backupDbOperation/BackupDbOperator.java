@@ -26,8 +26,6 @@ public abstract class BackupDbOperator {
 
     static final String masterRoot = "DB\\";
     static final String backupRoot = "DBbackup\\";
-    static final String configPath = "conf\\";
-    static final String uncopy = configPath + "uncopy.txt";
 
     /**
      * Update backup database from master database.
@@ -37,10 +35,6 @@ public abstract class BackupDbOperator {
             Thread.sleep(500);
         }catch (Exception e){}
         try {
-            if (!Files.exists(Path.of(configPath))){
-                Files.createDirectory(Path.of(configPath));
-            }
-            Files.writeString(Path.of(uncopy), ".md");
             if (!Files.exists(Path.of(backupRoot))){
                 Files.createDirectory(Path.of(backupRoot));
             }
@@ -48,7 +42,7 @@ public abstract class BackupDbOperator {
             e2.printStackTrace();
         }
         Process p;
-        String cmds = "xcopy " + masterRoot + "*.* " + backupRoot + " /s/y/exclude:" + configPath + "uncopy.txt";
+        String cmds = "xcopy " + masterRoot + "*.* " + backupRoot + " /s/y";
         try {
             p = Runtime.getRuntime().exec(cmds);
             BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -65,7 +59,7 @@ public abstract class BackupDbOperator {
      */
     public static void push() {
         Process p,d;
-        String cmds = "xcopy " + backupRoot + "*.* " + masterRoot + " /s/y/exclude:" + configPath + "uncopy.txt";
+        String cmds = "xcopy " + backupRoot + "*.* " + masterRoot + " /s/y";
         String deletecmd = "cmd /c rd "+ backupRoot +" /s/q";
         try {
             p = Runtime.getRuntime().exec(cmds);

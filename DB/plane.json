@@ -3,35 +3,35 @@
     {
       "idPlane": 1,
       "model": "Dassault Falcon 900",
-      "capacity": 42,
+      "capacity": 72,
       "airline": "AIR CHINA",
       "seatModel": 33
     },
     {
       "idPlane": 2,
       "model": "Airbus A220-100",
-      "capacity": 72,
+      "capacity": 120,
       "airline": "AIR CANADA",
       "seatModel": 33
     },
     {
       "idPlane": 3,
       "model": "Boeing 737-800",
-      "capacity": 144,
+      "capacity": 192,
       "airline": "UNITED AIRLINES",
       "seatModel": 33
     },
     {
       "idPlane": 4,
       "model": "Boeing 747-8",
-      "capacity": 330,
+      "capacity": 462,
       "airline": "LUFTHANSA",
       "seatModel": 353
     },
     {
       "idPlane": 5,
       "model": "McDonnell Douglas MD-90",
-      "capacity": 44,
+      "capacity": 60,
       "airline": "CHINA EASTERN",
       "seatModel": 22
     }
