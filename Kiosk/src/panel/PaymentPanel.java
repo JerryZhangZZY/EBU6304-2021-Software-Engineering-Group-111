@@ -1,5 +1,6 @@
 package panel;
 
+import main.Config;
 import main.State;
 import main.Theme;
 
@@ -37,7 +38,7 @@ public class PaymentPanel extends JPanel {
         setVisible(true);
 
         JPanel panelUnionPay = new JPanel();
-        panelUnionPay.setBackground(Theme.getBackgroundColor());
+        panelUnionPay.setBackground(Theme.getCardColor());
         panelUnionPay.setBorder(new LineBorder(new Color(165, 42, 42), 10, true));
         panelUnionPay.setBounds(new Rectangle(400, 140, 800, 600));
         add(panelUnionPay);
@@ -57,7 +58,7 @@ public class PaymentPanel extends JPanel {
         panelTopBar.add(lblTitle);
 
         JPanel panelInput = new JPanel();
-        panelInput.setBackground(Color.WHITE);
+        panelInput.setBackground(Theme.getCardColor());
         panelInput.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
         panelInput.setBounds(225, 325, 350, 60);
         panelUnionPay.add(panelInput);
@@ -84,7 +85,7 @@ public class PaymentPanel extends JPanel {
         JPanel panelPay = new JPanel();
         panelPay.setLayout(null);
         panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
-        panelPay.setBackground(Color.WHITE);
+        panelPay.setBackground(Theme.getCardColor());
         panelPay.setBounds(225, 425, 350, 60);
         panelUnionPay.add(panelPay);
 
@@ -97,13 +98,13 @@ public class PaymentPanel extends JPanel {
 
         lblPrice = new JLabel("$" + price);
         lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
-        lblPrice.setForeground(Color.DARK_GRAY);
+        lblPrice.setForeground(Theme.getMainFontColor());
         lblPrice.setFont(new Font("Tahoma", Font.BOLD, 60));
         lblPrice.setBounds(300, 170, 200, 60);
         panelUnionPay.add(lblPrice);
 
-        JLabel lblPayTo = new JLabel("To: Beijing International Airport");
-        lblPayTo.setForeground(Color.GRAY);
+        JLabel lblPayTo = new JLabel("To: " + Config.readConfig("airportName"));
+        lblPayTo.setForeground(Theme.getSecondaryFontColor());
         lblPayTo.setFont(new Font("Calibri", Font.BOLD, 20));
         lblPayTo.setHorizontalAlignment(SwingConstants.CENTER);
         lblPayTo.setBounds(250, 250, 300, 28);
