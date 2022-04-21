@@ -84,12 +84,19 @@ public abstract class Config {
      */
     public static void establishConfig() throws IOException{
         Files.writeString(filePath, "# user configuration file");
+        addComment("supported language: English");
         addConfig("language", "English");
+        addComment("USB drive that holds ID document, recommended: E, F, G");
         addConfig("idCardDrive", "F");
+        addComment("Enable the following two settings");
         addConfig("enableCheckInLeadingTime", "false");
+        addComment("check-in starts ... (hours) before departure");
         addConfig("startCheckInLeadingTime", "24");
+        addComment("check-in stops ... (minutes) before departure");
         addConfig("stopCheckInLeadingTime", "30");
+        addComment("");
         addConfig("airportName", "Beijing International Airport");
+        addComment("valid themes includes: winter2022");
         addConfig("theme", "winter2022");
     }
     /**
@@ -107,6 +114,19 @@ public abstract class Config {
                 }
             }
             newConf = newConf.concat(name + ": " + value + "\n");
+            Files.writeString(filePath, newConf);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void addComment(String comment){
+        try {
+            List<String> oldConf = Files.readAllLines(filePath);
+            String newConf = "";
+            for (String s : oldConf) {
+                newConf = newConf.concat(s + "\n");
+            }
+            newConf = newConf.concat("\n# " + comment + "\n");
             Files.writeString(filePath, newConf);
         } catch (IOException e) {
             e.printStackTrace();
