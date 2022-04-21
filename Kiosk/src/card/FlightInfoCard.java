@@ -112,7 +112,19 @@ public class FlightInfoCard extends JPanel {
      * @param type true: checked-in; false: unavailable
      */
     public void setGray(boolean type) {
-        setBackground(new Color(230, 230, 230));
+        int rGray, gGray, bGray;
+        if (Theme.getCardColor().getRed() + Theme.getCardColor().getGreen() + Theme.getCardColor().getBlue()
+                > Theme.getBackgroundColor().getRed() + Theme.getBackgroundColor().getGreen() + Theme.getBackgroundColor().getBlue()) {
+            rGray = Theme.getBackgroundColor().getRed() - 5;
+            gGray = Theme.getBackgroundColor().getGreen() - 5;
+            bGray = Theme.getBackgroundColor().getBlue() - 5;
+        }
+        else {
+            rGray = Theme.getBackgroundColor().getRed() + 5;
+            gGray = Theme.getBackgroundColor().getGreen() + 5;
+            bGray = Theme.getBackgroundColor().getBlue() + 5;
+        }
+        setBackground(new Color(rGray, gGray, bGray));
         lblIdFlight.setForeground(Theme.getSecondaryFontColor());
         lblDepartureTime.setForeground(Theme.getSecondaryFontColor());
         lblArrivalTime.setForeground(Theme.getSecondaryFontColor());

@@ -113,11 +113,12 @@ public class MainFrame extends JFrame {
 
         time = new JLabel();
         time.setForeground(Theme.getMinorFontColor());
-        time.setBounds(940, 20, 500, 60);
+        time.setBounds(810, 20, 300, 60);
+        time.setHorizontalAlignment(SwingConstants.CENTER);
         time.setFont(new Font("Arial", Font.BOLD, 30));
         Clock.setClock(time);
-        topPanel.add(time);
         time.setVisible(false);
+        topPanel.add(time);
 
         exitButton = new JButton();
         exitButton.setContentAreaFilled(false);

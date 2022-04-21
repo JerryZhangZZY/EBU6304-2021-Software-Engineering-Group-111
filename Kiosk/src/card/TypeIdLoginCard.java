@@ -100,7 +100,7 @@ public class TypeIdLoginCard extends JPanel {
         lblError = new JLabel("Authentication failed!");
         lblError.setBounds(375, 495, 400, 40);
         lblError.setFont(new Font("Arial", Font.PLAIN,35));
-        lblError.setForeground(Color.RED);
+        lblError.setForeground(new Color(205,92,92));
         lblError.setHorizontalAlignment(SwingConstants.CENTER);
         add(lblError);
         lblError.setVisible(false);

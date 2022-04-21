@@ -137,7 +137,7 @@ public class BillConfirmationPanel extends JPanel {
                     throw new Exception();
             } catch (Exception e) {
                 lblInstruction.setText("Authentication failed!");
-                lblInstruction.setForeground(Color.RED);
+                lblInstruction.setForeground(new Color(205,92,92));
             }
         }
     }

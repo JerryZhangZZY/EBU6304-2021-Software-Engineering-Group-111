@@ -171,7 +171,7 @@ public class BookingLoginPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(bookingNumberTextField.getForeground().equals(Color.RED)) {
+                if(bookingNumberTextField.getForeground().equals(new Color(205,92,92))) {
                     bookingNumberTextField.setText("");
                     bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
                     bookingNumberTextField.setForeground(Color.BLACK);
@@ -184,7 +184,7 @@ public class BookingLoginPanel extends JPanel {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER)
                     okButton.doClick();
-                else if (bookingNumberTextField.getForeground().equals(Color.RED)){
+                else if (bookingNumberTextField.getForeground().equals(new Color(205,92,92))){
                     reset();
                 }
             }
@@ -200,7 +200,7 @@ public class BookingLoginPanel extends JPanel {
     public void setWaring(){
         bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
         bookingNumberTextField.setText("Invalid booking number!");
-        bookingNumberTextField.setForeground(Color.RED);
+        bookingNumberTextField.setForeground(new Color(205,92,92));
     }
     public JTextField getBookingNumberTextField() {
         return bookingNumberTextField;

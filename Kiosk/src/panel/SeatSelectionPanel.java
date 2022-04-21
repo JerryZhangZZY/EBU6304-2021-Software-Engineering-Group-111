@@ -83,11 +83,11 @@ public class SeatSelectionPanel extends JPanel {
     private SeatReader seatReader;
 
     private Border tipBorder = BorderFactory
-            .createTitledBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.RED)
+            .createTitledBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, new Color(205,92,92))
                     , "Please select your seat", TitledBorder.CENTER
                     , TitledBorder.BOTTOM
                     , new Font("Arial", Font.PLAIN, 25)
-                    , Color.RED);
+                    , new Color(205,92,92));
 
     private int[] seatPattern;
     private int range = 12;

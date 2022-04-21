@@ -67,7 +67,7 @@ public class ScanIdLoginCard extends JPanel {
         lblError = new JLabel("Scanning failed!");
         lblError.setBounds(235, 495, 300, 40);
         lblError.setFont(new Font("Arial", Font.PLAIN,35));
-        lblError.setForeground(Color.RED);
+        lblError.setForeground(new Color(205,92,92));
         lblError.setHorizontalAlignment(SwingConstants.CENTER);
         add(lblError);
         lblError.setVisible(false);

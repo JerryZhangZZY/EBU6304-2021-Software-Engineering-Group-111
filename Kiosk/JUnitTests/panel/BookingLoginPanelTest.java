@@ -54,7 +54,7 @@ class BookingLoginPanelTest {
                 !PassengerFlightReader.bookingValid(candidateBookingNumber[bn])){
                     assertAll("proper warning",
                             () -> assertEquals("Invalid booking number!", bookingLoginPanel.getBookingNumberTextField().getText()),
-                            () -> assertEquals(Color.RED, bookingLoginPanel.getBookingNumberTextField().getForeground()),
+                            () -> assertEquals(new Color(205,92,92), bookingLoginPanel.getBookingNumberTextField().getForeground()),
                             () -> assertEquals(new Font("Arial", Font.ITALIC, 25), bookingLoginPanel.getBookingNumberTextField().getFont())
                     );
                     System.out.println("check-in failed\n----------------");
