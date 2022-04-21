@@ -1,6 +1,7 @@
 package card;
 
 import dbReader.FlightReader;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,19 +31,19 @@ public class FlightInfoTopBarCard extends JPanel {
         String arrivalTime = FlightReader.getArrivalTime(FlightReader.indexOf(idFlight));
         String departure = FlightReader.getDeparture(FlightReader.indexOf(idFlight));
         String arrival = FlightReader.getArrival(FlightReader.indexOf(idFlight));
-        setBackground(Color.WHITE);
+        setBackground(Theme.getCardColor());
         setLayout(null);
         setSize(1580,180);
 
         JLabel lblIdFlight = new JLabel(idFlight);
-        lblIdFlight.setForeground(Color.DARK_GRAY);
+        lblIdFlight.setForeground(Theme.getMainFontColor());
         lblIdFlight.setFont(new Font("Arial", Font.PLAIN, 55));
         lblIdFlight.setBounds(100, 55, 237, 70);
         add(lblIdFlight);
 
         JLabel lblDate = new JLabel();
         lblDate.setFont(new Font("Arial", Font.PLAIN, 45));
-        lblDate.setForeground(Color.DARK_GRAY);
+        lblDate.setForeground(Theme.getMainFontColor());
         lblDate.setHorizontalAlignment(SwingConstants.TRAILING);
         lblDate.setBounds(1194, 55, 274, 70);
         lblDate.setText(date);
@@ -50,14 +51,14 @@ public class FlightInfoTopBarCard extends JPanel {
 
         JLabel lblDepartureTime = new JLabel();
         lblDepartureTime.setHorizontalAlignment(SwingConstants.CENTER);
-        lblDepartureTime.setForeground(Color.DARK_GRAY);
+        lblDepartureTime.setForeground(Theme.getMainFontColor());
         lblDepartureTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
         lblDepartureTime.setBounds(428, 40, 200, 46);
         lblDepartureTime.setText(departureTime);
         add(lblDepartureTime);
 
         JLabel lblArrivalTime = new JLabel();
-        lblArrivalTime.setForeground(Color.DARK_GRAY);
+        lblArrivalTime.setForeground(Theme.getMainFontColor());
         lblArrivalTime.setHorizontalAlignment(SwingConstants.CENTER);
         lblArrivalTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
         lblArrivalTime.setBounds(885, 40, 184, 46);
@@ -66,7 +67,7 @@ public class FlightInfoTopBarCard extends JPanel {
 
         JLabel lblDeparture = new JLabel();
         lblDeparture.setHorizontalAlignment(SwingConstants.CENTER);
-        lblDeparture.setForeground(Color.DARK_GRAY);
+        lblDeparture.setForeground(Theme.getMainFontColor());
         lblDeparture.setFont(new Font("Arial", Font.PLAIN, 30));
         lblDeparture.setBounds(428, 101, 200, 46);
         lblDeparture.setText(departure);
@@ -74,14 +75,14 @@ public class FlightInfoTopBarCard extends JPanel {
 
         JLabel lblArrival = new JLabel();
         lblArrival.setHorizontalAlignment(SwingConstants.CENTER);
-        lblArrival.setForeground(Color.DARK_GRAY);
+        lblArrival.setForeground(Theme.getMainFontColor());
         lblArrival.setFont(new Font("Arial", Font.PLAIN, 30));
         lblArrival.setBounds(877, 101, 200, 46);
         lblArrival.setText(arrival);
         add(lblArrival);
 
         JLabel lblArrow = new JLabel("--------->");
-        lblArrow.setForeground(Color.LIGHT_GRAY);
+        lblArrow.setForeground(Theme.getTertiaryFontColor());
         lblArrow.setFont(new Font("Tahoma", Font.BOLD, 45));
         lblArrow.setBounds(649, 68, 219, 34);
         add(lblArrow);

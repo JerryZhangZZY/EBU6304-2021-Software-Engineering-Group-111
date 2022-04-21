@@ -1,6 +1,7 @@
 package panel;
 
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +39,7 @@ public class ProgressPanel extends JPanel {
 	    this.progress = progress;
 
 		setBounds(new Rectangle(0, 0, 1920, 880));
-		setBackground(new Color(244, 244, 244));
+		setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1920, 880);
         /*
@@ -46,7 +47,7 @@ public class ProgressPanel extends JPanel {
          */
         progressPanel = new JPanel();
         progressPanel.setBounds(0, 0, 320, 880);
-        progressPanel.setBackground(Color.WHITE);
+        progressPanel.setBackground(Theme.getCardColor());
         add(progressPanel);
         progressPanel.setLayout(null);
         /*

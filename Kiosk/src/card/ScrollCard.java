@@ -1,5 +1,7 @@
 package card;
 
+import main.Theme;
+
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
@@ -63,7 +65,7 @@ public class ScrollCard extends JPanel {
             g2.addRenderingHints(rh);
             g2.setColor(new Color(209, 215, 216));
             g2.fillRect(0, 0, 3, thumbBounds.height);
-            g2.setColor(new Color(11, 89, 167));
+            g2.setColor(Theme.getThemeColor());
             g2.setStroke(new BasicStroke(4.0f));
             g2.drawRoundRect(1, 1, thumbBounds.width - 3, thumbBounds.height - 3, 3, 3);
             scrollbar.repaint();

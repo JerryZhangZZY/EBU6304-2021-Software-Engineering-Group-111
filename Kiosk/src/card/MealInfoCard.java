@@ -1,5 +1,7 @@
 package card;
 
+import main.Theme;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -43,12 +45,10 @@ public class MealInfoCard extends JPanel {
     private ImageIcon icon_halal = new ImageIcon(newimg_halal);
     private Border button_chosen = BorderFactory.createLineBorder(new Color(60,179,113),10, true);
     public MealInfoCard(){
-        //setBorder(new LineBorder(Color.WHITE));
-        setBackground(new Color(244, 244, 244));
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1130, 880);
         ChosenListener chosenListener = new ChosenListener();
-        normal_food.setBackground(Color.WHITE);
         normal_food.setLocation(30, 50);
         normal_food.setSize(350, 780);
         normal_food.setBorder(null);
@@ -56,7 +56,6 @@ public class MealInfoCard extends JPanel {
         normal_food.setIcon(icon_normal);
         normal_food.addActionListener(chosenListener);
 
-        vegetarian_food.setBackground(Color.WHITE);
         vegetarian_food.setLocation(405, 50);
         vegetarian_food.setSize(350, 780);
         vegetarian_food.setBorder(null);
@@ -64,7 +63,6 @@ public class MealInfoCard extends JPanel {
         vegetarian_food.setIcon(icon_vegetarian);
         vegetarian_food.addActionListener(chosenListener);
 
-        halal_food.setBackground(Color.WHITE);
         halal_food.setLocation(780, 50);
         halal_food.setContentAreaFilled(false);
         halal_food.setSize(350, 780);
@@ -79,7 +77,7 @@ public class MealInfoCard extends JPanel {
     private class ChosenListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            setBorder(new LineBorder(new Color(244, 244, 244)));
+            setBorder(new LineBorder(Theme.getBackgroundColor()));
             if (e.getSource() == normal_food) {
                 if (chosen == 'a') {
                     chosen = 'd';

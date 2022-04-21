@@ -7,6 +7,7 @@ import card.SmallBillCard;
 import dbReader.PassengerFlightReader;
 import idCardReader.IdCardReader;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,8 +47,7 @@ public class BillConfirmationPanel extends JPanel {
 
     public BillConfirmationPanel() {
 
-        setBackground(new Color(244, 244, 244));
-        setForeground(Color.WHITE);
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1600, 880);
         /*
@@ -96,8 +96,8 @@ public class BillConfirmationPanel extends JPanel {
         btnConfirm = new JButton("Confirm");
         btnConfirm.setFont(new Font("Arial", Font.BOLD, 35));
         btnConfirm.setBounds(1200, 760, 330, 70);
-        btnConfirm.setForeground(Color.WHITE);
-        btnConfirm.setBackground(new Color(11, 89, 167));
+        btnConfirm.setForeground(Theme.getMinorFontColor());
+        btnConfirm.setBackground(Theme.getThemeColor());
         add(btnConfirm);
         btnConfirm.addActionListener(new ConfirmListener());
 
@@ -106,7 +106,7 @@ public class BillConfirmationPanel extends JPanel {
         lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
         lblInstruction.setBounds(1200, 520, 330, 40);
         lblInstruction.setFont(new Font("Arial", Font.PLAIN, 35));
-        lblInstruction.setForeground(Color.DARK_GRAY);
+        lblInstruction.setForeground(Theme.getMainFontColor());
         add(lblInstruction);
 
         addMouseListener(new MouseAdapter() {
@@ -114,7 +114,7 @@ public class BillConfirmationPanel extends JPanel {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
                 lblInstruction.setText("Scan ID to continue");
-                lblInstruction.setForeground(Color.DARK_GRAY);
+                lblInstruction.setForeground(Theme.getMainFontColor());
             }
         });
     }
@@ -125,7 +125,7 @@ public class BillConfirmationPanel extends JPanel {
             try {
                 if (IdCardReader.readId().equals(PassengerFlightReader.getIdPassenger(State.getPassengerFlight_index()))) {
                     lblInstruction.setText("Scan ID to continue");
-                    lblInstruction.setForeground(Color.DARK_GRAY);
+                    lblInstruction.setForeground(Theme.getMainFontColor());
                     if (State.getBill() != 0) {
                         State.setPc(State.getPc() + 1);
                     } else {

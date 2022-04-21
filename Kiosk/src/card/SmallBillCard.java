@@ -1,5 +1,7 @@
 package card;
 
+import main.Theme;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -30,8 +32,8 @@ public class SmallBillCard extends JPanel{
         this.price = 0;
         //loadBill();
 
-        setBorder(new LineBorder(Color.DARK_GRAY, 5));
-        setBackground(Color.WHITE);
+        setBorder(new LineBorder(Theme.getMainFontColor(), 5));
+        setBackground(Theme.getCardColor());
         setLayout(null);
         //setSize(265, 115);
         setBounds(1200, 600, 330, 115);
@@ -44,7 +46,7 @@ public class SmallBillCard extends JPanel{
         add(screen);
 
         lblTitle = new JLabel("Bill");
-        lblTitle.setForeground(Color.DARK_GRAY);
+        lblTitle.setForeground(Theme.getMainFontColor());
         lblTitle.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 38));
         lblTitle.setBounds(20, 3, 126, 61);
         add(lblTitle);

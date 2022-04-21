@@ -2,6 +2,7 @@ package panel;
 
 import dbReader.PassengerFlightReader;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,14 +67,14 @@ public class BookingLoginPanel extends JPanel {
          */
         textPanel = new JPanel();
         textPanel.setBounds(0, 0, 1920, 280);
-        textPanel.setBackground(new Color(244, 244, 244));
+        textPanel.setBackground(Theme.getBackgroundColor());
         textPanel.setLayout(null);
         add(textPanel);
 
         instructLabel = new JLabel("Please enter your booking number");
         instructLabel.setHorizontalAlignment(SwingConstants.CENTER);
         instructLabel.setFont(new Font("Arial", Font.PLAIN, 50));
-        instructLabel.setForeground(Color.DARK_GRAY);
+        instructLabel.setForeground(Theme.getMainFontColor());
         instructLabel.setBounds(560, 200, 800, 80);
         textPanel.add(instructLabel);
         /*
@@ -81,54 +82,55 @@ public class BookingLoginPanel extends JPanel {
          */
         InputPanel = new JPanel();
         InputPanel.setBounds(0, 280, 1920, 200);
-        InputPanel.setBackground(new Color(244, 244, 244));
+        InputPanel.setBackground(Theme.getBackgroundColor());
         InputPanel.setLayout(null);
         add(InputPanel);
 
         bookingNumberTextField = new JTextField();
         bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
         bookingNumberTextField.setBounds(760, 60, 400, 70);
-        InputPanel.add(bookingNumberTextField);
+        bookingNumberTextField.setBackground(Theme.getCardColor());
         bookingNumberTextField.setColumns(10);
         bookingNumberTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        InputPanel.add(bookingNumberTextField);
 
         /*
          * button panel
          */
         buttonPanel = new JPanel();
         buttonPanel.setBounds(0, 480, 1920, 400);
-        buttonPanel.setBackground(new Color(244, 244, 244));
+        buttonPanel.setBackground(Theme.getBackgroundColor());
         buttonPanel.setLayout(null);
         add(buttonPanel);
 
         okButton = new JButton("OK");
         okButton.setFont(new Font("Arial", Font.BOLD, 35));
-        okButton.setForeground(Color.WHITE);
-        okButton.setBackground(new Color(11, 89, 167));
+        okButton.setForeground(Theme.getMinorFontColor());
+        okButton.setBackground(Theme.getThemeColor());
         okButton.setBounds(760, 10, 400, 70);
         buttonPanel.add(okButton);
 
         altButton = new JButton("Use my ID");
         altButton.setFont(new Font("Arial", Font.PLAIN, 30));
-        altButton.setForeground(Color.DARK_GRAY);
-        altButton.setBackground(new Color(244, 244, 244));
+        altButton.setForeground(Theme.getMainFontColor());
+        altButton.setBackground(Theme.getBackgroundColor());
         altButton.setBounds(760, 161, 400, 70);
         buttonPanel.add(altButton);
 
         separator1 = new JSeparator();
         separator1.setBounds(560, 120, 360, 2);
-        separator1.setForeground(Color.GRAY);
-        separator1.setBackground(Color.GRAY);
+        separator1.setForeground(Theme.getSecondaryFontColor());
+        separator1.setBackground(Theme.getSecondaryFontColor());
         buttonPanel.add(separator1);
 
         separator2 = new JSeparator();
         separator2.setBounds(1000, 120, 360, 2);
-        separator2.setForeground(Color.GRAY);
-        separator2.setBackground(Color.GRAY);
+        separator2.setForeground(Theme.getSecondaryFontColor());
+        separator2.setBackground(Theme.getSecondaryFontColor());
         buttonPanel.add(separator2);
 
         orLabel = new JLabel("OR");
-        orLabel.setForeground(Color.GRAY);
+        orLabel.setForeground(Theme.getSecondaryFontColor());
         orLabel.setFont(new Font("Arial", Font.ITALIC, 20));
         orLabel.setHorizontalAlignment(SwingConstants.CENTER);
         orLabel.setBounds(931, 100, 60, 40);

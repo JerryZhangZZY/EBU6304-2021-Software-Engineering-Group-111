@@ -5,6 +5,7 @@ import dbReader.FlightReader;
 import dbReader.PassengerFlightReader;
 import main.Config;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -88,20 +89,20 @@ public class FlightSelectionPanel extends JPanel {
         }
 
         setBounds(0, 0, 1600, 980);
-        setBackground(new Color(244, 244, 244));
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
 
         if (hasNoMore(statusList)) {
             JLabel lblNoFlight = new JLabel("All flights you booked are checked-in!");
             lblNoFlight.setFont(new Font("Calibri", Font.BOLD, 60));
-            lblNoFlight.setForeground(Color.DARK_GRAY);
+            lblNoFlight.setForeground(Theme.getMainFontColor());
             lblNoFlight.setHorizontalAlignment(SwingConstants.CENTER);
             lblNoFlight.setBounds(200, 200, 1200, 380);
             add(lblNoFlight);
             JLabel lblAutoExit = new JLabel("Automatically exit in 3 secs...");
             lblAutoExit.setHorizontalAlignment(SwingConstants.CENTER);
             lblAutoExit.setFont(new Font("Calibri", Font.PLAIN, 30));
-            lblAutoExit.setForeground(Color.GRAY);
+            lblAutoExit.setForeground(Theme.getSecondaryFontColor());
             lblAutoExit.setBounds(400, 400, 800, 200);
             add(lblAutoExit);
 
@@ -124,14 +125,14 @@ public class FlightSelectionPanel extends JPanel {
                 JLabel vertical = new JLabel();
                 vertical.setBounds(800, 40, 5, 800);
                 vertical.setOpaque(true);
-                vertical.setBackground(new Color(11, 89, 167));
+                vertical.setBackground(Theme.getThemeColor());
                 add(vertical);
             }
             for (int column = 0; column < bookingNumList.size(); column++) {
                 JLabel lblBookingNum = new JLabel(bookingNumList.get(column));
                 lblBookingNum.setBounds(x + 670 * column, 150, 530, 60);
                 lblBookingNum.setHorizontalAlignment(SwingConstants.CENTER);
-                lblBookingNum.setForeground(Color.DARK_GRAY);
+                lblBookingNum.setForeground(Theme.getMainFontColor());
                 lblBookingNum.setFont(new Font("Arial", Font.BOLD, 50));
                 add(lblBookingNum);
                 for (int cardNum = 0; cardNum < idFlightList[column].size(); cardNum++) {

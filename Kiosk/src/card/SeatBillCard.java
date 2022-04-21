@@ -1,5 +1,7 @@
 package card;
 
+import main.Theme;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,20 +22,20 @@ public class SeatBillCard extends JPanel {
 
     public SeatBillCard(int row, char column, String prefer, int pay) {
 
-        setBackground(Color.WHITE);
+        setBackground(Theme.getCardColor());
         setLayout(null);
         setSize(1111, 190);
 
         preference.setText("· " + prefer);
         preference.setBounds(120, 105, 831, 69);
         preference.setFont(new Font("Arial", Font.BOLD, 38));
-        preference.setForeground(Color.DARK_GRAY);
+        preference.setForeground(Theme.getMainFontColor());
         add(preference);
 
         JLabel line = new JLabel("  ·····························");
         line.setLocation(495, 105);
         line.setSize(413, 69);
-        line.setForeground(Color.LIGHT_GRAY);
+        line.setForeground(Theme.getTertiaryFontColor());
         line.setFont(new Font("Arial", Font.BOLD, 38));
         add(line);
 
@@ -41,7 +43,7 @@ public class SeatBillCard extends JPanel {
         headline.setSize(500, 69);
         headline.setText("Seat:  " + row + column);
         headline.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
-        headline.setForeground(Color.DARK_GRAY);
+        headline.setForeground(Theme.getMainFontColor());
         add(headline);
 
         bill.setLocation(970, 105);

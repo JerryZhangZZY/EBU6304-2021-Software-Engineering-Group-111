@@ -2,6 +2,7 @@ package panel;
 
 import card.MealInfoCard;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -67,8 +68,8 @@ public class MealSelectionPanel extends JPanel {
         rdbtnMeal[1] = new JRadioButton();
         rdbtnMeal[2] = new JRadioButton();
 
-        setBackground(new Color(244, 244, 244));
-        setForeground(Color.WHITE);
+        setBackground(Theme.getBackgroundColor());
+        setForeground(Theme.getMinorFontColor());
         setLayout(null);
         setSize(1600, 880);
 
@@ -78,51 +79,51 @@ public class MealSelectionPanel extends JPanel {
 
         JPanel panelPref = new JPanel();
         panelPref.setBounds(1155, 50, 388, 220);
-        panelPref.setBackground(Color.WHITE);
+        panelPref.setBackground(Theme.getCardColor());
         add(panelPref);
 
         JLabel lblTitle = new JLabel("Preference");
-        lblTitle.setForeground(Color.DARK_GRAY);
+        lblTitle.setForeground(Theme.getMainFontColor());
         lblTitle.setFont(new Font("Arial", Font.BOLD, 45));
         lblTitle.setBounds(34, 22, 250, 40);
         panelPref.add(lblTitle);
 
         JLabel lblPrice1 = new JLabel(":  $" + price[0]);
-        lblPrice1.setForeground(Color.DARK_GRAY);
+        lblPrice1.setForeground(Theme.getMainFontColor());
         lblPrice1.setFont(new Font("Arial", Font.PLAIN, 25));
         lblPrice1.setBounds(260, 90, 90, 30);
         panelPref.setLayout(null);
         panelPref.add(lblPrice1);
 
         JLabel lblPrice2 = new JLabel(":  $" + price[1]);
-        lblPrice2.setForeground(Color.DARK_GRAY);
+        lblPrice2.setForeground(Theme.getMainFontColor());
         lblPrice2.setFont(new Font("Arial", Font.PLAIN, 25));
         lblPrice2.setBounds(260, 130, 90, 30);
         panelPref.add(lblPrice2);
 
         JLabel lblPrice3 = new JLabel(":  $" + price[2]);
-        lblPrice3.setForeground(Color.DARK_GRAY);
+        lblPrice3.setForeground(Theme.getMainFontColor());
         lblPrice3.setFont(new Font("Arial", Font.PLAIN, 25));
         lblPrice3.setBounds(260, 170, 90, 30);
         panelPref.add(lblPrice3);
 
         rdbtnMeal[0].setText(foodName[0]);
-        rdbtnMeal[0].setForeground(Color.DARK_GRAY);
-        rdbtnMeal[0].setBackground(Color.WHITE);
+        rdbtnMeal[0].setForeground(Theme.getMainFontColor());
+        rdbtnMeal[0].setBackground(Theme.getCardColor());
         rdbtnMeal[0].setFont(new Font("Arial", Font.PLAIN, 25));
         rdbtnMeal[0].setBounds(16, 90, 240, 30);
         panelPref.add(rdbtnMeal[0]);
 
         rdbtnMeal[1].setText(foodName[1]);
-        rdbtnMeal[1].setForeground(Color.DARK_GRAY);
-        rdbtnMeal[1].setBackground(Color.WHITE);
+        rdbtnMeal[1].setForeground(Theme.getMainFontColor());
+        rdbtnMeal[1].setBackground(Theme.getCardColor());
         rdbtnMeal[1].setFont(new Font("Arial", Font.PLAIN, 25));
         rdbtnMeal[1].setBounds(16, 130, 240, 30);
         panelPref.add(rdbtnMeal[1]);
 
         rdbtnMeal[2].setText(foodName[2]);
-        rdbtnMeal[2].setForeground(Color.DARK_GRAY);
-        rdbtnMeal[2].setBackground(Color.WHITE);
+        rdbtnMeal[2].setForeground(Theme.getMainFontColor());
+        rdbtnMeal[2].setBackground(Theme.getCardColor());
         rdbtnMeal[2].setFont(new Font("Arial", Font.PLAIN, 25));
         rdbtnMeal[2].setBounds(16, 170, 240, 30);
         panelPref.add(rdbtnMeal[2]);
@@ -134,8 +135,8 @@ public class MealSelectionPanel extends JPanel {
         OKListener okListener = new OKListener();
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
         btnOK.setBounds(1200, 760, 330, 70);
-        btnOK.setForeground(Color.WHITE);
-        btnOK.setBackground(new Color(11, 89, 167));
+        btnOK.setForeground(Theme.getMinorFontColor());
+        btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
         add(btnOK);
     }

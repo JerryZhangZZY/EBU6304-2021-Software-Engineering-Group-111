@@ -3,6 +3,7 @@ package frame;
 import main.Clock;
 import main.Config;
 import main.State;
+import main.Theme;
 import panel.WelcomePanel;
 
 import javax.swing.*;
@@ -99,19 +100,19 @@ public class MainFrame extends JFrame {
          * top panel, with welcome text and exit button
          */
         topPanel = new JPanel();
-        topPanel.setBackground(new Color(11, 89, 167));
+        topPanel.setBackground(Theme.getThemeColor());
         topPanel.setBounds(0, 0, 1920, 100);
         add(topPanel);
         topPanel.setLayout(null);
 
         welcomeLabel = new JLabel();
         welcomeLabel.setFont(new Font("Calibre", Font.PLAIN, 45));
-        welcomeLabel.setForeground(Color.WHITE);
+        welcomeLabel.setForeground(Theme.getMinorFontColor());
         welcomeLabel.setBounds(60, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
         time = new JLabel();
-        time.setForeground(Color.WHITE);
+        time.setForeground(Theme.getMinorFontColor());
         time.setBounds(940, 20, 500, 60);
         time.setFont(new Font("Arial", Font.BOLD, 30));
         Clock.setClock(time);
@@ -148,7 +149,7 @@ public class MainFrame extends JFrame {
          * use centerPanel.add(JPanel panel) to add components
          */
         centerPanel = new JPanel();
-        centerPanel.setBackground(new Color(244, 244, 244));
+        centerPanel.setBackground(Theme.getBackgroundColor());
         centerPanel.setBounds(0, 100, 1920, 880);
         add(centerPanel);
         centerPanel.setLayout(null);
@@ -156,7 +157,7 @@ public class MainFrame extends JFrame {
          * bottom panel, with back button
          */
         bottomPanel = new JPanel();
-        bottomPanel.setBackground(new Color(11, 89, 167));
+        bottomPanel.setBackground(Theme.getThemeColor());
         bottomPanel.setBounds(0, 980, 1920, 100);
         add(bottomPanel);
         bottomPanel.setLayout(null);
@@ -192,7 +193,7 @@ public class MainFrame extends JFrame {
         satisflightLabel = new JLabel("Satisflight Check-in System");
         satisflightLabel.setBounds(1350, 10, 550, 80);
         satisflightLabel.setFont(new Font("Arial", Font.PLAIN, 40));
-        satisflightLabel.setForeground(Color.WHITE);
+        satisflightLabel.setForeground(Theme.getMinorFontColor());
         satisflightLabel.setIcon(new ImageIcon("Kiosk/icons/satisflight.png"));
         bottomPanel.add(satisflightLabel);
     }

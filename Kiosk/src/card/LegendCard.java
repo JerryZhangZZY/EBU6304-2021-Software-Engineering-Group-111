@@ -1,6 +1,7 @@
 package card;
 
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,16 +14,11 @@ import java.awt.*;
  * @version 3.0
  * @date 2022/4/21
  */
+
 public class LegendCard extends JPanel {
 
-    /**
-     *
-     * @param empty
-     * @param selected
-     * @param occupied
-     */
     public LegendCard(ImageIcon[] empty, ImageIcon selected, ImageIcon occupied) {
-        setBackground(Color.WHITE);
+        setBackground(Theme.getCardColor());
         setSize(330,780);
         setLayout(null);
 
@@ -41,7 +37,7 @@ public class LegendCard extends JPanel {
             JLabel line = new JLabel();
             line.setBounds(15, i * 120 + 25, 300, 2);
             line.setOpaque(true);
-            line.setBackground(new Color(211, 211, 211));
+            line.setBackground(Theme.getTertiaryFontColor());
             add(line);
 
             if (i == 6)
@@ -52,20 +48,20 @@ public class LegendCard extends JPanel {
 
             JLabel seatName = new JLabel();
             seatName.setFont(new Font("Arial", Font.PLAIN, 25));
-            seatName.setForeground(Color.BLACK);
+            seatName.setForeground(Theme.getMainFontColor());
             seatName.setBounds(70, i * 120 + 35, 250, 35);
             add(seatName);
 
             JLabel detail = new JLabel();
             detail.setFont(new Font("Arial", Font.PLAIN, 18));
-            detail.setForeground(Color.GRAY);
+            detail.setForeground(Theme.getSecondaryFontColor());
             detail.setVerticalAlignment(SwingConstants.TOP);
             detail.setBounds(70, i * 120 + 70, 250, 80);
             add(detail);
 
             JLabel price = new JLabel();
             price.setFont(new Font("Arial", Font.PLAIN, 25));
-            price.setForeground(Color.BLACK);
+            price.setForeground(Theme.getMainFontColor());
             price.setHorizontalAlignment(SwingConstants.RIGHT);
             price.setBounds(200, i * 120 + 110, 115, 35);
             add(price);

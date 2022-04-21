@@ -1,6 +1,7 @@
 package panel;
 
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -30,7 +31,7 @@ public class PaymentPanel extends JPanel {
     private int price;
 
 	public PaymentPanel(int price) {
-		setBackground(new Color(244, 244, 244));
+		setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1600, 880);
         setVisible(true);

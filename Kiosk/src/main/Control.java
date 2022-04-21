@@ -53,6 +53,7 @@ public class Control {
      */
     public static void main(String[] args) throws InterruptedException {
         Config.loadConfig();
+        Theme.loadColor();
 
         MainFrame kiosk;
         BookingLoginPanel bookingLoginPanel;

@@ -6,12 +6,16 @@ import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.util.ArrayList;
 
 /**
@@ -92,7 +96,7 @@ public class SeatSelectionPanel extends JPanel {
 
     public SeatSelectionPanel() {
 
-        setBackground(new Color(244, 244, 244));
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1600, 880);
 
@@ -150,7 +154,7 @@ public class SeatSelectionPanel extends JPanel {
         //SeatSelection
         warn.setLayout(null);
         warn.setBounds(780 - (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40) / 2, 0, (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40), 880);
-        warn.setBackground(new Color(244, 244, 244));
+        warn.setBackground(Theme.getBackgroundColor());
         warn.setVisible(true);
         warn.setBorder(null);
         add(warn);
@@ -179,7 +183,7 @@ public class SeatSelectionPanel extends JPanel {
             t++;
             JLabel cNum = new JLabel(String.valueOf((char)(i + 65)), SwingConstants.CENTER);
             cNum.setFont(new Font("Arail", Font.BOLD, 25));
-            cNum.setForeground(new Color(182, 181, 180));
+            cNum.setForeground(Theme.getTertiaryFontColor());
             cNum.setBounds(seatX, 30, 45, 80);
             warn.add(cNum);
             if (t == seatM[n] && n !=corridor) {
@@ -199,8 +203,6 @@ public class SeatSelectionPanel extends JPanel {
             for (int j = 0; j < totalColumn; j++) {
                 t++;
                 seatButton[i].add(j, new JButton());
-                seatButton[i].get(j).setForeground(Color.WHITE);
-                seatButton[i].get(j).setBackground(Color.WHITE);
                 seatButton[i].get(j).setContentAreaFilled(false);
                 seatButton[i].get(j).setBorderPainted(false);
                 seatButton[i].get(j).addActionListener(seatListener);
@@ -210,7 +212,7 @@ public class SeatSelectionPanel extends JPanel {
 
                     rowNum[i].add(n, new JLabel(String.valueOf(row + i), SwingConstants.CENTER));
                     rowNum[i].get(n).setFont(new Font("Arial", Font.BOLD, 25));
-                    rowNum[i].get(n).setForeground(new Color(182, 181, 180));
+                    rowNum[i].get(n).setForeground(Theme.getTertiaryFontColor());
                     rowNum[i].get(n).setBounds(seatX, 100 + i * 60, 45, 45);
                     warn.add(rowNum[i].get(n));
 
@@ -245,8 +247,8 @@ public class SeatSelectionPanel extends JPanel {
         OKListener okListener = new OKListener();
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
         btnOK.setBounds(1200, 760, 330, 70);
-        btnOK.setForeground(Color.WHITE);
-        btnOK.setBackground(new Color(11, 89, 167));
+        btnOK.setForeground(Theme.getMinorFontColor());
+        btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
         add(btnOK);
     }

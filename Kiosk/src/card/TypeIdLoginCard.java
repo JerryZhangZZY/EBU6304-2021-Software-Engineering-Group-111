@@ -3,6 +3,7 @@ package card;
 import dbReader.PassengerFlightReader;
 import dbReader.PassengerReader;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,23 +47,24 @@ public class TypeIdLoginCard extends JPanel {
     private JLabel lblError;
     public TypeIdLoginCard(){
         setSize(1150,980);
-        setBackground(new Color(244, 244, 244));
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
 
         lblSurname = new JLabel("Surname");
         lblSurname.setBounds(375,200,200,40);
         lblSurname.setFont(new Font("Arial",Font.PLAIN,35));
-        lblSurname.setForeground(Color.DARK_GRAY);
+        lblSurname.setForeground(Theme.getMainFontColor());
         add(lblSurname);
 
         lblId = new JLabel("ID");
         lblId.setBounds(375,350,200,40);
         lblId.setFont(new Font("Arial",Font.PLAIN,35));
-        lblId.setForeground(Color.DARK_GRAY);
+        lblId.setForeground(Theme.getMainFontColor());
         add(lblId);
 
         tfSurname = new JTextField();
         tfSurname.setFont(new Font("Arial", Font.PLAIN,35));
+        tfSurname.setBackground(Theme.getCardColor());
         tfSurname.setBounds(375,240,400,70);
         tfSurname.setHorizontalAlignment(SwingConstants.CENTER);
         tfSurname.setColumns(20);
@@ -70,6 +72,7 @@ public class TypeIdLoginCard extends JPanel {
 
         tfId = new JTextField();
         tfId.setFont(new Font("Arial", Font.PLAIN,35));
+        tfId.setBackground(Theme.getCardColor());
         tfId.setBounds(375,390,400,70);
         tfId.setHorizontalAlignment(SwingConstants.CENTER);
         tfId.setColumns(10);
@@ -77,15 +80,15 @@ public class TypeIdLoginCard extends JPanel {
 
         buttonOk = new JButton("OK");
         buttonOk.setFont(new Font("Arial", Font.BOLD,35));
-        buttonOk.setBackground(new Color(11, 89, 167));
-        buttonOk.setForeground(Color.WHITE);
+        buttonOk.setBackground(Theme.getThemeColor());
+        buttonOk.setForeground(Theme.getMinorFontColor());
         buttonOk.setBounds(375,540,400,70);
         add(buttonOk);
 
         vertical = new JLabel();
         vertical.setBounds(1145, 40, 5, 800);
         vertical.setOpaque(true);
-        vertical.setBackground(new Color(11, 89, 167));
+        vertical.setBackground(Theme.getThemeColor());
         add(vertical);
 
         lblError = new JLabel("Authentication failed!");

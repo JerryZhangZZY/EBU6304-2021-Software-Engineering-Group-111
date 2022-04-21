@@ -1,5 +1,7 @@
 package card;
 
+import main.Theme;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,7 +36,7 @@ public class MealBillcard extends JPanel {
         pay[1] = bill2;
         pay[2] = bill3;
 
-        setBackground(Color.WHITE);
+        setBackground(Theme.getCardColor());
         setLayout(null);
 
         String food = "";
@@ -47,7 +49,7 @@ public class MealBillcard extends JPanel {
         headline = new JLabel("Meal:  " + food);
         headline.setBounds(40, 20, 600, 69);
         headline.setFont(new Font("Eras Bold ITC", Font.BOLD, 50));
-        headline.setForeground(Color.DARK_GRAY);
+        headline.setForeground(Theme.getMainFontColor());
         add(headline);
 
         int n = 0;
@@ -59,7 +61,7 @@ public class MealBillcard extends JPanel {
             extr[n].setText("· " + pref[i]);
             extr[n].setLocation(120, 105 + 91 * n);
             extr[n].setFont(new Font("Arial", Font.BOLD, 38));
-            extr[n].setForeground(Color.DARK_GRAY);
+            extr[n].setForeground(Theme.getMainFontColor());
             extr[n].setSize(350, 69);
             add(extr[n]);
 
@@ -74,7 +76,7 @@ public class MealBillcard extends JPanel {
             line[n] = new JLabel("  ·····························");
             line[n].setLocation(495, 105 + 91 * n);
             line[n].setSize(413, 69);
-            line[n].setForeground(Color.LIGHT_GRAY);
+            line[n].setForeground(Theme.getTertiaryFontColor());
             line[n].setFont(new Font("Arial", Font.BOLD, 38));
             add(line[n]);
 

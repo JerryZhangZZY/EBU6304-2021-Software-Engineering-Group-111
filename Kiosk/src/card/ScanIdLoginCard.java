@@ -4,6 +4,7 @@ import dbReader.PassengerFlightReader;
 import dbReader.PassengerReader;
 import idCardReader.IdCardReader;
 import main.State;
+import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,7 +48,7 @@ public class ScanIdLoginCard extends JPanel {
 
     public ScanIdLoginCard() {
         setSize(770, 980);
-        setBackground(new Color(244, 244, 244));
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
 
         lblScanningImg = new JLabel();
@@ -58,8 +59,8 @@ public class ScanIdLoginCard extends JPanel {
         buttonScan = new JButton("Scan");
         buttonScan.setBounds(235, 540, 300, 70);
         buttonScan.setFont(new Font("Arial", Font.BOLD,35));
-        buttonScan.setBackground(new Color(11, 89, 167));
-        buttonScan.setForeground(Color.WHITE);
+        buttonScan.setBackground(Theme.getThemeColor());
+        buttonScan.setForeground(Theme.getMinorFontColor());
         add(buttonScan);
 
         lblError = new JLabel("Scanning failed!");

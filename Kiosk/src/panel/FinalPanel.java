@@ -4,6 +4,7 @@ import BackendSystemDB.DBwrite;
 import dbWriter.SeatWriter;
 import dbWriter.StatusWriter;
 import main.State;
+import main.Theme;
 import printer.BarCode_QRCodeGenerator;
 import printer.BoardingPassPrinter;
 import printer.TagPrinter;
@@ -97,14 +98,14 @@ public class FinalPanel extends JPanel {
         Timer timer1 = new Timer();
         Timer timer2 = new Timer();
         setBounds(new Rectangle(0, 0, 1920, 980));
-        setBackground(new Color(244, 244, 244));
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1920, 980);
         //headline
         headline.setText("Printing your boarding pass, baggage tags and ticket...");
         headline.setHorizontalAlignment(JLabel.CENTER);
         headline.setFont(new Font("Helvetica", Font.BOLD, 50));
-        headline.setForeground(Color.DARK_GRAY);
+        headline.setForeground(Theme.getMainFontColor());
         headline.setBounds(250, 150, 1400, 203);
         add(headline);
         exit_begin.setText("Continue chek-in");
@@ -112,8 +113,6 @@ public class FinalPanel extends JPanel {
         exit_begin.setVerticalTextPosition(SwingConstants.BOTTOM);
         exit_begin.setHorizontalTextPosition(SwingConstants.CENTER);
         exit_begin.setBounds(500, 700, 350, 120);
-        exit_begin.setForeground(new Color(0, 100, 0));
-        exit_begin.setBackground(Color.WHITE);
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
         exit_begin.addActionListener(e -> {
@@ -122,15 +121,15 @@ public class FinalPanel extends JPanel {
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
         });
-        add(exit_begin);
         exit_begin.setIcon(icon_back);
+        exit_begin.setVisible(false);
+        add(exit_begin);
+
         exit_system.setText("          Exit          ");
         exit_system.setVerticalTextPosition(SwingConstants.BOTTOM);
         exit_system.setHorizontalTextPosition(SwingConstants.CENTER);
         exit_system.setFont(new Font("Arial", Font.PLAIN, 35));
         exit_system.setBounds(1100, 700, 350, 120);
-        exit_system.setForeground(Color.RED);
-        exit_system.setBackground(Color.WHITE);
         exit_system.setContentAreaFilled(false);
         exit_system.setBorderPainted(false);
         exit_system.addActionListener(e -> {
@@ -139,10 +138,9 @@ public class FinalPanel extends JPanel {
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
         });
-        add(exit_system);
         exit_system.setIcon(icon_exit);
-        exit_begin.setVisible(false);
         exit_system.setVisible(false);
+        add(exit_system);
 
         qrLabel = new JLabel("Get more information on your airline website");
         qrLabel.setBounds(700, 350, 500, 300);
