@@ -5,8 +5,6 @@ import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
 
 /**
  * This class can return a legend card
@@ -45,7 +43,7 @@ public class LegendCard extends JPanel {
             if (i == 6)
                 break;
 
-            iconlbl[i].setLocation(15, i * 120 + 42);
+            iconlbl[i].setLocation(15, i * 120 + 45);
             add(iconlbl[i]);
 
             JLabel seatName = new JLabel();
@@ -72,7 +70,6 @@ public class LegendCard extends JPanel {
                 seatName.setText(State.getPrefSeatName()[i]);
                 detail.setText("Sit at the back of the aircraft");
                 price.setText("$" + State.getPrefSeatPrice()[i]);
-
             } else if (i == 1) {
                 seatName.setText(State.getPrefSeatName()[i]);
                 detail.setText("Enjoy better service");
