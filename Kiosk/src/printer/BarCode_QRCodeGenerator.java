@@ -9,8 +9,10 @@ import dbReader.AirlineWebsiteReader;
 import dbReader.FlightReader;
 import dbReader.PassengerFlightReader;
 import dbReader.PlaneReader;
+import main.Theme;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +26,10 @@ import java.util.Hashtable;
  * @author Ni Ruijie
  * @author Zhang Zeyu
  *
+ * @version 3.0
+ * Auto change barcode colors.
+ * @date 2022/4/21
+ *
  * @version 2.1
  * Adjust color.
  * @date 2022/4/14
@@ -34,14 +40,14 @@ import java.util.Hashtable;
  * @date 2022/4/13
  *
  * @version 1.0
- * reference: https://blog.csdn.net/qq_27790011/article/details/78401450
+ * reference: <a href="https://blog.csdn.net/qq_27790011/article/details/78401450">https://blog.csdn.net/qq_27790011/article/details/78401450</a>
  * @date 2022/3/22
  */
 public final class BarCode_QRCodeGenerator {
 
     private static final String CHARSET = "utf-8";
-    private static final int FOREGROUND = 0xFF000000;
-    private static final int BACKGROUND = 0xF4F4F4;
+    private static int foreground;
+    private static int background;
 
     private BarCode_QRCodeGenerator() {
     }
@@ -100,7 +106,7 @@ public final class BarCode_QRCodeGenerator {
                 BufferedImage.TYPE_INT_RGB);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                image.setRGB(x, y, matrix.get(x, y) ? FOREGROUND : BACKGROUND);
+                image.setRGB(x, y, matrix.get(x, y) ? foreground : background);
             }
         }
         return image;
@@ -168,6 +174,7 @@ public final class BarCode_QRCodeGenerator {
      * @param idPassengerFlight_index primary key
      */
     public static void generateQRcode(int idPassengerFlight_index) throws Exception{
+        setColors();
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         int idFlight_index = FlightReader.indexOf(idFlight);
         int idPlane = FlightReader.getIdPlane(idFlight_index);
@@ -179,5 +186,28 @@ public final class BarCode_QRCodeGenerator {
         //Generate QRCode
         File outputFile = new File("printerOutPut/qrcode.jpg");
         BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toQRCodeMatrix(text, 200, 200), format, outputFile);
+    }
+
+    public static int colorToHex(Color color) {
+        String r,g,b;
+        StringBuilder su = new StringBuilder();
+        r = Integer.toHexString(color.getRed());
+        g = Integer.toHexString(color.getGreen());
+        b = Integer.toHexString(color.getBlue());
+        r = r.length() == 1 ? "0" + r : r;
+        g = g.length() ==1 ? "0" +g : g;
+        b = b.length() == 1 ? "0" + b : b;
+        r = r.toUpperCase();
+        g = g.toUpperCase();
+        b = b.toUpperCase();
+        su.append(r);
+        su.append(g);
+        su.append(b);
+        return Integer.parseInt(su.toString(), 16);
+    }
+
+    public static void setColors() {
+        foreground = colorToHex(Theme.getMainFontColor());
+        background = colorToHex(Theme.getBackgroundColor());
     }
 }
