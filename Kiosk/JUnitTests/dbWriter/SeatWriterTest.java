@@ -5,6 +5,7 @@ import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 
 import java.util.ArrayList;
@@ -23,6 +24,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 
 class SeatWriterTest {
+
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
 
     @AfterEach
     void recoverDb() {
@@ -50,16 +56,18 @@ class SeatWriterTest {
 
         int randomIdPlane = FlightReader.getIdPlane(FlightReader.indexOf(randomIdFlight));
         System.out.println("Random idPlane: " + randomIdPlane);
-        int rowNum = PlaneReader.getCapacity(PlaneReader.indexOf(randomIdPlane)) / 6;
+        int colNum = seatReader.getSeat(0).length;
+        System.out.println("Column number: " + colNum);
+        int rowNum = PlaneReader.getCapacity(PlaneReader.indexOf(randomIdPlane)) / colNum;
         System.out.println("Row number: " + rowNum);
+        int randomCol = random.nextInt(colNum) + 1;
+        System.out.println("Random column: " + randomCol);
         int randomRow = random.nextInt(rowNum) + 1;
         System.out.println("Random row: " + randomRow);
-        int randomColumn = random.nextInt(6) + 1;
-        System.out.println("Random column: " + randomColumn);
 
-        if (seatReader.getSeat(randomRow)[randomColumn - 1]) {
-            SeatWriter.setSeat(randomIdFlight, randomRow, randomColumn);
-            assertFalse(seatReader.getSeat(randomRow)[randomColumn - 1]);
+        if (seatReader.getSeat(randomRow)[randomCol - 1]) {
+            SeatWriter.setSeat(randomIdFlight, randomRow, randomCol);
+            assertFalse(seatReader.getSeat(randomRow)[randomCol - 1]);
         }
 
         System.out.println();

@@ -96,4 +96,5 @@ printerOutput/*.png
 printerOutput/*.txt
 
 #user config
-Conf/*.yaml
+conf/*.yaml
+conf/*.json

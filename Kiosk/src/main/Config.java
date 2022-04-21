@@ -36,7 +36,7 @@ import java.util.List;
 public abstract class Config {
 
     final static String dirName = "conf";
-    final static String fileName = dirName + "/Config.yaml";
+    final static String fileName = dirName + "/config.yaml";
     final static Path dirPath = Path.of(dirName);
     final static Path filePath = Path.of(fileName);
 

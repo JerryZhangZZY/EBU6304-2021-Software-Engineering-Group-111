@@ -36,12 +36,17 @@ class BillConfirmationPanelTest {
         State.setIdFlight("AC0001");
     }
 
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
+
     @AfterEach
     void resetDB() {
         BackupDbOperator.push();
     }
 
-    @RepeatedTest(50)
+    @RepeatedTest(10)
     void testSeatBill() {
         char[] c = {'A', 'B', 'C', 'D', 'E', 'F'};
 
@@ -61,7 +66,7 @@ class BillConfirmationPanelTest {
         assertEquals("$" + State.getPrefSeatPrice()[State.getSeatPre()], bill.getText());
     }
 
-    @RepeatedTest(50)
+    @RepeatedTest(10)
     void testMealBill() {
         char[] c = {'a', 'b', 'c'};
         String[] food = {"Normal", "Vegetarian", "Halal"};

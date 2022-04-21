@@ -71,7 +71,7 @@ public class MealBillcard extends JPanel {
             bill[n].setFont(new Font("Arial", Font.BOLD, 38));
             add(bill[n]);
 
-            line[n] = new JLabel("·······························");
+            line[n] = new JLabel("  ·····························");
             line[n].setLocation(495, 105 + 91 * n);
             line[n].setSize(413, 69);
             line[n].setForeground(Color.LIGHT_GRAY);

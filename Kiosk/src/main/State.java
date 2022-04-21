@@ -55,7 +55,7 @@ public abstract class State {
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
     private static int bill = 0;
-    private static String[] prefSeatName = {"Normal", "Legroom Pro", "Legroom Max", "Legroom Ultra"};
+    private static String[] prefSeatName = {"Standard Seat", "Standard+ Seat", "Extra Legroom Seat", "Premium Seat"};
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
     private static int[] prefFoodPrice = {5, 100, 10};

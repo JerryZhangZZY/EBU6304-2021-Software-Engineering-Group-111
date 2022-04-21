@@ -18,9 +18,10 @@ import panel.SeatSelectionPanel;
  */
 public class SeatSelectionPanelTest {
     public static void main(String[] args) {
-        State.setPassengerName("Jack");
-        State.setBookingNum("bn0001");
-        State.setIdFlight("CA0001");
+//        State.setPassengerName("Jack");
+//        State.setBookingNum("bn0001");
+        State.setIdFlight("LH3077");
+//        State.setIdFlight("AC0001");
         MainFrame frame = new MainFrame();
         ProgressPanel progressPanel = new ProgressPanel(2);
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();

@@ -6,6 +6,7 @@ import dbReader.PassengerFlightReader;
 import dbReader.SeatReader;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
@@ -33,6 +34,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2022/4/7
  */
 public class FinalPanelTest {
+
+    @BeforeEach
+    void backupDb() { BackupDbOperator.pull();}
+
+    @AfterEach
+    void reset() { BackupDbOperator.push();}
 
     @Test
     void exitTest() {
@@ -128,10 +135,5 @@ public class FinalPanelTest {
                 () -> assertEquals(prefFood[2], finalData[9])
         );
         assertTrue(PassengerFlightReader.getStatus(State.getPassengerFlight_index()));
-    }
-
-    @AfterEach
-    void reset() {
-        BackupDbOperator.push();
     }
 }

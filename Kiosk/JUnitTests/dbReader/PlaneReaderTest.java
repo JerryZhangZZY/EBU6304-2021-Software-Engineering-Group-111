@@ -27,7 +27,7 @@ class PlaneReaderTest {
 
     @Test
     void getCapacity() {
-        assertEquals(36, PlaneReader.getCapacity(0));
+        assertEquals(72, PlaneReader.getCapacity(0));
     }
 
     @Test

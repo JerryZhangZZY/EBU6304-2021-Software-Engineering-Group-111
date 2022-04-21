@@ -3,6 +3,7 @@ package dbWriter;
 import backupDbOperation.BackupDbOperator;
 import dbReader.PassengerFlightReader;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +21,11 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 class StatusWriterTest {
+
+    @BeforeEach
+    void backupDb() {
+        BackupDbOperator.pull();
+    }
 
     @AfterEach
     void recoverDb() {
