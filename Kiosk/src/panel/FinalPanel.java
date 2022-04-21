@@ -193,7 +193,7 @@ public class FinalPanel extends JPanel {
             else
                 prefFood[i] = State.getPrefFoodName()[i];
         }
-        DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), "" + State.getSeatRow() + (char)(State.getSeatColumn() + 64), food[(int)State.getMeal() - 97], prefFood[0], prefFood[1], prefFood[2]);
+        DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), "" + State.getSeatRow() + State.getColumnNum(), food[(int)State.getMeal() - 97], prefFood[0], prefFood[1], prefFood[2]);
     }
 
     public JButton getExit_begin(){return exit_begin;}

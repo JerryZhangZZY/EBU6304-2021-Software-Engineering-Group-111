@@ -56,4 +56,10 @@ public abstract class PlaneReader {
         JSONArray arr = obj.getJSONArray("plane");
         return arr.getJSONObject(index).getInteger("seatModel");
     }
+
+    public static String getColumnNum(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/plane.json"));
+        JSONArray arr = obj.getJSONArray("plane");
+        return arr.getJSONObject(index).getString("columnNum");
+    }
 }

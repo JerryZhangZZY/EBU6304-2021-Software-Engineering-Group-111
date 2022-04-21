@@ -51,6 +51,7 @@ public abstract class State {
     private static int passengerFlight_index;
     private static int seatRow = -1;
     private static int seatColumn = -1;  //start from 1
+    private static char columnNum;
     private static int seatPre; //[0, 1, 2, 3]
     private static char meal;    //[a, b, c]
     private static boolean[] selectedPrefFood = {false, false, false};
@@ -69,6 +70,9 @@ public abstract class State {
     public static String getIdFlight() { return idFlight; }
     public static int getSeatRow() { return seatRow; }
     public static int getSeatColumn() { return seatColumn; }
+    public static char getColumnNum() {
+        return columnNum;
+    }
     public static int getSeatPre() { return seatPre; }
     public static char getMeal() { return meal; }
     public static boolean[] getSelectedPrefFood() { return selectedPrefFood; }
@@ -88,6 +92,9 @@ public abstract class State {
     public static void setIdFlight(String idFlight) { State.idFlight = idFlight; }
     public static void setSeatRow(int seatRow) { State.seatRow = seatRow; }
     public static void setSeatColumn(int seatColumn) { State.seatColumn = seatColumn; }
+    public static void setColumnNum(char columnNum) {
+        State.columnNum = columnNum;
+    }
     public static void setSeatPre(int seatPre) { State.seatPre = seatPre; }
     public static void setMeal(char meal) { State.meal = meal; }
     public static void setSelectedPrefFood(boolean[] selectedPrefFood) { State.selectedPrefFood = selectedPrefFood; }

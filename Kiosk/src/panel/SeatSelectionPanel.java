@@ -90,6 +90,7 @@ public class SeatSelectionPanel extends JPanel {
                     , new Color(205,92,92));
 
     private int[] seatPattern;
+    private String[] columnNum;
     private int range = 12;
 
     public SeatSelectionPanel(boolean cheat) { }
@@ -151,6 +152,8 @@ public class SeatSelectionPanel extends JPanel {
             seatPattern[2 * totalRow / 3] = 2;
         }
 
+        columnNum = PlaneReader.getColumnNum(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))).split(",");
+
         //SeatSelection
         warn.setLayout(null);
         warn.setBounds(780 - (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40) / 2, 0, (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40), 880);
@@ -181,7 +184,7 @@ public class SeatSelectionPanel extends JPanel {
         seatX = 20;
         for (int i = 0; i < totalColumn; i++) {
             t++;
-            JLabel cNum = new JLabel(String.valueOf((char)(i + 65)), SwingConstants.CENTER);
+            JLabel cNum = new JLabel(columnNum[i], SwingConstants.CENTER);
             cNum.setFont(new Font("Arail", Font.BOLD, 25));
             cNum.setForeground(Theme.getTertiaryFontColor());
             cNum.setBounds(seatX, 30, 45, 80);
@@ -238,7 +241,7 @@ public class SeatSelectionPanel extends JPanel {
         ScrollListener scrollListener = new ScrollListener();
         scrollBar.addAdjustmentListener(scrollListener);
 
-        //PlaneInfoCard
+        //LegendCard
         LegendCard legendCard = new LegendCard(iconEmpty, iconSelected[4], iconNotAvailable);
         legendCard.setLocation(30, 50);
         add(legendCard);
@@ -395,6 +398,7 @@ public class SeatSelectionPanel extends JPanel {
                 State.setPc(State.getPc() + 1);
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column + 1);
+                State.setColumnNum(columnNum[temp_column].charAt(0));
                 State.setBill(State.smallBillCard.getPrice());
                 State.setSeatPre(seatPattern[getTemp_row() - 1]);
             } else {

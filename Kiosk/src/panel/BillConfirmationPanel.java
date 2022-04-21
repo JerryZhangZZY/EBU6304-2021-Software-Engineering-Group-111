@@ -63,7 +63,7 @@ public class BillConfirmationPanel extends JPanel {
         String seatPre = State.getPrefSeatName()[State.getSeatPre()];
         int seatPay = State.getPrefSeatPrice()[State.getSeatPre()];
 
-        seatBillCard = new SeatBillCard(State.getSeatRow(), (char)(State.getSeatColumn() + 64), seatPre, seatPay);
+        seatBillCard = new SeatBillCard(State.getSeatRow(), State.getColumnNum(), seatPre, seatPay);
         seatBillCard.setLocation(50, 224);
         add(seatBillCard);
 
