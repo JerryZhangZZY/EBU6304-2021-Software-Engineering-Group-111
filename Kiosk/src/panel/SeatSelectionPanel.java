@@ -177,10 +177,10 @@ public class SeatSelectionPanel extends JPanel {
         seatX = 20;
         for (int i = 0; i < totalColumn; i++) {
             t++;
-            JLabel cNum = new JLabel(String.valueOf((char)(i + 65)));
-            cNum.setFont(new Font("Arial", Font.BOLD, 35));
+            JLabel cNum = new JLabel(String.valueOf((char)(i + 65)), SwingConstants.CENTER);
+            cNum.setFont(new Font("Arail", Font.BOLD, 25));
             cNum.setForeground(new Color(182, 181, 180));
-            cNum.setBounds(seatX + 13, 20, 80, 80);
+            cNum.setBounds(seatX, 30, 45, 80);
             warn.add(cNum);
             if (t == seatM[n] && n !=corridor) {
                 seatX += seatShortInterval;
