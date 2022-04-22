@@ -26,21 +26,21 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 3/28
  */
 
-class BookingLoginPanelTest {
+public class BookingLoginPanelTest {
     String[] candidateName = {"Jack", "Jack", "Mike", "nay"};
     String[] candidateBookingNumber = {"bn0001", "bn0002", "bn0003", "nil"};
     MainFrame mainFrame = new MainFrame();
     BookingLoginPanel bookingLoginPanel = new BookingLoginPanel();
 
     @BeforeEach
-    void reset(){
+    public void reset(){
         mainFrame.unloadPanel(mainFrame.getLoadedPanel());
         mainFrame.loadPanel(bookingLoginPanel);
         bookingLoginPanel.reset();
     }
     @DisplayName("try entering a booking number")
     @RepeatedTest(10)
-    void testBookingLoginPanel(){
+    public void testBookingLoginPanel(){
         int bn = new Random().nextInt(candidateBookingNumber.length);
         bookingLoginPanel.getBookingNumberTextField().setText(candidateBookingNumber[bn]);
         JButton okBtn = bookingLoginPanel.getOkButton();

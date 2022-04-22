@@ -24,18 +24,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 1.0
  * @date 4/8
  */
-class WelcomePanelTest {
+public class WelcomePanelTest {
     MainFrame mainFrame = new MainFrame();
     WelcomePanel welcomePanel = new WelcomePanel();
     @BeforeEach
-    void reset() throws InterruptedException {
+    public void reset(){
         mainFrame.setVisible(true);
         mainFrame.hideBars(true);
         mainFrame.lockScreen();
-        Thread.sleep(1000);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     @RepeatedTest(5)
-    void test() {
+    public void test() {
         for (int j = 0; j < 10; j++) {
             State.setPc(0);
             try {
