@@ -26,7 +26,7 @@ class PassengerFlightReaderTest {
     @Test
     void indexOf() {
         assertEquals(0, PassengerFlightReader.indexOf(1));
-        assertEquals(0, PassengerFlightReader.indexOf("bn0001", "CA0001"));
+        assertEquals(0, PassengerFlightReader.indexOf("bn0001", "MU1314"));
     }
 
     @Test
@@ -36,7 +36,7 @@ class PassengerFlightReaderTest {
 
     @Test
     void getIdFlight() {
-        assertEquals("CA0001", PassengerFlightReader.getIdFlight(0));
+        assertEquals("MU1314", PassengerFlightReader.getIdFlight(0));
     }
 
     @Test
@@ -67,7 +67,7 @@ class PassengerFlightReaderTest {
     @Test
     void getIdFlightByBookingNum() {
         List<String> list = new ArrayList<>();
-        list.add("CA0001");
+        list.add("MU1314");
         list.add("AC0001");
         assertEquals(list, PassengerFlightReader.getIdFlightByBookingNum("bn0001"));
     }

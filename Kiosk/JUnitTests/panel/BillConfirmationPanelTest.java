@@ -87,7 +87,7 @@ class BillConfirmationPanelTest {
         JLabel[] bill = mealBillcard.getBill();
 
         assertEquals("Meal:  " + food[(int)State.getMeal() - 97], headline.getText());
-        assertEquals(121 + temp * 91, mealBillcard.getHeight());
+        assertEquals(120 + temp * 91, mealBillcard.getHeight());
         int n = 0;
         for (int i = 0; i < temp; i++) {
             while (!State.getSelectedPrefFood()[n])

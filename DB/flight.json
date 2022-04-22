@@ -143,10 +143,10 @@
     {
       "idFlight": "MU1314",
       "departure": "Guiyang T1",
-      "arrival": "Nanjing T2",
-      "departureTime": "2022-04-20 13:00",
-      "arrivalTime": "2022-04-20 15:00",
-      "boardingTime": "12:30",
+      "arrival": "Shanghai T2",
+      "departureTime": "2022-04-20 08:00",
+      "arrivalTime": "2022-04-20 11:00",
+      "boardingTime": "07:30",
       "gate": "5B",
       "idPlane": 5
     },
