@@ -85,7 +85,7 @@ class FlightSelectionPanelTest {
         flightInfoCard.doRelease();
 
         assertEquals(4, State.getPc());
-        assertEquals("CA0001", State.getIdFlight());
+        assertEquals("MU1314", State.getIdFlight());
     }
 
     @Test
@@ -104,6 +104,6 @@ class FlightSelectionPanelTest {
         flightInfoCard.doRelease();
 
         assertEquals(4, State.getPc());
-        assertEquals("CA0001", State.getIdFlight());
+        assertEquals("MU1314", State.getIdFlight());
     }
 }
