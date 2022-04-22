@@ -6,6 +6,8 @@ import main.State;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -31,7 +33,7 @@ public class WelcomePanel extends JPanel {
     JLabel welcomeLabel;
     JLabel hintLabel;
     /** mask over other components, to be clicked**/
-    JPanel mask;
+    JButton mask;
     JLabel time;
 
     public WelcomePanel(){
@@ -73,23 +75,25 @@ public class WelcomePanel extends JPanel {
         /*
         mask to click and move on
          */
-        mask = new JPanel();
+        mask = new JButton();
+        mask.setIcon(new ImageIcon("Kiosk/icons/mask"));
         mask.setBounds(0, 0, 1920, 1080);
+        mask.setContentAreaFilled(false);
         mask.setOpaque(false);
-        mask.addMouseListener(new MouseAdapter() {
+        mask.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void actionPerformed(ActionEvent e) {
                 State.setPc(1);
             }
         });
-        add(mask, 0);
+        remove(this.mask);
+        add(mask);
     }
     /**
      * mask getter
      * @return mask that lies over other components
      */
-    public JPanel getMask(){
+    public JButton getMask(){
         return mask;
     }
 }
