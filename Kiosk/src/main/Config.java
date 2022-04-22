@@ -83,21 +83,34 @@ public abstract class Config {
      * reset configuration to default
      */
     public static void establishConfig() throws IOException{
-        Files.writeString(filePath, "# user configuration file");
-        addComment("supported language: English");
+        Files.writeString(filePath, "# USER CONFIGURATION FILE");
+
+        addComment("--------------< GENERAL SETTINGS >--------------");
+
+        addComment("Supported language: English.");
         addConfig("language", "English");
-        addComment("USB drive that holds ID document, recommended: E, F, G");
+
+        addComment("USB drive that holds ID document, recommended: E, F, G.");
         addConfig("idCardDrive", "F");
-        addComment("Enable the following two settings");
-        addConfig("enableCheckInLeadingTime", "false");
-        addComment("check-in starts ... (hours) before departure");
-        addConfig("startCheckInLeadingTime", "24");
-        addComment("check-in stops ... (minutes) before departure");
-        addConfig("stopCheckInLeadingTime", "30");
-        addComment("");
+
+        addComment("--------------< AIRPORT SETTINGS >--------------");
+
+        addComment("You can set the airport name here.");
         addConfig("airportName", "Beijing International Airport");
-        addComment("valid themes includes: winter2022");
-        addConfig("theme", "winter2022");
+
+        addComment("Enable the check-in leading time function.");
+        addConfig("enableCheckInLeadingTime", "false");
+
+        addComment("Check-in starts ... (hours) before departure.");
+        addConfig("startCheckInLeadingTime", "24");
+
+        addComment("Check-in stops ... (minutes) before departure.");
+        addConfig("stopCheckInLeadingTime", "30");
+
+        addComment("-------------< APPEARANCE SETTINGS >------------");
+
+        addComment("Please select a theme from the theme library.");
+        addConfig("theme", "Tiber");
     }
     /**
      * modify configuration file
