@@ -4,7 +4,6 @@ import main.Theme;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,21 +48,21 @@ public class MealInfoCard extends JPanel {
         setLayout(null);
         setSize(1130, 880);
         ChosenListener chosenListener = new ChosenListener();
-        normal_food.setLocation(30, 50);
+        normal_food.setLocation(50, 50);
         normal_food.setSize(350, 780);
         normal_food.setBorder(null);
         normal_food.setContentAreaFilled(false);
         normal_food.setIcon(icon_normal);
         normal_food.addActionListener(chosenListener);
 
-        vegetarian_food.setLocation(405, 50);
+        vegetarian_food.setLocation(420, 50);
         vegetarian_food.setSize(350, 780);
         vegetarian_food.setBorder(null);
         vegetarian_food.setContentAreaFilled(false);
         vegetarian_food.setIcon(icon_vegetarian);
         vegetarian_food.addActionListener(chosenListener);
 
-        halal_food.setLocation(780, 50);
+        halal_food.setLocation(790, 50);
         halal_food.setContentAreaFilled(false);
         halal_food.setSize(350, 780);
         halal_food.setBorder(null);
@@ -77,56 +76,56 @@ public class MealInfoCard extends JPanel {
     private class ChosenListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            setBorder(new LineBorder(Theme.getBackgroundColor()));
+            setBorder(null);
             if (e.getSource() == normal_food) {
                 if (chosen == 'a') {
                     chosen = 'd';
-                    normal_food.setBounds(30, 50, 350, 780);
+                    normal_food.setBounds(50, 50, 350, 780);
                     normal_food.setBorder(null);
                 } else {
                     if (chosen == 'b') {
-                        vegetarian_food.setBounds(405, 50, 350, 780);
+                        vegetarian_food.setBounds(420, 50, 350, 780);
                         vegetarian_food.setBorder(null);
                     } else if (chosen == 'c') {
-                        halal_food.setBounds(780, 50, 350, 780);
+                        halal_food.setBounds(790, 50, 350, 780);
                         halal_food.setBorder(null);
                     }
                     chosen = 'a';
-                    normal_food.setBounds(26, 41, 358, 798);
+                    normal_food.setBounds(46, 41, 358, 798);
                     normal_food.setBorder(button_chosen);
                 }
             } else if (e.getSource() == vegetarian_food) {
                 if (chosen == 'b') {
                     chosen = 'd';
-                    vegetarian_food.setBounds(405, 50, 350, 780);
+                    vegetarian_food.setBounds(420, 50, 350, 780);
                     vegetarian_food.setBorder(null);
                 } else {
                     if (chosen == 'a') {
-                        normal_food.setBounds(30, 50, 350, 780);
+                        normal_food.setBounds(50, 50, 350, 780);
                         normal_food.setBorder(null);
                     } else if (chosen == 'c') {
-                        halal_food.setBounds(780, 50, 350, 780);
+                        halal_food.setBounds(790, 50, 350, 780);
                         halal_food.setBorder(null);
                     }
                     chosen = 'b';
-                    vegetarian_food.setBounds(401, 41, 358, 798);
+                    vegetarian_food.setBounds(416, 41, 358, 798);
                     vegetarian_food.setBorder(button_chosen);
                 }
             } else if (e.getSource() == halal_food) {
                 if (chosen == 'c') {
                     chosen = 'd';
-                    halal_food.setBounds(780, 50, 350, 780);
+                    halal_food.setBounds(790, 50, 350, 780);
                     halal_food.setBorder(null);
                 } else {
                     if (chosen == 'a') {
-                        normal_food.setBounds(30, 50, 350, 780);
+                        normal_food.setBounds(50, 50, 350, 780);
                         normal_food.setBorder(null);
                     } else if (chosen == 'b') {
-                        vegetarian_food.setBounds(405, 50, 350, 780);
+                        vegetarian_food.setBounds(420, 50, 350, 780);
                         vegetarian_food.setBorder(null);
                     }
                     chosen = 'c';
-                    halal_food.setBounds(776, 41, 358, 798);
+                    halal_food.setBounds(786, 41, 358, 798);
                     halal_food.setBorder(button_chosen);
                 }
             }

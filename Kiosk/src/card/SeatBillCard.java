@@ -24,7 +24,7 @@ public class SeatBillCard extends JPanel {
 
         setBackground(Theme.getCardColor());
         setLayout(null);
-        setSize(1111, 190);
+        setSize(1120, 190);
 
         preference.setText("· " + prefer);
         preference.setBounds(120, 105, 831, 69);

@@ -83,7 +83,7 @@ public class MealBillcard extends JPanel {
             n++;
         }
 
-        setSize(1111, 121 + n * 91);
+        setSize(1120, 120 + n * 91);
     }
 
     public JLabel getHeadline() {

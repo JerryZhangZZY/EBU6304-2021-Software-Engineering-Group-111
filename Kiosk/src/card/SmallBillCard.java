@@ -13,6 +13,10 @@ import java.awt.*;
  * @author Zhang Zeyu
  * @author Liang Zhehao
  *
+ * @version 3.0
+ * Location and appearance adjustment.
+ * @date 2022/4/22
+ *
  * @version 1.2
  * Add addPrice and subPrice function
  * @date 2022/3/23
@@ -26,35 +30,33 @@ import java.awt.*;
  */
 public class SmallBillCard extends JPanel{
     private int price;
-    private final JLabel screen;
+    private final JLabel lblPrice;
     JLabel lblTitle;
     public SmallBillCard(int price) {
         this.price = 0;
-        //loadBill();
 
-        setBorder(new LineBorder(Theme.getMainFontColor(), 2));
+        setBorder(new LineBorder(Theme.getThemeColor(), 7));
         setBackground(Theme.getCardColor());
         setLayout(null);
-        //setSize(265, 115);
-        setBounds(1200, 600, 330, 115);
-        screen = new JLabel();
-        screen.setHorizontalAlignment(SwingConstants.RIGHT);
-        screen.setText("$"+ price);
-        screen.setBounds(105, 50, 200, 59);
-        screen.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
-        screen.setForeground(new Color(255,69,0));
-        add(screen);
+        setBounds(1220, 652, 330, 115);
+        lblPrice = new JLabel();
+        lblPrice.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblPrice.setText("$"+ price);
+        lblPrice.setBounds(105, 40, 200, 59);
+        lblPrice.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
+        lblPrice.setForeground(new Color(255,69,0));
+        add(lblPrice);
 
         lblTitle = new JLabel("Bill");
         lblTitle.setForeground(Theme.getMainFontColor());
-        lblTitle.setFont(new Font("Calibri", Font.BOLD | Font.ITALIC, 45));
-        lblTitle.setBounds(20, 8, 126, 61);
+        lblTitle.setFont(new Font("Calibri", Font.BOLD, 50));
+        lblTitle.setBounds(20, 18, 126, 61);
         add(lblTitle);
     }
 
     public void setPrice(int price) {
         this.price = price;
-        screen.setText("$" + price);
+        lblPrice.setText("$" + price);
     }
 
     public int getPrice() {
@@ -63,12 +65,12 @@ public class SmallBillCard extends JPanel{
 
     public void addPrice(int price) {
         this.price += price;
-        screen.setText("$" + this.price);
+        lblPrice.setText("$" + this.price);
     }
 
     public void subPrice(int price) {
         this.price -= price;
-        screen.setText("$" + this.price);
+        lblPrice.setText("$" + this.price);
     }
 
     public void changeTitle(String title) {

@@ -18,17 +18,21 @@ import java.awt.event.ItemListener;
  * @author Zhang Zeyu
  * @author Liang Zhehao
  *
- * @date 2022/3/28
+ * @version 3.0
+ * Bug fixed.
+ * @date 2022/4/22
+ *
  * @version 1.4
  * Appearance improved.
+ * @date 2022/3/28
  *
- * @date 2022/3/25
  * @version 1.3
  * GUI appearance redesigned.
+ * @date 2022/3/25
  *
  * @version 1.2
- * @date 2022/3/25
  * Add setters and remove parameters
+ * @date 2022/3/25
  *
  * @version 1.1
  * @date 2022/3/23
@@ -46,7 +50,7 @@ public class MealSelectionPanel extends JPanel {
     private int[] price = new int[3];
     private String[] foodName = new String[3];
     private boolean[] select = {false, false, false};
-    JButton btnOK = new JButton("OK");
+    private JButton btnOK = new JButton("OK");
 
     private Border tipBorder = BorderFactory
             .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,new Color(205,92,92))
@@ -78,7 +82,7 @@ public class MealSelectionPanel extends JPanel {
         add(mealInfoCard);
 
         JPanel panelPref = new JPanel();
-        panelPref.setBounds(1155, 50, 388, 220);
+        panelPref.setBounds(1175, 50, 388, 220);
         panelPref.setBackground(Theme.getCardColor());
         add(panelPref);
 
@@ -134,7 +138,7 @@ public class MealSelectionPanel extends JPanel {
 
         OKListener okListener = new OKListener();
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
-        btnOK.setBounds(1200, 760, 330, 70);
+        btnOK.setBounds(1220, 760, 330, 70);
         btnOK.setForeground(Theme.getMinorFontColor());
         btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);

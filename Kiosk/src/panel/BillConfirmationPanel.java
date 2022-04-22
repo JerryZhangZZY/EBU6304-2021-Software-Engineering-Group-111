@@ -89,13 +89,13 @@ public class BillConfirmationPanel extends JPanel {
         add(totalBill);
 
         lblScanningImg = new JLabel();
-        lblScanningImg.setBounds(1190, 150, 400, 400);
+        lblScanningImg.setBounds(1210, 150, 400, 400);
         lblScanningImg.setIcon(new ImageIcon("Kiosk/icons/scan.png"));
         add(lblScanningImg);
 
         btnConfirm = new JButton("Confirm");
         btnConfirm.setFont(new Font("Arial", Font.BOLD, 35));
-        btnConfirm.setBounds(1200, 760, 330, 70);
+        btnConfirm.setBounds(1220, 760, 330, 70);
         btnConfirm.setForeground(Theme.getMinorFontColor());
         btnConfirm.setBackground(Theme.getThemeColor());
         btnConfirm.addActionListener(new ConfirmListener());
@@ -105,7 +105,7 @@ public class BillConfirmationPanel extends JPanel {
         lblInstruction = new JLabel();
         lblInstruction.setText("Scan ID to continue");
         lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
-        lblInstruction.setBounds(1200, 520, 330, 40);
+        lblInstruction.setBounds(1220, 520, 330, 40);
         lblInstruction.setFont(new Font("Arial", Font.PLAIN, 35));
         lblInstruction.setForeground(Theme.getMainFontColor());
         add(lblInstruction);

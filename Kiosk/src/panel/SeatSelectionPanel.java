@@ -156,7 +156,7 @@ public class SeatSelectionPanel extends JPanel {
 
         //SeatSelection
         warn.setLayout(null);
-        warn.setBounds(780 - (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40) / 2, 0, (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40), 880);
+        warn.setBounds(800 - (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40) / 2, 0, (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40), 880);
         warn.setBackground(Theme.getBackgroundColor());
         warn.setVisible(true);
         warn.setBorder(null);
@@ -232,7 +232,7 @@ public class SeatSelectionPanel extends JPanel {
         addSeatIcon(avail_seat);
 
         //ScrollCard
-        scrollCard.setLocation(1200, 30);
+        scrollCard.setLocation(1220, 50);
         add(scrollCard);
         scrollBar.setMinimum(1);
         scrollBar.setMaximum(totalRow + 1);
@@ -243,13 +243,13 @@ public class SeatSelectionPanel extends JPanel {
 
         //LegendCard
         LegendCard legendCard = new LegendCard(iconEmpty, iconSelected[4], iconNotAvailable);
-        legendCard.setLocation(30, 50);
+        legendCard.setLocation(50, 50);
         add(legendCard);
 
         //OKbutton
         OKListener okListener = new OKListener();
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
-        btnOK.setBounds(1200, 760, 330, 70);
+        btnOK.setBounds(1220, 760, 330, 70);
         btnOK.setForeground(Theme.getMinorFontColor());
         btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
