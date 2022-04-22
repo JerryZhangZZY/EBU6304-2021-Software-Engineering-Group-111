@@ -48,12 +48,12 @@ class BillConfirmationPanelTest {
 
     @RepeatedTest(10)
     void testSeatBill() {
-        char[] c = {'A', 'B', 'C', 'D', 'E', 'F'};
 
         Random random = new Random();
         State.setSeatPre(random.nextInt(4));
         State.setSeatRow(random.nextInt(100));
         State.setSeatColumn(random.nextInt(6) + 1);
+        State.setColumnNum('A');
 
         BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
         SeatBillCard seatBillCard = billConfirmationPanel.getSeatBillCard();
@@ -61,7 +61,7 @@ class BillConfirmationPanelTest {
         JLabel pref = seatBillCard.getPreference();
         JLabel bill = seatBillCard.getBill();
 
-        assertEquals("Seat:  " + State.getSeatRow() + c[State.getSeatColumn() - 1], headline.getText());
+        assertEquals("Seat:  " + State.getSeatRow() + State.getColumnNum(), headline.getText());
         assertEquals("· " + State.getPrefSeatName()[State.getSeatPre()], pref.getText());
         assertEquals("$" + State.getPrefSeatPrice()[State.getSeatPre()], bill.getText());
     }

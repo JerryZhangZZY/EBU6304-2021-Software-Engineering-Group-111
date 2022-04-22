@@ -95,6 +95,7 @@ public class FinalPanelTest {
         State.setIdFlight("CA0001");
         State.setSeatRow(random.nextInt(6) + 1);
         State.setSeatColumn(random.nextInt(6) + 1);
+        State.setColumnNum('A');
         State.setSelectedPrefFood(new boolean[]{random.nextBoolean(), random.nextBoolean(), random.nextBoolean()});
         State.setPrefFoodName(new String[]{"food1", "food2", "food3"});
         State.setBookingNum("bn0001");
@@ -128,7 +129,7 @@ public class FinalPanelTest {
         }
         assertAll("backend",
                 () -> assertEquals("1", finalData[4]),
-                () -> assertEquals("" + State.getSeatRow() + column[State.getSeatColumn() - 1], finalData[5]),
+                () -> assertEquals("" + State.getSeatRow() + State.getColumnNum(), finalData[5]),
                 () -> assertEquals(foodName[(int)State.getMeal() - 97], finalData[6]),
                 () -> assertEquals(prefFood[0], finalData[7]),
                 () -> assertEquals(prefFood[1], finalData[8]),
