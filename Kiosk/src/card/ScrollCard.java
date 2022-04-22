@@ -19,7 +19,7 @@ public class ScrollCard extends JPanel {
 
     JScrollBar scrollBar;
     public ScrollCard() {
-        setSize(330, 505);
+        setSize(330, 550);
         setLayout(null);
         setBackground(null);
 

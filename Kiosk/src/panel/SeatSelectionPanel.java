@@ -232,7 +232,7 @@ public class SeatSelectionPanel extends JPanel {
         addSeatIcon(avail_seat);
 
         //ScrollCard
-        scrollCard.setLocation(1200, 50);
+        scrollCard.setLocation(1200, 30);
         add(scrollCard);
         scrollBar.setMinimum(1);
         scrollBar.setMaximum(totalRow + 1);
