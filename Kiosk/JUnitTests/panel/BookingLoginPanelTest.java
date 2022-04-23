@@ -70,7 +70,7 @@ public class BookingLoginPanelTest {
     }
     @DisplayName("use other ways to check-in")
     @Test
-    void testAlternativeCheckIn(){
+    public void testAlternativeCheckIn(){
         JButton altBtn = bookingLoginPanel.getAltButton();
         altBtn.doClick();
         assertEquals(2, State.getPc());
