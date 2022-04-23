@@ -26,7 +26,7 @@ public class Markov extends CsvReader{
     public int nextStateOf(int current) throws IOException {
         int next;
         readHeaders();
-        for (int i = 0; i < current; i++) {
+        for (int i = 0; i <= current; i++) {
             skipRecord();
         }
         System.out.println(getRawRecord());
@@ -44,16 +44,16 @@ public class Markov extends CsvReader{
     }
 
     public static void main(String[] args) throws IOException {
-        int[] n023 = {0,0,0,0};
-        for (int i = 0; i < 10000; i++) {
+        int[] ns = {0,0,0,0};
+        for (int i = 0; i < 10; i++) {
             Markov markov = new Markov();
-            int next = markov.nextStateOf(2);
-            if (next==0) n023[0]++;
-            else if (next==2) n023[1]++;
-            else if (next==3) n023[2]++;
-            else n023[3]++;
+            int next = markov.nextStateOf(1);
+            if (next==0) ns[0]++;
+            else if (next==2) ns[1]++;
+            else if (next==3) ns[2]++;
+            else ns[3]++;
         }
-        for (int n : n023) {
+        for (int n : ns) {
             System.out.println(n);
         }
     }
