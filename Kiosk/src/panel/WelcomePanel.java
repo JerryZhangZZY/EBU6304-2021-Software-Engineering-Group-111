@@ -76,7 +76,7 @@ public class WelcomePanel extends JPanel {
         mask to click and move on
          */
         mask = new JButton();
-        mask.setIcon(new ImageIcon("Kiosk/icons/mask"));
+//        mask.setIcon(new ImageIcon("Kiosk/icons/mask"));
         mask.setBounds(0, 0, 1920, 1080);
         mask.setContentAreaFilled(false);
         mask.setOpaque(false);
