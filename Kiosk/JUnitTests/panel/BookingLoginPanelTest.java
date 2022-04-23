@@ -31,7 +31,6 @@ public class BookingLoginPanelTest {
     String[] candidateBookingNumber = {"bn0001", "bn0002", "bn0003", "nil"};
     MainFrame mainFrame = new MainFrame();
     BookingLoginPanel bookingLoginPanel = new BookingLoginPanel();
-
     @BeforeEach
     public void reset(){
         mainFrame.unloadPanel(mainFrame.getLoadedPanel());
@@ -74,5 +73,11 @@ public class BookingLoginPanelTest {
         JButton altBtn = bookingLoginPanel.getAltButton();
         altBtn.doClick();
         assertEquals(2, State.getPc());
+    }
+    @Test
+    public void testExit(){
+        JButton exitBtn = mainFrame.getExitButton();
+        exitBtn.doClick();
+        assertEquals(0, State.getPc());
     }
 }
