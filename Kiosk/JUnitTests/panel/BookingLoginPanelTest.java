@@ -1,5 +1,6 @@
 package panel;
 
+import common.MainFrameBarsTest;
 import dbReader.PassengerFlightReader;
 import frame.MainFrame;
 import main.State;
@@ -15,6 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test class for booking number login panel
  * @author zaitian
  *
+ * @version 3.0
+ * implement MainFrameBarsTest interface
+ * @date 4/23
+ *
  * @version 2.1
  * adapt to new version panel
  * @date 4/11
@@ -26,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 3/28
  */
 
-public class BookingLoginPanelTest {
+public class BookingLoginPanelTest implements MainFrameBarsTest {
     String[] candidateName = {"Jack", "Jack", "Mike", "nay"};
     String[] candidateBookingNumber = {"bn0001", "bn0002", "bn0003", "nil"};
     MainFrame mainFrame = new MainFrame();
@@ -76,8 +81,6 @@ public class BookingLoginPanelTest {
     }
     @Test
     public void testExit(){
-        JButton exitBtn = mainFrame.getExitButton();
-        exitBtn.doClick();
-        assertEquals(0, State.getPc());
+        doExit(mainFrame);
     }
 }

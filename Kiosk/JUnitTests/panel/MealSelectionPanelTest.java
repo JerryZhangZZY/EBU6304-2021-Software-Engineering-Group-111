@@ -1,5 +1,7 @@
 package panel;
 import backupDbOperation.BackupDbOperator;
+import common.MainFrameBarsTest;
+import frame.MainFrame;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,17 +16,27 @@ import static org.junit.jupiter.api.Assertions.*;
  * This is a unit test of Meal selection
  *
  * @author Wang Chenyu
+ * @author zaitian
+ *
+ * @version 3.0
+ * implement MainFrameBarsTest interface
+ * @date 4/23
  *
  * @version 2.0
  * @date 2022/4/7
  */
-public class MealSelectionPanelTest {
+public class MealSelectionPanelTest implements MainFrameBarsTest {
+    MainFrame mainFrame = new MainFrame();
+    int currentPc;
+
     @BeforeEach
     void reset(){
         State.setPrefFoodName(new String[]{"Extra", "Kweichow Moutai", "Ice-cream"});
         State.setPrefFoodPrice(new int[]{11,22,36});
         State.setMeal('d');
         State.resetSmallBillCard();
+        currentPc = 5;
+        State.setPc(currentPc);
     }
 
     @BeforeEach
@@ -109,5 +121,13 @@ public class MealSelectionPanelTest {
             assertEquals(price,choose);
             System.out.println("right");
         }
+    }
+    @Test
+    public void testExit(){
+        doExit(mainFrame);
+    }
+    @Test
+    public void testBack(){
+        doBack(mainFrame,currentPc);
     }
 }

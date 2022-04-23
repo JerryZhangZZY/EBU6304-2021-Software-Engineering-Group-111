@@ -1,10 +1,13 @@
 package panel;
 
 import backupDbOperation.BackupDbOperator;
+import common.MainFrameBarsTest;
+import frame.MainFrame;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
@@ -17,35 +20,44 @@ import static org.junit.jupiter.api.Assertions.*;
  * This class test SeatSelectionPanel
  *
  * @author Liang Zhehao
+ * @author zaitian
+ *
+ * @version 3.0
+ * implement MainFrameBarsTest interface
+ * @date 4/23
  *
  * @version 2.0
  * @date 2022/4/6
  */
-class SeatSelectionPanelTest {
-
+public class SeatSelectionPanelTest implements MainFrameBarsTest {
+    MainFrame mainFrame;
+    int currentPc;
     @BeforeEach
-    void reset() {
+    public void reset() {
 //        State.setPrefSeatName(new String[]{"Normal", "Pro", "Max", "Sierra blue"});
         State.setPrefSeatPrice(new int[]{0, 5, 20, 10000});
         State.setIdFlight("LH3077");
         State.resetSmallBillCard();
+        mainFrame = new MainFrame();
+        currentPc = 4;
+        State.setPc(currentPc);
     }
 
     @BeforeEach
-    void backupDb() {
+    public void backupDb() {
         BackupDbOperator.pull();
     }
 
     @AfterEach
-    void recoverDb() {
+    private void recoverDb() {
         BackupDbOperator.push();
     }
 
     @RepeatedTest(5)
-    void testSeat() {
-
+    public void testSeat() {
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
-
+        mainFrame.unloadPanel(mainFrame.getLoadedPanel());
+        mainFrame.loadPanel(seatSelectionPanel);
         JButton okBtn = seatSelectionPanel.getBtnOK();
         ArrayList<JButton>[] seat = seatSelectionPanel.getSeatButton();
         JScrollBar scrollBar = seatSelectionPanel.getScrollBar();
@@ -87,5 +99,13 @@ class SeatSelectionPanelTest {
                 }
             }
         }
+    }
+    @Test
+    public void testExit(){
+        doExit(mainFrame);
+    }
+    @Test
+    public void testBack(){
+        doBack(mainFrame,currentPc);
     }
 }

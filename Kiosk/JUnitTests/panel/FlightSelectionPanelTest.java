@@ -2,7 +2,9 @@ package panel;
 
 import backupDbOperation.BackupDbOperator;
 import card.FlightInfoCard;
+import common.MainFrameBarsTest;
 import dbWriter.StatusWriter;
+import frame.MainFrame;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,6 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author Zhang Zeyu
  * @author Liang Zhehao
+ * @author zaitian
+ *
+ * @version 3.0
+ * implement MainFrameBarsTest interface
+ * @date 4/23
  *
  * @version 2.3
  * Upgrade old tests and add a new test.
@@ -36,11 +43,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @date 2022/4/7
  */
 
-class FlightSelectionPanelTest {
+class FlightSelectionPanelTest implements MainFrameBarsTest {
+    MainFrame mainFrame;
+    int currentPc;
 
     @BeforeEach
-    void setPc() {
-        State.setPc(3);
+    void reset() {
+        currentPc = 3;
+        State.setPc(currentPc);
+        mainFrame = new MainFrame();
     }
 
     @BeforeEach
@@ -60,6 +71,8 @@ class FlightSelectionPanelTest {
         StatusWriter.setTrue(2);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
+        mainFrame.unloadPanel(mainFrame.getLoadedPanel());
+        mainFrame.loadPanel(flightSelectionPanel);
         flightSelectionPanel.getThread().interrupt();
         try {
             flightSelectionPanel.getThread().join();
@@ -77,6 +90,8 @@ class FlightSelectionPanelTest {
         State.setBookingNumList(list);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
+        mainFrame.unloadPanel(mainFrame.getLoadedPanel());
+        mainFrame.loadPanel(flightSelectionPanel);
 
         State.setPc(3);
 
@@ -96,6 +111,8 @@ class FlightSelectionPanelTest {
         State.setBookingNumList(list);
 
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
+        mainFrame.unloadPanel(mainFrame.getLoadedPanel());
+        mainFrame.loadPanel(flightSelectionPanel);
 
         State.setPc(3);
 
@@ -105,5 +122,13 @@ class FlightSelectionPanelTest {
 
         assertEquals(4, State.getPc());
         assertEquals("MU1314", State.getIdFlight());
+    }
+    @Test
+    public void testExit(){
+        doExit(mainFrame);
+    }
+    @Test
+    public void testBack(){
+        doBack(mainFrame,currentPc);
     }
 }
