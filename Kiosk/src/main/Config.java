@@ -14,6 +14,10 @@ import java.util.List;
  * @author zaitian
  * @author Zhang Zeyu
  *
+ * @version 3.3
+ * Add animation speed config.
+ * @date 2022/4/24
+ *
  * @version 3.2
  * Automatically call loadConfig().
  * @date 2022/4/20
@@ -92,6 +96,9 @@ public abstract class Config {
 
         addComment("USB drive that holds ID document, recommended: E, F, G.");
         addConfig("idCardDrive", "F");
+
+        addComment("Animation speed (1-5, -1 to disable), default: 3.");
+        addConfig("animationSpeed", "3");
 
         addComment("--------------< AIRPORT SETTINGS >--------------");
 

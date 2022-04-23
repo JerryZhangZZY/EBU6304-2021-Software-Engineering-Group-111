@@ -24,6 +24,10 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 3.1
+ * Animation speed can be set in config.
+ * @date 2022/4/24
+ *
  * @version 3.0
  * Delete useless codes.
  * @date 2022/4/24
@@ -77,12 +81,27 @@ public class MainFrame extends JFrame {
     private WelcomePanel welcomePanel;
     private JLabel time;
 
-    private final int TIME_INTERVAL = 8;
+    private int freshTime = 8;
 
     /**
      * Main frame with panels initialized.
      */
     public MainFrame() {
+
+        try {
+            int animationSpeed = Integer.parseInt(Config.readConfig("animationSpeed"));
+            switch (animationSpeed) {
+                case -1 -> freshTime = 0;
+                case 1 -> freshTime = 17;
+                case 2 -> freshTime = 12;
+                case 3 -> freshTime = 8;
+                case 4 -> freshTime = 5;
+                case 5 -> freshTime = 2;
+                default -> System.out.println("Animation speed config invalid!");
+            }
+        } catch (Exception e) {
+            System.out.println("Animation speed config load failed!");
+        }
 
         welcomePanel = new WelcomePanel();
         welcomePanel.setLocation(0, -1080);
@@ -283,7 +302,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(0.043 * frame * (frame - 50)));
                     try {
-                        sleep(TIME_INTERVAL);
+                        sleep(freshTime);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -312,7 +331,7 @@ public class MainFrame extends JFrame {
                     moveVertical(centerPanel.getComponent(0), (int)(-0.043 * frame * (frame - 50)));
                     moveVertical(centerPanel.getComponent(1), (int)(-0.043 * frame * (frame - 50)));
                     try {
-                        sleep(TIME_INTERVAL);
+                        sleep(freshTime);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -335,9 +354,9 @@ public class MainFrame extends JFrame {
             @Override
             public void run() {
                 for (int frame = 0; frame < 50; frame++) {
-                    moveVertical(welcomePanel, (int)(0.052 * frame * (frame - 50)));
+                    moveVertical(welcomePanel, (int)(0.053 * frame * (frame - 50)));
                     try {
-                        sleep(TIME_INTERVAL);
+                        sleep(freshTime);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -358,9 +377,9 @@ public class MainFrame extends JFrame {
             @Override
             public void run() {
                 for (int frame = 0; frame < 50; frame++) {
-                    moveVertical(welcomePanel, (int)(-0.052 * frame * (frame - 50)));
+                    moveVertical(welcomePanel, (int)(-0.053 * frame * (frame - 50)));
                     try {
-                        sleep(TIME_INTERVAL);
+                        sleep(freshTime);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
