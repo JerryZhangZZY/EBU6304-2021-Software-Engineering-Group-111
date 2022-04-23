@@ -24,6 +24,10 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 3.0
+ * Delete useless codes.
+ * @date 2022/4/24
+ *
  * @version 2.3
  * add new admin exit
  * @date 4/11
@@ -66,7 +70,6 @@ public class MainFrame extends JFrame {
     private JPanel topPanel;
     private JLabel welcomeLabel;
     private JButton exitButton;
-//    private JButton forcedExitButton;
     private JPanel centerPanel;
     private JPanel bottomPanel;
     private JButton backButton;
@@ -100,8 +103,8 @@ public class MainFrame extends JFrame {
         topPanel = new JPanel();
         topPanel.setBackground(Theme.getThemeColor());
         topPanel.setBounds(0, 0, 1920, 100);
-        add(topPanel);
         topPanel.setLayout(null);
+        add(topPanel);
 
         welcomeLabel = new JLabel();
         welcomeLabel.setFont(new Font("Calibre", Font.PLAIN, 45));
@@ -124,33 +127,17 @@ public class MainFrame extends JFrame {
         exitButton.setBorderPainted(false);
         exitButton.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
         exitButton.setBounds(1815, 12, 80, 70);
-//        exitButton.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                super.mouseClicked(e);
-//                /*
-//                 * alt + exit: for developers to exit program easily and elegantly
-//                 * note that for ordinary users, clicking the exit just return to welcome page
-//                 */
-//                if (e.isAltDown()) {
-//                    callAdminConsole();
-//                }
-//                else {
-//                    //topPanel.remove(time);
-//                    State.setIsReady(new boolean[]{true, true, true,
-//                            false, false, false, false, true, true});
-//                    State.setPc(0);
-//                }
-//            }
-//        });
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
+                 * alt + exit: for developers to exit program easily and elegantly
+                 * note that for ordinary users, clicking the exit just return to welcome page
+                 */
                 if ((e.getModifiers() & ActionEvent.ALT_MASK) != 0) {
                     callAdminConsole();
                 }
                 else {
-                    //topPanel.remove(time);
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
                     State.setPc(0);
@@ -220,6 +207,7 @@ public class MainFrame extends JFrame {
     public void loadPanel(JPanel panel){
         centerPanel.add(panel, 0);
     }
+
     /**
      * access the panel loaded in the center panel
      * @return the panel loaded in the center panel, if exists
@@ -230,6 +218,7 @@ public class MainFrame extends JFrame {
         else
             return null;
     }
+
     /**
      * unload a panel from the center panel
      * nothing is done if no panel exists
@@ -239,6 +228,7 @@ public class MainFrame extends JFrame {
         if(panel != null)
             centerPanel.remove(panel);
     }
+
     /**
      * deciding whether components are displayed
      * @param welcome welcome text
@@ -250,25 +240,10 @@ public class MainFrame extends JFrame {
         exitButton.setVisible(exit);
         backButton.setVisible(back);
     }
-    /**
-     * deciding whether bars are displayed
-     * @param flag top and bottom bars
-     */
-    public void hideBars(Boolean flag){
-        if (flag){
-            topPanel.setVisible(false);
-            bottomPanel.setVisible(false);
-//            centerPanel.setBounds(0,0,1920,1080);
-        }
-        else {
-            topPanel.setVisible(true);
-            bottomPanel.setVisible(true);
-//            centerPanel.setBounds(0, 100, 1920, 880);
-        }
-    }
     public void showClock(Boolean flag){
         time.setVisible(flag);
     }
+
     /**
      * set welcome text with passenger's name when available
      */
@@ -374,6 +349,7 @@ public class MainFrame extends JFrame {
         });
         thread.start();
     }
+
     /**
      * Animation of locking screen.
      */
@@ -404,7 +380,6 @@ public class MainFrame extends JFrame {
         AdminConsole adminConsole = new AdminConsole(this);
     }
 
-
     public JButton getExitButton() {
         return exitButton;
     }
@@ -412,5 +387,4 @@ public class MainFrame extends JFrame {
     public JButton getBackButton() {
         return backButton;
     }
-
 }

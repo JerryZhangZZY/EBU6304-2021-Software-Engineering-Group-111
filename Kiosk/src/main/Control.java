@@ -121,32 +121,28 @@ public class Control {
                 sleep(10);
             }
             switch (State.getPc()) {
-                case 0 : {    //welcome
+                case 0 -> {    //welcome
                     kiosk.showClock(false);
                     kiosk.displayComponents(true, true, false);
-                    kiosk.hideBars(false);
                     kiosk.resetWelcomeText();
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.repaint();
                     kiosk.loadPanel(new BookingLoginPanel());
                     kiosk.lockScreen();
                     currentPC = State.getPc();
-                    break;
                 }
-                case 1 : {    //enter booking number
+                case 1 -> {    //enter booking number
                     if (currentPC < State.getPc())
                         kiosk.unlockScreen();
                     else {
                         kiosk.displayComponents(true, true, false);
-                        kiosk.hideBars(false);
                         kiosk.resetWelcomeText();
                         bookingLoginPanel.reset();
                         kiosk.scrollUp(bookingLoginPanel);
                     }
                     currentPC = State.getPc();
-                    break;
                 }
-                case 2 : {    //enter or scan ID
+                case 2 -> {    //enter or scan ID
                     kiosk.displayComponents(true, true, true);
                     idLoginPanel.reset();
                     if (currentPC < State.getPc())
@@ -154,9 +150,8 @@ public class Control {
                     else
                         kiosk.scrollUp(idLoginPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 3 : {    //flights
+                case 3 -> {    //flights
                     if (!State.getIsReady()[3]) {
                         flightsPanel = new ProgressPanel(1);
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());
@@ -168,9 +163,8 @@ public class Control {
                     else
                         kiosk.scrollUp(flightsPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 4 : {    //seat
+                case 4 -> {    //seat
                     if (!State.getIsReady()[4]) {
                         State.resetSmallBillCard();
                         seatPanel = new ProgressPanel(2);
@@ -184,9 +178,8 @@ public class Control {
                     else
                         kiosk.scrollUp(seatPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 5 : {    //food
+                case 5 -> {    //food
                     if (!State.getIsReady()[5]) {
                         mealPanel = new ProgressPanel(3);
                         mealSelectionPanel = new MealSelectionPanel();
@@ -198,9 +191,8 @@ public class Control {
                     else
                         kiosk.scrollUp(mealPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 6 : {    //bill
+                case 6 -> {    //bill
                     if (!State.getIsReady()[6]) {
                         billPanel = new ProgressPanel(4);
                         billPanel.loadCardsPanel(new BillConfirmationPanel());
@@ -210,23 +202,20 @@ public class Control {
                     else
                         kiosk.scrollUp(billPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 7 : {   //pay
+                case 7 -> {   //pay
                     payPanel.loadCardsPanel(new PaymentPanel(State.getBill()));
                     if (currentPC < State.getPc())
                         kiosk.scrollDown(payPanel);
                     else
                         kiosk.scrollUp(payPanel);
                     currentPC = State.getPc();
-                    break;
                 }
-                case 8 : {    //finish
+                case 8 -> {    //finish
                     finalPanel = new FinalPanel();
                     kiosk.displayComponents(true, false, false);
                     kiosk.scrollDown(finalPanel);
                     currentPC = State.getPc();
-                    break;
                 }
             }
         }
