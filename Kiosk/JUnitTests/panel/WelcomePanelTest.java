@@ -2,14 +2,7 @@ package panel;
 
 import frame.MainFrame;
 import main.State;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
-
-import java.awt.*;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,7 +26,7 @@ public class WelcomePanelTest {
     WelcomePanel welcomePanel = new WelcomePanel();
     @RepeatedTest(5)
     public void test() {
-            welcomePanel.getMask().doClick();
+            welcomePanel.getBtnMask().doClick();
             assertEquals(1, State.getPc());
     }
 

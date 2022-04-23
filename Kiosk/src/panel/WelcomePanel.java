@@ -8,14 +8,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 /**
  * the panel that displays when kiosk is vaccant
  * @author zaitian
  * @author Zhang Zeyu
  * @author Ni Ruijie
+ *
+ * @version 3.0
+ * Better way of setting background image.
+ * @date 2022/4/23
  *
  * @version 2.0
  * Added clock
@@ -29,71 +31,72 @@ import java.awt.event.MouseEvent;
  * @date 3/24
  */
 public class WelcomePanel extends JPanel {
-    JLabel background;
-    JLabel welcomeLabel;
-    JLabel hintLabel;
+    JLabel lblWelcome;
+    JLabel lblHint;
     /** mask over other components, to be clicked**/
-    JButton mask;
-    JLabel time;
+    JButton btnMask;
+    JLabel lblTime;
 
     public WelcomePanel(){
         setBounds(new Rectangle(0, 0, 1920, 1080));
         setLayout(null);
         /*
-        background img
-         */
-        background = new JLabel(new ImageIcon("Kiosk/icons/bg.png"));
-        background.setBounds(0, 0, 1920, 1080);
-        add(background);
-        /*
         a big welcome
          */
-        welcomeLabel = new JLabel(
+        lblWelcome = new JLabel(
                 "Welcome to " + Config.readConfig(("airportName")) + "!");
-        welcomeLabel.setBounds(210, 150,1500,200);
-        welcomeLabel.setFont(new Font("Calibri", Font.BOLD, 80));
-        welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        add(welcomeLabel, 0);
+        lblWelcome.setBounds(210, 150,1500,200);
+        lblWelcome.setFont(new Font("Calibri", Font.BOLD, 80));
+        lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
+        add(lblWelcome, 0);
         /*
         hint for continuing
          */
-        hintLabel = new JLabel("click anywhere to start your check-in");
-        hintLabel.setBounds(360, 100, 1200, 1600);
-        hintLabel.setFont(new Font("Calibri", Font.PLAIN, 36));
-        hintLabel.setForeground(Color.lightGray);
-        hintLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        add(hintLabel, 0);
+        lblHint = new JLabel("click anywhere to start your check-in");
+        lblHint.setBounds(360, 100, 1200, 1600);
+        lblHint.setFont(new Font("Calibri", Font.PLAIN, 36));
+        lblHint.setForeground(Color.lightGray);
+        lblHint.setHorizontalAlignment(SwingConstants.CENTER);
+        add(lblHint, 0);
         /*
         clock at home page
          */
-        time = new JLabel();
-        time.setBounds(760, 20, 400, 30);
-        time.setFont(new Font("Default", Font.PLAIN, 30));
-        Clock.setClock(time);
-        time.setHorizontalAlignment(SwingConstants.CENTER);
-        add(time,0);
+        lblTime = new JLabel();
+        lblTime.setBounds(760, 20, 400, 30);
+        lblTime.setFont(new Font("Default", Font.PLAIN, 30));
+        Clock.setClock(lblTime);
+        lblTime.setHorizontalAlignment(SwingConstants.CENTER);
+        add(lblTime,0);
         /*
         mask to click and move on
          */
-        mask = new JButton();
-//        mask.setIcon(new ImageIcon("Kiosk/icons/mask"));
-        mask.setBounds(0, 0, 1920, 1080);
-        mask.setContentAreaFilled(false);
-        mask.setOpaque(false);
-        mask.addActionListener(new ActionListener() {
+        btnMask = new JButton();
+        btnMask.setBounds(0, 0, 1920, 1080);
+        btnMask.setContentAreaFilled(false);
+        btnMask.setOpaque(false);
+        btnMask.setBorderPainted(false);
+        btnMask.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 State.setPc(1);
             }
         });
-        remove(this.mask);
-        add(mask);
+        remove(this.btnMask);
+        add(btnMask);
     }
     /**
      * mask getter
      * @return mask that lies over other components
      */
-    public JButton getMask(){
-        return mask;
+    public JButton getBtnMask(){
+        return btnMask;
+    }
+
+    /*
+    set background
+     */
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(new ImageIcon("Kiosk/icons/bg.png").getImage(), 0, 0,this.getWidth(), this.getHeight(), this);
     }
 }
