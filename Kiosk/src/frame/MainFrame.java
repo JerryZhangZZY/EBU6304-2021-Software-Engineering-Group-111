@@ -125,15 +125,29 @@ public class MainFrame extends JFrame {
         exitButton.setBorderPainted(false);
         exitButton.setIcon(new ImageIcon("Kiosk/icons/exit.png"));
         exitButton.setBounds(1815, 12, 80, 70);
-        exitButton.addMouseListener(new MouseAdapter() {
+//        exitButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                super.mouseClicked(e);
+//                /*
+//                 * alt + exit: for developers to exit program easily and elegantly
+//                 * note that for ordinary users, clicking the exit just return to welcome page
+//                 */
+//                if (e.isAltDown()) {
+//                    callAdminConsole();
+//                }
+//                else {
+//                    //topPanel.remove(time);
+//                    State.setIsReady(new boolean[]{true, true, true,
+//                            false, false, false, false, true, true});
+//                    State.setPc(0);
+//                }
+//            }
+//        });
+        exitButton.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                /*
-                 * alt + exit: for developers to exit program easily and elegantly
-                 * note that for ordinary users, clicking the exit just return to welcome page
-                 */
-                if (e.isAltDown()) {
+            public void actionPerformed(ActionEvent e) {
+                if ((e.getModifiers() & ActionEvent.ALT_MASK) != 0) {
                     callAdminConsole();
                 }
                 else {
@@ -389,6 +403,15 @@ public class MainFrame extends JFrame {
      */
     private void callAdminConsole(){
         AdminConsole adminConsole = new AdminConsole(this);
+    }
+
+
+    public JButton getExitButton() {
+        return exitButton;
+    }
+
+    public JButton getBackButton() {
+        return backButton;
     }
 
 }
