@@ -18,6 +18,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author zaitian
  * @author Liang Zhehao
  *
+ * @version 2.1
+ * simplified
+ * @date 4/22
+ *
  * @version 2.0
  * @date 4/14
  *

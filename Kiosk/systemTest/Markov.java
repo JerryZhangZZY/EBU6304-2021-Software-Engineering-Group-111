@@ -4,12 +4,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * Reading a csv file that contains a state-transition matrix
+ * @author zaitian
+ *
+ * @version 1.0
+ * @date 4/22
+ */
 public class Markov extends CsvReader{
 
     public Markov() throws FileNotFoundException {
         super("testing-resource/Markov.csv");
     }
 
+    /**
+     * transfer state according to markov matrix
+     * @param current current state
+     * @return next state
+     * @throws IOException when matrix file not found
+     */
     public int nextStateOf(int current) throws IOException {
         int next;
         readHeaders();
