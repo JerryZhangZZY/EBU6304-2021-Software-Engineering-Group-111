@@ -1,6 +1,7 @@
 package panel;
 
 import card.MealInfoCard;
+import dbReader.FlightReader;
 import main.State;
 import main.Theme;
 
@@ -62,6 +63,8 @@ public class MealSelectionPanel extends JPanel {
     public MealSelectionPanel(boolean cheat) {}
 
     public MealSelectionPanel() {
+        State.setPrefFoodName(FlightReader.getFoodName(FlightReader.indexOf(State.getIdFlight())));
+        State.setPrefFoodPrice(FlightReader.getFoodPrice(FlightReader.indexOf(State.getIdFlight())));
 
         for(int i = 0; i < 3; i++) {
             this.price[i] = State.getPrefFoodPrice()[i];

@@ -8,7 +8,9 @@
       "departureTime": "2022-04-20 10:00",
       "arrivalTime": "2022-04-20 12:00",
       "boardingTime": "09:30",
-      "idPlane": 1
+      "idPlane": 1,
+      "foodName": "Extra,Kweichow Moutai,Ice-cream",
+      "foodPrice": "5,100,12"
     },
     {
       "idFlight": "CA0002",
@@ -18,7 +20,10 @@
       "departureTime": "2022-04-20 14:30",
       "arrivalTime": "2022-04-20 18:00",
       "boardingTime": "14:00",
-      "idPlane": 1
+      "idPlane": 1,
+      "foodName": "Extra,Cheese,Ice-cream",
+      "foodPrice": "5,5,11"
+      
     },
     {
       "idFlight": "AC0001",
@@ -28,7 +33,9 @@
       "departureTime": "2022-04-20 13:00",
       "arrivalTime": "2022-04-20 00:00",
       "boardingTime": "12:30",
-      "idPlane": 2
+      "idPlane": 2,
+      "foodName": "Extra,Cheese,Ice-cream",
+      "foodPrice": "5,5,10"
     },
     {
       "idFlight": "UA0003",
@@ -38,7 +45,9 @@
       "departureTime": "2022-05-20 08:00",
       "arrivalTime": "2022-05-20 09:00",
       "boardingTime": "07:30",
-      "idPlane": 3
+      "idPlane": 3,
+      "foodName": "Extra,Cheese,Carrot Bun",
+      "foodPrice": "5,6,10"
     },
     {
       "idFlight": "AC3079",
@@ -48,7 +57,9 @@
       "arrivalTime": "2022-04-20 13:00",
       "boardingTime": "11:30",
       "gate": "19A",
-      "idPlane": 2
+      "idPlane": 2,
+      "foodName": "Extra,Cheese,Carrot Bun",
+      "foodPrice": "5,6,10"
     },
     {
       "idFlight": "AC3577",
@@ -58,7 +69,9 @@
       "arrivalTime": "2022-04-20 13:00",
       "boardingTime": "09:30",
       "gate": "24D",
-      "idPlane": 2
+      "idPlane": 2,
+      "foodName": "Extra,Cocktail,Carrot Bun",
+      "foodPrice": "5,20,10"
     },
     {
       "idFlight": "AC2485",
@@ -68,7 +81,9 @@
       "arrivalTime": "2022-04-20 13:00",
       "boardingTime": "07:30",
       "gate": "20C",
-      "idPlane": 2
+      "idPlane": 2,
+      "foodName": "Extra,Cocktail,Carrot Bun",
+      "foodPrice": "5,20,8"
     },
     {
       "idFlight": "LH3077",
@@ -78,7 +93,9 @@
       "arrivalTime": "2022-04-20 21:00",
       "boardingTime": "18:30",
       "gate": "13F",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Cocktail,Carrot Bun",
+      "foodPrice": "5,25,8"
     },
     {
       "idFlight": "LH2345",
@@ -88,7 +105,9 @@
       "arrivalTime": "2022-04-20 10:00",
       "boardingTime": "07:30",
       "gate": "2F",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Cocktail,Carrot Bun",
+      "foodPrice": "5,25,8"
     },
     {
       "idFlight": "LH1365",
@@ -98,7 +117,9 @@
       "arrivalTime": "2022-04-20 10:00",
       "boardingTime": "05:30",
       "gate": "13E",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Potato Chips,Ice-cream",
+      "foodPrice": "5,9,12"
     },
     {
       "idFlight": "LH7718",
@@ -108,7 +129,9 @@
       "arrivalTime": "2022-04-20 13:00",
       "boardingTime": "07:30",
       "gate": "13F",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Potato Chips,Ice-cream",
+      "foodPrice": "5,9,12"
     },
     {
       "idFlight": "LH2333",
@@ -118,7 +141,9 @@
       "arrivalTime": "2022-04-20 15:00",
       "boardingTime": "11:30",
       "gate": "23F",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Potato Chips,Ice-cream",
+      "foodPrice": "5,10,12"
     },
     {
       "idFlight": "LH4618",
@@ -128,7 +153,9 @@
       "arrivalTime": "2022-04-20 09:00",
       "boardingTime": "05:30",
       "gate": "12C",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Potato Chips,Ice-cream",
+      "foodPrice": "5,10,12"
     },
     {
       "idFlight": "LH1607",
@@ -138,7 +165,9 @@
       "arrivalTime": "2022-04-20 13:00",
       "boardingTime": "07:30",
       "gate": "12A",
-      "idPlane": 4
+      "idPlane": 4,
+      "foodName": "Extra,Cream Cake,Ice-cream",
+      "foodPrice": "5,15,12"
     },
     {
       "idFlight": "MU1314",
@@ -148,7 +177,9 @@
       "arrivalTime": "2022-04-20 11:00",
       "boardingTime": "07:30",
       "gate": "5B",
-      "idPlane": 5
+      "idPlane": 5,
+      "foodName": "Extra,Cream Cake,Ice-cream",
+      "foodPrice": "5,15,12"
     },
     {
       "idFlight": "MU3241",
@@ -158,7 +189,9 @@
       "arrivalTime": "2022-04-20 10:00",
       "boardingTime": "08:30",
       "gate": "17F",
-      "idPlane": 5
+      "idPlane": 5,
+      "foodName": "Extra,Cream Cake,Ice-cream",
+      "foodPrice": "5,15,12"
     },
     {
       "idFlight": "MU7733",
@@ -168,7 +201,9 @@
       "arrivalTime": "2022-04-20 13:00",
       "boardingTime": "07:30",
       "gate": "11D",
-      "idPlane": 5
+      "idPlane": 5,
+      "foodName": "Extra,Cream Cake,Ice-cream",
+      "foodPrice": "5,20,12"
     }
   ]
 }

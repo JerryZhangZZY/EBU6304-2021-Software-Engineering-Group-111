@@ -12,6 +12,11 @@ import java.util.Date;
  * This class is a tool that can help you search and get values of flight info quickly.
  *
  * @author Zhang Zeyu
+ * @author Liang Zhehao
+ *
+ * @version 3.1
+ * Add getFoodName() and getFoodPrice()
+ * @date 2022/4/23
  *
  * @version 3.0
  * Add getDepartureDateTime().
@@ -123,5 +128,21 @@ public abstract class FlightReader {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String[] getFoodName(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        return arr.getJSONObject(index).getString("foodName").split(",");
+    }
+    public static int[] getFoodPrice(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
+        JSONArray arr = obj.getJSONArray("flight");
+        String[] p = arr.getJSONObject(index).getString("foodPrice").split(",");
+        int[] price = new int[3];
+        for (int i = 0; i < 3; i++) {
+            price[i] = Integer.parseInt(p[i]);
+        }
+        return price;
     }
 }
