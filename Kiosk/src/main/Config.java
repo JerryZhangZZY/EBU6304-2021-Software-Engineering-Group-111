@@ -97,9 +97,6 @@ public abstract class Config {
         addComment("USB drive that holds ID document, recommended: E, F, G.");
         addConfig("idCardDrive", "F");
 
-        addComment("Animation speed (1-5, -1 to disable), default: 3.");
-        addConfig("animationSpeed", "3");
-
         addComment("--------------< AIRPORT SETTINGS >--------------");
 
         addComment("You can set the airport name here.");
@@ -118,6 +115,9 @@ public abstract class Config {
 
         addComment("Please select a theme from the theme library.");
         addConfig("theme", "Tiber");
+
+        addComment("Animation speed (1-5, -1 to disable), default: 3.");
+        addConfig("animationSpeed", "3");
     }
     /**
      * modify configuration file
