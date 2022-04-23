@@ -74,14 +74,33 @@ public class SystemTest {
         }
     }
     void testAltLoginPanel() throws IOException {
+        Markov markov = new Markov();
+        int next = markov.nextStateOf(2);
         if (new Random().nextDouble() <= 0.6) {
             TypeIdLoginCardTest typeIdLoginCardTest = new TypeIdLoginCardTest();
             typeIdLoginCardTest.reset();
-            typeIdLoginCardTest.testEnteringID();
+            if (next == 0) {
+                typeIdLoginCardTest.testExit();
+            }
+            else if (next == 1) {
+                typeIdLoginCardTest.testBack();
+            }
+            else if (next == 3) {
+                typeIdLoginCardTest.testEnteringID();
+            }
         }
         else {
             ScanIdLoginCardTest scanIdLoginCardTest = new ScanIdLoginCardTest();
-            scanIdLoginCardTest.compareTypeAndScan();
+            scanIdLoginCardTest.reset();
+            if (next == 0) {
+                scanIdLoginCardTest.testExit();
+            }
+            else if (next == 1) {
+                scanIdLoginCardTest.testBack();
+            }
+            else if (next == 3) {
+                scanIdLoginCardTest.compareTypeAndScan();
+            }
         }
     }
 }
