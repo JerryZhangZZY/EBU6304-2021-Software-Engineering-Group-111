@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 1.0
  * @date 4/7
  */
-class TypeIdLoginCardTest {
+public class TypeIdLoginCardTest {
     String[] candidateName = {"Jack", "Mike", "Amy", "Karl", "Amy", "nay"};
     String[] candidateID = {"123001", "123002", "123003","123003", "123006", "nil"};
     String[] expectedBookingNum = {"bn0001", "bn0003", null, null, null, null};
@@ -36,14 +36,14 @@ class TypeIdLoginCardTest {
     JButton okBtn = card.getButtonOk();
 
     @BeforeEach
-    void reset(){
+    public void reset(){
         mainFrame.unloadPanel(mainFrame.getLoadedPanel());
         mainFrame.loadPanel(card);
         card.reset();
     }
 
     @RepeatedTest(10)
-    void testEnteringID(){
+    public void testEnteringID(){
         int candidate = new Random().nextInt(candidateID.length);
         nameTF.setText(candidateName[candidate]);
         idTF.setText(candidateID[candidate]);

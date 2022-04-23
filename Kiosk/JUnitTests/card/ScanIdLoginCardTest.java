@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author zaitian
  * @version 1.0
  */
-class ScanIdLoginCardTest {
+public class ScanIdLoginCardTest {
     MainFrame mainFrame = new MainFrame();
     IdLoginPanel panel = new IdLoginPanel();
     TypeIdLoginCard ref = panel.getTypeIdLoginCard();
@@ -26,7 +26,7 @@ class ScanIdLoginCardTest {
     String id = IdCardReader.readId();
     String name = IdCardReader.readName();
 
-    ScanIdLoginCardTest() throws IOException {
+    public ScanIdLoginCardTest() throws IOException {
     }
 
     /**
@@ -34,7 +34,7 @@ class ScanIdLoginCardTest {
      * vice versa
      */
     @Test
-    void compareTypeAndScan() {
+    public void compareTypeAndScan() {
         mainFrame.loadPanel(panel);
         ref.getTfId().setText(id);
         ref.getTfSurname().setText(name);

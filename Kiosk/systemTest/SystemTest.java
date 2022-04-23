@@ -1,11 +1,15 @@
+import card.ScanIdLoginCardTest;
+import card.TypeIdLoginCardTest;
 import main.Config;
 import main.State;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import panel.WelcomePanelTest;
 import panel.BookingLoginPanelTest;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Random;
 
 import static java.lang.Thread.sleep;
 
@@ -21,20 +25,29 @@ import static java.lang.Thread.sleep;
  * @date 4/22
  */
 public class SystemTest {
-    @Test
-    void main() throws InterruptedException, IOException {
+//    @Test
+    @RepeatedTest(100)
+    void main() throws IOException {
         Config.loadConfig();
         int currentPC = -1;
         State.setPc(0);
         while (true) {
-            while (currentPC == State.getPc()) {
-                sleep(10);
-            }
             switch (State.getPc()) {
-                case 0 -> testWelcomePanel();
-                case 1 -> testBookNumLoginPanel();
+                case 0 -> {
+                    currentPC = State.getPc();
+                    testWelcomePanel();
+                }
+                case 1 -> {
+                    currentPC = State.getPc();
+                    testBookNumLoginPanel();
+                }
+                case 2 -> {
+                    currentPC = State.getPc();
+                    testAltLoginPanel();
+                }
+
             }
-            if (State.getPc() == 1)
+            if (State.getPc() > 2)
                 break;
         }
     }
@@ -48,14 +61,27 @@ public class SystemTest {
         Markov markov;
         markov= new Markov();
         int next = markov.nextStateOf(1);
-        if (next == 2) {
+//        next = 0;
+        System.out.println(next);
+        if (next == 0) {
+            bookingLoginPanelTest.testExit();
+        }
+        else if (next == 2) {
             bookingLoginPanelTest.testBookingLoginPanel();
         }
         else if (next == 3){
             bookingLoginPanelTest.testAlternativeCheckIn();
         }
     }
-    void testAltLoginPanel(){
-
+    void testAltLoginPanel() throws IOException {
+        if (new Random().nextDouble() <= 0.6) {
+            TypeIdLoginCardTest typeIdLoginCardTest = new TypeIdLoginCardTest();
+            typeIdLoginCardTest.reset();
+            typeIdLoginCardTest.testEnteringID();
+        }
+        else {
+            ScanIdLoginCardTest scanIdLoginCardTest = new ScanIdLoginCardTest();
+            scanIdLoginCardTest.compareTypeAndScan();
+        }
     }
 }
