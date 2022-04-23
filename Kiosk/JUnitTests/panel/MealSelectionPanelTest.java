@@ -17,6 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Wang Chenyu
  * @author zaitian
+ * @author Liang Zhehao
+ *
+ * @version 3.1
+ * remove pull(), fix bugs
+ * @date  4/23
  *
  * @version 3.0
  * implement MainFrameBarsTest interface
@@ -31,16 +36,12 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
 
     @BeforeEach
     void reset(){
-        State.setPrefFoodName(new String[]{"Extra", "Kweichow Moutai", "Ice-cream"});
-        State.setPrefFoodPrice(new int[]{11,22,36});
+        State.setIdFlight("AC0001");
         State.setMeal('d');
         State.resetSmallBillCard();
         currentPc = 5;
         State.setPc(currentPc);
     }
-
-    @BeforeEach
-    void backupDb() {BackupDbOperator.pull();}
 
     @AfterEach
     void recoverDb() {
@@ -70,22 +71,18 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
                 if (r1 == 0) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('a', choose);
-                    System.out.println(1);
                 } else if (r1 == 1) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('b', choose);
-                    System.out.println(2);
                 } else if (r1 == 2) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('c', choose);
-                    System.out.println(3);
                 }
             }
             else
             {
                 assertEquals(tempPc, State.getPc());
                 assertEquals('d',choose);
-                System.out.println(4);
             }
             exp = (int)State.getMeal()-97;
         }
@@ -96,7 +93,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         JRadioButton[] meal = selectionPanel.getrdbtnMeal();
         boolean[] pre = new boolean[3];
         Random random = new Random();
-        int[] bill={11,22,36};
+        int[] bill = State.getPrefFoodPrice();
         JButton confirm = selectionPanel.getConfirm();
         int r;
         int price=0;
@@ -104,7 +101,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         for(int i = 0 ; i <3 ; i++){
             pre[i]=false;
         }
-        for(int i = 0; i < 100 ; i++){
+        for(int i = 0; i < 10 ; i++){
             r=random.nextInt(3);
             meal[r].doClick();
             State.setMeal('a');
@@ -119,7 +116,6 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
                 pre[r]=true;
             }
             assertEquals(price,choose);
-            System.out.println("right");
         }
     }
     @Test

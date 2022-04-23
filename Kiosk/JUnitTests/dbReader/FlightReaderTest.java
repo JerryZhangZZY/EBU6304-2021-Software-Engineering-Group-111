@@ -5,12 +5,18 @@ import org.junit.jupiter.api.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * This is a unit test of FlightReader.
  *
  * @author Zhang Zeyu
+ * @author Liang Zhehao
+ *
+ * @version 3.1
+ * Add test for getFoodName() and getFoodPrice()
+ * @date 2022/4/23
  *
  * @version 3.0
  * Add test for getDepartureDateTime().
@@ -83,6 +89,16 @@ class FlightReaderTest {
             throw new RuntimeException(e);
         }
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void getFoodPName() {
+        assertArrayEquals(new String[]{"Extra", "Kweichow Moutai", "Ice-cream"}, FlightReader.getFoodName(0));
+    }
+
+    @Test
+    void getFoodPrice() {
+        assertArrayEquals(new int[]{5, 100, 12}, FlightReader.getFoodPrice(0));
     }
 
 }
