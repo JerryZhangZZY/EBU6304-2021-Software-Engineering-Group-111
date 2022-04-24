@@ -43,12 +43,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @date 2022/4/7
  */
 
-class FlightSelectionPanelTest implements MainFrameBarsTest {
+public class FlightSelectionPanelTest implements MainFrameBarsTest {
     MainFrame mainFrame;
     int currentPc;
 
     @BeforeEach
-    void reset() {
+    public void reset() {
         currentPc = 3;
         State.setPc(currentPc);
         mainFrame = new MainFrame();
@@ -64,7 +64,7 @@ class FlightSelectionPanelTest implements MainFrameBarsTest {
     }
 
     @Test
-    void testNoMore() {
+    public void testNoMore() {
         List<String> list = new ArrayList<>();
         list.add("bn0002");
         State.setBookingNumList(list);
@@ -84,7 +84,7 @@ class FlightSelectionPanelTest implements MainFrameBarsTest {
     }
 
     @Test
-    void testOneBookingNum() {
+    public void testOneBookingNum() {
         List<String> list = new ArrayList<>();
         list.add("bn0001");
         State.setBookingNumList(list);
@@ -104,7 +104,7 @@ class FlightSelectionPanelTest implements MainFrameBarsTest {
     }
 
     @Test
-    void testTwoBookingNum() {
+    public void testTwoBookingNum() {
         List<String> list = new ArrayList<>();
         list.add("bn0001");
         list.add("bn0002");
@@ -126,9 +126,5 @@ class FlightSelectionPanelTest implements MainFrameBarsTest {
     @Test
     public void testExit(){
         doExit(mainFrame);
-    }
-    @Test
-    public void testBack(){
-        doBack(mainFrame,currentPc);
     }
 }
