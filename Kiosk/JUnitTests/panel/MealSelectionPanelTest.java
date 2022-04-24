@@ -35,21 +35,24 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
     int currentPc;
 
     @BeforeEach
-    void reset(){
+    public void reset(){
         State.setIdFlight("AC0001");
         State.setMeal('d');
         State.resetSmallBillCard();
         currentPc = 5;
         State.setPc(currentPc);
     }
-
+    @BeforeEach
+    public void backupDb() {
+        BackupDbOperator.pull();
+    }
     @AfterEach
-    void recoverDb() {
+    public void recoverDb() {
         BackupDbOperator.push();
     }
 
     @Test
-    void testNormalFood(){
+    public void testNormalFood(){
         MealSelectionPanel selectionPanel = new  MealSelectionPanel();
         JButton[] food = new JButton[3];
         food[0]= selectionPanel.getNormal_food();
@@ -88,7 +91,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         }
     }
     @Test
-    void testSpecialFood(){
+    public void testSpecialFood(){
         MealSelectionPanel selectionPanel = new  MealSelectionPanel();
         JRadioButton[] meal = selectionPanel.getrdbtnMeal();
         boolean[] pre = new boolean[3];

@@ -4,9 +4,7 @@ import main.Config;
 import main.State;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import panel.FlightSelectionPanelTest;
-import panel.WelcomePanelTest;
-import panel.BookingLoginPanelTest;
+import panel.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -51,6 +49,16 @@ public class SystemTest {
                     currentPC = State.getPc();
                     testFlightSelectionPanel();
                 }
+                case 4 -> {
+                    currentPC = State.getPc();
+                    testSeatSelectionPanel();
+                }
+                case 5 -> {
+                    currentPC = State.getPc();
+                    testMealSelectionPanel();
+                }
+
+
             }
             if (State.getPc() > 3)
                 break;
@@ -97,7 +105,6 @@ public class SystemTest {
             }
         }
         else {
-            System.out.println("alt use right");
             ScanIdLoginCardTest scanIdLoginCardTest = new ScanIdLoginCardTest();
             scanIdLoginCardTest.reset();
             if (next == 0) {
@@ -135,4 +142,40 @@ public class SystemTest {
             }
         }
     }
+    void testSeatSelectionPanel() throws IOException{
+        Markov markov;
+        markov= new Markov();
+        SeatSelectionPanelTest test = new SeatSelectionPanelTest();
+        test.reset();
+        int next = markov.nextStateOf(4);
+        System.out.println("next of 4: " + next);
+        if(next == 0){
+            test.testExit();
+        }
+        if(next == 3){
+            test.testBack();
+        }
+        if(next == 5){
+            test.testSeat();
+        }
+    }
+    void testMealSelectionPanel() throws IOException{
+        Markov markov;
+        markov= new Markov();
+        MealSelectionPanelTest test = new MealSelectionPanelTest();
+        test.reset();
+        int next = markov.nextStateOf(5);
+        System.out.println("next of 5: " + next);
+        if(next == 0){
+            test.testExit();
+        }
+        if(next == 4){
+            test.testBack();
+        }
+        if(next == 5){
+            test.testNormalFood();
+            test.testSpecialFood();
+        }
+    }
+
 }
