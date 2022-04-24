@@ -59,6 +59,7 @@ public class TypeIdLoginCardTest implements MainFrameBarsTest {
         List<String> bookingNumList = card.getBookingNumByTyping(nameTF.getText(), idTF.getText());
         if (bookingNumList.size() == 3) {
             assertTrue(errLbl.isVisible());
+            System.out.println("alt left failed");
         }
         else {
             if (State.getBookingNumList().size() == 0)
