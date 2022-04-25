@@ -16,13 +16,13 @@
       "index": 2,
       "name": "Baguette",
       "price": 2,
-      "introduction": "Still hungry? Let's have some food to appease our hunger"
+      "introduction": "Still hungry? Let's have some food to appease our hunger!"
     },
     {
       "index": 3,
       "name": "Russian caviar",
       "price": 100,
-      "introduction": "Fresh Russian food. You're sure you don't want some？"
+      "introduction": "Fresh Russian food. You're sure you don't want some?"
     },
     {
       "index": 4,
@@ -34,7 +34,7 @@
       "index": 5,
       "name": "Italian Pizza",
       "price": 15,
-      "introduction": "Freshly made pizza, tastes great！"
+      "introduction": "Freshly made pizza, tastes great!"
     },
     {
       "index": 6,
