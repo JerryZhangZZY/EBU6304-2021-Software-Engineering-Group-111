@@ -60,7 +60,7 @@ public class SystemTest {
 
 
             }
-            if (State.getPc() > 3)
+            if (State.getPc() > 5)
                 break;
         }
     }
@@ -143,10 +143,10 @@ public class SystemTest {
         }
     }
     void testSeatSelectionPanel() throws IOException{
-        Markov markov;
-        markov= new Markov();
         SeatSelectionPanelTest test = new SeatSelectionPanelTest();
         test.reset();
+        Markov markov;
+        markov= new Markov();
         int next = markov.nextStateOf(4);
         System.out.println("next of 4: " + next);
         if(next == 0){
@@ -160,10 +160,10 @@ public class SystemTest {
         }
     }
     void testMealSelectionPanel() throws IOException{
-        Markov markov;
-        markov= new Markov();
         MealSelectionPanelTest test = new MealSelectionPanelTest();
         test.reset();
+        Markov markov;
+        markov= new Markov();
         int next = markov.nextStateOf(5);
         System.out.println("next of 5: " + next);
         if(next == 0){
