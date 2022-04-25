@@ -57,10 +57,13 @@ public class SystemTest {
                     currentPC = State.getPc();
                     testMealSelectionPanel();
                 }
-
+                case 6 -> {
+                    currentPC = State.getPc();
+                    testBillConfirmationPanel();
+                }
 
             }
-            if (State.getPc() > 5)
+            if (State.getPc() > 6)
                 break;
         }
     }
@@ -118,7 +121,7 @@ public class SystemTest {
             }
         }
     }
-    void testFlightSelectionPanel() throws IOException {
+    void testFlightSelectionPanel() throws IOException {        //3
         FlightSelectionPanelTest flightSelectionPanelTest = new FlightSelectionPanelTest();
         flightSelectionPanelTest.reset();
         Markov markov = new Markov();
@@ -142,7 +145,7 @@ public class SystemTest {
             }
         }
     }
-    void testSeatSelectionPanel() throws IOException{
+    void testSeatSelectionPanel() throws IOException{       //4
         SeatSelectionPanelTest test = new SeatSelectionPanelTest();
         test.reset();
         Markov markov;
@@ -159,7 +162,7 @@ public class SystemTest {
             test.testSeat();
         }
     }
-    void testMealSelectionPanel() throws IOException{
+    void testMealSelectionPanel() throws IOException{       //5
         MealSelectionPanelTest test = new MealSelectionPanelTest();
         test.reset();
         Markov markov;
@@ -177,5 +180,22 @@ public class SystemTest {
             test.testSpecialFood();
         }
     }
-
+    void testBillConfirmationPanel() throws IOException {       //6
+        BillConfirmationPanelTest billConfirmationPanelTest = new BillConfirmationPanelTest();
+        billConfirmationPanelTest.reset();
+        Markov markov = new Markov();
+        int next = markov.nextStateOf(6);
+        System.out.println("next of 6: " + next);
+        if (next == 0){
+            billConfirmationPanelTest.testExit();
+        }
+        else if (next == 5){
+            billConfirmationPanelTest.testBack();
+        }
+        else if (next == 7){
+            billConfirmationPanelTest.testSeatBill();;
+            billConfirmationPanelTest.testMealBill();
+            billConfirmationPanelTest.testConfirmButton();
+        }
+    }
 }

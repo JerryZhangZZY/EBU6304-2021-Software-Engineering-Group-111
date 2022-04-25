@@ -3,7 +3,9 @@ package panel;
 import backupDbOperation.BackupDbOperator;
 import card.MealBillcard;
 import card.SeatBillCard;
+import common.MainFrameBarsTest;
 import dbReader.PassengerFlightReader;
+import frame.MainFrame;
 import idCardReader.IdCardReader;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
@@ -25,15 +27,20 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 2.0
  * @date 2022/4/8
  */
-class BillConfirmationPanelTest {
+public class BillConfirmationPanelTest implements MainFrameBarsTest {
+    MainFrame mainFrame;
+    int currentPC;
 
     @BeforeEach
-    void reset() {
+    public void reset() {
         State.setPrefSeatName(new String[]{"Normal", "Pro", "Max", "Sierra blue"});
         State.setPrefSeatPrice(new int[]{0, 5, 20, 10000});
         State.setPrefFoodName(new String[]{"Extra", "Kweichow Moutai", "Ice-cream"});
         State.setPrefFoodPrice(new int[]{5, 1000, 12});
         State.setIdFlight("AC0001");
+        mainFrame = new MainFrame();
+        currentPC = 6;
+        State.setPc(6);
     }
 
     @BeforeEach
@@ -47,7 +54,7 @@ class BillConfirmationPanelTest {
     }
 
     @RepeatedTest(10)
-    void testSeatBill() {
+    public void testSeatBill() {
 
         Random random = new Random();
         State.setSeatPre(random.nextInt(4));
@@ -67,7 +74,7 @@ class BillConfirmationPanelTest {
     }
 
     @RepeatedTest(10)
-    void testMealBill() {
+    public void testMealBill() {
         char[] c = {'a', 'b', 'c'};
         String[] food = {"Normal", "Vegetarian", "Halal"};
 
@@ -99,7 +106,7 @@ class BillConfirmationPanelTest {
     }
 
     @Test
-    void testConfirmButton() {
+    public void testConfirmButton() {
         int tempPc;
         for (int i = 0; i < 2; i++) {
             State.setPassengerFlight_index(i+2);
@@ -128,5 +135,11 @@ class BillConfirmationPanelTest {
                 assertEquals(tempPc, State.getPc());
             }
         }
+    }
+    public void testExit(){
+        doExit(mainFrame);
+    }
+    public void testBack(){
+        doBack(mainFrame, currentPC);
     }
 }
