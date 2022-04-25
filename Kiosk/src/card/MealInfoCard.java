@@ -14,11 +14,15 @@ import java.awt.event.ActionListener;
  *
  * @author Zhang Zeyu
  * @author Wang Chenyu
+ * @author Liang Zhehao
  *
+ * @version 3.0
+ * optimize UI
+ * @date 4/25
  *
  * @version 1.1
- * @date 2022/3/25
  * GUI appearance redesigned and code formatted.
+ * @date 2022/3/25
  *
  * @version 1.0
  * @date 3/23
@@ -43,26 +47,30 @@ public class MealInfoCard extends JPanel {
     private Image newimg_halal= img_halal.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
     private ImageIcon icon_halal = new ImageIcon(newimg_halal);
     private Border button_chosen = BorderFactory.createLineBorder(new Color(60,179,113),10, true);
+    private int x1 = 40, x2 = 425, x3 = 810;
+    private int nx1 = x1 - 4, nx2 = x2 - 4, nx3 = x3 - 4;
+
     public MealInfoCard(){
         setBackground(Theme.getBackgroundColor());
         setLayout(null);
-        setSize(1130, 880);
+        setSize(1200, 880);
         ChosenListener chosenListener = new ChosenListener();
-        normal_food.setLocation(50, 50);
+
+        normal_food.setLocation(x1, 50);
         normal_food.setSize(350, 780);
         normal_food.setBorder(null);
         normal_food.setContentAreaFilled(false);
         normal_food.setIcon(icon_normal);
         normal_food.addActionListener(chosenListener);
 
-        vegetarian_food.setLocation(420, 50);
+        vegetarian_food.setLocation(x2, 50);
         vegetarian_food.setSize(350, 780);
         vegetarian_food.setBorder(null);
         vegetarian_food.setContentAreaFilled(false);
         vegetarian_food.setIcon(icon_vegetarian);
         vegetarian_food.addActionListener(chosenListener);
 
-        halal_food.setLocation(790, 50);
+        halal_food.setLocation(x3, 50);
         halal_food.setContentAreaFilled(false);
         halal_food.setSize(350, 780);
         halal_food.setBorder(null);
@@ -80,52 +88,52 @@ public class MealInfoCard extends JPanel {
             if (e.getSource() == normal_food) {
                 if (chosen == 'a') {
                     chosen = 'd';
-                    normal_food.setBounds(50, 50, 350, 780);
+                    normal_food.setBounds(x1, 50, 350, 780);
                     normal_food.setBorder(null);
                 } else {
                     if (chosen == 'b') {
-                        vegetarian_food.setBounds(420, 50, 350, 780);
+                        vegetarian_food.setBounds(x2, 50, 350, 780);
                         vegetarian_food.setBorder(null);
                     } else if (chosen == 'c') {
-                        halal_food.setBounds(790, 50, 350, 780);
+                        halal_food.setBounds(x3, 50, 350, 780);
                         halal_food.setBorder(null);
                     }
                     chosen = 'a';
-                    normal_food.setBounds(46, 41, 358, 798);
+                    normal_food.setBounds(nx1, 41, 358, 798);
                     normal_food.setBorder(button_chosen);
                 }
             } else if (e.getSource() == vegetarian_food) {
                 if (chosen == 'b') {
                     chosen = 'd';
-                    vegetarian_food.setBounds(420, 50, 350, 780);
+                    vegetarian_food.setBounds(x2, 50, 350, 780);
                     vegetarian_food.setBorder(null);
                 } else {
                     if (chosen == 'a') {
-                        normal_food.setBounds(50, 50, 350, 780);
+                        normal_food.setBounds(x1, 50, 350, 780);
                         normal_food.setBorder(null);
                     } else if (chosen == 'c') {
-                        halal_food.setBounds(790, 50, 350, 780);
+                        halal_food.setBounds(x3, 50, 350, 780);
                         halal_food.setBorder(null);
                     }
                     chosen = 'b';
-                    vegetarian_food.setBounds(416, 41, 358, 798);
+                    vegetarian_food.setBounds(nx2, 41, 358, 798);
                     vegetarian_food.setBorder(button_chosen);
                 }
             } else if (e.getSource() == halal_food) {
                 if (chosen == 'c') {
                     chosen = 'd';
-                    halal_food.setBounds(790, 50, 350, 780);
+                    halal_food.setBounds(x3, 50, 350, 780);
                     halal_food.setBorder(null);
                 } else {
                     if (chosen == 'a') {
-                        normal_food.setBounds(50, 50, 350, 780);
+                        normal_food.setBounds(x1, 50, 350, 780);
                         normal_food.setBorder(null);
                     } else if (chosen == 'b') {
-                        vegetarian_food.setBounds(420, 50, 350, 780);
+                        vegetarian_food.setBounds(x2, 50, 350, 780);
                         vegetarian_food.setBorder(null);
                     }
                     chosen = 'c';
-                    halal_food.setBounds(786, 41, 358, 798);
+                    halal_food.setBounds(nx3, 41, 358, 798);
                     halal_food.setBorder(button_chosen);
                 }
             }
