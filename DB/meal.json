@@ -1,0 +1,16 @@
+{
+  "meal": [
+    {
+      "index": 0,
+      "name": "Extra",
+      "price": 5,
+      "introduction": "<html><body>Food is not enough?<br>How about some more!<body></html>"
+    },
+    {
+      "index": 1,
+      "name": "Kweichow Moutai",
+      "price": 100,
+      "introduction": "<html><body>Drink too light?<br>Have some good wine!<body></html>"
+    }
+  ]
+}
