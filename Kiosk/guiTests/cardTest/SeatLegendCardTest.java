@@ -13,7 +13,7 @@ import javax.swing.*;
  * @version 3.0
  * @date 2022/4/22
  */
-public class LegendCardTest {
+public class SeatLegendCardTest {
     public static void main(String[] args) {
         ImageIcon[] iconEmpty = new ImageIcon[4];
         iconEmpty[0] = new ImageIcon(new ImageIcon("Kiosk/icons/seatStandard.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
