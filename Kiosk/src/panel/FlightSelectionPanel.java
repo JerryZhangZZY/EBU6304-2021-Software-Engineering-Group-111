@@ -3,6 +3,7 @@ package panel;
 import card.FlightInfoCard;
 import dbReader.FlightReader;
 import dbReader.PassengerFlightReader;
+import main.Clock;
 import main.Config;
 import main.State;
 import main.Theme;
@@ -114,6 +115,7 @@ public class FlightSelectionPanel extends JPanel {
             thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    Clock.stopTimer();
                     try {
                         Thread.sleep(3500);
                     } catch (InterruptedException ignored) {}
@@ -124,6 +126,8 @@ public class FlightSelectionPanel extends JPanel {
         }
 
         else {
+            Clock.stopTimer();
+            Clock.setTimer();
             int x = 500;
             if (bookingNumList.size() == 2) {
                 x = 200;

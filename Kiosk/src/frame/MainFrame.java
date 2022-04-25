@@ -79,7 +79,8 @@ public class MainFrame extends JFrame {
     private JButton backButton;
     private JLabel satisflightLabel;
     private WelcomePanel welcomePanel;
-    private JLabel time;
+    private JLabel clock;
+    private JLabel timer;
 
     private int freshTime = 8;
 
@@ -131,14 +132,23 @@ public class MainFrame extends JFrame {
         welcomeLabel.setBounds(60, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
-        time = new JLabel();
-        time.setForeground(Theme.getMinorFontColor());
-        time.setBounds(810, 20, 300, 60);
-        time.setHorizontalAlignment(SwingConstants.CENTER);
-        time.setFont(new Font("Arial", Font.BOLD, 30));
-        Clock.setClock(time);
-        time.setVisible(false);
-        topPanel.add(time);
+        clock = new JLabel();
+        clock.setForeground(Theme.getMinorFontColor());
+        clock.setBounds(810, 20, 300, 60);
+        clock.setHorizontalAlignment(SwingConstants.CENTER);
+        clock.setFont(new Font("Arial", Font.BOLD, 30));
+        Clock.setClock(clock);
+        clock.setVisible(false);
+        topPanel.add(clock);
+
+        timer = new JLabel();
+        timer.setForeground(Theme.getMinorFontColor());
+        timer.setBounds(1500, 20, 300, 60);
+        timer.setHorizontalAlignment(SwingConstants.CENTER);
+        timer.setFont(new Font("Arial", Font.BOLD, 30));
+        timer.setVisible(false);
+        Clock.loadTimer(timer);
+        topPanel.add(timer);
 
         exitButton = new JButton();
         exitButton.setRequestFocusEnabled(false);
@@ -159,6 +169,7 @@ public class MainFrame extends JFrame {
                 else {
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
+                    Clock.stopTimer();
                     State.setPc(0);
                 }
             }
@@ -260,7 +271,7 @@ public class MainFrame extends JFrame {
         backButton.setVisible(back);
     }
     public void showClock(Boolean flag){
-        time.setVisible(flag);
+        clock.setVisible(flag);
     }
 
     /**

@@ -1,10 +1,10 @@
 package main;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * The class is a tool to set a clock or stop it.
@@ -15,25 +15,62 @@ import java.util.Date;
  * @date 2022/4/11
  */
 public abstract class Clock {
-    static Timer timeAction;
+    static Timer clockAction;
+    static Timer timerAction;
+    static int limitTime = 120;
+    static int tempLimitTime;
+    static JLabel tempTimer;
+    static int flag = 0;
     /**
      * Set the timer
-     * @param time panel of the timer
+     * @param clock panel of the timer
      */
-    public static void setClock(JLabel time) {
-        final JLabel varTime = time;
-        timeAction = new Timer(0, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+    public static void setClock(JLabel clock) {
+        final JLabel varClock = clock;
+        clockAction = new Timer();
+        clockAction.schedule(new TimerTask() {
+            @Override
+            public void run() {
                 long timemillis = System.currentTimeMillis();
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                varTime.setText(df.format(new Date(timemillis)));
+                varClock.setText(df.format(new Date(timemillis)));
             }
-        });
-        timeAction.start();
+        },0,1000);
     }
 
-    public static void stopClock(){
-        timeAction.stop();
+    public static void loadTimer(JLabel timer){
+        tempTimer = timer;
+    }
+
+    public static void setTimer() {
+        tempLimitTime = limitTime;
+        final JLabel varTimer = tempTimer;
+        timerAction = new Timer();
+        flag = 1;
+        timerAction.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                varTimer.setText("Time remaining: "+(tempLimitTime--));
+                tempTimer.setVisible(true);
+                if(tempLimitTime ==-1){
+                    stopTimer();
+                    State.setPc(0);
+                }
+            }
+        },0,1000);
+    }
+
+
+    public static void stopTimer(){
+        if(flag==1){
+            timerAction.cancel();
+            tempLimitTime = limitTime;
+            tempTimer.setVisible(false);
+            flag = 0;
+        }
+        else{
+            tempTimer.setVisible(false);
+        }
     }
 
 }
