@@ -1,6 +1,6 @@
 package cardTest;
 
-import card.LegendCard;
+import card.SeatLegendCard;
 import frame.MainFrame;
 
 import javax.swing.*;
@@ -24,9 +24,9 @@ public class LegendCardTest {
         ImageIcon iconNotAvailable = new ImageIcon(new ImageIcon("Kiosk/icons/seatNotAvailable.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
 
         MainFrame testMainFrame = new MainFrame();
-        LegendCard legendCard = new LegendCard(iconEmpty, iconSelected, iconNotAvailable);
-        legendCard.setLocation(0, 0);
-        testMainFrame.loadPanel(legendCard);
+        SeatLegendCard seatLegendCard = new SeatLegendCard(iconEmpty, iconSelected, iconNotAvailable);
+        seatLegendCard.setLocation(0, 0);
+        testMainFrame.loadPanel(seatLegendCard);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);
     }

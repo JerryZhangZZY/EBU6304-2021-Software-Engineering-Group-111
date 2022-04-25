@@ -15,9 +15,9 @@ import java.awt.*;
  * @date 2022/4/21
  */
 
-public class LegendCard extends JPanel {
+public class SeatLegendCard extends JPanel {
 
-    public LegendCard(ImageIcon[] empty, ImageIcon selected, ImageIcon occupied) {
+    public SeatLegendCard(ImageIcon[] empty, ImageIcon selected, ImageIcon occupied) {
         setBackground(Theme.getCardColor());
         setSize(330,780);
         setLayout(null);
