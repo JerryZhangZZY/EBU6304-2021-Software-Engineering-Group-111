@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
- * @version 1.2
+ * @version 3.0
  * GUI function improve
  * @date 4/25
  *
@@ -33,8 +33,7 @@ import java.awt.event.MouseEvent;
 public class PaymentPanel extends JPanel {
     private JTextField tfCreditId;
     private JLabel lblPrice;
-    private int price;
-    private JButton btn_Pay;
+    private JButton btnPay;
 
     public PaymentPanel(int price) {
         setBackground(Theme.getBackgroundColor());
@@ -79,8 +78,8 @@ public class PaymentPanel extends JPanel {
         tfCreditId.setSelectionColor(new Color(128, 0, 0));
         tfCreditId.setSelectedTextColor(Color.BLACK);
         tfCreditId.setEditable(false);
-        panelInput.add(tfCreditId);
         tfCreditId.setColumns(10);
+        panelInput.add(tfCreditId);
 
         JLabel lblUnionCardIcon = new JLabel("");
         lblUnionCardIcon.setIcon(new ImageIcon("Kiosk/icons/unioncard.png"));
@@ -94,18 +93,17 @@ public class PaymentPanel extends JPanel {
         panelPay.setBounds(225, 425, 350, 60);
         panelUnionPay.add(panelPay);
 
-        btn_Pay = new JButton();
-        btn_Pay.setText("Pay");
-        btn_Pay.setFont(new Font("Tahoma", Font.BOLD, 29));
-        btn_Pay.setForeground(Color.WHITE);
-        btn_Pay.setHorizontalAlignment(SwingConstants.CENTER);
-        btn_Pay.setVerticalAlignment(SwingConstants.CENTER);
-        btn_Pay.setContentAreaFilled(false);
-        btn_Pay.setBorder(null);
-        btn_Pay.setFocusPainted(false);
-        btn_Pay.setBounds(0,0, 350, 60);
-        panelPay.add(btn_Pay);
-
+        btnPay = new JButton();
+        btnPay.setText("Pay");
+        btnPay.setFont(new Font("Tahoma", Font.BOLD, 35));
+        btnPay.setForeground(Color.WHITE);
+        btnPay.setHorizontalAlignment(SwingConstants.CENTER);
+        btnPay.setVerticalAlignment(SwingConstants.CENTER);
+        btnPay.setContentAreaFilled(false);
+        btnPay.setBorder(null);
+        btnPay.setFocusPainted(false);
+        btnPay.setBounds(0,0, 350, 60);
+        panelPay.add(btnPay);
 
         lblPrice = new JLabel("$" + price);
         lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
@@ -121,7 +119,7 @@ public class PaymentPanel extends JPanel {
         lblPayTo.setBounds(250, 250, 300, 28);
         panelUnionPay.add(lblPayTo);
 
-        btn_Pay.addActionListener(new ActionListener() {
+        btnPay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
@@ -155,11 +153,9 @@ public class PaymentPanel extends JPanel {
                     tfCreditId.setForeground(new Color(128, 0, 0));
                 }
             }
-
         });
-
     }
     public JButton getButtonPay(){
-        return btn_Pay;
+        return btnPay;
     }
 }
