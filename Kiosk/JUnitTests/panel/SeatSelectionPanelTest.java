@@ -64,7 +64,6 @@ public class SeatSelectionPanelTest implements MainFrameBarsTest {
 
         int expectedSeatRow = -1;
         int expectedSeatColumn = -1;
-        int tempPc;
         boolean chosen = false;
         Random random = new Random();
 
@@ -74,7 +73,6 @@ public class SeatSelectionPanelTest implements MainFrameBarsTest {
             for (int j = 0; j < random.nextInt(10); j++) {
                 int r2 = random.nextInt(6);
                 int r3 = random.nextInt(3);
-                tempPc = State.getPc();
                 seat[r3].get(r2).doClick();
                 if (seatSelectionPanel.getAvail_seat()[r3][r2] == 2) {
                     expectedSeatRow = r1 + r3;
@@ -85,18 +83,18 @@ public class SeatSelectionPanelTest implements MainFrameBarsTest {
                     expectedSeatColumn = -1;
                     chosen = false;
                 }
-
-                okBtn.doClick();
-                if (chosen) {
-                    assertEquals(expectedSeatRow, State.getSeatRow());
-                    assertEquals(expectedSeatColumn, State.getSeatColumn());
-                    assertEquals(State.smallBillCard.getPrice(), State.getBill());
-                    assertEquals(tempPc + 1, State.getPc());
-                    assertEquals(seatSelectionPanel.getWarn().getBorder(), null);
-                } else {
-                    assertEquals(tempPc, State.getPc());
-                    assertEquals(seatSelectionPanel.getWarn().getBorder(), seatSelectionPanel.getTipBorder());
-                }
+            }
+            State.setPc(4);
+            okBtn.doClick();
+            if (chosen) {
+                assertEquals(expectedSeatRow, State.getSeatRow());
+                assertEquals(expectedSeatColumn, State.getSeatColumn());
+                assertEquals(State.smallBillCard.getPrice(), State.getBill());
+                assertEquals(5, State.getPc());
+                assertEquals(seatSelectionPanel.getWarn().getBorder(), null);
+            } else {
+                assertEquals(4, State.getPc());
+                assertEquals(seatSelectionPanel.getWarn().getBorder(), seatSelectionPanel.getTipBorder());
             }
         }
     }

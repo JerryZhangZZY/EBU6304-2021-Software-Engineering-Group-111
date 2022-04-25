@@ -1,6 +1,6 @@
 package panel;
 
-import card.LegendCard;
+import card.SeatLegendCard;
 import card.ScrollCard;
 import dbReader.FlightReader;
 import dbReader.PlaneReader;
@@ -242,9 +242,9 @@ public class SeatSelectionPanel extends JPanel {
         scrollBar.addAdjustmentListener(scrollListener);
 
         //LegendCard
-        LegendCard legendCard = new LegendCard(iconEmpty, iconSelected[4], iconNotAvailable);
-        legendCard.setLocation(50, 50);
-        add(legendCard);
+        SeatLegendCard seatLegendCard = new SeatLegendCard(iconEmpty, iconSelected[4], iconNotAvailable);
+        seatLegendCard.setLocation(50, 50);
+        add(seatLegendCard);
 
         //OKbutton
         OKListener okListener = new OKListener();
