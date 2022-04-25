@@ -42,7 +42,7 @@ public class FinalPanelTest {
     void reset() { BackupDbOperator.push();}
 
     @Test
-    void exitTest() {
+    public void exitTest() {
         Random random = new Random();
         char[] food = {'a', 'b', 'c'};
         String[] column = {"A", "B", "C", "D", "E", "F"};
@@ -64,7 +64,7 @@ public class FinalPanelTest {
     }
 
     @Test
-    void systemExitTest() {
+    public void systemExitTest() {
         Random random = new Random();
         char[] food = {'a', 'b', 'c'};
         String[] column = {"A", "B", "C", "D", "E", "F"};
@@ -86,7 +86,7 @@ public class FinalPanelTest {
     }
 
     @RepeatedTest(10)
-    void testDataConfirm() {
+    public void testDataConfirm() {
         Random random = new Random();
         char[] food = {'a', 'b', 'c'};
         String[] column = {"A", "B", "C", "D", "E", "F"};

@@ -62,7 +62,10 @@ public class SystemTest {
                     currentPC = State.getPc();
                     testBillConfirmationPanel();
                 }
-
+                case 8 -> {
+                    currentPC = State.getPc();
+                    testFinalPanel();
+                }
             }
             if (State.getPc() > 6)
                 break;
@@ -197,6 +200,19 @@ public class SystemTest {
             billConfirmationPanelTest.testSeatBill();;
             billConfirmationPanelTest.testMealBill();
             billConfirmationPanelTest.testConfirmButton();
+        }
+    }
+    void testFinalPanel() throws IOException {        //8
+        FinalPanelTest finalPanelTest = new FinalPanelTest();
+        Markov markov = new Markov();
+        int next = markov.nextStateOf(8);
+        System.out.println("next of 8: " + next);
+        finalPanelTest.testDataConfirm();
+        if (next == 0){
+            finalPanelTest.systemExitTest();
+        }
+        else if (next == 3){
+            finalPanelTest.exitTest();
         }
     }
 }
