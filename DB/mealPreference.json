@@ -4,55 +4,55 @@
       "index": 0,
       "name": "Extra",
       "price": 5,
-      "introduction": "<html><body>Food is not enough?<br>How about some more!<body></html>"
+      "introduction": "Food is not enough?<br>How about some more!"
     },
     {
       "index": 1,
       "name": "Kweichow Moutai",
       "price": 100,
-      "introduction": "<html><body>Drink too light?<br>Have some good wine!<body></html>"
+      "introduction": "Drink too light?<br>Have some good wine!"
     },
     {
       "index": 2,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Baguette",
+      "price": 2,
+      "introduction": "Still hungry? Let's have some food to appease our hunger"
     },
     {
       "index": 3,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Russian caviar",
+      "price": 100,
+      "introduction": "Fresh Russian food. You're sure you don't want some？"
     },
     {
       "index": 4,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Spanish ham",
+      "price": 5,
+      "introduction": "Ham from the court, delicious from the master."
     },
     {
       "index": 5,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Italian Pizza",
+      "price": 15,
+      "introduction": "Freshly made pizza, tastes great！"
     },
     {
       "index": 6,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Rice",
+      "price": 10,
+      "introduction": "Eat benefit convenient rice, be healthy citizen!"
     },
     {
       "index": 7,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Hamburger",
+      "price": 5,
+      "introduction": "You're next in line for eating!"
     },
     {
       "index": 8,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "French fries",
+      "price": 2,
+      "introduction": "Food is limitless, and young people dare to be fresh."
     },
     {
       "index": 9,
