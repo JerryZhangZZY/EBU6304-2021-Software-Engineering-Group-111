@@ -13,20 +13,22 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * @version 1.0
+ * integrated test, calling all tests
+ * @author Chenyu
+ * @author Zhang Zeyu
  * @author Ni Ruijie
- * @date 3/26
- * Generate class which can enter the credit card ID of users
- *
- * @version 1.1
- * @author Ni Ruijie
- * @date 3/27
- * Bound 1920*800 ---> 1600*800
  *
  * @version 1.2
- * @author Zhang Zeyu
- * @date 2022/3/29
+ * GUI function improve
+ * @date 4/25
+ *
+ * @version 1.1
  * Redesigned GUI.
+ * @date 3/29
+ *
+ * @version 1.0
+ * Generate class which can enter the credit card ID of users
+ * @date 3/26
  */
 public class PaymentPanel extends JPanel {
     private JTextField tfCreditId;
