@@ -130,19 +130,15 @@ public abstract class FlightReader {
         }
     }
 
-    public static String[] getFoodName(int index) {
+    public static int[] getMealPreference(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");
-        return arr.getJSONObject(index).getString("foodName").split(",");
-    }
-    public static int[] getFoodPrice(int index) {
-        JSONObject obj = JSON.parseObject(JsonReader.read("DB/flight.json"));
-        JSONArray arr = obj.getJSONArray("flight");
-        String[] p = arr.getJSONObject(index).getString("foodPrice").split(",");
-        int[] price = new int[3];
+        int[] foodIndex = new int[3];
+        JSONArray foodArray = arr.getJSONObject(index).getJSONArray("mealPreference");
         for (int i = 0; i < 3; i++) {
-            price[i] = Integer.parseInt(p[i]);
+            foodIndex[i] = foodArray.getInteger(i);
         }
-        return price;
+        return foodIndex;
     }
+
 }
