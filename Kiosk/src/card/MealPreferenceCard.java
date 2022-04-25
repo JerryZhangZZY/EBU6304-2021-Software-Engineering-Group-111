@@ -10,6 +10,14 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+/**
+ * This card can return a meal preference card
+ *
+ * @author Liang Zhehao
+ *
+ * @version 3.0
+ * @date 4/26
+ */
 public class MealPreferenceCard extends JPanel {
 
     private JRadioButton[] pref = new JRadioButton[3];
