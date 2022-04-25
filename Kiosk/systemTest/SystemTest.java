@@ -15,6 +15,7 @@ import static java.lang.Thread.sleep;
 /**
  * integrated test, calling all tests
  * @author zaitian
+ * @author Chenyu
  *
  * @version 1.1
  * implement markov process
@@ -175,7 +176,7 @@ public class SystemTest {
         if(next == 4){
             test.testBack();
         }
-        if(next == 5){
+        if(next == 6){
             test.testNormalFood();
             test.testSpecialFood();
         }
