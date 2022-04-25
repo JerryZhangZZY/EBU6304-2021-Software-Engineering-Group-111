@@ -23,6 +23,11 @@ import java.util.List;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @version 3.2
+ * Added function: Set the timer when there are flights haven't been checked in.
+ *                 And reset the timer when recall the panel.
+ * @date 2022/4/26
+ *
  * @version 3.1
  * Integrate doPress() and doRelease() as doClick()
  * and improved appearance.

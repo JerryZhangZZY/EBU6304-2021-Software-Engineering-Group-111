@@ -24,6 +24,10 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 3.2
+ * Added function: Automatically exit in a fixed time.
+ * @date 2022/4/26
+ *
  * @version 3.1
  * Animation speed can be set in config.
  * @date 2022/4/24

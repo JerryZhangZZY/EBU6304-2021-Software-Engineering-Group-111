@@ -10,6 +10,10 @@ import java.util.TimerTask;
  * The class is a tool to set a clock or stop it.
  * @author Ni Ruijie
  *
+ * @version 3.0
+ * Added 3 methods to achieve automatically exiting.
+ * @date 2022/4/26
+ *
  * @version 2.0
  * Created 2 functions setClock & stopClock
  * @date 2022/4/11
@@ -22,8 +26,8 @@ public abstract class Clock {
     static JLabel tempTimer;
     static int flag = 0;
     /**
-     * Set the timer
-     * @param clock panel of the timer
+     * Set the clock
+     * @param clock panel of the clock
      */
     public static void setClock(JLabel clock) {
         final JLabel varClock = clock;
@@ -38,10 +42,17 @@ public abstract class Clock {
         },0,1000);
     }
 
+    /**
+     * Load the panel from MainFrame to this class.
+     * @param timer panel of the timer
+     */
     public static void loadTimer(JLabel timer){
         tempTimer = timer;
     }
 
+    /**
+     * Set the Timer which can make the system exit to welcome page in a fixed time.
+     */
     public static void setTimer() {
         tempLimitTime = limitTime;
         final JLabel varTimer = tempTimer;
@@ -60,7 +71,9 @@ public abstract class Clock {
         },0,1000);
     }
 
-
+    /**
+     * Stop the Timer, and reset it.
+     */
     public static void stopTimer(){
         if(flag==1){
             timerAction.cancel();
