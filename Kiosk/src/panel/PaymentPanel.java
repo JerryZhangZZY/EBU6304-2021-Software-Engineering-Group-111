@@ -7,6 +7,8 @@ import main.Theme;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -30,9 +32,10 @@ public class PaymentPanel extends JPanel {
     private JTextField tfCreditId;
     private JLabel lblPrice;
     private int price;
+    private JButton btn_Pay;
 
-	public PaymentPanel(int price) {
-		setBackground(Theme.getBackgroundColor());
+    public PaymentPanel(int price) {
+        setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1600, 880);
         setVisible(true);
@@ -89,12 +92,18 @@ public class PaymentPanel extends JPanel {
         panelPay.setBounds(225, 425, 350, 60);
         panelUnionPay.add(panelPay);
 
-        JLabel lblPay = new JLabel("Pay");
-        lblPay.setForeground(Color.WHITE);
-        lblPay.setHorizontalAlignment(SwingConstants.CENTER);
-        lblPay.setFont(new Font("Tahoma", Font.BOLD, 35));
-        lblPay.setBounds(135, 10, 80, 40);
-        panelPay.add(lblPay);
+        btn_Pay = new JButton();
+        btn_Pay.setText("Pay");
+        btn_Pay.setFont(new Font("Tahoma", Font.BOLD, 29));
+        btn_Pay.setForeground(Color.WHITE);
+        btn_Pay.setHorizontalAlignment(SwingConstants.CENTER);
+        btn_Pay.setVerticalAlignment(SwingConstants.CENTER);
+        btn_Pay.setContentAreaFilled(false);
+        btn_Pay.setBorder(null);
+        btn_Pay.setFocusPainted(false);
+        btn_Pay.setBounds(0,0, 350, 60);
+        panelPay.add(btn_Pay);
+
 
         lblPrice = new JLabel("$" + price);
         lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
@@ -110,24 +119,24 @@ public class PaymentPanel extends JPanel {
         lblPayTo.setBounds(250, 250, 300, 28);
         panelUnionPay.add(lblPayTo);
 
-        panelPay.addMouseListener(new MouseAdapter() {
+        btn_Pay.addActionListener(new ActionListener() {
             @Override
-            public void mouseReleased(MouseEvent e) {
-                super.mouseReleased(e);
-                panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
-                lblPay.setForeground(Color.WHITE);
-                State.setPc(State.getPc() + 1);
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
+            public void actionPerformed(ActionEvent e) {
                 panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
-                lblPay.setForeground(Color.LIGHT_GRAY);
+                State.setPc(State.getPc() + 1);
             }
         });
 
         tfCreditId.addMouseListener(new MouseAdapter() {
             @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                tfCreditId.setEditable(true);
+                if (tfCreditId.getText().equals("Credit card ID")) {
+                    tfCreditId.setText(null);
+                    tfCreditId.setForeground(Color.WHITE);
+                }
+            }
             public void mousePressed(MouseEvent e) {
                 super.mouseClicked(e);
                 tfCreditId.setEditable(true);
@@ -136,18 +145,19 @@ public class PaymentPanel extends JPanel {
                     tfCreditId.setForeground(Color.WHITE);
                 }
             }
-        });
-
-        panelUnionPay.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
                 tfCreditId.setEditable(false);
-                if (tfCreditId.getText().equals("")) {
+                if (tfCreditId.getText().equals("")){
                     tfCreditId.setText("Credit card ID");
                     tfCreditId.setForeground(new Color(128, 0, 0));
                 }
             }
+
         });
+
+    }
+    public JButton getButtonPay(){
+        return btn_Pay;
     }
 }
