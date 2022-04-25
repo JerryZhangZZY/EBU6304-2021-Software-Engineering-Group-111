@@ -13,6 +13,10 @@ import java.awt.*;
  *
  * @author Zhang Zeyu
  *
+ * @version 3.1
+ * Integrate doPress() and doRelease() as doClick().
+ * @date 2022/4/25
+ *
  * @version 3.0
  * Add unavailable label.
  * @date 2022/4/20
@@ -144,12 +148,7 @@ public class FlightInfoCard extends JPanel {
         add(lblGray);
     }
 
-    public void doPress() {
-        setBackground(new Color(184, 207, 229));
-    }
-
-    public void doRelease() {
-        setBackground(Theme.getCardColor());
+    public void doClick() {
         State.setIdFlight(idFlight);
         State.setBookingNum(State.getBookingNumList().get(column));
         State.setPassengerFlight_index(PassengerFlightReader.indexOf(State.getBookingNum(), idFlight));

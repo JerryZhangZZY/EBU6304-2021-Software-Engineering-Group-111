@@ -22,9 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Liang Zhehao
  * @author zaitian
  *
+ * @version 3.1
+ * Integrate doPress() and doRelease() as doClick().
+ * @date 2022/4/25
+ *
  * @version 3.0
  * implement MainFrameBarsTest interface
- * @date 4/23
+ * @date 2022/4/23
  *
  * @version 2.3
  * Upgrade old tests and add a new test.
@@ -96,8 +100,7 @@ public class FlightSelectionPanelTest implements MainFrameBarsTest {
         State.setPc(3);
 
         FlightInfoCard flightInfoCard = (FlightInfoCard)flightSelectionPanel.getComponent(1);
-        flightInfoCard.doPress();
-        flightInfoCard.doRelease();
+        flightInfoCard.doClick();
 
         assertEquals(4, State.getPc());
         assertEquals("MU1314", State.getIdFlight());
@@ -117,8 +120,7 @@ public class FlightSelectionPanelTest implements MainFrameBarsTest {
         State.setPc(3);
 
         FlightInfoCard flightInfoCard = (FlightInfoCard)flightSelectionPanel.getComponent(2);
-        flightInfoCard.doPress();
-        flightInfoCard.doRelease();
+        flightInfoCard.doClick();
 
         assertEquals(4, State.getPc());
         assertEquals("MU1314", State.getIdFlight());

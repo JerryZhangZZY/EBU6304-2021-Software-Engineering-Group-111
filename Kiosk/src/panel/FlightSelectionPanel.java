@@ -22,6 +22,11 @@ import java.util.List;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @version 3.1
+ * Integrate doPress() and doRelease() as doClick()
+ * and improved appearance.
+ * @date 2022/4/25
+ *
  * @version 3.0
  * Those flight info cards that are before the set time
  * will be set gray.
@@ -145,16 +150,30 @@ public class FlightSelectionPanel extends JPanel {
                     else {
                         flightInfoCard.addMouseListener(new MouseListener() {
                             @Override
-                            public void mouseClicked(MouseEvent e) {}
+                            public void mouseClicked(MouseEvent e) {
+                                flightInfoCard.doClick();
+                            }
 
                             @Override
                             public void mousePressed(MouseEvent e) {
-                                flightInfoCard.doPress();
+                                int rGray, gGray, bGray;
+                                if (Theme.getCardColor().getRed() + Theme.getCardColor().getGreen() + Theme.getCardColor().getBlue()
+                                        > Theme.getBackgroundColor().getRed() + Theme.getBackgroundColor().getGreen() + Theme.getBackgroundColor().getBlue()) {
+                                    rGray = Theme.getBackgroundColor().getRed() - 10;
+                                    gGray = Theme.getBackgroundColor().getGreen() - 10;
+                                    bGray = Theme.getBackgroundColor().getBlue() - 10;
+                                }
+                                else {
+                                    rGray = Theme.getBackgroundColor().getRed() + 10;
+                                    gGray = Theme.getBackgroundColor().getGreen() + 10;
+                                    bGray = Theme.getBackgroundColor().getBlue() + 10;
+                                }
+                                flightInfoCard.setBackground(new Color(rGray, gGray, bGray));
                             }
 
                             @Override
                             public void mouseReleased(MouseEvent e) {
-                                flightInfoCard.doRelease();
+                                flightInfoCard.setBackground(Theme.getCardColor());
                             }
 
                             @Override
