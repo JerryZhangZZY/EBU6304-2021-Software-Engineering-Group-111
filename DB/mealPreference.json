@@ -4,13 +4,13 @@
       "index": 0,
       "name": "Extra",
       "price": 5,
-      "introduction": "Food is not enough?<br>How about some more!"
+      "introduction": "Food is not enough? How about some more!"
     },
     {
       "index": 1,
       "name": "Kweichow Moutai",
       "price": 100,
-      "introduction": "Drink too light?<br>Have some good wine!"
+      "introduction": "Drink too light? Have some good wine!"
     },
     {
       "index": 2,
