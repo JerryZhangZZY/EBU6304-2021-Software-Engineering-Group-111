@@ -12,6 +12,13 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Zhang Zeyu
  *
+ * @version 3.2
+ * All backstage timers have been integrated into Clock.java.
+ * Backstage timer can be invoked by using setBackstageTimer(long limitTime),
+ * and stop it by using stopBackstageTimer().
+ * New function which can disable the Timer has been added
+ * @date 2022/4/27
+ *
  * @version 3.1
  * Change date format.
  * @date 2022/4/26
@@ -98,6 +105,10 @@ public abstract class Clock {
         }
     }
 
+    /**
+     * Invoke a backstage timer with limit time
+     * @param limitTime return to welcome page at limitTime (millisecond)
+     */
     public static void setBackstageTimer(long limitTime){
         if (flag2 == 0){
             backStageTimerAction = new Timer();
@@ -115,6 +126,9 @@ public abstract class Clock {
         }
     }
 
+    /**
+     * Stop the backstage timer.
+     */
     public static void stopBackstageTimer(){
         if(flag2 == 1){
             backStageTimerAction.cancel();
@@ -122,10 +136,16 @@ public abstract class Clock {
         }
     }
 
+    /**
+     * Disable the overall Timer.
+     */
     public static void disableTimer(){
         flag1 = 2;
     }
 
+    /**
+     * Disable the backstage Timer.
+     */
     public static void disableBackstageTimer(){
         flag2 = 2;
     }
