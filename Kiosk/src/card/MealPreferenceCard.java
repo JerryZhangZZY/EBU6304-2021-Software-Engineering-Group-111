@@ -15,8 +15,12 @@ import java.awt.event.ItemListener;
  *
  * @author Liang Zhehao
  *
+ * @version 3.1
+ * Paint radio button icons and fix bugs.
+ * @date 2022/4/26
+ *
  * @version 3.0
- * @date 4/26
+ * @date 2022/4/26
  */
 public class MealPreferenceCard extends JPanel {
 
@@ -82,8 +86,8 @@ public class MealPreferenceCard extends JPanel {
         pref[i].setBackground(Theme.getCardColor());
         pref[i].setFont(new Font("Arial", Font.PLAIN, 25));
         pref[i].setBounds(25, i * 150 + 90, 300, 30);
-//        pref[i].setIcon(new ImageIcon(new ImageIcon("Kiosk/icons/selectBoxEmpty.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
-//        pref[i].setSelectedIcon(new ImageIcon(new ImageIcon("Kiosk/icons/selectBoxSelected.png").getImage().getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH)));
+        pref[i].setIcon(new IconRadioButton(30, false));
+        pref[i].setSelectedIcon(new IconRadioButton(30, true));
         add(pref[i]);
         pref[i].addItemListener(prefListener);
 
@@ -94,14 +98,15 @@ public class MealPreferenceCard extends JPanel {
         lblPrice.setBounds(200, i * 150 + 193, 115, 35);
         add(lblPrice);
 
-        JTextArea lblDetail = new JTextArea(detail[i]);
-        lblDetail.setLineWrap(true);
-        lblDetail.setWrapStyleWord(true);
-        lblDetail.setEditable(false);
-        lblDetail.setFont(new Font("Arial", Font.PLAIN, 18));
-        lblDetail.setForeground(Theme.getSecondaryFontColor());
-        lblDetail.setBounds(48, i * 150 +125, 250, 100);
-        add(lblDetail);
+        JTextArea taDetail = new JTextArea(detail[i]);
+        taDetail.setLineWrap(true);
+        taDetail.setWrapStyleWord(true);
+        taDetail.setEditable(false);
+        taDetail.setOpaque(false);
+        taDetail.setFont(new Font("Arial", Font.PLAIN, 18));
+        taDetail.setForeground(Theme.getSecondaryFontColor());
+        taDetail.setBounds(48, i * 150 +125, 250, 100);
+        add(taDetail);
         }
     }
 
@@ -127,6 +132,54 @@ public class MealPreferenceCard extends JPanel {
                     select[i] = false;
                 }
             }
+        }
+    }
+
+    private static class IconRadioButton implements Icon {
+
+        private final int size;
+        private Color themeColor = Theme.getThemeColor();
+        private final Color cardColor = Theme.getCardColor();
+        private final boolean selected;
+
+        public IconRadioButton(int size, boolean selected) {
+            this.size = size;
+            this.selected = selected;
+            int themeR = Theme.getThemeColor().getRed();
+            int themeG = Theme.getThemeColor().getGreen();
+            int themeB = Theme.getThemeColor().getBlue();
+            int cardR = Theme.getCardColor().getRed();
+            int cardG = Theme.getCardColor().getGreen();
+            int cardB = Theme.getCardColor().getBlue();
+            int colorDif = Math.abs(themeR - cardR) + Math.abs(themeG - cardG) + Math.abs(themeB - cardB);
+            if (colorDif < 300)
+                this.themeColor = Theme.getMainFontColor();
+        }
+
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setRenderingHint(
+                    RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.setColor(themeColor);
+            g2d.fillOval(x, y, size, size);
+            g2d.setColor(cardColor);
+            g2d.fillOval(x + 3, y + 3, size - 6, size - 6);
+            if (selected) {
+                g2d.setColor(themeColor);
+                g2d.fillOval(x + 8, y + 8, size - 16, size - 16);
+            }
+        }
+
+        @Override
+        public int getIconWidth() {
+            return size;
+        }
+
+        @Override
+        public int getIconHeight() {
+            return size;
         }
     }
 }
