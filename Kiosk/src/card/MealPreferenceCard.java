@@ -85,7 +85,7 @@ public class MealPreferenceCard extends JPanel {
         pref[i].setForeground(Theme.getMainFontColor());
         pref[i].setBackground(Theme.getCardColor());
         pref[i].setFont(new Font("Arial", Font.PLAIN, 25));
-        pref[i].setBounds(25, i * 150 + 90, 300, 30);
+        pref[i].setBounds(10, i * 150 + 90, 300, 30);
         pref[i].setIcon(new IconRadioButton(30, false));
         pref[i].setSelectedIcon(new IconRadioButton(30, true));
         pref[i].addItemListener(prefListener);
@@ -105,7 +105,7 @@ public class MealPreferenceCard extends JPanel {
         taDetail.setOpaque(false);
         taDetail.setFont(new Font("Arial", Font.PLAIN, 18));
         taDetail.setForeground(Theme.getSecondaryFontColor());
-        taDetail.setBounds(48, i * 150 +125, 250, 100);
+        taDetail.setBounds(50, i * 150 +125, 250, 100);
         add(taDetail);
         }
     }
