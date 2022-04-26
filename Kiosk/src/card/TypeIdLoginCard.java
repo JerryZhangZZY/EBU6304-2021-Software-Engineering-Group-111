@@ -172,6 +172,7 @@ public class TypeIdLoginCard extends JPanel {
     public void reset() {
         tfSurname.setText(null);
         tfId.setText(null);
+        lblError.setVisible(false);
     }
 
     public JButton getButtonOk() {
