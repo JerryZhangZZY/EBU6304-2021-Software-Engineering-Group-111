@@ -8,7 +8,13 @@ import java.util.TimerTask;
 
 /**
  * The class is a tool to set a clock or stop it.
+ *
  * @author Ni Ruijie
+ * @author Zhang Zeyu
+ *
+ * @version 3.1
+ * Change date format.
+ * @date 2022/4/26
  *
  * @version 3.0
  * Added 3 methods to achieve automatically exiting.
@@ -36,7 +42,7 @@ public abstract class Clock {
             @Override
             public void run() {
                 long timemillis = System.currentTimeMillis();
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
                 varClock.setText(df.format(new Date(timemillis)));
             }
         },0,1000);
@@ -61,7 +67,7 @@ public abstract class Clock {
         timerAction.schedule(new TimerTask() {
             @Override
             public void run() {
-                varTimer.setText("Time remaining: "+(tempLimitTime--));
+                varTimer.setText(String.valueOf(tempLimitTime--));
                 tempTimer.setVisible(true);
                 if(tempLimitTime ==-1){
                     stopTimer();

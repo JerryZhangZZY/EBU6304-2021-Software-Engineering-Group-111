@@ -24,6 +24,10 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 3.3
+ * GUI changes.
+ * @date 2022/4/26
+ *
  * @version 3.2
  * Added function: Automatically exit in a fixed time.
  * @date 2022/4/26
@@ -133,7 +137,7 @@ public class MainFrame extends JFrame {
         welcomeLabel = new JLabel();
         welcomeLabel.setFont(new Font("Calibre", Font.PLAIN, 45));
         welcomeLabel.setForeground(Theme.getMinorFontColor());
-        welcomeLabel.setBounds(60, 20, 1000, 60);
+        welcomeLabel.setBounds(50, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
         clock = new JLabel();
@@ -147,9 +151,9 @@ public class MainFrame extends JFrame {
 
         timer = new JLabel();
         timer.setForeground(Theme.getMinorFontColor());
-        timer.setBounds(1500, 20, 300, 60);
-        timer.setHorizontalAlignment(SwingConstants.CENTER);
-        timer.setFont(new Font("Arial", Font.BOLD, 30));
+        timer.setBounds(1680, 20, 100, 60);
+        timer.setHorizontalAlignment(SwingConstants.TRAILING);
+        timer.setFont(new Font("Default", Font.BOLD, 45));
         timer.setVisible(false);
         Clock.loadTimer(timer);
         topPanel.add(timer);
