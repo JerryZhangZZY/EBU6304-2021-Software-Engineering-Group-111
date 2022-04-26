@@ -135,7 +135,7 @@ public class FlightSelectionPanel extends JPanel {
         }
 
         else {
-            Clock.stopTimer();
+            //Clock.stopTimer();
             Clock.setTimer();
             int x = 500;
             if (bookingNumList.size() == 2) {

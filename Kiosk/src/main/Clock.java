@@ -60,21 +60,23 @@ public abstract class Clock {
      * Set the Timer which can make the system exit to welcome page in a fixed time.
      */
     public static void setTimer() {
-        tempLimitTime = limitTime;
         final JLabel varTimer = tempTimer;
-        timerAction = new Timer();
-        flag = 1;
-        timerAction.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                varTimer.setText(String.valueOf(tempLimitTime--));
-                tempTimer.setVisible(true);
-                if(tempLimitTime ==-1){
-                    stopTimer();
-                    State.setPc(0);
+        if(flag == 0){
+            tempLimitTime = limitTime;
+            timerAction = new Timer();
+            flag = 1;
+            timerAction.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    varTimer.setText(String.valueOf(tempLimitTime--));
+                    tempTimer.setVisible(true);
+                    if(tempLimitTime ==-1){
+                        stopTimer();
+                        State.setPc(0);
+                    }
                 }
-            }
-        },0,1000);
+            },0,1000);
+        }
     }
 
     /**
