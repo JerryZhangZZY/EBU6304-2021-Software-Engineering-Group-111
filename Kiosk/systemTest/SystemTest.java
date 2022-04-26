@@ -8,10 +8,8 @@ import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
 import panel.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
 
@@ -30,11 +28,11 @@ import static java.lang.Thread.sleep;
  * @date 4/22
  */
 public class SystemTest {
-/*    @Before
-    void disableTimer(){
+    @Before
+    public void disableTimer(){
         Clock.disableTimer();
         Clock.disableBackstageTimer();
-    }*/
+    }
     @BeforeEach
     void backup() {
         BackupDbOperator.pull();
