@@ -66,7 +66,6 @@ public class SystemTest {
                     currentPC = State.getPc();
                     testPaymentPanel();
                 }
-
                 case 8 -> {
                     currentPC = State.getPc();
                     testFinalPanel();

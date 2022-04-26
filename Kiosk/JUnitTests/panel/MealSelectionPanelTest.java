@@ -68,7 +68,9 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
             r1=random.nextInt(3);
             food[r1].doClick();
             tempPc = State.getPc();
+//            System.out.println("B1: " + State.getPc());
             confirm.doClick();
+//            System.out.println("A1: " + State.getPc());
             choose=State.getMeal();
             if(r1!=exp)
             {
@@ -78,7 +80,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
                 } else if (r1 == 1) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('b', choose);
-                } else if (r1 == 2) {
+                } else {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('c', choose);
                 }
@@ -109,8 +111,16 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
             State.setPc(5);
             r=random.nextInt(3);
             meal[r].doClick();
-            State.setMeal('a');
+//            State.setMeal('a');
+            if (i % 3 == 0)
+                selectionPanel.getNormal_food().doClick();
+            else if (i % 3 == 1)
+                selectionPanel.getVegetarian_food().doClick();
+            else
+                selectionPanel.getHalal_food().doClick();
+//            System.out.println("B2: " + State.getPc());
             confirm.doClick();
+//            System.out.println("A2: " + State.getPc());
             choose=State.smallBillCard.getPrice();
             if(pre[r]){
                 price-=bill[r];
