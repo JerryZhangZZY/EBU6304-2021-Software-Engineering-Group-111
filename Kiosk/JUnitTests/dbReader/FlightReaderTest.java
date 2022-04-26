@@ -14,6 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Zhang Zeyu
  * @author Liang Zhehao
  *
+ * @version 3.2
+ * add getMealPreference(), remove getFoodName() and getFoodPrice()
+ * @date 4/25
+ *
  * @version 3.1
  * Add test for getFoodName() and getFoodPrice()
  * @date 2022/4/23
@@ -92,13 +96,8 @@ class FlightReaderTest {
     }
 
     @Test
-    void getFoodPName() {
-        assertArrayEquals(new String[]{"Extra", "Kweichow Moutai", "Ice-cream"}, FlightReader.getFoodName(0));
-    }
-
-    @Test
-    void getFoodPrice() {
-        assertArrayEquals(new int[]{5, 100, 12}, FlightReader.getFoodPrice(0));
+    void getMealPreference() {
+        assertArrayEquals(new int[]{0, 1, 2}, FlightReader.getMealPreference(0));
     }
 
 }

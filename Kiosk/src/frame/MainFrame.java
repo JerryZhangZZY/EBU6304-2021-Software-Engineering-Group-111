@@ -24,6 +24,14 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 3.3
+ * GUI changes.
+ * @date 2022/4/26
+ *
+ * @version 3.2
+ * Added function: Automatically exit in a fixed time.
+ * @date 2022/4/26
+ *
  * @version 3.1
  * Animation speed can be set in config.
  * @date 2022/4/24
@@ -79,7 +87,8 @@ public class MainFrame extends JFrame {
     private JButton backButton;
     private JLabel satisflightLabel;
     private WelcomePanel welcomePanel;
-    private JLabel time;
+    private JLabel clock;
+    private JLabel timer;
 
     private int freshTime = 8;
 
@@ -110,7 +119,7 @@ public class MainFrame extends JFrame {
         /*
          * basic settings
          */
-        setTitle("Satisflight - Kiosk");
+        setTitle("Satisflight Check-in System");
         setResizable(false);
         setUndecorated(true);
         setBounds(new Rectangle(0, 0, 1920, 1080));
@@ -126,19 +135,28 @@ public class MainFrame extends JFrame {
         add(topPanel);
 
         welcomeLabel = new JLabel();
-        welcomeLabel.setFont(new Font("Calibre", Font.PLAIN, 45));
+        welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 45));
         welcomeLabel.setForeground(Theme.getMinorFontColor());
-        welcomeLabel.setBounds(60, 20, 1000, 60);
+        welcomeLabel.setBounds(50, 20, 1000, 60);
         topPanel.add(welcomeLabel);
 
-        time = new JLabel();
-        time.setForeground(Theme.getMinorFontColor());
-        time.setBounds(810, 20, 300, 60);
-        time.setHorizontalAlignment(SwingConstants.CENTER);
-        time.setFont(new Font("Arial", Font.BOLD, 30));
-        Clock.setClock(time);
-        time.setVisible(false);
-        topPanel.add(time);
+        clock = new JLabel();
+        clock.setForeground(Theme.getMinorFontColor());
+        clock.setBounds(810, 20, 300, 60);
+        clock.setHorizontalAlignment(SwingConstants.CENTER);
+        clock.setFont(new Font("Arial", Font.BOLD, 30));
+        Clock.setClock(clock);
+        clock.setVisible(false);
+        topPanel.add(clock);
+
+        timer = new JLabel();
+        timer.setForeground(Theme.getMinorFontColor());
+        timer.setBounds(1680, 20, 100, 60);
+        timer.setHorizontalAlignment(SwingConstants.TRAILING);
+        timer.setFont(new Font("Arial", Font.BOLD, 45));
+        timer.setVisible(false);
+        Clock.loadTimer(timer);
+        topPanel.add(timer);
 
         exitButton = new JButton();
         exitButton.setRequestFocusEnabled(false);
@@ -159,6 +177,7 @@ public class MainFrame extends JFrame {
                 else {
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
+                    Clock.stopTimer();
                     State.setPc(0);
                 }
             }
@@ -260,7 +279,7 @@ public class MainFrame extends JFrame {
         backButton.setVisible(back);
     }
     public void showClock(Boolean flag){
-        time.setVisible(flag);
+        clock.setVisible(flag);
     }
 
     /**

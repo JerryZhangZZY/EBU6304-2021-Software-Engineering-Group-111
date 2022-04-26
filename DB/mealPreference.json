@@ -10,19 +10,19 @@
       "index": 1,
       "name": "Kweichow Moutai",
       "price": 100,
-      "introduction": "Drink too light? Have some good wine!"
+      "introduction": "Drinks too light? Have some good wine! Fragrance outstanding, elegant and delicate!"
     },
     {
       "index": 2,
       "name": "Baguette",
       "price": 2,
-      "introduction": "Still hungry? Let's have some food to appease our hunger"
+      "introduction": "Still hungry? Have some food to appease your hunger!"
     },
     {
       "index": 3,
       "name": "Russian caviar",
       "price": 100,
-      "introduction": "Fresh Russian food. You're sure you don't want some？"
+      "introduction": "Fresh Russian food. You're sure you don't want some?"
     },
     {
       "index": 4,
@@ -34,7 +34,7 @@
       "index": 5,
       "name": "Italian Pizza",
       "price": 15,
-      "introduction": "Freshly made pizza, tastes great！"
+      "introduction": "Freshly made pizza, tastes great!"
     },
     {
       "index": 6,
@@ -56,45 +56,45 @@
     },
     {
       "index": 9,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Ice-Cream",
+      "price": 2,
+      "introduction": "Take time to indulge."
     },
     {
       "index": 10,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Mousse Cake",
+      "price": 5,
+      "introduction": "Taste in the mouth, sweet in the heart."
     },
     {
       "index": 11,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Cookies",
+      "price": 3,
+      "introduction": "Good cookies bring you good luck."
     },
     {
       "index": 12,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Chocolate",
+      "price": 2,
+      "introduction": "Crispy between the teeth, drunk in the heart."
     },
     {
       "index": 13,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Taro Pie",
+      "price": 3,
+      "introduction": "Crispy crust with fragrant taro, tasty and memorable"
     },
     {
       "index": 14,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Candy Floss",
+      "price": 3,
+      "introduction": "Experience cloud-like silkiness on the clouds."
     },
     {
       "index": 15,
-      "name": "",
-      "price": null,
-      "introduction": ""
+      "name": "Cheese Tart",
+      "price": 2,
+      "introduction": "Get Cheese Tart，Get Cheering Time!"
     }
   ]
 }

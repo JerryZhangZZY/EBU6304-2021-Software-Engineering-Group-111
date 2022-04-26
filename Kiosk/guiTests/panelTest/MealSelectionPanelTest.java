@@ -3,6 +3,7 @@ package panelTest;
 import frame.MainFrame;
 import main.State;
 import panel.MealSelectionPanel;
+import panel.ProgressPanel;
 
 /**
  * This class test MealSelectionPanel
@@ -19,7 +20,11 @@ public class MealSelectionPanelTest {
     public static void main(String[] args) {
         State.setIdFlight("AC0001");
         MainFrame frame = new MainFrame();
-        frame.loadPanel(new MealSelectionPanel());
+        ProgressPanel progressPanel = new ProgressPanel(3);
+        MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();
+        mealSelectionPanel.add(State.smallBillCard);
+        progressPanel.loadCardsPanel(mealSelectionPanel);
+        frame.loadPanel(progressPanel);
         frame.setVisible(true);
     }
 }

@@ -9,8 +9,7 @@
       "arrivalTime": "2022-04-20 12:00",
       "boardingTime": "09:30",
       "idPlane": 1,
-      "foodName": "Extra,Kweichow Moutai,Ice-cream",
-      "foodPrice": "5,100,12"
+      "mealPreference": [0, 1, 2]
     },
     {
       "idFlight": "CA0002",
@@ -21,8 +20,7 @@
       "arrivalTime": "2022-04-20 18:00",
       "boardingTime": "14:00",
       "idPlane": 1,
-      "foodName": "Extra,Cheese,Ice-cream",
-      "foodPrice": "5,5,11"
+      "mealPreference": [3, 4, 5]
       
     },
     {
@@ -34,8 +32,7 @@
       "arrivalTime": "2022-04-20 00:00",
       "boardingTime": "12:30",
       "idPlane": 2,
-      "foodName": "Extra,Cheese,Ice-cream",
-      "foodPrice": "5,5,10"
+      "mealPreference": [1, 2, 3]
     },
     {
       "idFlight": "UA0003",
@@ -46,8 +43,7 @@
       "arrivalTime": "2022-05-20 09:00",
       "boardingTime": "07:30",
       "idPlane": 3,
-      "foodName": "Extra,Cheese,Carrot Bun",
-      "foodPrice": "5,6,10"
+      "mealPreference": [0, 7, 8]
     },
     {
       "idFlight": "AC3079",
@@ -58,8 +54,7 @@
       "boardingTime": "11:30",
       "gate": "19A",
       "idPlane": 2,
-      "foodName": "Extra,Cheese,Carrot Bun",
-      "foodPrice": "5,6,10"
+      "mealPreference": [0, 4, 7]
     },
     {
       "idFlight": "AC3577",
@@ -70,8 +65,7 @@
       "boardingTime": "09:30",
       "gate": "24D",
       "idPlane": 2,
-      "foodName": "Extra,Cocktail,Carrot Bun",
-      "foodPrice": "5,20,10"
+      "mealPreference": [1, 3, 4]
     },
     {
       "idFlight": "AC2485",
@@ -82,8 +76,7 @@
       "boardingTime": "07:30",
       "gate": "20C",
       "idPlane": 2,
-      "foodName": "Extra,Cocktail,Carrot Bun",
-      "foodPrice": "5,20,8"
+      "mealPreference": [0, 2, 8]
     },
     {
       "idFlight": "LH3077",
@@ -94,8 +87,7 @@
       "boardingTime": "18:30",
       "gate": "13F",
       "idPlane": 4,
-      "foodName": "Extra,Cocktail,Carrot Bun",
-      "foodPrice": "5,25,8"
+      "mealPreference": [5, 4, 3]
     },
     {
       "idFlight": "LH2345",
@@ -106,8 +98,7 @@
       "boardingTime": "07:30",
       "gate": "2F",
       "idPlane": 4,
-      "foodName": "Extra,Cocktail,Carrot Bun",
-      "foodPrice": "5,25,8"
+      "mealPreference": [2, 4, 6]
     },
     {
       "idFlight": "LH1365",
@@ -118,8 +109,7 @@
       "boardingTime": "05:30",
       "gate": "13E",
       "idPlane": 4,
-      "foodName": "Extra,Potato Chips,Ice-cream",
-      "foodPrice": "5,9,12"
+      "mealPreference": [0, 1, 6]
     },
     {
       "idFlight": "LH7718",
@@ -130,8 +120,7 @@
       "boardingTime": "07:30",
       "gate": "13F",
       "idPlane": 4,
-      "foodName": "Extra,Potato Chips,Ice-cream",
-      "foodPrice": "5,9,12"
+      "mealPreference": [0, 5, 6]
     },
     {
       "idFlight": "LH2333",
@@ -142,8 +131,7 @@
       "boardingTime": "11:30",
       "gate": "23F",
       "idPlane": 4,
-      "foodName": "Extra,Potato Chips,Ice-cream",
-      "foodPrice": "5,10,12"
+      "mealPreference": [0, 8, 4]
     },
     {
       "idFlight": "LH4618",
@@ -154,8 +142,7 @@
       "boardingTime": "05:30",
       "gate": "12C",
       "idPlane": 4,
-      "foodName": "Extra,Potato Chips,Ice-cream",
-      "foodPrice": "5,10,12"
+      "mealPreference": [4, 3, 6]
     },
     {
       "idFlight": "LH1607",
@@ -166,8 +153,7 @@
       "boardingTime": "07:30",
       "gate": "12A",
       "idPlane": 4,
-      "foodName": "Extra,Cream Cake,Ice-cream",
-      "foodPrice": "5,15,12"
+      "mealPreference": [0, 1, 2]
     },
     {
       "idFlight": "MU1314",
@@ -178,8 +164,7 @@
       "boardingTime": "07:30",
       "gate": "5B",
       "idPlane": 5,
-      "foodName": "Extra,Cream Cake,Ice-cream",
-      "foodPrice": "5,15,12"
+      "mealPreference": [3, 4, 5]
     },
     {
       "idFlight": "MU3241",
@@ -190,8 +175,7 @@
       "boardingTime": "08:30",
       "gate": "17F",
       "idPlane": 5,
-      "foodName": "Extra,Cream Cake,Ice-cream",
-      "foodPrice": "5,15,12"
+      "mealPreference": [2, 4, 8]
     },
     {
       "idFlight": "MU7733",
@@ -202,8 +186,7 @@
       "boardingTime": "07:30",
       "gate": "11D",
       "idPlane": 5,
-      "foodName": "Extra,Cream Cake,Ice-cream",
-      "foodPrice": "5,20,12"
+      "mealPreference": [0, 1, 3]
     }
   ]
 }

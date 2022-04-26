@@ -3,6 +3,7 @@ package panel;
 import card.FlightInfoCard;
 import dbReader.FlightReader;
 import dbReader.PassengerFlightReader;
+import main.Clock;
 import main.Config;
 import main.State;
 import main.Theme;
@@ -21,6 +22,11 @@ import java.util.List;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  * @author Liang Zhehao
+ *
+ * @version 3.2
+ * Added function: Set the timer when there are flights haven't been checked in.
+ *                 And reset the timer when recall the panel.
+ * @date 2022/4/26
  *
  * @version 3.1
  * Integrate doPress() and doRelease() as doClick()
@@ -114,6 +120,7 @@ public class FlightSelectionPanel extends JPanel {
             thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    Clock.stopTimer();
                     try {
                         Thread.sleep(3500);
                     } catch (InterruptedException ignored) {}
@@ -124,6 +131,8 @@ public class FlightSelectionPanel extends JPanel {
         }
 
         else {
+            Clock.stopTimer();
+            Clock.setTimer();
             int x = 500;
             if (bookingNumList.size() == 2) {
                 x = 200;
@@ -159,14 +168,14 @@ public class FlightSelectionPanel extends JPanel {
                                 int rGray, gGray, bGray;
                                 if (Theme.getCardColor().getRed() + Theme.getCardColor().getGreen() + Theme.getCardColor().getBlue()
                                         > Theme.getBackgroundColor().getRed() + Theme.getBackgroundColor().getGreen() + Theme.getBackgroundColor().getBlue()) {
-                                    rGray = Theme.getBackgroundColor().getRed() - 10;
-                                    gGray = Theme.getBackgroundColor().getGreen() - 10;
-                                    bGray = Theme.getBackgroundColor().getBlue() - 10;
+                                    rGray = (int) (Theme.getBackgroundColor().getRed() * 0.9);
+                                    gGray = (int) (Theme.getBackgroundColor().getGreen() * 0.9);
+                                    bGray = (int) (Theme.getBackgroundColor().getBlue() * 0.9);
                                 }
                                 else {
-                                    rGray = Theme.getBackgroundColor().getRed() + 10;
-                                    gGray = Theme.getBackgroundColor().getGreen() + 10;
-                                    bGray = Theme.getBackgroundColor().getBlue() + 10;
+                                    rGray = (int) (Theme.getBackgroundColor().getRed() * 1.1);
+                                    gGray = (int) (Theme.getBackgroundColor().getGreen() * 1.1);
+                                    bGray = (int) (Theme.getBackgroundColor().getBlue() * 1.1);
                                 }
                                 flightInfoCard.setBackground(new Color(rGray, gGray, bGray));
                             }

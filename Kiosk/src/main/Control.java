@@ -214,6 +214,7 @@ public class Control {
                 case 8 -> {    //finish
                     finalPanel = new FinalPanel();
                     kiosk.displayComponents(true, false, false);
+                    Clock.stopTimer();
                     kiosk.scrollDown(finalPanel);
                     currentPC = State.getPc();
                 }
