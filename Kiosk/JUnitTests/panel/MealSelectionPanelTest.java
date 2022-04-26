@@ -64,6 +64,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         char choose ='d';
         int tempPc;
         for(int i = 0; i < 20; i++){
+            State.setPc(5);
             r1=random.nextInt(3);
             food[r1].doClick();
             tempPc = State.getPc();
@@ -105,6 +106,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
             pre[i]=false;
         }
         for(int i = 0; i < 10 ; i++){
+            State.setPc(5);
             r=random.nextInt(3);
             meal[r].doClick();
             State.setMeal('a');
