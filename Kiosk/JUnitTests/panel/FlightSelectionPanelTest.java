@@ -77,12 +77,9 @@ public class FlightSelectionPanelTest implements MainFrameBarsTest {
         FlightSelectionPanel flightSelectionPanel = new FlightSelectionPanel();
         mainFrame.unloadPanel(mainFrame.getLoadedPanel());
         mainFrame.loadPanel(flightSelectionPanel);
-        flightSelectionPanel.getThread().interrupt();
         try {
-            flightSelectionPanel.getThread().join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            Thread.sleep(4000);
+        }catch (Exception e){}
 
         assertEquals(0, State.getPc());
     }

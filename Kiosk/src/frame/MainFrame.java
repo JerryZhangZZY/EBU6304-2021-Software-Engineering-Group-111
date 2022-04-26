@@ -184,6 +184,7 @@ public class MainFrame extends JFrame {
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
                     Clock.stopTimer();
+                    Clock.stopBackstageTimer();
                     State.setPc(0);
                 }
             }

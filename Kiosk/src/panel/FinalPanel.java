@@ -3,6 +3,7 @@ package panel;
 import BackendSystemDB.DBwrite;
 import dbWriter.SeatWriter;
 import dbWriter.StatusWriter;
+import main.Clock;
 import main.State;
 import main.Theme;
 import printer.BarCode_QRCodeGenerator;
@@ -96,7 +97,6 @@ public class FinalPanel extends JPanel {
         StatusWriter.setTrue(State.getPassengerFlight_index());
         Timer timer = new Timer();
         Timer timer1 = new Timer();
-        Timer timer2 = new Timer();
         setBounds(new Rectangle(0, 0, 1920, 980));
         setBackground(Theme.getBackgroundColor());
         setLayout(null);
@@ -118,7 +118,7 @@ public class FinalPanel extends JPanel {
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
         exit_begin.addActionListener(e -> {
-            timer2.cancel();
+            Clock.stopBackstageTimer();
             State.setPc(3);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
@@ -136,7 +136,7 @@ public class FinalPanel extends JPanel {
         exit_system.setContentAreaFilled(false);
         exit_system.setBorderPainted(false);
         exit_system.addActionListener(e -> {
-            timer2.cancel();
+            Clock.stopBackstageTimer();
             State.setPc(0);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
@@ -156,9 +156,9 @@ public class FinalPanel extends JPanel {
         qrLabel.setVerticalTextPosition(1);
         add(qrLabel);
         qrLabel.setVisible(false);
+        Clock.setBackstageTimer(15000);
         timer.schedule(new MyTask1(),3000);
         timer1.schedule(new MyTask2(),4500);
-        timer2.schedule(new MyTask3(),15000);
     }
     class MyTask1 extends TimerTask {
         public void run() {
@@ -171,14 +171,6 @@ public class FinalPanel extends JPanel {
         public void run() {
             exit_begin.setVisible(true);
             exit_system.setVisible(true);
-        }
-
-    }
-    class MyTask3 extends TimerTask {
-        public void run() {
-            State.setPc(0);
-            State.setIsReady(new boolean[]{true, true, true,
-                    false, false, false, false, true, true});
         }
 
     }

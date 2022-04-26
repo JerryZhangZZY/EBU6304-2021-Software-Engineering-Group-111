@@ -27,10 +27,12 @@ import java.util.TimerTask;
 public abstract class Clock {
     static Timer clockAction;
     static Timer timerAction;
+    static Timer backStageTimerAction;
     static int limitTime = 120;
     static int tempLimitTime;
     static JLabel tempTimer;
-    static int flag = 0;
+    static int flag1 = 0;
+    static int flag2 = 0;
     /**
      * Set the clock
      * @param clock panel of the clock
@@ -61,10 +63,10 @@ public abstract class Clock {
      */
     public static void setTimer() {
         final JLabel varTimer = tempTimer;
-        if(flag == 0){
+        if(flag1 == 0){
             tempLimitTime = limitTime;
             timerAction = new Timer();
-            flag = 1;
+            flag1 = 1;
             timerAction.schedule(new TimerTask() {
                 @Override
                 public void run() {
@@ -73,6 +75,8 @@ public abstract class Clock {
                     if(tempLimitTime ==-1){
                         stopTimer();
                         State.setPc(0);
+                        State.setIsReady(new boolean[]{true, true, true,
+                                false, false, false, false, true, true});
                     }
                 }
             },0,1000);
@@ -83,15 +87,46 @@ public abstract class Clock {
      * Stop the Timer, and reset it.
      */
     public static void stopTimer(){
-        if(flag==1){
+        if(flag1 == 1){
             timerAction.cancel();
             tempLimitTime = limitTime;
             tempTimer.setVisible(false);
-            flag = 0;
+            flag1 = 0;
         }
         else{
             tempTimer.setVisible(false);
         }
     }
 
+    public static void setBackstageTimer(long limitTime){
+        if (flag2 == 0){
+            backStageTimerAction = new Timer();
+            flag2 = 1;
+            backStageTimerAction.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    stopBackstageTimer();
+                    stopTimer();
+                    State.setPc(0);
+                    State.setIsReady(new boolean[]{true, true, true,
+                            false, false, false, false, true, true});
+                }
+            },limitTime);
+        }
+    }
+
+    public static void stopBackstageTimer(){
+        if(flag2 == 1){
+            backStageTimerAction.cancel();
+            flag2 = 0;
+        }
+    }
+
+    public static void disableTimer(){
+        flag1 = 2;
+    }
+
+    public static void disableBackstageTimer(){
+        flag2 = 2;
+    }
 }

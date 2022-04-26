@@ -73,11 +73,6 @@ import java.util.List;
 
 public class FlightSelectionPanel extends JPanel {
 
-    public Thread getThread() {
-        return thread;
-    }
-
-    Thread thread;
 
     public FlightSelectionPanel() {
         List<String> bookingNumList = State.getBookingNumList();
@@ -121,21 +116,10 @@ public class FlightSelectionPanel extends JPanel {
             lblAutoExit.setBounds(400, 400, 800, 200);
             add(lblAutoExit);
 
-            thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Clock.stopTimer();
-                    try {
-                        Thread.sleep(3500);
-                    } catch (InterruptedException ignored) {}
-                    State.setPc(0);
-                }
-            });
-            thread.start();
+            Clock.setBackstageTimer(3500);
         }
 
         else {
-            //Clock.stopTimer();
             Clock.setTimer();
             int x = 500;
             if (bookingNumList.size() == 2) {
