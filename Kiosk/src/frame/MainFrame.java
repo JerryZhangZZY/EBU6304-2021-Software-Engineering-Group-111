@@ -119,7 +119,7 @@ public class MainFrame extends JFrame {
         /*
          * basic settings
          */
-        setTitle("Satisflight - Kiosk");
+        setTitle("Satisflight Check-in System");
         setResizable(false);
         setUndecorated(true);
         setBounds(new Rectangle(0, 0, 1920, 1080));
@@ -135,7 +135,7 @@ public class MainFrame extends JFrame {
         add(topPanel);
 
         welcomeLabel = new JLabel();
-        welcomeLabel.setFont(new Font("Calibre", Font.PLAIN, 45));
+        welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 45));
         welcomeLabel.setForeground(Theme.getMinorFontColor());
         welcomeLabel.setBounds(50, 20, 1000, 60);
         topPanel.add(welcomeLabel);
@@ -153,7 +153,7 @@ public class MainFrame extends JFrame {
         timer.setForeground(Theme.getMinorFontColor());
         timer.setBounds(1680, 20, 100, 60);
         timer.setHorizontalAlignment(SwingConstants.TRAILING);
-        timer.setFont(new Font("Default", Font.BOLD, 45));
+        timer.setFont(new Font("Arial", Font.BOLD, 45));
         timer.setVisible(false);
         Clock.loadTimer(timer);
         topPanel.add(timer);
