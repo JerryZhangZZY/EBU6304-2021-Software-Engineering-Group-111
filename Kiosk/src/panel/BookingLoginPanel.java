@@ -18,6 +18,10 @@ import java.util.List;
  * @author zaitian
  * @author Zhang Zeyu
  *
+ * @version 3.0
+ * Separate altButton pressed color.
+ * @date 2022/4/26
+ *
  * @version 2.0
  * setBookingNum() -> setBookingNumList().
  * @date 2022/4/10
@@ -164,6 +168,19 @@ public class BookingLoginPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 reset();
                 State.setPc(2);
+                UIManager.put("Button.select", Theme.getButtonPressedColor());
+            }
+        });
+        altButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                UIManager.put("Button.select", Theme.getAltButtonPressedColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                UIManager.put("Button.select", Theme.getButtonPressedColor());
             }
         });
 

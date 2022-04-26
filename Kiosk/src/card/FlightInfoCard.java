@@ -13,6 +13,10 @@ import java.awt.*;
  *
  * @author Zhang Zeyu
  *
+ * @version 3.2
+ * Get card unavailable color from Theme
+ * and improve GUI appearance.
+ *
  * @version 3.1
  * Integrate doPress() and doRelease() as doClick().
  * @date 2022/4/25
@@ -116,24 +120,12 @@ public class FlightInfoCard extends JPanel {
      * @param type true: checked-in; false: unavailable
      */
     public void setGray(boolean type) {
-        int rGray, gGray, bGray;
-        if (Theme.getCardColor().getRed() + Theme.getCardColor().getGreen() + Theme.getCardColor().getBlue()
-                > Theme.getBackgroundColor().getRed() + Theme.getBackgroundColor().getGreen() + Theme.getBackgroundColor().getBlue()) {
-            rGray = Theme.getBackgroundColor().getRed() - 5;
-            gGray = Theme.getBackgroundColor().getGreen() - 5;
-            bGray = Theme.getBackgroundColor().getBlue() - 5;
-        }
-        else {
-            rGray = Theme.getBackgroundColor().getRed() + 5;
-            gGray = Theme.getBackgroundColor().getGreen() + 5;
-            bGray = Theme.getBackgroundColor().getBlue() + 5;
-        }
-        setBackground(new Color(rGray, gGray, bGray));
-        lblIdFlight.setForeground(Theme.getSecondaryFontColor());
-        lblDepartureTime.setForeground(Theme.getSecondaryFontColor());
-        lblArrivalTime.setForeground(Theme.getSecondaryFontColor());
-        lblDeparture.setForeground(Theme.getSecondaryFontColor());
-        lblArrival.setForeground(Theme.getSecondaryFontColor());
+        setBackground(Theme.getCardUnavailableColor());
+        lblIdFlight.setForeground(Theme.getTertiaryFontColor());
+        lblDepartureTime.setForeground(Theme.getTertiaryFontColor());
+        lblArrivalTime.setForeground(Theme.getTertiaryFontColor());
+        lblDeparture.setForeground(Theme.getTertiaryFontColor());
+        lblArrival.setForeground(Theme.getTertiaryFontColor());
         if (type) {
             lblGray.setText("checked-in");
             lblGray.setForeground(new Color(60,179,113));

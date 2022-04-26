@@ -23,6 +23,10 @@ import java.util.List;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @version 3.3
+ * Use Theme generated color.
+ * @date 2022/4/26
+ *
  * @version 3.2
  * Added function: Set the timer when there are flights haven't been checked in.
  *                 And reset the timer when recall the panel.
@@ -165,19 +169,7 @@ public class FlightSelectionPanel extends JPanel {
 
                             @Override
                             public void mousePressed(MouseEvent e) {
-                                int rGray, gGray, bGray;
-                                if (Theme.getCardColor().getRed() + Theme.getCardColor().getGreen() + Theme.getCardColor().getBlue()
-                                        > Theme.getBackgroundColor().getRed() + Theme.getBackgroundColor().getGreen() + Theme.getBackgroundColor().getBlue()) {
-                                    rGray = (int) (Theme.getBackgroundColor().getRed() * 0.9);
-                                    gGray = (int) (Theme.getBackgroundColor().getGreen() * 0.9);
-                                    bGray = (int) (Theme.getBackgroundColor().getBlue() * 0.9);
-                                }
-                                else {
-                                    rGray = (int) (Theme.getBackgroundColor().getRed() * 1.1);
-                                    gGray = (int) (Theme.getBackgroundColor().getGreen() * 1.1);
-                                    bGray = (int) (Theme.getBackgroundColor().getBlue() * 1.1);
-                                }
-                                flightInfoCard.setBackground(new Color(rGray, gGray, bGray));
+                                flightInfoCard.setBackground(Theme.getCardUnavailableColor());
                             }
 
                             @Override

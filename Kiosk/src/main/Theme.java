@@ -14,6 +14,11 @@ import java.io.IOException;
  *
  * @author Zhang Zeyu
  *
+ * @version 3.2
+ * Add 3 auto-generate colors
+ * and modified built-in themes.
+ * @date 2022/4/26
+ *
  * @version 3.1
  * Auto generate theme.json
  * @date 2022/4/22
@@ -31,6 +36,9 @@ public abstract class Theme {
     private static Color secondaryFontColor;
     private static Color tertiaryFontColor;
     private static Color minorFontColor;
+    private static Color buttonPressedColor;
+    private static Color altButtonPressedColor;
+    private static Color cardUnavailableColor;
 
     public static Color getThemeColor() {
         if (themeColor == null)
@@ -66,6 +74,24 @@ public abstract class Theme {
         if (themeColor == null)
             loadColor();
         return minorFontColor;
+    }
+    
+    public static Color getButtonPressedColor() {
+        if (themeColor == null)
+            loadColor();
+        return buttonPressedColor;
+    }
+
+    public static Color getAltButtonPressedColor() {
+        if (themeColor == null)
+            loadColor();
+        return altButtonPressedColor;
+    }
+
+    public static Color getCardUnavailableColor() {
+        if (themeColor == null)
+            loadColor();
+        return cardUnavailableColor;
     }
 
     public static void loadColor() {
@@ -123,7 +149,7 @@ public abstract class Theme {
                            "Tomato": {
                              "themeColor": "245,89,61",
                              "backgroundColor": "255,252,251",
-                             "cardColor": "255,255,255",
+                             "cardColor": "253,220,215",
                              "mainFontColor": "84,15,4",
                              "secondaryFontColor": "200,37,10",
                              "tertiaryFontColor": "247,129,109",
@@ -186,6 +212,74 @@ public abstract class Theme {
             g = Integer.parseInt(objTheme.getString("minorFontColor").split(",")[1]);
             b = Integer.parseInt(objTheme.getString("minorFontColor").split(",")[2]);
             minorFontColor = new Color(r, g, b);
+
+            /*
+            Generate button pressed color
+             */
+            int rPressed, gPressed, bPressed;
+            /*
+            card lighter than background
+             */
+            if (cardColor.getRed() + cardColor.getGreen() + cardColor.getBlue()
+                    > backgroundColor.getRed() + backgroundColor.getGreen() + backgroundColor.getBlue()) {
+                rPressed = (int) (themeColor.getRed() * 0.8);
+                gPressed = (int) (themeColor.getGreen() * 0.8);
+                bPressed = (int) (themeColor.getBlue() * 0.8);
+            }
+            /*
+            card darker than background
+             */
+            else {
+                rPressed = (themeColor.getRed() + backgroundColor.getRed()) / 2;
+                gPressed = (themeColor.getGreen() + backgroundColor.getGreen()) / 2;
+                bPressed = (themeColor.getBlue() + backgroundColor.getBlue()) / 2;
+            }
+            buttonPressedColor = new Color(rPressed, gPressed, bPressed);
+
+            /*
+            Generate alter button pressed color
+             */
+            int rAltPressed, gAltPressed, bAltPressed;
+            /*
+            light background
+             */
+            if (backgroundColor.getRed() + backgroundColor.getGreen() + backgroundColor.getBlue() > 384) {
+                rAltPressed = (int) (backgroundColor.getRed() * 0.8);
+                gAltPressed = (int) (backgroundColor.getGreen() * 0.8);
+                bAltPressed = (int) (backgroundColor.getBlue() * 0.8);
+            }
+            /*
+            dark background
+             */
+            else {
+                rAltPressed = (themeColor.getRed() + backgroundColor.getRed()) / 2;
+                gAltPressed = (themeColor.getGreen() + backgroundColor.getGreen()) / 2;
+                bAltPressed = (themeColor.getBlue() + backgroundColor.getBlue()) / 2;
+            }
+            altButtonPressedColor = new Color(rAltPressed, gAltPressed, bAltPressed);
+
+            /*
+            Generate unavailable card color
+             */
+            int rGray, gGray, bGray;
+            /*
+            light background
+             */
+            if (backgroundColor.getRed() + backgroundColor.getGreen() + backgroundColor.getBlue() > 384) {
+                rGray = Math.max(Theme.getBackgroundColor().getRed() - 5, 0);
+                gGray = Math.max(Theme.getBackgroundColor().getGreen() - 5, 0);
+                bGray = Math.max(Theme.getBackgroundColor().getBlue() - 5, 0);
+            }
+            /*
+            dark background
+             */
+            else {
+                rGray = Math.min(Theme.getBackgroundColor().getRed() + 5, 255);
+                gGray = Math.min(Theme.getBackgroundColor().getGreen() + 5, 255);
+                bGray = Math.min(Theme.getBackgroundColor().getBlue() + 5, 255);
+            }
+            cardUnavailableColor = new Color(rGray, gGray, bGray);
+
         } catch (Exception e) {
             System.out.println("Theme load failed!");
             themeColor = new Color(11, 89, 167);
@@ -195,6 +289,9 @@ public abstract class Theme {
             secondaryFontColor = new Color(128, 128, 128);
             tertiaryFontColor = new Color(192, 192, 192);
             minorFontColor = new Color(255, 255, 255);
+            buttonPressedColor = new Color(8, 71, 133);
+            altButtonPressedColor = new Color(195, 195, 195);
+            cardUnavailableColor = new Color(239, 239,239);
         }
     }
 }

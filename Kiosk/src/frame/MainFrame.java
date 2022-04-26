@@ -24,6 +24,10 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 3.4
+ * Button pressed color adapt to theme.
+ * @date 2022/4/26
+ *
  * @version 3.3
  * GUI changes.
  * @date 2022/4/26
@@ -96,6 +100,8 @@ public class MainFrame extends JFrame {
      * Main frame with panels initialized.
      */
     public MainFrame() {
+
+        UIManager.put("Button.select", Theme.getButtonPressedColor());
 
         try {
             int animationSpeed = Integer.parseInt(Config.readConfig("animationSpeed"));
