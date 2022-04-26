@@ -88,8 +88,8 @@ public class MealPreferenceCard extends JPanel {
         pref[i].setBounds(25, i * 150 + 90, 300, 30);
         pref[i].setIcon(new IconRadioButton(30, false));
         pref[i].setSelectedIcon(new IconRadioButton(30, true));
-        add(pref[i]);
         pref[i].addItemListener(prefListener);
+        add(pref[i]);
 
         JLabel lblPrice = new JLabel("$" + price[i]);
         lblPrice.setForeground(Theme.getMainFontColor());
@@ -165,10 +165,10 @@ public class MealPreferenceCard extends JPanel {
             g2d.setColor(themeColor);
             g2d.fillOval(x, y, size, size);
             g2d.setColor(cardColor);
-            g2d.fillOval(x + 3, y + 3, size - 6, size - 6);
+            g2d.fillOval(x + (int)(size * 0.1), y + (int)(size * 0.1), size - 2 * (int)(size * 0.1), size - 2 * (int)(size * 0.1));
             if (selected) {
                 g2d.setColor(themeColor);
-                g2d.fillOval(x + 8, y + 8, size - 16, size - 16);
+                g2d.fillOval(x + (int)(size * 0.27), y + (int)(size * 0.27), size - 2 * (int)(size * 0.27), size - 2 * (int)(size * 0.27));
             }
         }
 
