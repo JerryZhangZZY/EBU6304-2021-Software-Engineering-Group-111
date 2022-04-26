@@ -107,7 +107,7 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
 
     @Test
     public void testConfirmButton() {
-        int tempPc;
+        int tempPc = State.getPc();
         for (int i = 0; i < 2; i++) {
             State.setPassengerFlight_index(i+2);
             BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
@@ -117,12 +117,12 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
                 String s2 = PassengerFlightReader.getIdPassenger(State.getPassengerFlight_index());
                 if (s1.equals(s2)) {
                     State.setBill(0);
-                    tempPc = State.getPc();
+//                    tempPc = State.getPc();
                     button.doClick();
                     assertEquals(tempPc + 2, State.getPc());
-
+                    State.setPc(tempPc);
                     State.setBill(1);
-                    tempPc = State.getPc();
+//                    tempPc = State.getPc();
                     button.doClick();
                     assertEquals(tempPc + 1, State.getPc());
                 } else {
