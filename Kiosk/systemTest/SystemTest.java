@@ -71,7 +71,7 @@ public class SystemTest {
                     testFinalPanel();
                 }
             }
-            if (State.getPc() > 7)
+            if ((State.getPc() == 0) && (currentPC != 0))   //return from non-welcome
                 break;
         }
     }

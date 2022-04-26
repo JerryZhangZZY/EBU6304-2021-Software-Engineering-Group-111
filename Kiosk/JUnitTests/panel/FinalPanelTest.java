@@ -60,7 +60,7 @@ public class FinalPanelTest {
         JButton exit = finalPanel.getExit_begin();
         exit.doClick();
         assertEquals(3, State.getPc());
-        System.out.println("right");
+        System.out.println("continue checking-in");
     }
 
     @Test
@@ -82,7 +82,7 @@ public class FinalPanelTest {
         JButton exit = finalPanel.getExit_system();
         exit.doClick();
         assertEquals(0, State.getPc());
-        System.out.println("right");
+        System.out.println("quit");
     }
 
     @RepeatedTest(10)
