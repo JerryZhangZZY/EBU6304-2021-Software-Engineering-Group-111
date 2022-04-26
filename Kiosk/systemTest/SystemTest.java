@@ -1,7 +1,10 @@
+import backupDbOperation.BackupDbOperator;
 import card.ScanIdLoginCardTest;
 import card.TypeIdLoginCardTest;
 import main.Config;
 import main.State;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import panel.*;
@@ -25,6 +28,14 @@ import static java.lang.Thread.sleep;
  * @date 4/22
  */
 public class SystemTest {
+    @BeforeEach
+    void backup() {
+        BackupDbOperator.pull();
+    }
+    @AfterEach
+    void recover() {
+        BackupDbOperator.push();
+    }
 //    @Test
     @RepeatedTest(10)
     void main() throws IOException {
