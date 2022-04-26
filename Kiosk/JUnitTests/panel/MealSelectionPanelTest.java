@@ -61,9 +61,9 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         JButton confirm = selectionPanel.getConfirm();
         int r1,exp=-1;
         Random random = new Random();
-        char choose;
+        char choose ='d';
         int tempPc;
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 20; i++){
             State.setPc(5);
             r1=random.nextInt(3);
             food[r1].doClick();
@@ -78,7 +78,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
                 } else if (r1 == 1) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('b', choose);
-                } else {
+                } else if (r1 == 2) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('c', choose);
                 }
@@ -106,6 +106,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
             pre[i]=false;
         }
         for(int i = 0; i < 10 ; i++){
+            State.setPc(5);
             r=random.nextInt(3);
             meal[r].doClick();
             State.setMeal('a');
