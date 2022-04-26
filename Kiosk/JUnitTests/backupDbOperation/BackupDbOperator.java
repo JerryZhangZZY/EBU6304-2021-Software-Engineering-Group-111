@@ -31,25 +31,14 @@ public abstract class BackupDbOperator {
      * Update backup database from master database.
      */
     public static void pull() {
-        try{
-            Thread.sleep(500);
-        }catch (Exception e){}
+        String cmds = "xcopy " + masterRoot + "*.* " + backupRoot + " /s/y";
         try {
             if (!Files.exists(Path.of(backupRoot))){
                 Files.createDirectory(Path.of(backupRoot));
             }
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
-        Process p;
-        String cmds = "xcopy " + masterRoot + "*.* " + backupRoot + " /s/y";
-        try {
-            p = Runtime.getRuntime().exec(cmds);
-            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line = null;
-            while((line = br.readLine()) != null) {
-            }
-        } catch (Exception e) {
+            Runtime.getRuntime().exec(cmds);
+            Thread.sleep(50);
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -58,16 +47,13 @@ public abstract class BackupDbOperator {
      * Recover master database from backup database.
      */
     public static void push() {
-        Process p,d;
         String cmds = "xcopy " + backupRoot + "*.* " + masterRoot + " /s/y";
         String deletecmd = "cmd /c rd "+ backupRoot +" /s/q";
         try {
-            p = Runtime.getRuntime().exec(cmds);
-            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line = null;
-            while((line = br.readLine()) != null) {
-            }
-            d = Runtime.getRuntime().exec(deletecmd);
+            Runtime.getRuntime().exec(cmds);
+            Thread.sleep(50);
+            Runtime.getRuntime().exec(deletecmd);
+            Thread.sleep(10);
         } catch (Exception e) {
             e.printStackTrace();
         }
