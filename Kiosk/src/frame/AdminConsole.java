@@ -31,6 +31,7 @@ public class AdminConsole extends JFrame {
         contentPane.setBackground(new Color(15, 15, 15));
         contentPane.setLayout(null);
         setContentPane(contentPane);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JTextArea terminal = new JTextArea();
         terminal.setBounds(new Rectangle(10, 10, 460, 250));
