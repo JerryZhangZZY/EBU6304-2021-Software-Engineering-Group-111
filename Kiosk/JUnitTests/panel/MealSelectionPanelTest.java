@@ -19,6 +19,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author zaitian
  * @author Liang Zhehao
  *
+ * @version 3.2
+ * rewrite normal food test
+ * @date  4/26
+ *
  * @version 3.1
  * remove pull(), fix bugs
  * @date  4/23
@@ -59,39 +63,51 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         food[1] = selectionPanel.getVegetarian_food();
         food[2] = selectionPanel.getHalal_food();
         JButton confirm = selectionPanel.getConfirm();
-        int r1,exp=-1;
+        int r1=-2,exp=-1;
         Random random = new Random();
         char choose ='d';
-        int tempPc;
-        for(int i = 0; i < 20; i++){
+        for(int j = 0 ; j < 10 ; j++)
+        {
+            int tempPc = 5;
             State.setPc(5);
-            r1=random.nextInt(3);
-            food[r1].doClick();
-            tempPc = State.getPc();
+            for (int i = 0; i < 5; i++) {
+                r1 = random.nextInt(4);
+                if (r1 <= 2) {
+                    food[r1].doClick();
+                }
+                else {
+                    continue;
+                }
+                if(r1==exp){
+                    exp=-1;
+                }
+                else{
+                    exp=r1;
+                }
 //            System.out.println("B1: " + State.getPc());
-            confirm.doClick();
 //            System.out.println("A1: " + State.getPc());
-            choose=State.getMeal();
-            if(r1!=exp)
-            {
-                if (r1 == 0) {
+            }
+            confirm.doClick();
+            choose = State.getMeal();
+            if (exp==-1) {
+                assertEquals(tempPc, State.getPc());
+                assertEquals('d', choose);
+            }
+            else {
+                if (exp == 0) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('a', choose);
-                } else if (r1 == 1) {
+                } else if (exp == 1) {
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('b', choose);
-                } else {
+                } else if (exp == 2){
                     assertEquals(tempPc + 1, State.getPc());
                     assertEquals('c', choose);
                 }
             }
-            else
-            {
-                assertEquals(tempPc, State.getPc());
-                assertEquals('d',choose);
-            }
-            exp = (int)State.getMeal()-97;
         }
+
+
     }
     @Test
     public void testSpecialFood(){
