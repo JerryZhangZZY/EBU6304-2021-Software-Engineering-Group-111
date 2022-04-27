@@ -5,6 +5,7 @@ import frame.MainFrame;
 import main.State;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -55,7 +56,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         BackupDbOperator.push();
     }
 
-    @Test
+    @RepeatedTest(10)
     public void testNormalFood(){
         MealSelectionPanel selectionPanel = new  MealSelectionPanel();
         JButton[] food = new JButton[3];
@@ -66,50 +67,48 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
         int r1=-2,exp=-1;
         Random random = new Random();
         char choose ='d';
-        for(int j = 0 ; j < 10 ; j++)
-        {
-            int tempPc = 5;
-            State.setPc(5);
-            for (int i = 0; i < 5; i++) {
-                r1 = random.nextInt(4);
-                if (r1 <= 2) {
-                    food[r1].doClick();
-                }
-                else {
-                    continue;
-                }
-                if(r1==exp){
-                    exp=-1;
-                }
-                else{
-                    exp=r1;
-                }
-//            System.out.println("B1: " + State.getPc());
-//            System.out.println("A1: " + State.getPc());
-            }
-            confirm.doClick();
-            choose = State.getMeal();
-            if (exp==-1) {
-                assertEquals(tempPc, State.getPc());
-                assertEquals('d', choose);
+        int tempPc = 5;
+        State.setPc(5);
+        for (int i = 0; i < 5; i++) {
+            r1 = random.nextInt(4);
+            if (r1 <= 2) {
+                food[r1].doClick();
             }
             else {
-                if (exp == 0) {
-                    assertEquals(tempPc + 1, State.getPc());
-                    assertEquals('a', choose);
-                } else if (exp == 1) {
-                    assertEquals(tempPc + 1, State.getPc());
-                    assertEquals('b', choose);
-                } else if (exp == 2){
-                    assertEquals(tempPc + 1, State.getPc());
-                    assertEquals('c', choose);
-                }
+                continue;
+            }
+            if(r1==exp){
+                exp=-1;
+            }
+            else{
+                exp=r1;
+            }
+//            System.out.println("B1: " + State.getPc());
+//            System.out.println("A1: " + State.getPc());
+        }
+        confirm.doClick();
+        choose = State.getMeal();
+        if (exp==-1) {
+            assertEquals(tempPc, State.getPc());
+            assertEquals('d', choose);
+        }
+        else {
+            if (exp == 0) {
+                assertEquals(tempPc + 1, State.getPc());
+                assertEquals('a', choose);
+            }
+            else if (exp == 1) {
+                assertEquals(tempPc + 1, State.getPc());
+                assertEquals('b', choose);
+            }
+            else if (exp == 2){
+                assertEquals(tempPc + 1, State.getPc());
+                assertEquals('c', choose);
             }
         }
 
-
     }
-    @Test
+    @RepeatedTest(10)
     public void testSpecialFood(){
         MealSelectionPanel selectionPanel = new  MealSelectionPanel();
         JRadioButton[] meal = selectionPanel.getrdbtnMeal();
