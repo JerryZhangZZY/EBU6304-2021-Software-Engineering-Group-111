@@ -21,6 +21,9 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @author Chenyu
  *
+ * @version 2.0
+ * @date 4/27
+ *
  * @version 1.1
  * implement markov process
  * @date 4/23
