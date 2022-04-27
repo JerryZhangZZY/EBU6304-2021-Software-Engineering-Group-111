@@ -40,7 +40,6 @@ public abstract class Clock {
     static Timer timerAction;
     static Timer backStageTimerAction;
     static int limitTime;
-    static int tempLimitTime;
     static JLabel tempTimer;
     static int flag1 = 0;
     static int flag2 = 0;
@@ -59,7 +58,7 @@ public abstract class Clock {
                 SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
                 varClock.setText(df.format(new Date(timemillis)));
             }
-        },0,1000);
+        },0,1);
     }
 
     /**
@@ -79,23 +78,25 @@ public abstract class Clock {
     public static void setTimer() {
         final JLabel varTimer = tempTimer;
         if(flag1 == 0){
-            tempLimitTime = limitTime;
+            long timeSeconds = System.currentTimeMillis()/1000;
+            long tempMillisTime = limitTime+timeSeconds;
             timerAction = new Timer();
             flag1 = 1;
             timerAction.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    varTimer.setText(String.valueOf(tempLimitTime--));
+                    long nowTime = System.currentTimeMillis()/1000;
+                    varTimer.setText(String.valueOf(tempMillisTime-nowTime));
                     tempTimer.setVisible(true);
-                    if(tempLimitTime ==-1){
+                    if(tempMillisTime-nowTime ==-1){
                         stopTimer();
                         State.setPc(0);
-                        System.out.println("Back to welcome page by overall Timer");
+                        //System.out.println("Back to welcome page by overall Timer");
                         State.setIsReady(new boolean[]{true, true, true,
                                 false, false, false, false, true, true});
                     }
                 }
-            },0,1000);
+            },0,1);
         }
     }
 
@@ -105,7 +106,6 @@ public abstract class Clock {
     public static void stopTimer(){
         if(flag1 == 1){
             timerAction.cancel();
-            tempLimitTime = limitTime;
             tempTimer.setVisible(false);
             flag1 = 0;
         }
