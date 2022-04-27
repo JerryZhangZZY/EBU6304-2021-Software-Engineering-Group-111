@@ -12,6 +12,10 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Zhang Zeyu
  *
+ * @version 3.3
+ * Added limit time config, and allowed managers to enable/disable timers.
+ * @date 2022/4/27
+ *
  * @version 3.2
  * All backstage timers have been integrated into Clock.java.
  * Backstage timer can be invoked by using setBackstageTimer(long limitTime),
@@ -35,11 +39,12 @@ public abstract class Clock {
     static Timer clockAction;
     static Timer timerAction;
     static Timer backStageTimerAction;
-    static int limitTime = 120;
+    static int limitTime;
     static int tempLimitTime;
     static JLabel tempTimer;
     static int flag1 = 0;
     static int flag2 = 0;
+
     /**
      * Set the clock
      * @param clock panel of the clock
@@ -58,10 +63,13 @@ public abstract class Clock {
     }
 
     /**
-     * Load the panel from MainFrame to this class.
+     * Load the panel from MainFrame to this class. Deploy configurations.
      * @param timer panel of the timer
      */
     public static void loadTimer(JLabel timer){
+        if(Config.readConfig("overallTimer").equals("disable")){disableTimer();}
+        if(Config.readConfig("backStageTimer").equals("disable")){disableBackstageTimer();}
+        limitTime = Integer.parseInt(Config.readConfig("limitTime"));
         tempTimer = timer;
     }
 

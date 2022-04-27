@@ -13,6 +13,11 @@ import java.util.List;
  *
  * @author zaitian
  * @author Zhang Zeyu
+ * @author Ni Ruijie
+ *
+ * @version 3.4
+ * Added limit time config, and allowed managers to enable/disable timers.
+ * @date 2022/4/27
  *
  * @version 3.3
  * Add animation speed config.
@@ -110,6 +115,13 @@ public abstract class Config {
 
         addComment("Check-in stops ... (minutes) before departure.");
         addConfig("stopCheckInLeadingTime", "30");
+
+        addComment("Enable or disable timers.");
+        addConfig("overallTimer","enable");
+        addConfig("backStageTimer","enable");
+
+        addComment("Set the limit time (seconds) for the overall Timer");
+        addConfig("limitTime","120");
 
         addComment("-------------< APPEARANCE SETTINGS >------------");
 
