@@ -37,7 +37,7 @@ public abstract class BackupDbOperator {
                 Files.createDirectory(Path.of(backupRoot));
             }
             Runtime.getRuntime().exec(cmds);
-            Thread.sleep(50);
+            Thread.sleep(100);
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,9 +51,9 @@ public abstract class BackupDbOperator {
         String deletecmd = "cmd /c rd "+ backupRoot +" /s/q";
         try {
             Runtime.getRuntime().exec(cmds);
-            Thread.sleep(50);
+            Thread.sleep(100);
             Runtime.getRuntime().exec(deletecmd);
-            Thread.sleep(10);
+            Thread.sleep(50);
         } catch (Exception e) {
             e.printStackTrace();
         }

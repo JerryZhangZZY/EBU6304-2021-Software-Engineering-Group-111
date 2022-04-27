@@ -90,6 +90,7 @@ public abstract class Clock {
                     if(tempLimitTime ==-1){
                         stopTimer();
                         State.setPc(0);
+                        System.out.println("Back to welcome page by overall Timer");
                         State.setIsReady(new boolean[]{true, true, true,
                                 false, false, false, false, true, true});
                     }
@@ -127,6 +128,7 @@ public abstract class Clock {
                     stopBackstageTimer();
                     stopTimer();
                     State.setPc(0);
+                    System.out.println("Back to welcome page by backStage Timer");
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
                 }

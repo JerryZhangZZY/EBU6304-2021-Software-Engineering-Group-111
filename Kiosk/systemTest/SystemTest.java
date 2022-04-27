@@ -6,6 +6,7 @@ import main.Config;
 import main.State;
 import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import panel.*;
@@ -28,10 +29,10 @@ import static java.lang.Thread.sleep;
  * @date 4/22
  */
 public class SystemTest {
-    @Before
-    public void disableTimer(){
+    @BeforeAll
+    public static void disableTimer(){
         Clock.disableTimer();
-        Clock.disableBackstageTimer();
+        //Clock.disableBackstageTimer();
     }
     @BeforeEach
     void backup() {
@@ -42,7 +43,7 @@ public class SystemTest {
         BackupDbOperator.push();
     }
 //    @Test
-    @RepeatedTest(100)
+    @RepeatedTest(300)
     void main() throws IOException {
         Config.loadConfig();
         int currentPC = -1;
