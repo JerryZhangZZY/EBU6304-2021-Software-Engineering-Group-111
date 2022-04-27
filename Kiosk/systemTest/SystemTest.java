@@ -43,7 +43,7 @@ public class SystemTest {
         BackupDbOperator.push();
     }
 //    @Test
-    @RepeatedTest(300)
+    @RepeatedTest(10)
     void main() throws IOException {
         Config.loadConfig();
         int currentPC = -1;
