@@ -14,7 +14,7 @@ import java.util.Random;
 public class Markov extends CsvReader{
 
     public Markov() throws FileNotFoundException {
-        super("testing-resource/Markov.csv");
+        super("Kiosk/src/test/decision/Markov.csv");
     }
 
     /**
