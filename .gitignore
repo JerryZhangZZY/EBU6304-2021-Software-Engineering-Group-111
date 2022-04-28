@@ -88,7 +88,7 @@ antlr/src/main/antlr4/org/apache/iotdb/db/qp/sql/gen/
 antlr/src/main/antlr4/org/apache/iotdb/db/qp/sql/IoTDBSqlLexer.tokens
 
 # Testing package flies
-Kiosk/src/tests/*.java
+Kiosk/src/main/java/myTests/*.java
 
 # Printed material
 printerOutput/*.jpg
