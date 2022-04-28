@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>D:/shit/EBU6304-2021-Software-Engineering-Group-111/Kiosk/src/main/java</OriginalElement>
+  <nodes>
+    <node x="1731.9858602905838" y="1611.1039581936645">card.FlightInfoCard</node>
+    <node x="1740.1369599856512" y="2435.236983341645">card.MealInfoCard</node>
+    <node x="1725.6369599856512" y="4087.5094797290867">card.FlightInfoTopBarCard</node>
+    <node x="2195.8678814421532" y="1581.6918652788656">main.Config</node>
+    <node x="1197.1038391390143" y="3504.7999761308824">panel.BillConfirmationPanel</node>
+    <node x="813.6038391390141" y="1828.436448430495">panel.WelcomePanel</node>
+    <node x="228.44835944753459" y="3393.833261038505">printer.TicketPrinter</node>
+    <node x="1183.1038391390143" y="1819.1039581936645">panel.FlightSelectionPanel</node>
+    <node x="339.43194633471103" y="4124.451934573932">dbWriter.DBGenerator</node>
+    <node x="359.3324519347109" y="3241.3712510654113">printer.TagPrinter</node>
+    <node x="293.6723787508529" y="1964.2837860939317">dbReader.PassengerFlightReader</node>
+    <node x="293.6723787508529" y="1605.9101304885503">dbReader.AirlineWebsiteReader</node>
+    <node x="2173.8678814421532" y="1921.8997868214658">main.Theme</node>
+    <node x="1740.1369599856512" y="3776.017082068101">card.MealBillcard</node>
+    <node x="313.33245193471095" y="3144.353662229537">dbWriter.SeatWriter</node>
+    <node x="1646.9858602905838" y="1988.8211402564443">card.TypeIdLoginCard</node>
+    <node x="787.1038391390141" y="2491.336161434978">panel.BookingLoginPanel</node>
+    <node x="2523.3015045381167" y="2734.736983341645">main.Control</node>
+    <node x="378.5516171508529" y="2374.780216070015">idCardReader.IdCardReader</node>
+    <node x="791.6038391390141" y="2212.8104266905843">panel.IdLoginPanel</node>
+    <node x="1716.6369599856512" y="3127.04138427438">card.ScrollCard</node>
+    <node x="836.1038391390141" y="3904.868919964124">dbReader.SeatReader</node>
+    <node x="2216.7547839162953" y="3677.6382347855906">frame.AdminConsole</node>
+    <node x="328.431946334711" y="2860.892106799941">dbReader.MealPreferenceReader</node>
+    <node x="1211.1038391390143" y="2055.478810211601">panel.SeatSelectionPanel</node>
+    <node x="2133.8678814421532" y="2492.107708364066">frame.MainFrame</node>
+    <node x="313.33245193471095" y="2526.336161434978">dbReader.FlightReader</node>
+    <node x="801.6038391390141" y="2969.7377399103134">panel.ProgressPanel</node>
+    <node x="1769.6369599856512" y="2363.529061799045">card.SeatLegendCard</node>
+    <node x="301.6019572261887" y="1481.3613860939317">dbWriter.JsonWriter</node>
+    <node x="2715.73512763408" y="2129.111038516531">main.State</node>
+    <node x="293.6723787508529" y="1753.458874883169">dbReader.PlaneReader</node>
+    <node x="2185.7547839162953" y="3177.3156299066663">main.Clock</node>
+    <node x="1678.9858602905838" y="1337.816397440301">card.ScanIdLoginCard</node>
+    <node x="307.1019572261887" y="1345.5624800806575">dbReader.PassengerReader</node>
+    <node x="218.71147728071878" y="3546.2952710115987">printer.BarCode_QRCodeGenerator</node>
+    <node x="836.1038391390141" y="3229.5175496035877">panel.FinalPanel</node>
+    <node x="840.1038391390141" y="3732.7287892376676">panel.PaymentPanel</node>
+    <node x="326.1019572261887" y="1232.7635740673832">dbReader.JsonReader</node>
+    <node x="343.83245193471095" y="3025.622884514739">dbWriter.StatusWriter</node>
+    <node x="1740.1369599856512" y="3527.7999761308824">card.SmallBillCard</node>
+    <node x="1200.6038391390143" y="3051.853662229537">panel.MealSelectionPanel</node>
+    <node x="306.43194633471103" y="3948.6079234672034">printer.BoardingPassPrinter</node>
+    <node x="1738.1369599856512" y="3266.8457852071156">card.MealPreferenceCard</node>
+    <node x="1734.6369599856512" y="4165.001877390073">card.SeatBillCard</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="frame.MainFrame" target="main.State" relationship="DEPENDENCY">
+      <point x="-178.9998814421533" y="298.6292916359339" />
+      <point x="1613.0" y="3105.737" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.MealBillcard" relationship="TO_ONE">
+      <point x="15.000160860985716" y="119.5" />
+      <point x="1361.104" y="3922.017" />
+      <point x="-85.0" y="14.999917931898835" />
+    </edge>
+    <edge source="card.TypeIdLoginCard" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="-180.49986029058368" y="-116.34214025644428" />
+      <point x="730.0" y="2037.979" />
+      <point x="730.0" y="3097.123" />
+      <point x="237.0" y="3097.123" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="main.Control" target="panel.MealSelectionPanel" relationship="CREATE">
+      <point x="-25.499555360239356" y="-27.0" />
+      <point x="2578.3019491778773" y="2479.107708364066" />
+      <point x="2064.486" y="2479.107708364066" />
+      <point x="2064.486" y="3095.237" />
+      <point x="145.5" y="-76.11666222953681" />
+    </edge>
+    <edge source="card.FlightInfoTopBarCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-99.49995998565123" y="-4.797290866918047E-4" />
+      <point x="1667.0" y="4101.509" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="card.FlightInfoCard" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="-95.49986029058368" y="-14.999958193664497" />
+      <point x="1630.0" y="1750.104" />
+      <point x="1630.0" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="panel.FinalPanel" target="main.Clock" relationship="DEPENDENCY">
+      <point x="96.50016086098594" y="-49.51754960358767" />
+      <point x="1144.0" y="3368.5" />
+      <point x="1144.0" y="1854.104" />
+      <point x="1124.5" y="1854.104" />
+      <point x="1124.5" y="1279.264" />
+      <point x="2454.368" y="1279.264" />
+      <point x="2454.368" y="1859.192" />
+      <point x="2556.0" y="1859.192" />
+      <point x="2556.0" y="3365.816" />
+      <point x="112.0002160837048" y="3.700933334584988E-4" />
+    </edge>
+    <edge source="panel.FinalPanel" target="dbWriter.SeatWriter" relationship="DEPENDENCY">
+      <point x="0.0" y="-188.5" />
+      <point x="932.6038391390141" y="3180.2377399103134" />
+      <point x="104.99999999999994" y="8.8840776807765" />
+    </edge>
+    <edge source="dbReader.FlightReader" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-120.00045193471095" y="14.999838565021946" />
+      <point x="272.0" y="2694.836" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.TypeIdLoginCard" relationship="CREATE">
+      <point x="141.0" y="0.0" />
+      <point x="1180.604" y="2286.3104266905843" />
+      <point x="1180.604" y="1990.936448430495" />
+      <point x="-180.5" y="-163.3846918259494" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="dbReader.SeatReader" relationship="CREATE">
+      <point x="-135.0" y="194.35718978839895" />
+      <point x="1180.604" y="2679.836" />
+      <point x="1180.604" y="3448.018" />
+      <point x="1100.0" y="3448.018" />
+      <point x="1100.0" y="3966.868919964124" />
+      <point x="90.5" y="0.0" />
+    </edge>
+    <edge source="main.Control" target="main.Config" relationship="DEPENDENCY">
+      <point x="4.4463976064434974E-4" y="27.00001665835498" />
+      <point x="2603.8019491778773" y="3749.138" />
+      <point x="2080.0" y="3749.138" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="dbWriter.StatusWriter" target="dbWriter.JsonWriter" relationship="DEPENDENCY">
+      <point x="-73.5" y="15.000115485261176" />
+      <point x="257.0" y="3067.623" />
+      <point x="257.0" y="1508.3613860939317" />
+      <point x="-97.5" y="0.0" />
+    </edge>
+    <edge source="card.FlightInfoCard" target="main.State" relationship="DEPENDENCY">
+      <point x="1.397094163166912E-4" y="154.0000418063355" />
+      <point x="1827.486" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.PaymentPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="92.50016086098594" y="2.1076233224448515E-4" />
+      <point x="1518.0" y="3794.729" />
+      <point x="1518.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.BarCode_QRCodeGenerator" target="dbReader.PlaneReader" relationship="DEPENDENCY">
+      <point x="178.99952271928123" y="-15.00027101159867" />
+      <point x="618.0" y="3685.295" />
+      <point x="618.0" y="4411.952" />
+      <point x="769.0" y="4411.952" />
+      <point x="769.0" y="1837.959" />
+      <point x="102.99962124914714" y="1.251168309863715E-4" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="-148.99983913901428" y="2.386911774010514E-5" />
+      <point x="1115.0" y="3624.3" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="1.6086098571577168E-4" y="-119.49997613088226" />
+      <point x="1346.104" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="main.Control" target="panel.ProgressPanel" relationship="CREATE">
+      <point x="60.000444639760644" y="-27.0" />
+      <point x="2663.8019491778773" y="1110.2635740673832" />
+      <point x="96.21100000000001" y="1110.2635740673832" />
+      <point x="96.21100000000001" y="3008.122884514739" />
+      <point x="-131.0" y="-58.11485539557452" />
+    </edge>
+    <edge source="main.Control" target="main.State" relationship="DEPENDENCY">
+      <point x="-14.999555360239356" y="-26.99998334164502" />
+      <point x="2588.8019491778773" y="1904.4" />
+      <point x="1993.486" y="1904.4" />
+      <point x="1993.486" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="dbWriter.DBGenerator" target="dbReader.PlaneReader" relationship="DEPENDENCY">
+      <point x="93.00005366528899" y="-14.999934573931569" />
+      <point x="618.0" y="4366.952" />
+      <point x="618.0" y="4411.952" />
+      <point x="769.0" y="4411.952" />
+      <point x="769.0" y="1837.959" />
+      <point x="102.99962124914714" y="1.251168309863715E-4" />
+    </edge>
+    <edge source="frame.MainFrame" target="frame.AdminConsole" relationship="CREATE">
+      <point x="114.38690247414206" y="315.0" />
+      <point x="2427.2547839162953" y="3704.6382347855906" />
+      <point x="81.0" y="0.0" />
+    </edge>
+    <edge source="main.Control" target="panel.BookingLoginPanel" relationship="CREATE">
+      <point x="45.000444639760644" y="-27.0" />
+      <point x="2648.8019491778773" y="1125.2635740673832" />
+      <point x="111.21100000000001" y="1125.2635740673832" />
+      <point x="111.21100000000001" y="2349.7837860939317" />
+      <point x="659.0" y="2349.7837860939317" />
+      <point x="659.0" y="2694.836" />
+      <point x="-145.5" y="14.999838565021946" />
+    </edge>
+    <edge source="card.MealPreferenceCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="4.0014348769545904E-5" y="96.50021479288444" />
+      <point x="1835.637" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="card.FlightInfoCard" relationship="CREATE">
+      <point x="-14.999839139014284" y="-50.0" />
+      <point x="1331.104" y="1675.4101304885503" />
+      <point x="-95.5" y="-89.69382770511424" />
+    </edge>
+    <edge source="card.SmallBillCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="4.0014348769545904E-5" y="-107.99997613088226" />
+      <point x="1835.637" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="panel.WelcomePanel" target="main.Clock" relationship="DEPENDENCY">
+      <point x="119.00016086098594" y="-30.000448430495" />
+      <point x="1144.0" y="1883.436" />
+      <point x="1144.0" y="1854.104" />
+      <point x="1124.5" y="1854.104" />
+      <point x="1124.5" y="1279.264" />
+      <point x="2454.368" y="1279.264" />
+      <point x="2454.368" y="1859.192" />
+      <point x="2556.0" y="1859.192" />
+      <point x="2556.0" y="3365.816" />
+      <point x="112.0002160837048" y="3.700933334584988E-4" />
+    </edge>
+    <edge source="card.TypeIdLoginCard" target="main.State" relationship="DEPENDENCY">
+      <point x="-180.49986029058368" y="14.99985974355559" />
+      <point x="1613.0" y="2169.321" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="frame.MainFrame" target="main.Config" relationship="DEPENDENCY">
+      <point x="-178.9998814421533" y="2.916359339906194E-4" />
+      <point x="2080.0" y="2807.108" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="main.Clock" target="main.State" relationship="DEPENDENCY">
+      <point x="-111.9997839162952" y="-116.46962990666634" />
+      <point x="1613.0" y="3249.346" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="main.Config" relationship="DEPENDENCY">
+      <point x="-14.999839139014284" y="50.0000418063355" />
+      <point x="1331.104" y="1937.0" />
+      <point x="2080.0" y="1937.0" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="1.6086098571577168E-4" y="430.000189788399" />
+      <point x="1346.104" y="2934.0" />
+      <point x="1115.0" y="2934.0" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="1.6086098571577168E-4" y="50.0000418063355" />
+      <point x="1346.104" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.FinalPanel" target="printer.TagPrinter" relationship="DEPENDENCY">
+      <point x="-96.5" y="-141.14654960358757" />
+      <point x="82.0" y="-15.000251065411248" />
+    </edge>
+    <edge source="panel.FinalPanel" target="printer.TicketPrinter" relationship="DEPENDENCY">
+      <point x="-96.5" y="41.315450396412416" />
+      <point x="84.0" y="14.99973896149504" />
+    </edge>
+    <edge source="card.ScanIdLoginCard" target="main.State" relationship="DEPENDENCY">
+      <point x="-148.49986029058368" y="14.999602559699042" />
+      <point x="1613.0" y="1449.316" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="main.Control" target="panel.FinalPanel" relationship="CREATE">
+      <point x="15.000444639760644" y="27.0" />
+      <point x="2618.8019491778773" y="4367.502" />
+      <point x="1052.5" y="4367.502" />
+      <point x="1052.5" y="3448.018" />
+      <point x="96.5" y="30.00045039641236" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealInfoCard" relationship="TO_ONE">
+      <point x="145.5" y="-90.6166788878918" />
+      <point x="-111.5" y="319.0" />
+    </edge>
+    <edge source="card.MealPreferenceCard" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="-97.49995998565123" y="-14.999785207115565" />
+      <point x="1630.0" y="3348.346" />
+      <point x="1630.0" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="135.00016086098572" y="-14.999810211601016" />
+      <point x="1630.0" y="2470.479" />
+      <point x="1630.0" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="panel.PaymentPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="92.50016086098594" y="-14.999789237667756" />
+      <point x="1115.0" y="3779.729" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.SmallBillCard" relationship="CREATE">
+      <point x="1.6086098571577168E-4" y="119.50002386911774" />
+      <point x="1346.104" y="4352.502" />
+      <point x="1965.637" y="4352.502" />
+      <point x="1965.637" y="3635.8" />
+      <point x="95.50004001434877" y="2.386911774010514E-5" />
+    </edge>
+    <edge source="printer.TicketPrinter" target="dbReader.PlaneReader" relationship="DEPENDENCY">
+      <point x="83.9996405524654" y="42.99973896149504" />
+      <point x="618.0" y="3487.333" />
+      <point x="618.0" y="4411.952" />
+      <point x="769.0" y="4411.952" />
+      <point x="769.0" y="1837.959" />
+      <point x="102.99962124914714" y="1.251168309863715E-4" />
+    </edge>
+    <edge source="card.ScanIdLoginCard" target="idCardReader.IdCardReader" relationship="DEPENDENCY">
+      <point x="0.0" y="-96.5" />
+      <point x="1827.4858602905838" y="1140.2635740673832" />
+      <point x="126.21100000000001" y="1140.2635740673832" />
+      <point x="126.21100000000001" y="2436.780216070015" />
+      <point x="-80.0" y="0.0" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="163.00016086098572" y="-14.999958193664497" />
+      <point x="1630.0" y="1854.104" />
+      <point x="1630.0" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="printer.BarCode_QRCodeGenerator" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="-108.77947728071877" y="153.99972898840133" />
+      <point x="288.932" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="dbWriter.DBGenerator" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="93.00005366528899" y="6.542606843140675E-5" />
+      <point x="659.0" y="4381.952" />
+      <point x="659.0" y="3516.5" />
+      <point x="749.0" y="3516.5" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="card.MealPreferenceCard" target="main.State" relationship="DEPENDENCY">
+      <point x="-97.49995998565123" y="2.1479288443515543E-4" />
+      <point x="1613.0" y="3363.346" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="card.MealPreferenceCard" target="dbReader.MealPreferenceReader" relationship="DEPENDENCY">
+      <point x="97.50004001434877" y="2.1479288443515543E-4" />
+      <point x="1980.637" y="3363.346" />
+      <point x="1980.637" y="4426.952" />
+      <point x="598.0" y="4426.952" />
+      <point x="598.0" y="2910.892" />
+      <point x="104.00005366528904" y="-1.0679994102247292E-4" />
+    </edge>
+    <edge source="main.Control" target="panel.PaymentPanel" relationship="CREATE">
+      <point x="80.5" y="0.0" />
+      <point x="2697.3015045381167" y="2761.736983341645" />
+      <point x="2697.3015045381167" y="4378.002" />
+      <point x="823.1038391390141" y="4378.002" />
+      <point x="823.1038391390141" y="3794.7287892376676" />
+      <point x="-92.5" y="0.0" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealPreferenceCard" relationship="CREATE">
+      <point x="1.6086098571577168E-4" y="119.5" />
+      <point x="1346.104" y="3418.018" />
+      <point x="-97.5" y="54.67221479288446" />
+    </edge>
+    <edge source="main.Control" target="panel.FlightSelectionPanel" relationship="CREATE">
+      <point x="15.000444639760644" y="-27.0" />
+      <point x="2618.8019491778773" y="1170.2635740673832" />
+      <point x="1316.104" y="1170.2635740673832" />
+      <point x="-29.999839139014284" y="-50.0" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.ScanIdLoginCard" relationship="CREATE">
+      <point x="132.0" y="-73.5" />
+      <point x="1064.603839139014" y="1342.5624800806575" />
+      <point x="-148.5" y="-91.75391735964354" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.ScrollCard" relationship="TO_ONE">
+      <point x="135.0" y="30.000189788398984" />
+      <point x="1594.0" y="2515.479" />
+      <point x="1594.0" y="3171.354" />
+      <point x="-119.0" y="-6.1873842743802925" />
+    </edge>
+    <edge source="dbReader.MealPreferenceReader" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-103.99994633471096" y="-1.0679994102247292E-4" />
+      <point x="272.0" y="2910.892" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="panel.FinalPanel" target="printer.BarCode_QRCodeGenerator" relationship="DEPENDENCY">
+      <point x="-96.5" y="181.0" />
+      <point x="179.0" y="-101.27772140801108" />
+    </edge>
+    <edge source="main.Control" target="panel.BillConfirmationPanel" relationship="CREATE">
+      <point x="30.000444639760644" y="27.0" />
+      <point x="2633.8019491778773" y="4133.009479729087" />
+      <point x="1331.104" y="4133.009479729087" />
+      <point x="-14.999839139014284" y="119.5" />
+    </edge>
+    <edge source="frame.MainFrame" target="panel.WelcomePanel" relationship="CREATE">
+      <point x="156.5001185578467" y="-315.0" />
+      <point x="2469.368" y="1185.2635740673832" />
+      <point x="947.6038391390141" y="1185.2635740673832" />
+      <point x="15.0" y="-85.0" />
+    </edge>
+    <edge source="dbReader.PassengerReader" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-91.99995722618871" y="-4.800806575531169E-4" />
+      <point x="272.0" y="1384.062" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.FlightInfoTopBarCard" relationship="TO_ONE">
+      <point x="149.0" y="0.0" />
+      <point x="1682.0" y="3624.2999761308824" />
+      <point x="1682.0" y="3467.3457852071156" />
+      <point x="1950.6369599856512" y="3467.3457852071156" />
+      <point x="1950.6369599856512" y="4101.509479729087" />
+      <point x="99.5" y="0.0" />
+    </edge>
+    <edge source="card.MealBillcard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-84.99995998565123" y="-8.206810116462293E-5" />
+      <point x="1667.0" y="3907.017" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="frame.MainFrame" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-150.36788144215325" y="315.000291635934" />
+      <point x="2162.5" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.TypeIdLoginCard" relationship="TO_ONE">
+      <point x="0.0" y="-73.5" />
+      <point x="932.6038391390141" y="2022.979" />
+      <point x="-180.5" y="-131.34214025644428" />
+    </edge>
+    <edge source="printer.BoardingPassPrinter" target="dbReader.PlaneReader" relationship="DEPENDENCY">
+      <point x="126.00005366528899" y="15.000076532796811" />
+      <point x="618.0" y="4014.108" />
+      <point x="618.0" y="4411.952" />
+      <point x="769.0" y="4411.952" />
+      <point x="769.0" y="1837.959" />
+      <point x="102.99962124914714" y="1.251168309863715E-4" />
+    </edge>
+    <edge source="printer.BarCode_QRCodeGenerator" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="178.99952271928123" y="14.99972898840133" />
+      <point x="659.0" y="3715.295" />
+      <point x="659.0" y="3516.5" />
+      <point x="749.0" y="3516.5" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.SeatBillCard" relationship="CREATE">
+      <point x="-44.999839139014284" y="119.5" />
+      <point x="1301.104" y="4265.002" />
+      <point x="-90.5" y="15.00012260992753" />
+    </edge>
+    <edge source="main.Control" target="panel.SeatSelectionPanel" relationship="CREATE">
+      <point x="-10.499555360239356" y="27.0" />
+      <point x="2593.3019491778773" y="3135.107708364066" />
+      <point x="2053.986" y="3135.107708364066" />
+      <point x="2053.986" y="2407.237" />
+      <point x="135.0" y="-78.24181021160075" />
+    </edge>
+    <edge source="card.ScanIdLoginCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-148.49986029058368" y="-3.974403009578964E-4" />
+      <point x="1579.0" y="1434.316" />
+      <point x="1579.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="main.Clock" relationship="DEPENDENCY">
+      <point x="-162.99983913901428" y="4.18063355027698E-5" />
+      <point x="1144.0" y="1869.104" />
+      <point x="1144.0" y="1854.104" />
+      <point x="1124.5" y="1854.104" />
+      <point x="1124.5" y="1279.264" />
+      <point x="2454.368" y="1279.264" />
+      <point x="2454.368" y="1859.192" />
+      <point x="2556.0" y="1859.192" />
+      <point x="2556.0" y="3365.816" />
+      <point x="112.0002160837048" y="3.700933334584988E-4" />
+    </edge>
+    <edge source="printer.TicketPrinter" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="-84.00035944753458" y="-2.610385049592878E-4" />
+      <point x="201.211" y="3444.333" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="main.Theme" target="main.Config" relationship="DEPENDENCY">
+      <point x="-123.99988144215331" y="-14.999786821465477" />
+      <point x="2080.0" y="2164.4" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="dbReader.PassengerFlightReader" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="208.49962124914714" y="-14.999786093931561" />
+      <point x="730.0" y="2125.784" />
+      <point x="730.0" y="3097.123" />
+      <point x="237.0" y="3097.123" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="panel.WelcomePanel" target="main.State" relationship="DEPENDENCY">
+      <point x="119.00016086098594" y="-4.484304949983198E-4" />
+      <point x="1115.0" y="1913.436" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealPreferenceCard" relationship="TO_ONE">
+      <point x="145.5" y="112.0" />
+      <point x="-97.5" y="-79.99212297757867" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.FlightInfoTopBarCard" relationship="CREATE">
+      <point x="-25.499839139014284" y="119.5" />
+      <point x="1320.604" y="4091.009" />
+      <point x="-99.5" y="-10.500479729086692" />
+    </edge>
+    <edge source="panel.WelcomePanel" target="main.Config" relationship="DEPENDENCY">
+      <point x="119.00016086098594" y="-15.000448430494998" />
+      <point x="1165.604" y="1898.436" />
+      <point x="1165.604" y="1937.0" />
+      <point x="2080.0" y="1937.0" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="frame.MainFrame" target="main.Clock" relationship="DEPENDENCY">
+      <point x="179.0001185578467" y="-109.10770836406618" />
+      <point x="2556.0" y="2698.0" />
+      <point x="2556.0" y="3365.816" />
+      <point x="112.0002160837048" y="3.700933334584988E-4" />
+    </edge>
+    <edge source="panel.ProgressPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="-14.999839139014057" y="-96.49973991031356" />
+      <point x="917.604" y="2934.0" />
+      <point x="1115.0" y="2934.0" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="main.Control" target="main.Clock" relationship="DEPENDENCY">
+      <point x="-80.49955536023936" y="1.665835497988155E-5" />
+      <point x="2556.0" y="2761.737" />
+      <point x="2556.0" y="3365.816" />
+      <point x="112.0002160837048" y="3.700933334584988E-4" />
+    </edge>
+    <edge source="panel.FinalPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="96.50016086098594" y="15.000450396412361" />
+      <point x="1115.0" y="3433.018" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="dbReader.SeatReader" relationship="TO_ONE">
+      <point x="135.0" y="291.25818978839925" />
+      <point x="1533.0" y="2776.737" />
+      <point x="1533.0" y="3467.3457852071156" />
+      <point x="1150.604" y="3467.3457852071156" />
+      <point x="1150.604" y="3981.868919964124" />
+      <point x="90.5" y="15.0" />
+    </edge>
+    <edge source="card.TypeIdLoginCard" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="-118.98586029058379" y="-165.5001402564444" />
+      <point x="1708.5" y="1793.0" />
+      <point x="749.0" y="1793.0" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="dbReader.PlaneReader" relationship="DEPENDENCY">
+      <point x="-134.99983913901428" y="-63.69881021160063" />
+      <point x="769.0" y="2421.78" />
+      <point x="769.0" y="1837.959" />
+      <point x="102.99962124914714" y="1.251168309863715E-4" />
+    </edge>
+    <edge source="panel.FinalPanel" target="printer.BoardingPassPrinter" relationship="DEPENDENCY">
+      <point x="0.0" y="188.5" />
+      <point x="932.6038391390141" y="3654.3" />
+      <point x="809.1038391390141" y="3654.3" />
+      <point x="809.1038391390141" y="4656.951934573932" />
+      <point x="321.93194633471103" y="4656.951934573932" />
+      <point x="-110.5" y="50.5" />
+    </edge>
+    <edge source="card.FlightInfoCard" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="-95.49986029058368" y="119.0000418063355" />
+      <point x="1708.5" y="1884.104" />
+      <point x="1708.5" y="1793.0" />
+      <point x="749.0" y="1793.0" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="card.SeatLegendCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-81.99995998565123" y="-6.179904494274524E-5" />
+      <point x="1667.0" y="2377.529" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.TicketPrinter" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="54.38364055246541" y="-50.50026103850496" />
+      <point x="366.832" y="3359.871" />
+      <point x="237.0" y="3359.871" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="card.ScanIdLoginCard" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="-148.49986029058368" y="-15.000397440300958" />
+      <point x="749.0" y="1419.316" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="dbReader.PassengerFlightReader" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-208.50037875085286" y="2.1390606843851856E-4" />
+      <point x="272.0" y="2140.784" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="idCardReader.IdCardReader" target="main.Config" relationship="DEPENDENCY">
+      <point x="80.00038284914712" y="-2.1607001463053166E-4" />
+      <point x="1100.0" y="2436.78" />
+      <point x="1100.0" y="1937.0" />
+      <point x="2080.0" y="1937.0" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="panel.BookingLoginPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="1.6086098594314535E-4" y="188.49983856502195" />
+      <point x="932.604" y="2952.238" />
+      <point x="1518.0" y="2952.238" />
+      <point x="1518.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="card.MealInfoCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-111.49995998565123" y="1.665835497988155E-5" />
+      <point x="1667.0" y="2761.737" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="main.State" target="card.SmallBillCard" relationship="TO_ONE">
+      <point x="15.00045335725099" y="671.5" />
+      <point x="2867.735580991331" y="3650.8" />
+      <point x="95.5" y="15.00002386911774" />
+    </edge>
+    <edge source="printer.TagPrinter" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="-82.0004519347109" y="-2.5106541124841897E-4" />
+      <point x="237.0" y="3291.871" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="main.Clock" target="main.Config" relationship="DEPENDENCY">
+      <point x="-111.9997839162952" y="132.18437009333365" />
+      <point x="2080.0" y="3498.0" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="1.6086098571577168E-4" y="-49.9999581936645" />
+      <point x="1346.104" y="1793.0" />
+      <point x="749.0" y="1793.0" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="dbWriter.DBGenerator" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="5.3665288987758686E-5" y="-257.49993457393157" />
+      <point x="432.432" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="dbWriter.DBGenerator" target="dbReader.MealPreferenceReader" relationship="DEPENDENCY">
+      <point x="93.00005366528899" y="-29.99993457393157" />
+      <point x="598.0" y="4351.952" />
+      <point x="598.0" y="2910.892" />
+      <point x="104.00005366528904" y="-1.0679994102247292E-4" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.SeatLegendCard" relationship="CREATE">
+      <point x="135.0" y="-97.44981021160083" />
+      <point x="-82.0" y="10.499938200955057" />
+    </edge>
+    <edge source="card.TypeIdLoginCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-180.49986029058368" y="-1.4025644441062468E-4" />
+      <point x="1579.0" y="2154.321" />
+      <point x="1579.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="dbWriter.DBGenerator" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="93.00005366528899" y="15.000065426068431" />
+      <point x="730.0" y="4396.952" />
+      <point x="730.0" y="3097.123" />
+      <point x="237.0" y="3097.123" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="panel.FinalPanel" target="dbWriter.StatusWriter" relationship="DEPENDENCY">
+      <point x="-96.5" y="0.0" />
+      <point x="689.0" y="3418.0175496035877" />
+      <point x="689.0" y="3052.622884514739" />
+      <point x="73.5" y="0.0" />
+    </edge>
+    <edge source="card.FlightInfoTopBarCard" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="4.0014348769545904E-5" y="-14.000479729086692" />
+      <point x="1825.137" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="card.FlightInfoCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-95.49986029058368" y="4.18063355027698E-5" />
+      <point x="1579.0" y="1765.104" />
+      <point x="1579.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.BarCode_QRCodeGenerator" target="dbReader.AirlineWebsiteReader" relationship="DEPENDENCY">
+      <point x="-179.0" y="0.0" />
+      <point x="141.211" y="3700.2952710115987" />
+      <point x="141.211" y="1644.4101304885503" />
+      <point x="-101.0" y="0.0" />
+    </edge>
+    <edge source="card.SeatLegendCard" target="main.State" relationship="DEPENDENCY">
+      <point x="4.0014348769545904E-5" y="13.999938200955057" />
+      <point x="1851.637" y="2417.737" />
+      <point x="1613.0" y="2417.737" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="main.Theme" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-123.99988144215331" y="2.1317853452273994E-4" />
+      <point x="2025.486" y="2179.4" />
+      <point x="2025.486" y="1586.0" />
+      <point x="272.0" y="1586.0" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="dbReader.PlaneReader" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-103.00037875085286" y="1.251168309863715E-4" />
+      <point x="272.0" y="1837.959" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="panel.FinalPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="96.50016086098594" y="4.5039641236144234E-4" />
+      <point x="1150.604" y="3418.018" />
+      <point x="1150.604" y="3391.0" />
+      <point x="1518.0" y="3391.0" />
+      <point x="1518.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.BoardingPassPrinter" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="126.00005366528899" y="7.65327968110796E-5" />
+      <point x="659.0" y="3999.108" />
+      <point x="659.0" y="3516.5" />
+      <point x="749.0" y="3516.5" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="panel.PaymentPanel" target="main.Config" relationship="DEPENDENCY">
+      <point x="92.50016086098594" y="15.000210762332244" />
+      <point x="1697.0" y="3809.729" />
+      <point x="1697.0" y="3512.3" />
+      <point x="2080.0" y="3512.3" />
+      <point x="2080.0" y="1724.192" />
+      <point x="-112.99988144215331" y="1.3472113437273947E-4" />
+    </edge>
+    <edge source="dbWriter.StatusWriter" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-73.50045193471095" y="1.1548526117621805E-4" />
+      <point x="272.0" y="3052.623" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="main.State" target="card.SmallBillCard" relationship="CREATE">
+      <point x="4.533572509899386E-4" y="671.4999614834687" />
+      <point x="2852.735580991331" y="3616.0" />
+      <point x="1965.637" y="3616.0" />
+      <point x="1965.637" y="3635.8" />
+      <point x="95.50004001434877" y="2.386911774010514E-5" />
+    </edge>
+    <edge source="main.Control" target="main.Theme" relationship="DEPENDENCY">
+      <point x="4.4463976064434974E-4" y="-26.99998334164502" />
+      <point x="2603.8019491778773" y="1564.192" />
+      <point x="1579.0" y="1564.192" />
+      <point x="1579.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.BoardingPassPrinter" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="126.00005366528899" y="-14.999923467203189" />
+      <point x="730.0" y="3984.108" />
+      <point x="730.0" y="3097.123" />
+      <point x="237.0" y="3097.123" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.SeatBillCard" relationship="TO_ONE">
+      <point x="-59.999839139014284" y="119.5" />
+      <point x="1286.104" y="4280.002" />
+      <point x="-90.5" y="30.00012260992753" />
+    </edge>
+    <edge source="main.Control" target="panel.IdLoginPanel" relationship="CREATE">
+      <point x="30.000444639760644" y="-27.0" />
+      <point x="2633.8019491778773" y="1155.2635740673832" />
+      <point x="156.211" y="1155.2635740673832" />
+      <point x="156.211" y="2334.7837860939317" />
+      <point x="-141.0" y="48.47335940334733" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="163.00016086098572" y="4.18063355027698E-5" />
+      <point x="1579.0" y="1869.104" />
+      <point x="1579.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.MealBillcard" relationship="CREATE">
+      <point x="30.000160860985716" y="119.5" />
+      <point x="1376.104" y="3887.368919964124" />
+      <point x="-85.0" y="-19.64816210397703" />
+    </edge>
+    <edge source="card.SeatBillCard" target="main.Theme" relationship="DEPENDENCY">
+      <point x="-90.49995998565123" y="1.22609927529993E-4" />
+      <point x="1667.0" y="4250.002" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="main.Control" target="frame.MainFrame" relationship="CREATE">
+      <point x="-80.5" y="-14.99998334164502" />
+      <point x="2555.4517184011966" y="2746.737" />
+      <point x="2555.4517184011966" y="2746.737" />
+      <point x="179.0" y="-60.370708364066104" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealInfoCard" relationship="CREATE">
+      <point x="145.5" y="-105.6166788878918" />
+      <point x="-111.5" y="304.0" />
+    </edge>
+    <edge source="dbReader.AirlineWebsiteReader" target="dbReader.JsonReader" relationship="DEPENDENCY">
+      <point x="-3.787508528603212E-4" y="-38.50013048855021" />
+      <point x="394.672" y="1586.0" />
+      <point x="272.0" y="1586.0" />
+      <point x="272.0" y="1259.764" />
+      <point x="-82.49995722618871" y="4.259326167357358E-4" />
+    </edge>
+    <edge source="frame.MainFrame" target="panel.WelcomePanel" relationship="TO_ONE">
+      <point x="126.5" y="-315.0" />
+      <point x="2439.3678814421532" y="1200.2635740673832" />
+      <point x="932.6038391390141" y="1200.2635740673832" />
+      <point x="0.0" y="-85.0" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="145.50016086098572" y="3.3777046292016166E-4" />
+      <point x="1518.0" y="3171.354" />
+      <point x="1518.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.TicketPrinter" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="83.9996405524654" y="-2.610385049592878E-4" />
+      <point x="659.0" y="3444.333" />
+      <point x="659.0" y="3516.5" />
+      <point x="749.0" y="3516.5" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="panel.ProgressPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="119.8961608609859" y="96.50026008968644" />
+      <point x="1052.5" y="3391.0" />
+      <point x="1518.0" y="3391.0" />
+      <point x="1518.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.BoardingPassPrinter" target="dbReader.FlightReader" relationship="DEPENDENCY">
+      <point x="5.3665288987758686E-5" y="50.50007653279681" />
+      <point x="432.432" y="4069.0" />
+      <point x="201.211" y="4069.0" />
+      <point x="201.211" y="2679.836" />
+      <point x="-120.00045193471095" y="-1.6143497805387597E-4" />
+    </edge>
+    <edge source="card.ScanIdLoginCard" target="dbReader.PassengerReader" relationship="DEPENDENCY">
+      <point x="-148.49986029058368" y="-30.000397440300958" />
+      <point x="730.0" y="1404.316" />
+      <point x="730.0" y="3097.123" />
+      <point x="237.0" y="3097.123" />
+      <point x="237.0" y="1399.062" />
+      <point x="-91.99995722618871" y="14.999519919342447" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.ScanIdLoginCard" relationship="TO_ONE">
+      <point x="138.0" y="-73.5" />
+      <point x="1070.603839139014" y="1393.816" />
+      <point x="-148.5" y="-40.50039744030096" />
+    </edge>
+    <edge source="panel.BookingLoginPanel" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="-145.49983913901406" y="-1.6143497805387597E-4" />
+      <point x="749.0" y="2679.836" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="panel.BookingLoginPanel" target="main.State" relationship="DEPENDENCY">
+      <point x="145.50016086098594" y="-1.6143497805387597E-4" />
+      <point x="1115.0" y="2679.836" />
+      <point x="1115.0" y="1954.0" />
+      <point x="1613.0" y="1954.0" />
+      <point x="1613.0" y="1549.192" />
+      <point x="2852.735580991331" y="1549.192" />
+      <point x="4.533572509899386E-4" y="-671.5000385165313" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.ScrollCard" relationship="CREATE">
+      <point x="135.0" y="276.25818978839925" />
+      <point x="1563.0" y="2761.737" />
+      <point x="1563.0" y="3186.354" />
+      <point x="-119.0" y="8.812615725619708" />
+    </edge>
+    <edge source="printer.TagPrinter" target="dbReader.PassengerFlightReader" relationship="DEPENDENCY">
+      <point x="81.9995480652891" y="-2.5106541124841897E-4" />
+      <point x="659.0" y="3291.871" />
+      <point x="659.0" y="3516.5" />
+      <point x="749.0" y="3516.5" />
+      <point x="749.0" y="2140.784" />
+      <point x="208.49962124914714" y="2.1390606843851856E-4" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="main.Theme" relationship="DEPENDENCY">
+      <point x="135.00016086098572" y="1.8978839898409205E-4" />
+      <point x="1518.0" y="2485.479" />
+      <point x="1518.0" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+    <edge source="printer.BarCode_QRCodeGenerator" target="main.Theme" relationship="DEPENDENCY">
+      <point x="178.99952271928123" y="-2.7101159867015667E-4" />
+      <point x="1179.604" y="3700.295" />
+      <point x="1179.604" y="3483.0" />
+      <point x="1667.0" y="3483.0" />
+      <point x="1667.0" y="2342.5" />
+      <point x="-123.99988144215331" y="163.10021317853443" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.24762171236709568" showDependencies="true" x="163.8802259887011" y="2923.8508474576274" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
