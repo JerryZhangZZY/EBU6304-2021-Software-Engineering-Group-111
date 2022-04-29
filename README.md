@@ -17,8 +17,9 @@
     - [Theme color](#Theme-Customization)
     - Various user preferences provided by airlines
     - Animation speed
-- Big changes in seat selection page: more convenient
+- Big changes in seat selection page: more convenient and adaptive
 - More informative food preference
+- [Synchronized auto-exit timer](#Exit-Timer)
 - Better auto-exit timer
 - More to be discovered ...
 
@@ -26,7 +27,6 @@
 
 - Admin console more robust
 - Fixed operation unretractable problem
-- Seat selection adapted to plane in real-life
 
 ---
 
@@ -146,6 +146,18 @@ Available options currently includes the following:
 - Maroon
 
 If you want to design your onw theme, go to `theme.json` under `conf` directory to set colors for different parts of the software GUI.
+
+### Extensions
+
+#### Exit Timer
+
+Timer extension enables auto-exit if one single check-in last too long or if there is no more flights to check in.
+The software can lock its screen and return to welcome page.
+This will help save energy and protect users' privacy.
+
+To use exit timer extension, go to `config.yaml`, and set `overallTimer` (120 second for entire check-in process) and/or `backStageTimer` (4 seconds if no more flights) as `enable`.
+Set `disable` if you do not want to use them.
+The two entries are independent.
 
 ---
 
