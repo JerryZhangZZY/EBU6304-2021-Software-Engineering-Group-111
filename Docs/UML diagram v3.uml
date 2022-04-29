@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>D:/shit/EBU6304-2021-Software-Engineering-Group-111/Kiosk/src/main/java</OriginalElement>
+  <OriginalElement>Kiosk/src/main/java</OriginalElement>
   <nodes>
     <node x="1731.9858602905838" y="1611.1039581936645">card.FlightInfoCard</node>
     <node x="1740.1369599856512" y="2435.236983341645">card.MealInfoCard</node>
