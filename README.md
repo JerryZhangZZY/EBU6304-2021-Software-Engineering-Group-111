@@ -159,6 +159,11 @@ To use exit timer extension, go to `config.yaml`, and set `overallTimer` (120 se
 Set `disable` if you do not want to use them.
 The two entries are independent.
 
+#### Check-in Time Constraint
+
+This extension constrains the time period when users can check in their flights.
+Set `enableCheckInLeadingTime` as `true` so that a flight can be checked in only if it departs in more than 30 minutes and no more than 24 hours.
+Say, a flight departs at 10:40 on April 29th, and it is only available from 10:40 on April 28th to 10:10 on April 29th. 
 ---
 
 ## Development team
