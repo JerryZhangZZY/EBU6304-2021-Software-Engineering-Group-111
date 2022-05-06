@@ -1,5 +1,6 @@
 package panel;
 
+import card.PlaneInfoCard;
 import card.SeatLegendCard;
 import card.ScrollCard;
 import dbReader.FlightReader;
@@ -24,6 +25,10 @@ import java.util.ArrayList;
  * @author Wang Chenyu
  * @author Liang Zhehao
  * @author Zhang Zeyu
+ *
+ * @version 4.0
+ * add PlaneInfoCard
+ * @date 2022/5/7
  *
  * @version 3.1
  * redesign the UI, change the icon, enhance the function of displaying multiple rows
@@ -74,6 +79,8 @@ public class SeatSelectionPanel extends JPanel {
     private JPanel warn = new JPanel();
     private ScrollCard scrollCard = new ScrollCard();
     private JScrollBar scrollBar = scrollCard.getScrollBar();
+    private PlaneInfoCard planeInfoCard;
+    private JButton btnPlaneInfo = new JButton();;
     //icon loading
     private ImageIcon[] iconEmpty = new ImageIcon[4];
     private ImageIcon[] iconSelected = new ImageIcon[5];
@@ -153,6 +160,19 @@ public class SeatSelectionPanel extends JPanel {
         }
 
         columnNum = PlaneReader.getColumnNum(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))).split(",");
+
+
+        //PlaneInfoCard
+        planeInfoCard = new PlaneInfoCard();
+        planeInfoCard.setLocation(1220, 50);
+        planeInfoCard.setVisible(false);
+        add(planeInfoCard);
+
+//        btnPlaneInfo.setContentAreaFilled(false);
+//        btnPlaneInfo.setBorderPainted(false);
+        btnPlaneInfo.setBounds(1585, 50, 15, 40);
+        btnPlaneInfo.addActionListener(new PlaneInfoListener());
+        add(btnPlaneInfo);
 
         //SeatSelection
         warn.setLayout(null);
@@ -404,6 +424,24 @@ public class SeatSelectionPanel extends JPanel {
             } else {
                 warn.setBorder(tipBorder);
             }
+        }
+    }
+
+    public class PlaneInfoListener implements ActionListener {
+
+        private boolean onoff = false;
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (!onoff) {
+                planeInfoCard.setVisible(true);
+                scrollBar.setVisible(false);
+                btnPlaneInfo.setLocation(1205, 50);
+            } else {
+                planeInfoCard.setVisible(false);
+                scrollBar.setVisible(true);
+                btnPlaneInfo.setLocation(1585, 50);
+            }
+            onoff = !onoff;
         }
     }
 }
