@@ -6,7 +6,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 /**
  * configuration file accessor
@@ -14,6 +13,11 @@ import java.util.List;
  * @author zaitian
  * @author Zhang Zeyu
  * @author Ni Ruijie
+ *
+ * @version 4.0
+ * Boost performance of generating default config.
+ * Add a new attribute.
+ * @date 2022/5/6
  *
  * @version 3.4
  * Added limit time config, and allowed managers to enable/disable timers.
@@ -91,77 +95,84 @@ public abstract class Config {
     /**
      * reset configuration to default
      */
-    public static void establishConfig() throws IOException{
-        Files.writeString(filePath, "# USER CONFIGURATION FILE");
-
-        addComment("--------------< GENERAL SETTINGS >--------------");
-
-        addComment("Supported language: English.");
-        addConfig("language", "English");
-
-        addComment("USB drive that holds ID document, recommended: E, F, G.");
-        addConfig("idCardDrive", "F");
-
-        addComment("--------------< AIRPORT SETTINGS >--------------");
-
-        addComment("You can set the airport name here.");
-        addConfig("airportName", "Beijing International Airport");
-
-        addComment("Enable the check-in leading time function.");
-        addConfig("enableCheckInLeadingTime", "false");
-
-        addComment("Check-in starts ... (hours) before departure.");
-        addConfig("startCheckInLeadingTime", "24");
-
-        addComment("Check-in stops ... (minutes) before departure.");
-        addConfig("stopCheckInLeadingTime", "30");
-
-        addComment("Enable or disable timers.");
-        addConfig("overallTimer","enable");
-        addConfig("backStageTimer","enable");
-
-        addComment("Set the limit time (seconds) for the overall Timer");
-        addConfig("limitTime","120");
-
-        addComment("-------------< APPEARANCE SETTINGS >------------");
-
-        addComment("Please select a theme from the theme library.");
-        addConfig("theme", "Tiber");
-
-        addComment("Animation speed (1-5, -1 to disable), default: 3.");
-        addConfig("animationSpeed", "3");
+    public static void establishConfig() throws IOException {
+        String strDefaultConfig = """
+                # USER CONFIGURATION FILE
+                            
+                # --------------< GENERAL SETTINGS >--------------
+                                    
+                # Supported language: English.
+                language: English
+                                    
+                # USB drive that holds ID document, recommended: E, F, G.
+                idCardDrive: F
+                                    
+                # --------------< AIRPORT SETTINGS >--------------
+                                    
+                # You can set the airport name here.
+                airportName: Beijing International Airport
+                                    
+                # Enable/disable the check-in leading time function.
+                enableCheckInLeadingTime: false
+                # Check-in starts ... (hours) before departure.
+                startCheckInLeadingTime: 24
+                # Check-in stops ... (minutes) before departure.
+                stopCheckInLeadingTime: 30
+                                    
+                # Enable/disable global timer.
+                overallTimer: enable
+                # Set the limit time (seconds) for the global Timer
+                limitTime: 120
+                                    
+                # Enable/disable backstage timer.
+                backStageTimer: enable
+                                 
+                # -------------< APPEARANCE SETTINGS >------------
+                                    
+                # Select a theme from the theme library.
+                theme: Anchor
+                                    
+                # Enable/disable auto dark theme
+                autoDarkTheme: true
+                                    
+                # Animation speed (1-5, -1 to disable), default: 3.
+                animationSpeed: 3
+                """;
+        FileWriter fileWriter = new FileWriter(String.valueOf(filePath), false);
+        fileWriter.write(strDefaultConfig);
+        fileWriter.close();
     }
-    /**
-     * modify configuration file
-     * @param name tag name
-     * @param value tag value
-     */
-    public static void addConfig(String name, String value){
-        try {
-            List<String> oldConf = Files.readAllLines(filePath);
-            String newConf = "";
-            for (String s : oldConf) {
-                if (!s.startsWith(name)) {                 //if duplicate
-                    newConf = newConf.concat(s + "\n");    //discard old
-                }
-            }
-            newConf = newConf.concat(name + ": " + value + "\n");
-            Files.writeString(filePath, newConf);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void addComment(String comment){
-        try {
-            List<String> oldConf = Files.readAllLines(filePath);
-            String newConf = "";
-            for (String s : oldConf) {
-                newConf = newConf.concat(s + "\n");
-            }
-            newConf = newConf.concat("\n# " + comment + "\n");
-            Files.writeString(filePath, newConf);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    /**
+//     * modify configuration file
+//     * @param name tag name
+//     * @param value tag value
+//     */
+//    public static void addConfig(String name, String value){
+//        try {
+//            List<String> oldConf = Files.readAllLines(filePath);
+//            String newConf = "";
+//            for (String s : oldConf) {
+//                if (!s.startsWith(name)) {                 //if duplicate
+//                    newConf = newConf.concat(s + "\n");    //discard old
+//                }
+//            }
+//            newConf = newConf.concat(name + ": " + value + "\n");
+//            Files.writeString(filePath, newConf);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    public static void addComment(String comment){
+//        try {
+//            List<String> oldConf = Files.readAllLines(filePath);
+//            String newConf = "";
+//            for (String s : oldConf) {
+//                newConf = newConf.concat(s + "\n");
+//            }
+//            newConf = newConf.concat("\n# " + comment + "\n");
+//            Files.writeString(filePath, newConf);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
