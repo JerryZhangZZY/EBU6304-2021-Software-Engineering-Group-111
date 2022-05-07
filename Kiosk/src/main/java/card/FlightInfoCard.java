@@ -13,6 +13,9 @@ import java.awt.*;
  *
  * @author Zhang Zeyu
  *
+ * @version 4.0
+ * Optimize text makeup.
+ *
  * @version 3.2
  * Get card unavailable color from Theme
  * and improve GUI appearance.
@@ -71,46 +74,46 @@ public class FlightInfoCard extends JPanel {
         lblIdFlight.setFont(new Font("Arial", Font.PLAIN, 25));
         lblIdFlight.setForeground(Theme.getMainFontColor());
         lblIdFlight.setHorizontalAlignment(SwingConstants.LEFT);
-        lblIdFlight.setBounds(20, 10, 200, 34);
+        lblIdFlight.setBounds(20, 15, 200, 35);
         lblIdFlight.setText(idFlight);
         add(lblIdFlight);
 
         lblDate.setFont(new Font("Arial", Font.PLAIN, 25));
         lblDate.setForeground(Theme.getTertiaryFontColor());
         lblDate.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblDate.setBounds(310, 10, 200, 34);
+        lblDate.setBounds(310, 15, 200, 35);
         lblDate.setText(date);
         add(lblDate);
 
         lblDepartureTime.setForeground(Theme.getMainFontColor());
         lblDepartureTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 40));
-        lblDepartureTime.setBounds(20, 54, 135, 35);
+        lblDepartureTime.setBounds(20, 57, 135, 35);
         lblDepartureTime.setText(departureTime);
         add(lblDepartureTime);
 
         lblArrivalTime.setForeground(Theme.getMainFontColor());
         lblArrivalTime.setHorizontalAlignment(SwingConstants.TRAILING);
         lblArrivalTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 40));
-        lblArrivalTime.setBounds(375, 54, 135, 35);
+        lblArrivalTime.setBounds(375, 57, 135, 35);
         lblArrivalTime.setText(arrivalTime);
         add(lblArrivalTime);
 
         lblDeparture.setForeground(Theme.getMainFontColor());
         lblDeparture.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblDeparture.setBounds(20, 95, 200, 30);
+        lblDeparture.setBounds(20, 102, 200, 35);
         lblDeparture.setText(departure);
         add(lblDeparture);
 
         lblArrival.setHorizontalAlignment(SwingConstants.TRAILING);
         lblArrival.setForeground(Theme.getMainFontColor());
         lblArrival.setFont(new Font("Arial", Font.PLAIN, 25));
-        lblArrival.setBounds(310, 95, 200, 30);
+        lblArrival.setBounds(310, 102, 200, 35);
         lblArrival.setText(arrival);
         add(lblArrival);
 
         lblArrow.setForeground(Theme.getTertiaryFontColor());
         lblArrow.setFont(new Font("Tahoma", Font.PLAIN, 35));
-        lblArrow.setBounds(194, 54, 171, 34);
+        lblArrow.setBounds(194, 57, 171, 35);
         add(lblArrow);
     }
 
