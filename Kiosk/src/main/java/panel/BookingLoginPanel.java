@@ -208,17 +208,18 @@ public class BookingLoginPanel extends JPanel {
         });
     }
 
-    public void reset(){
+    public void reset() {
         bookingNumberTextField.setText("");
         bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
         bookingNumberTextField.setForeground(Color.BLACK);
     }
 
-    public void setWaring(){
+    public void setWaring() {
         bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
         bookingNumberTextField.setText("Invalid booking number!");
         bookingNumberTextField.setForeground(new Color(205,92,92));
     }
+
     public JTextField getBookingNumberTextField() {
         return bookingNumberTextField;
     }
@@ -230,6 +231,4 @@ public class BookingLoginPanel extends JPanel {
     public JButton getAltButton() {
         return altButton;
     }
-
-
 }

@@ -13,6 +13,10 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @author Liang Zhehao
  *
+ * @version 4.0
+ * Auto dark theme.
+ * @date 2022/5/7
+ *
  * @version 2.2
  * load config at launch
  * @date 4/19
@@ -56,57 +60,17 @@ public class Control {
         Theme.loadColor();
 
         MainFrame kiosk;
-        BookingLoginPanel bookingLoginPanel;
-        IdLoginPanel idLoginPanel;
         ProgressPanel flightsPanel, seatPanel, mealPanel, billPanel, payPanel;
         FinalPanel finalPanel;
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel(true);
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel(false);
-        /*
-        main frame
-         */
+
         kiosk = new MainFrame();
-        kiosk.displayComponents(true, true, true);
-
-        /*
-        booking number login panel
-         */
-        bookingLoginPanel = new BookingLoginPanel();
-
-        /*
-        id login panel
-         */
-        idLoginPanel = new IdLoginPanel();
-
-        /*
-        flight choosing panel
-         */
         flightsPanel = new ProgressPanel(1);
-
-        /*
-        seat choosing panel
-         */
         seatPanel = new ProgressPanel(2);
-
-        /*
-        meal choosing panel
-         */
         mealPanel = new ProgressPanel(3);
-
-        /*
-        confirm and bill panel
-         */
         billPanel = new ProgressPanel(4);
-
-        /*
-        payment panel
-         */
         payPanel = new ProgressPanel(4);
-
-        /*
-        final panel
-         */
-        //instantiate everytime.
 
         /*
         control flow
@@ -117,17 +81,19 @@ public class Control {
                 false, false, false, false, true, true});
         while (true){
             kiosk.setVisible(true);
-            while (currentPC == State.getPc()){
+            while (currentPC == State.getPc())
                 sleep(10);
-            }
             switch (State.getPc()) {
                 case 0 -> {    //welcome
+                    if (Theme.autoDarkTheme()) {
+                        kiosk.refreshColor();
+                    }
                     kiosk.showClock(false);
                     kiosk.displayComponents(true, true, false);
                     kiosk.resetWelcomeText();
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
-                    kiosk.repaint();
                     kiosk.loadPanel(new BookingLoginPanel());
+                    kiosk.repaint();
                     kiosk.lockScreen();
                     currentPC = State.getPc();
                 }
@@ -137,18 +103,16 @@ public class Control {
                     else {
                         kiosk.displayComponents(true, true, false);
                         kiosk.resetWelcomeText();
-                        bookingLoginPanel.reset();
-                        kiosk.scrollUp(bookingLoginPanel);
+                        kiosk.scrollUp(new BookingLoginPanel());
                     }
                     currentPC = State.getPc();
                 }
                 case 2 -> {    //enter or scan ID
                     kiosk.displayComponents(true, true, true);
-                    idLoginPanel.reset();
                     if (currentPC < State.getPc())
-                        kiosk.scrollDown(idLoginPanel);
+                        kiosk.scrollDown(new IdLoginPanel());
                     else
-                        kiosk.scrollUp(idLoginPanel);
+                        kiosk.scrollUp(new IdLoginPanel());
                     currentPC = State.getPc();
                 }
                 case 3 -> {    //flights

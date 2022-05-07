@@ -8,11 +8,16 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Calendar;
 
 /**
  * This class stores the current theme data.
  *
  * @author Zhang Zeyu
+ *
+ * @version 4.0
+ * Auto dark theme.
+ * @date 2022/5/7
  *
  * @version 3.2
  * Add 3 auto-generate colors
@@ -29,6 +34,8 @@ import java.io.IOException;
 
 public abstract class Theme {
 
+    private static boolean isDark = false;
+
     private static Color themeColor;
     private static Color backgroundColor;
     private static Color cardColor;
@@ -40,58 +47,69 @@ public abstract class Theme {
     private static Color altButtonPressedColor;
     private static Color cardUnavailableColor;
 
+    private static Color darkThemeColor;
+    private static Color darkBackgroundColor;
+    private static Color darkCardColor;
+    private static Color darkMainFontColor;
+    private static Color darkSecondaryFontColor;
+    private static Color darkTertiaryFontColor;
+    private static Color darkMinorFontColor;
+    private static Color darkButtonPressedColor;
+    private static Color darkAltButtonPressedColor;
+    private static Color darkCardUnavailableColor;
+
     public static Color getThemeColor() {
         if (themeColor == null)
             loadColor();
-        return themeColor;
+        return isDark ? darkThemeColor : themeColor;
     }
     public static Color getBackgroundColor() {
         if (themeColor == null)
             loadColor();
-        return backgroundColor;
+        return isDark ? darkBackgroundColor : backgroundColor;
     }
     public static Color getCardColor() {
         if (themeColor == null)
             loadColor();
-        return cardColor;
+        return isDark ? darkCardColor : cardColor;
     }
     public static Color getMainFontColor() {
         if (themeColor == null)
             loadColor();
-        return mainFontColor;
+        return isDark ? darkMainFontColor : mainFontColor;
     }
     public static Color getSecondaryFontColor() {
         if (themeColor == null)
             loadColor();
-        return secondaryFontColor;
+        return isDark ? darkSecondaryFontColor : secondaryFontColor;
     }
     public static Color getTertiaryFontColor() {
         if (themeColor == null)
             loadColor();
-        return tertiaryFontColor;
+        return isDark ? darkTertiaryFontColor : tertiaryFontColor;
     }
     public static Color getMinorFontColor() {
         if (themeColor == null)
             loadColor();
-        return minorFontColor;
+        return isDark ? darkMinorFontColor : minorFontColor;
     }
     
     public static Color getButtonPressedColor() {
         if (themeColor == null)
             loadColor();
-        return buttonPressedColor;
+        return isDark ? darkButtonPressedColor : buttonPressedColor;
     }
 
     public static Color getAltButtonPressedColor() {
         if (themeColor == null)
             loadColor();
-        return altButtonPressedColor;
+        return isDark ? darkAltButtonPressedColor : altButtonPressedColor;
     }
 
     public static Color getCardUnavailableColor() {
         if (themeColor == null)
             loadColor();
-        return cardUnavailableColor;
+        return isDark ? darkCardUnavailableColor : cardUnavailableColor;
     }
 
     public static void loadColor() {
@@ -266,22 +284,104 @@ public abstract class Theme {
             light background
              */
             if (backgroundColor.getRed() + backgroundColor.getGreen() + backgroundColor.getBlue() > 384) {
-                rGray = Math.max(Theme.getBackgroundColor().getRed() - 5, 0);
-                gGray = Math.max(Theme.getBackgroundColor().getGreen() - 5, 0);
-                bGray = Math.max(Theme.getBackgroundColor().getBlue() - 5, 0);
+                rGray = Math.max(backgroundColor.getRed() - 5, 0);
+                gGray = Math.max(backgroundColor.getGreen() - 5, 0);
+                bGray = Math.max(backgroundColor.getBlue() - 5, 0);
             }
             /*
             dark background
              */
             else {
-                rGray = Math.min(Theme.getBackgroundColor().getRed() + 5, 255);
-                gGray = Math.min(Theme.getBackgroundColor().getGreen() + 5, 255);
-                bGray = Math.min(Theme.getBackgroundColor().getBlue() + 5, 255);
+                rGray = Math.min(backgroundColor.getRed() + 5, 255);
+                gGray = Math.min(backgroundColor.getGreen() + 5, 255);
+                bGray = Math.min(backgroundColor.getBlue() + 5, 255);
             }
             cardUnavailableColor = new Color(rGray, gGray, bGray);
 
+            /*
+            if enabled auto dark theme
+             */
+            if (Boolean.parseBoolean(Config.readConfig("enableAutoDarkTheme"))) {
+                JSONObject objDarkTheme = obj.getJSONObject(Config.readConfig("darkTheme"));
+
+                r = Integer.parseInt(objDarkTheme.getString("themeColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("themeColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("themeColor").split(",")[2]);
+                darkThemeColor = new Color(r, g, b);
+
+                r = Integer.parseInt(objDarkTheme.getString("backgroundColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("backgroundColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("backgroundColor").split(",")[2]);
+                darkBackgroundColor = new Color(r, g, b);
+
+                r = Integer.parseInt(objDarkTheme.getString("cardColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("cardColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("cardColor").split(",")[2]);
+                darkCardColor = new Color(r, g, b);
+
+                r = Integer.parseInt(objDarkTheme.getString("mainFontColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("mainFontColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("mainFontColor").split(",")[2]);
+                darkMainFontColor = new Color(r, g, b);
+
+                r = Integer.parseInt(objDarkTheme.getString("secondaryFontColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("secondaryFontColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("secondaryFontColor").split(",")[2]);
+                darkSecondaryFontColor = new Color(r, g, b);
+
+                r = Integer.parseInt(objDarkTheme.getString("tertiaryFontColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("tertiaryFontColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("tertiaryFontColor").split(",")[2]);
+                darkTertiaryFontColor = new Color(r, g, b);
+
+                r = Integer.parseInt(objDarkTheme.getString("minorFontColor").split(",")[0]);
+                g = Integer.parseInt(objDarkTheme.getString("minorFontColor").split(",")[1]);
+                b = Integer.parseInt(objDarkTheme.getString("minorFontColor").split(",")[2]);
+                darkMinorFontColor = new Color(r, g, b);
+
+                if (darkCardColor.getRed() + darkCardColor.getGreen() + darkCardColor.getBlue()
+                        > darkBackgroundColor.getRed() + darkBackgroundColor.getGreen() + darkBackgroundColor.getBlue()) {
+                    rPressed = (int) (darkThemeColor.getRed() * 0.8);
+                    gPressed = (int) (darkThemeColor.getGreen() * 0.8);
+                    bPressed = (int) (darkThemeColor.getBlue() * 0.8);
+                }
+                else {
+                    rPressed = (darkThemeColor.getRed() + darkBackgroundColor.getRed()) / 2;
+                    gPressed = (darkThemeColor.getGreen() + darkBackgroundColor.getGreen()) / 2;
+                    bPressed = (darkThemeColor.getBlue() + darkBackgroundColor.getBlue()) / 2;
+                }
+                darkButtonPressedColor = new Color(rPressed, gPressed, bPressed);
+
+                if (darkBackgroundColor.getRed() + darkBackgroundColor.getGreen() + darkBackgroundColor.getBlue() > 384) {
+                    rAltPressed = (int) (darkBackgroundColor.getRed() * 0.8);
+                    gAltPressed = (int) (darkBackgroundColor.getGreen() * 0.8);
+                    bAltPressed = (int) (darkBackgroundColor.getBlue() * 0.8);
+                }
+                else {
+                    rAltPressed = (darkThemeColor.getRed() + darkBackgroundColor.getRed()) / 2;
+                    gAltPressed = (darkThemeColor.getGreen() + darkBackgroundColor.getGreen()) / 2;
+                    bAltPressed = (darkThemeColor.getBlue() + darkBackgroundColor.getBlue()) / 2;
+                }
+                darkAltButtonPressedColor = new Color(rAltPressed, gAltPressed, bAltPressed);
+
+                if (darkBackgroundColor.getRed() + darkBackgroundColor.getGreen() + darkBackgroundColor.getBlue() > 384) {
+                    rGray = Math.max(darkBackgroundColor.getRed() - 5, 0);
+                    gGray = Math.max(darkBackgroundColor.getGreen() - 5, 0);
+                    bGray = Math.max(darkBackgroundColor.getBlue() - 5, 0);
+                }
+                else {
+                    rGray = Math.min(darkBackgroundColor.getRed() + 5, 255);
+                    gGray = Math.min(darkBackgroundColor.getGreen() + 5, 255);
+                    bGray = Math.min(darkBackgroundColor.getBlue() + 5, 255);
+                }
+                darkCardUnavailableColor = new Color(rGray, gGray, bGray);
+            }
         } catch (Exception e) {
             System.out.println("Theme load failed!");
+
+            /*
+            default light theme colors
+             */
             themeColor = new Color(11, 89, 167);
             backgroundColor = new Color(244, 244, 244);
             cardColor = new Color(255, 255, 255);
@@ -292,6 +392,35 @@ public abstract class Theme {
             buttonPressedColor = new Color(8, 71, 133);
             altButtonPressedColor = new Color(195, 195, 195);
             cardUnavailableColor = new Color(239, 239,239);
+
+            /*
+            default dark theme colors
+             */
+            darkThemeColor = new Color(13, 17, 23);
+            darkBackgroundColor = new Color(22, 27, 34);
+            darkCardColor = new Color(18, 23, 29);
+            darkMainFontColor = new Color(201, 209, 217);
+            darkSecondaryFontColor = new Color(137, 145, 153);
+            darkTertiaryFontColor = new Color(73, 81, 89);
+            darkMinorFontColor = new Color(201, 209, 217);
+            darkButtonPressedColor = new Color(17, 22, 28);
+            darkAltButtonPressedColor = new Color(17, 22, 28);
+            darkCardUnavailableColor = new Color(27, 32, 39);
         }
+    }
+
+    /**
+    @return if this function enabled.
+     */
+    public static boolean autoDarkTheme() {
+        boolean enableAutoDarkTheme = Boolean.parseBoolean(Config.readConfig("enableAutoDarkTheme"));
+        if (enableAutoDarkTheme) {
+            int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+            /*
+            dark theme activates from 19:00 to 5:00 next morning
+             */
+            isDark = hour >= 19 || hour < 5;
+        }
+        return enableAutoDarkTheme;
     }
 }

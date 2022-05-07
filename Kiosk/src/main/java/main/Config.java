@@ -14,6 +14,10 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 4.1
+ * Adjust attributes for auto dark theme function.
+ * @date 2022/5/7
+ *
  * @version 4.0
  * Boost performance of generating default config.
  * Add a new attribute.
@@ -131,9 +135,11 @@ public abstract class Config {
                                     
                 # Select a theme from the theme library.
                 theme: Anchor
-                                    
+                
+                # Select the dark theme from the theme library.
+                darkTheme: Onyx
                 # Enable/disable auto dark theme
-                autoDarkTheme: true
+                enableAutoDarkTheme: true
                                     
                 # Animation speed (1-5, -1 to disable), default: 3.
                 animationSpeed: 3

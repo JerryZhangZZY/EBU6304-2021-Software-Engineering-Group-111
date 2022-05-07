@@ -24,6 +24,9 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 4.0
+ * New method to refresh colors.
+ *
  * @version 3.4
  * Button pressed color adapt to theme.
  * @date 2022/4/26
@@ -423,6 +426,18 @@ public class MainFrame extends JFrame {
      */
     private void callAdminConsole(){
         AdminConsole adminConsole = new AdminConsole(this);
+    }
+
+    public void refreshColor() {
+        UIManager.put("Button.select", Theme.getButtonPressedColor());
+        topPanel.setBackground(Theme.getThemeColor());
+        welcomeLabel.setForeground(Theme.getMinorFontColor());
+        welcomeLabel.setForeground(Theme.getMinorFontColor());
+        clock.setForeground(Theme.getMinorFontColor());
+        timer.setForeground(Theme.getMinorFontColor());
+        centerPanel.setBackground(Theme.getBackgroundColor());
+        bottomPanel.setBackground(Theme.getThemeColor());
+        satisflightLabel.setForeground(Theme.getMinorFontColor());
     }
 
     public JButton getExitButton() {
