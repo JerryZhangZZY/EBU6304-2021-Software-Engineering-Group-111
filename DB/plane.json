@@ -6,7 +6,8 @@
       "capacity": 72,
       "airline": "AIR CHINA",
       "seatModel": 33,
-      "columnNum": "A,B,C,J,K,L"
+      "columnNum": "A,B,C,J,K,L",
+      "planeAge": 5
     },
     {
       "idPlane": 2,
@@ -14,7 +15,8 @@
       "capacity": 120,
       "airline": "AIR CANADA",
       "seatModel": 33,
-      "columnNum": "A,B,C,J,K,L"
+      "columnNum": "A,B,C,J,K,L",
+      "planeAge": 2
     },
     {
       "idPlane": 3,
@@ -22,7 +24,8 @@
       "capacity": 192,
       "airline": "UNITED AIRLINES",
       "seatModel": 33,
-      "columnNum": "A,B,C,J,K,L"
+      "columnNum": "A,B,C,J,K,L",
+      "planeAge": 7
     },
     {
       "idPlane": 4,
@@ -30,7 +33,8 @@
       "capacity": 462,
       "airline": "LUFTHANSA",
       "seatModel": 353,
-      "columnNum": "A,B,C,D,E,F,G,H,J,K,L"
+      "columnNum": "A,B,C,D,E,F,G,H,J,K,L",
+      "planeAge": 7
     },
     {
       "idPlane": 5,
@@ -38,7 +42,8 @@
       "capacity": 60,
       "airline": "CHINA EASTERN",
       "seatModel": 22,
-      "columnNum": "A,C,J,L"
+      "columnNum": "A,C,J,L",
+      "planeAge": 5
     }
   ]
 }
