@@ -80,7 +80,7 @@ public class SeatSelectionPanel extends JPanel {
     private ScrollCard scrollCard = new ScrollCard();
     private JScrollBar scrollBar = scrollCard.getScrollBar();
     private PlaneInfoCard planeInfoCard;
-    private JButton btnPlaneInfo = new JButton();;
+    private JButton btnFold = new JButton();;
     //icon loading
     private ImageIcon[] iconEmpty = new ImageIcon[4];
     private ImageIcon[] iconSelected = new ImageIcon[5];
@@ -162,23 +162,6 @@ public class SeatSelectionPanel extends JPanel {
 
         columnNum = PlaneReader.getColumnNum(PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(idFlight)))).split(",");
 
-
-        //PlaneInfoCard
-        planeInfoCard = new PlaneInfoCard();
-        planeInfoCard.setLocation(1220, 50);
-        planeInfoCard.setVisible(false);
-        add(planeInfoCard);
-
-        iconFold = new ImageIcon(new ImageIcon("Kiosk/icons/fold.png").getImage().getScaledInstance(15, 40, java.awt.Image.SCALE_SMOOTH));
-        iconUnfold = new ImageIcon(new ImageIcon("Kiosk/icons/unfold.png").getImage().getScaledInstance(15, 40, java.awt.Image.SCALE_SMOOTH));
-//        btnPlaneInfo.setContentAreaFilled(false);
-        btnPlaneInfo.setBackground(Color.WHITE);
-        btnPlaneInfo.setBorderPainted(false);
-        btnPlaneInfo.setBounds(1585, 50, 15, 40);
-        btnPlaneInfo.setIcon(iconUnfold);
-        btnPlaneInfo.addActionListener(new PlaneInfoListener());
-        add(btnPlaneInfo);
-
         //SeatSelection
         warn.setLayout(null);
         warn.setBounds(800 - (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40) / 2, 0, (45 * (totalColumn + corridor) + 15 * (totalColumn + corridor - 1) + 40), 880);
@@ -256,9 +239,28 @@ public class SeatSelectionPanel extends JPanel {
         }
         addSeatIcon(avail_seat);
 
-        //ScrollCard
-        scrollCard.setLocation(1220, 50);
-        add(scrollCard);
+        //ScrollCard and PlaneInfoCard
+        JPanel sp = new JPanel();
+        sp.setLayout(null);
+        sp.setBackground(null);
+        sp.setBounds(1220, 50, 330, 570);
+        add(sp);
+
+        iconFold = new ImageIcon(new ImageIcon("Kiosk/icons/fold.png").getImage().getScaledInstance(40, 15, java.awt.Image.SCALE_SMOOTH));
+        iconUnfold = new ImageIcon(new ImageIcon("Kiosk/icons/unfold.png").getImage().getScaledInstance(40, 15, java.awt.Image.SCALE_SMOOTH));
+        btnFold.setBackground(Color.WHITE);
+        btnFold.setBorderPainted(false);
+        btnFold.setBounds(0, 555, 40, 15);
+        btnFold.setIcon(iconUnfold);
+        btnFold.addActionListener(new FolderListener());
+        sp.add(btnFold);
+
+        planeInfoCard = new PlaneInfoCard();
+        planeInfoCard.setLocation(0, 570);
+        sp.add(planeInfoCard);
+
+        scrollCard.setLocation(0, 0);
+        sp.add(scrollCard);
         scrollBar.setMinimum(1);
         scrollBar.setMaximum(totalRow + 1);
         scrollBar.setVisibleAmount(range);
@@ -271,7 +273,7 @@ public class SeatSelectionPanel extends JPanel {
         seatLegendCard.setLocation(50, 50);
         add(seatLegendCard);
 
-        //OKbutton
+        //OKButton
         OKListener okListener = new OKListener();
         btnOK.setFont(new Font("Arial", Font.BOLD, 35));
         btnOK.setBounds(1220, 760, 330, 70);
@@ -432,21 +434,23 @@ public class SeatSelectionPanel extends JPanel {
         }
     }
 
-    public class PlaneInfoListener implements ActionListener {
+    public class FolderListener implements ActionListener {
 
         private boolean onoff = false;
         @Override
         public void actionPerformed(ActionEvent e) {
             if (!onoff) {
-                planeInfoCard.setVisible(true);
-                scrollBar.setVisible(false);
-                btnPlaneInfo.setLocation(1205, 50);
-                btnPlaneInfo.setIcon(iconFold);
+                planeInfoCard.setLocation(0, 120);
+//                scrollBar.setVisible(false);
+                scrollCard.setLocation(0, -450);
+                btnFold.setLocation(0, 105);
+                btnFold.setIcon(iconFold);
             } else {
-                planeInfoCard.setVisible(false);
-                scrollBar.setVisible(true);
-                btnPlaneInfo.setLocation(1585, 50);
-                btnPlaneInfo.setIcon(iconUnfold);
+                planeInfoCard.setLocation(0, 570);
+//                scrollBar.setVisible(true);
+                scrollCard.setLocation(0, 0);
+                btnFold.setLocation(0, 555);
+                btnFold.setIcon(iconUnfold);
             }
             onoff = !onoff;
         }

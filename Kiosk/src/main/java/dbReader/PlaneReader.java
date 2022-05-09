@@ -10,6 +10,10 @@ import com.alibaba.fastjson.JSONObject;
  * @author Zhang Zeyu
  * @author Liang Zhehao
  *
+ * @version 4.0
+ * add getPlaneAge
+ * @date 2022/5/9
+ *
  * @version 3.0
  * add getSeatModel
  * @date 2022/4/20
@@ -61,5 +65,11 @@ public abstract class PlaneReader {
         JSONObject obj = JSON.parseObject(JsonReader.read("DB/plane.json"));
         JSONArray arr = obj.getJSONArray("plane");
         return arr.getJSONObject(index).getString("columnNum");
+    }
+
+    public static int getPlaneAge(int index) {
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/plane.json"));
+        JSONArray arr = obj.getJSONArray("plane");
+        return arr.getJSONObject(index).getInteger("planeAge");
     }
 }
