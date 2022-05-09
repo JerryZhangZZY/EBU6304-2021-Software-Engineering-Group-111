@@ -85,6 +85,7 @@ public class SeatSelectionPanel extends JPanel {
     private ImageIcon[] iconEmpty = new ImageIcon[4];
     private ImageIcon[] iconSelected = new ImageIcon[5];
     private ImageIcon iconNotAvailable = new ImageIcon(new ImageIcon("Kiosk/icons/seatNotAvailable.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+    private ImageIcon iconFold, iconUnfold;
     private JButton btnOK = new JButton("OK");
 
     private SeatReader seatReader;
@@ -168,9 +169,13 @@ public class SeatSelectionPanel extends JPanel {
         planeInfoCard.setVisible(false);
         add(planeInfoCard);
 
+        iconFold = new ImageIcon(new ImageIcon("Kiosk/icons/fold.png").getImage().getScaledInstance(15, 40, java.awt.Image.SCALE_SMOOTH));
+        iconUnfold = new ImageIcon(new ImageIcon("Kiosk/icons/unfold.png").getImage().getScaledInstance(15, 40, java.awt.Image.SCALE_SMOOTH));
 //        btnPlaneInfo.setContentAreaFilled(false);
-//        btnPlaneInfo.setBorderPainted(false);
+        btnPlaneInfo.setBackground(Color.WHITE);
+        btnPlaneInfo.setBorderPainted(false);
         btnPlaneInfo.setBounds(1585, 50, 15, 40);
+        btnPlaneInfo.setIcon(iconUnfold);
         btnPlaneInfo.addActionListener(new PlaneInfoListener());
         add(btnPlaneInfo);
 
@@ -436,10 +441,12 @@ public class SeatSelectionPanel extends JPanel {
                 planeInfoCard.setVisible(true);
                 scrollBar.setVisible(false);
                 btnPlaneInfo.setLocation(1205, 50);
+                btnPlaneInfo.setIcon(iconFold);
             } else {
                 planeInfoCard.setVisible(false);
                 scrollBar.setVisible(true);
                 btnPlaneInfo.setLocation(1585, 50);
+                btnPlaneInfo.setIcon(iconUnfold);
             }
             onoff = !onoff;
         }
