@@ -27,11 +27,11 @@ public abstract class IdCardReader {
     private static final String driveLetter = Config.readConfig("idCardDrive");
 
     public static String readId() throws IOException {
-        JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "://ID info.json"));
+        JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "ID info.json"));
         return obj.getString("id");
     }
     public static String readName() throws IOException {
-        JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "://ID info.json"));
+        JSONObject obj = JSON.parseObject(IdCardReader.read(driveLetter + "ID info.json"));
         return obj.getString("surname");
     }
 
