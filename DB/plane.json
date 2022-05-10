@@ -7,7 +7,8 @@
       "airline": "AIR CHINA",
       "seatModel": 33,
       "columnNum": "A,B,C,J,K,L",
-      "planeAge": 5
+      "planeAge": 5,
+      "backrestAngle":"100°-120°"
     },
     {
       "idPlane": 2,
@@ -16,7 +17,8 @@
       "airline": "AIR CANADA",
       "seatModel": 33,
       "columnNum": "A,B,C,J,K,L",
-      "planeAge": 2
+      "planeAge": 2,
+      "backrestAngle":"103°-112°"
     },
     {
       "idPlane": 3,
@@ -25,7 +27,8 @@
       "airline": "UNITED AIRLINES",
       "seatModel": 33,
       "columnNum": "A,B,C,J,K,L",
-      "planeAge": 7
+      "planeAge": 7,
+      "backrestAngle":"103°-118°"
     },
     {
       "idPlane": 4,
@@ -34,7 +37,8 @@
       "airline": "LUFTHANSA",
       "seatModel": 353,
       "columnNum": "A,B,C,D,E,F,G,H,J,K,L",
-      "planeAge": 7
+      "planeAge": 7,
+      "backrestAngle":"105°-115°"
     },
     {
       "idPlane": 5,
@@ -43,7 +47,8 @@
       "airline": "CHINA EASTERN",
       "seatModel": 22,
       "columnNum": "A,C,J,L",
-      "planeAge": 5
+      "planeAge": 5,
+      "backrestAngle":"95°-120°"
     }
   ]
 }
