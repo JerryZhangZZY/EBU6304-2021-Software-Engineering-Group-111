@@ -108,8 +108,8 @@ public abstract class Config {
                 # Supported language: English.
                 language: English
                                     
-                # USB drive that holds ID document, recommended: E, F, G.
-                idCardDrive: F
+                # USB drive that holds ID document, recommended: E://, F://, G:// (Windows); /volumes/DRIVE NAME/ (Mac OS)
+                idCardDrive: F://
                                     
                 # --------------< AIRPORT SETTINGS >--------------
                                     
