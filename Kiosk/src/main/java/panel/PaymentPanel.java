@@ -17,6 +17,11 @@ import java.awt.event.MouseEvent;
  * @author Chenyu
  * @author Zhang Zeyu
  * @author Ni Ruijie
+ * @author Li Chunlin
+ *
+ * @version 4.0
+ * Check payment number
+ * @date 5/11
  *
  * @version 3.0
  * GUI function improve
@@ -123,7 +128,11 @@ public class PaymentPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
-                State.setPc(State.getPc() + 1);
+                if ( tfCreditId.getText().length() != 8 ){
+                    setWarning();
+                }else{
+                    State.setPc(State.getPc() + 1);
+                }
             }
         });
 
@@ -133,6 +142,15 @@ public class PaymentPanel extends JPanel {
                 super.mouseEntered(e);
                 tfCreditId.setEditable(true);
                 if (tfCreditId.getText().equals("Credit card ID")) {
+                    btnPay.setText("Pay");
+                    btnPay.setFont(new Font("Tahoma", Font.BOLD, 35));
+                    btnPay.setForeground(Color.WHITE);
+                    btnPay.setHorizontalAlignment(SwingConstants.CENTER);
+                    btnPay.setVerticalAlignment(SwingConstants.CENTER);
+                    btnPay.setContentAreaFilled(false);
+                    btnPay.setBorder(null);
+                    btnPay.setFocusPainted(false);
+                    btnPay.setBounds(0,0, 350, 60);
                     tfCreditId.setText(null);
                     tfCreditId.setForeground(Color.WHITE);
                 }
@@ -141,6 +159,15 @@ public class PaymentPanel extends JPanel {
                 super.mouseClicked(e);
                 tfCreditId.setEditable(true);
                 if (tfCreditId.getText().equals("Credit card ID")) {
+                    btnPay.setText("Pay");
+                    btnPay.setFont(new Font("Tahoma", Font.BOLD, 35));
+                    btnPay.setForeground(Color.WHITE);
+                    btnPay.setHorizontalAlignment(SwingConstants.CENTER);
+                    btnPay.setVerticalAlignment(SwingConstants.CENTER);
+                    btnPay.setContentAreaFilled(false);
+                    btnPay.setBorder(null);
+                    btnPay.setFocusPainted(false);
+                    btnPay.setBounds(0,0, 350, 60);
                     tfCreditId.setText(null);
                     tfCreditId.setForeground(Color.WHITE);
                 }
@@ -155,6 +182,17 @@ public class PaymentPanel extends JPanel {
             }
         });
     }
+
+    public void setWarning() {
+        btnPay.setFont(new Font("Arial", Font.ITALIC, 25));
+        btnPay.setText("Invalid booking number!");
+        btnPay.setForeground(new Color(255,255,255));
+        btnPay.setContentAreaFilled(false);
+        btnPay.setBorder(null);
+        btnPay.setFocusPainted(false);
+        tfCreditId.setText("");
+    }
+
     public JButton getButtonPay(){
         return btnPay;
     }
