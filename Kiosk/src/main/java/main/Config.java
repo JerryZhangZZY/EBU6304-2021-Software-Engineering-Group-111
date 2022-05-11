@@ -69,8 +69,11 @@ public abstract class Config {
      */
     private static void checkConfig() {
         int inspection = inspectConfig();
-        if (inspection > 0)
+        if (inspection > 0) {
+            System.out.println("Unable to load configuration: " +
+                    "Invalid entry found in conf/config.yaml with index " + inspection);
             System.exit(inspection);
+        }
     }
 
     /**
