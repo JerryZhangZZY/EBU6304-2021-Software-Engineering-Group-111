@@ -24,8 +24,13 @@ import static java.lang.Thread.sleep;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 4.1
+ * Remove animation config check
+ * @date 2022/5/11
+ *
  * @version 4.0
  * New method to refresh colors.
+ * @date 2022/5/7
  *
  * @version 3.4
  * Button pressed color adapt to theme.
@@ -115,11 +120,8 @@ public class MainFrame extends JFrame {
                 case 3 -> freshTime = 8;
                 case 4 -> freshTime = 5;
                 case 5 -> freshTime = 2;
-                default -> System.out.println("Animation speed config invalid!");
             }
-        } catch (Exception e) {
-            System.out.println("Animation speed config load failed!");
-        }
+        } catch (Exception ignored) {}
 
         welcomePanel = new WelcomePanel();
         welcomePanel.setLocation(0, -1080);
