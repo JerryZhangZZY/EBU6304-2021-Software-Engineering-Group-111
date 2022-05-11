@@ -8,6 +8,7 @@ import panel.WelcomePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AWTEventListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +24,10 @@ import static java.lang.Thread.sleep;
  * @author wcy
  * @author Zhang Zeyu
  * @author Ni Ruijie
+ *
+ * @version 4.2
+ * Added no-operation detection
+ * @date 2022/5/11
  *
  * @version 4.1
  * Remove animation config check
@@ -101,6 +106,9 @@ public class MainFrame extends JFrame {
     private WelcomePanel welcomePanel;
     private JLabel clock;
     private JLabel timer;
+    private Toolkit container;
+    private AWTEventListener mouseListener;
+    private int mouseListenerFlag = 0;
 
     private int freshTime = 8;
 
@@ -168,6 +176,15 @@ public class MainFrame extends JFrame {
         timer.setVisible(false);
         Clock.loadTimer(timer);
         topPanel.add(timer);
+
+        container = Toolkit.getDefaultToolkit();
+        mouseListener = new AWTEventListener() {
+            public void eventDispatched(AWTEvent e) {
+                //System.out.println(e);
+                Clock.stopBackstageTimer();
+                Clock.setBackstageTimer(15000);
+            }
+        };
 
         exitButton = new JButton();
         exitButton.setRequestFocusEnabled(false);
@@ -440,6 +457,22 @@ public class MainFrame extends JFrame {
         centerPanel.setBackground(Theme.getBackgroundColor());
         bottomPanel.setBackground(Theme.getThemeColor());
         satisflightLabel.setForeground(Theme.getMinorFontColor());
+    }
+
+    public void mouseListener(){
+        if(mouseListenerFlag == 0){
+            long eventMask = AWTEvent.MOUSE_EVENT_MASK;
+            container.addAWTEventListener(mouseListener,eventMask);
+            mouseListenerFlag = 1;
+        }
+    }
+
+    public void stopMouseListener(){
+        if(mouseListenerFlag == 1){
+            container.removeAWTEventListener(mouseListener);
+            Clock.stopBackstageTimer();
+            mouseListenerFlag = 0;
+        }
     }
 
     public JButton getExitButton() {
