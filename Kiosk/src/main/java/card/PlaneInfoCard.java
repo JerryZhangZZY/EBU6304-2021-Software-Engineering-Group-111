@@ -24,7 +24,7 @@ public class PlaneInfoCard extends JPanel {
         setLayout(null);
         setOpaque(true);
 
-        String[] titleText = {"Plane model", "Capacity", "Airline", "Plane age", ""};
+        String[] titleText = {"Plane model", "Capacity", "Airline", "Plane age", "Backrest Angle"};
         String[] contentText = new String[5];
 
         int planeIndex = PlaneReader.indexOf(FlightReader.getIdPlane(FlightReader.indexOf(State.getIdFlight())));
@@ -32,7 +32,7 @@ public class PlaneInfoCard extends JPanel {
         contentText[1] = "" + PlaneReader.getCapacity(planeIndex);
         contentText[2] = PlaneReader.getAirline(planeIndex);
         contentText[3] = "" + PlaneReader.getPlaneAge(planeIndex);
-        contentText[4] = "";
+        contentText[4] = PlaneReader.getBackrestAngle(planeIndex);
         for (int i = 0; i < 6; i++) {
             JLabel line = new JLabel();
             line.setBounds(15, i * 82 + 19, 300, 2);

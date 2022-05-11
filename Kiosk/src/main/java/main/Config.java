@@ -14,6 +14,10 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 4.2
+ * Added config inspection
+ * @date 5/10
+ *
  * @version 4.1
  * Adjust attributes for auto dark theme function.
  * @date 2022/5/7
@@ -59,6 +63,74 @@ public abstract class Config {
 
     static Yaml yaml = new Yaml();
     static LinkedHashMap config = null;
+
+    /**
+     * block the software if config fails
+     */
+    private static void checkConfig() {
+        int inspection = inspectConfig();
+        if (inspection > 0)
+            System.exit(inspection);
+    }
+
+    /**
+     * inspect config file and try to find a defect
+     * @return the first entry that fails, starts with 1
+     */
+    private static int inspectConfig() {
+        Object[] values = config.values().toArray();
+        for (int i = 1; i <= values.length; i++) {
+            String value = values[i-1].toString();
+            switch (i) {
+                case 1 -> { //language
+                    if (!value.equals("English"))
+                        return i;
+                }
+                case 2 -> { //drive
+                    if(     //not windows
+                            (!String.valueOf(value.charAt(0)).matches("[A-Z]")
+                                    || !value.endsWith("://")
+                                    || !(value.length()==4))
+                            && !value.startsWith("/volumes"))   //nor mac
+                        return i;
+                }
+                case 3 -> { //airport name
+                    if (value.isBlank())
+                        return i;
+                }
+                case 4, 12 -> { //enable check-in leading time,
+                    if (!value.equals("false") && !value.equals("true"))
+                        return i;
+                }
+                case 5, 6, 8 -> {  //start, stop leading time, timer exit time
+                    if (!value.matches("[0-9]+"))
+                        return i;
+                }
+                case 7, 9 -> {  //timer, backstage
+                    if (!value.equals("enable") && !value.equals("disable"))
+                        return i;
+                }
+                case 10, 11 -> { //theme, dark theme
+                    boolean match = false;
+                    for (String s : new String[]{"Cobalt", "Onyx",
+                            "Tiber", "Anchor","Almond", "Tomato", "Maroon"}
+                    ) {
+                        if (value.equals(s)) {
+                            match = true;
+                            break;
+                        }
+                    }
+                    if (!match)
+                        return i;
+                }
+                case 13 -> {    //anime speed
+                    if (!value.equals("-1") && !(value.matches("[12345]")))
+                        return i;
+                }
+            }
+        }
+        return 0;
+    }
     /**
      * retrieve configuration
      * @param name tag name
@@ -95,11 +167,12 @@ public abstract class Config {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        checkConfig();
     }
     /**
      * reset configuration to default
      */
-    public static void establishConfig() throws IOException {
+    private static void establishConfig() throws IOException {
         String strDefaultConfig = """
                 # USER CONFIGURATION FILE
                             
@@ -108,8 +181,8 @@ public abstract class Config {
                 # Supported language: English.
                 language: English
                                     
-                # USB drive that holds ID document, recommended: E, F, G.
-                idCardDrive: F
+                # USB drive that holds ID document, recommended: E://, F://, G:// (Windows); /volumes/DRIVE NAME/ (Mac OS)
+                idCardDrive: F://
                                     
                 # --------------< AIRPORT SETTINGS >--------------
                                     

@@ -72,4 +72,10 @@ public abstract class PlaneReader {
         JSONArray arr = obj.getJSONArray("plane");
         return arr.getJSONObject(index).getInteger("planeAge");
     }
+
+    public static String getBackrestAngle(int index){
+        JSONObject obj = JSON.parseObject(JsonReader.read("DB/plane.json"));
+        JSONArray arr = obj.getJSONArray("plane");
+        return arr.getJSONObject(index).getString("backrestAngle");
+    }
 }
