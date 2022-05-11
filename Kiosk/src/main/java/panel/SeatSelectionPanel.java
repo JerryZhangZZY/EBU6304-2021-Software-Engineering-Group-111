@@ -6,6 +6,7 @@ import card.ScrollCard;
 import dbReader.FlightReader;
 import dbReader.PlaneReader;
 import dbReader.SeatReader;
+import main.Config;
 import main.State;
 import main.Theme;
 
@@ -19,12 +20,18 @@ import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 /**
  * This class can return a seat selection panel.
  *
  * @author Wang Chenyu
  * @author Liang Zhehao
  * @author Zhang Zeyu
+ *
+ * @version 4.1
+ * Add animations for folding/unfolding aircraft info.
+ * Also improved GUI.
  *
  * @version 4.0
  * add PlaneInfoCard
@@ -101,9 +108,23 @@ public class SeatSelectionPanel extends JPanel {
     private String[] columnNum;
     private int range = 12;
 
+    private int freshTime = 8;
+
     public SeatSelectionPanel(boolean cheat) { }
 
     public SeatSelectionPanel() {
+
+        try {
+            int animationSpeed = Integer.parseInt(Config.readConfig("animationSpeed"));
+            switch (animationSpeed) {
+                case -1 -> freshTime = 0;
+                case 1 -> freshTime = 17;
+                case 2 -> freshTime = 12;
+                case 3 -> freshTime = 8;
+                case 4 -> freshTime = 5;
+                case 5 -> freshTime = 2;
+            }
+        } catch (Exception ignored) {}
 
         setBackground(Theme.getBackgroundColor());
         setLayout(null);
@@ -193,7 +214,7 @@ public class SeatSelectionPanel extends JPanel {
         for (int i = 0; i < totalColumn; i++) {
             t++;
             JLabel cNum = new JLabel(columnNum[i], SwingConstants.CENTER);
-            cNum.setFont(new Font("Arail", Font.BOLD, 25));
+            cNum.setFont(new Font("Arial", Font.BOLD, 25));
             cNum.setForeground(Theme.getTertiaryFontColor());
             cNum.setBounds(seatX, 30, 45, 80);
             warn.add(cNum);
@@ -246,12 +267,13 @@ public class SeatSelectionPanel extends JPanel {
         sp.setBounds(1220, 50, 330, 570);
         add(sp);
 
-        iconFold = new ImageIcon(new ImageIcon("Kiosk/icons/fold.png").getImage().getScaledInstance(40, 15, java.awt.Image.SCALE_SMOOTH));
-        iconUnfold = new ImageIcon(new ImageIcon("Kiosk/icons/unfold.png").getImage().getScaledInstance(40, 15, java.awt.Image.SCALE_SMOOTH));
-        btnFold.setBackground(Color.WHITE);
         btnFold.setBorderPainted(false);
-        btnFold.setBounds(0, 555, 40, 15);
-        btnFold.setIcon(iconUnfold);
+        btnFold.setBounds(0, 555, 330, 15);
+        btnFold.setText("▲ more aircraft information    ");
+        btnFold.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnFold.setForeground(Theme.getTertiaryFontColor());
+        btnFold.setContentAreaFilled(false);
+        btnFold.setHorizontalAlignment(SwingConstants.CENTER);
         btnFold.addActionListener(new FolderListener());
         sp.add(btnFold);
 
@@ -439,20 +461,82 @@ public class SeatSelectionPanel extends JPanel {
         private boolean onoff = false;
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (!onoff) {
-                planeInfoCard.setLocation(0, 120);
-//                scrollBar.setVisible(false);
-                scrollCard.setLocation(0, -450);
-                btnFold.setLocation(0, 105);
-                btnFold.setIcon(iconFold);
-            } else {
-                planeInfoCard.setLocation(0, 570);
-//                scrollBar.setVisible(true);
-                scrollCard.setLocation(0, 0);
-                btnFold.setLocation(0, 555);
-                btnFold.setIcon(iconUnfold);
-            }
+            /*
+            unfold plane info
+             */
+            if (!onoff)
+                unfoldAnimation();
+            /*
+            fold plane info
+             */
+            else
+                foldAnimation();
             onoff = !onoff;
         }
+    }
+
+    /**
+     * Move component vertically.
+     * @param component thing you want to move
+     * @param distance how many pixels you want it to move
+     */
+    public void moveVertical(Component component, int distance) {
+        component.setLocation(component.getX(), component.getY() + distance);
+    }
+
+    /**
+     * Animation that move scrollCard, planeInfoCard and btn up by 450px.
+     */
+    public void unfoldAnimation() {
+        btnFold.setEnabled(false);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int frame = 0; frame < 50; frame++) {
+                    moveVertical(scrollCard, (int)(0.0227 * frame * (frame - 50)));
+                    moveVertical(planeInfoCard, (int)(0.0227 * frame * (frame - 50)));
+                    moveVertical(btnFold, (int)(0.0227 * frame * (frame - 50)));
+                    try {
+                        sleep(freshTime);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                scrollCard.setLocation(0, -450);
+                planeInfoCard.setLocation(0, 120);
+                btnFold.setLocation(0, 105);
+                btnFold.setText("▼  hide aircraft information    ");
+                btnFold.setEnabled(true);
+            }
+        });
+        thread.start();
+    }
+
+    /**
+     * Animation that move scrollCard, planeInfoCard and btn down by 450px.
+     */
+    public void foldAnimation() {
+        btnFold.setEnabled(false);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int frame = 0; frame < 50; frame++) {
+                    moveVertical(scrollCard, (int)(-0.0227 * frame * (frame - 50)));
+                    moveVertical(planeInfoCard, (int)(-0.0227 * frame * (frame - 50)));
+                    moveVertical(btnFold, (int)(-0.0227 * frame * (frame - 50)));
+                    try {
+                        sleep(freshTime);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                scrollCard.setLocation(0, 0);
+                planeInfoCard.setLocation(0, 570);
+                btnFold.setLocation(0, 555);
+                btnFold.setText("▲ more aircraft information    ");
+                btnFold.setEnabled(true);
+            }
+        });
+        thread.start();
     }
 }
