@@ -21,6 +21,9 @@ import java.util.Random;
  * @author Ni Ruijie
  * @author Li Chunlin
  *
+ * @version 4.2
+ * Can disable animations in config.
+ *
  * @version 4.1
  * Add animations.
  * @date 2022/5/12
@@ -155,8 +158,12 @@ public class PaymentPanel extends JPanel {
                 String str = tfCreditId.getText();
                 boolean right =false;
                 right = check(str);
-                if (right)
-                    loading();
+                if (right) {
+                    if (Config.readConfig("animationSpeed").equals("-1"))
+                        State.setPc(State.getPc() + 1);
+                    else
+                        loading();
+                }
                 else {
                     tfCreditId.setText("Credit card ID");
                     tfCreditId.setForeground(new Color(128, 0, 0));
