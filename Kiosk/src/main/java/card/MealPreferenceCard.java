@@ -103,6 +103,7 @@ public class MealPreferenceCard extends JPanel {
         taDetail.setWrapStyleWord(true);
         taDetail.setEditable(false);
         taDetail.setOpaque(false);
+        taDetail.setEnabled(false);
         taDetail.setFont(new Font("Arial", Font.PLAIN, 18));
         taDetail.setForeground(Theme.getSecondaryFontColor());
         taDetail.setBounds(50, i * 150 +125, 250, 100);
