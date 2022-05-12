@@ -199,6 +199,12 @@ public class PaymentPanel extends JPanel {
         right = str.matches(regex);
         return right;
     }
+    public JTextField getTfCreditId(){
+        return tfCreditId;
+    }
+    public JLabel getErrorWarning(){
+        return errorWarning;
+    }
 //    public void payFlash() throws InterruptedException {
 //        JLabel waiticon = new JLabel();
 //        waiticon.setBounds(586, 421, 58, 67);
