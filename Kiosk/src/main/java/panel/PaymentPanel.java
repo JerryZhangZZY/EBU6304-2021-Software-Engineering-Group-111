@@ -4,13 +4,15 @@ import main.Config;
 import main.State;
 import main.Theme;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
 
 /**
  * integrated test, calling all tests
@@ -18,6 +20,10 @@ import java.awt.event.MouseEvent;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  * @author Li Chunlin
+ *
+ * @version 4.1
+ * Add animations.
+ * @date 2022/5/12
  *
  * @version 4.0
  * Check payment format
@@ -39,15 +45,17 @@ public class PaymentPanel extends JPanel {
     private JTextField tfCreditId;
     private JLabel lblPrice;
     private JButton btnPay;
-    private JLabel errorWarning =  new JLabel("Incorrect password format");;
+    private JLabel errorWarning =  new JLabel();
     private JPanel panelUnionPay = new JPanel();
+    private JPanel panelPay;
+    private LoadingCard loadingCard;
+    private MouseListener mouseListener;
 
     public PaymentPanel(int price) {
         setBackground(Theme.getBackgroundColor());
         setLayout(null);
         setSize(1600, 880);
         setVisible(true);
-
 
         panelUnionPay.setBackground(Theme.getCardColor());
         panelUnionPay.setBorder(new LineBorder(new Color(165, 42, 42), 10, true));
@@ -93,7 +101,7 @@ public class PaymentPanel extends JPanel {
         lblUnionCardIcon.setBounds(12, 10, 44, 40);
         panelInput.add(lblUnionCardIcon);
 
-        JPanel panelPay = new JPanel();
+        panelPay = new JPanel();
         panelPay.setLayout(null);
         panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
         panelPay.setBackground(Theme.getCardColor());
@@ -112,9 +120,11 @@ public class PaymentPanel extends JPanel {
         btnPay.setBounds(0,0, 350, 60);
         panelPay.add(btnPay);
 
-        errorWarning.setFont(new Font("Arial", Font.BOLD, 20));
+        errorWarning.setText("Incorrect format");
+        errorWarning.setFont(new Font("Arial", Font.BOLD, 25));
         errorWarning.setForeground(Color.RED);
-        errorWarning.setBounds(265, 392, 300, 27);
+        errorWarning.setBounds(225, 300, 350, 25);
+        errorWarning.setHorizontalAlignment(SwingConstants.CENTER);
         errorWarning.setVisible(false);
         panelUnionPay.add(errorWarning);
 
@@ -132,29 +142,58 @@ public class PaymentPanel extends JPanel {
         lblPayTo.setBounds(250, 250, 300, 28);
         panelUnionPay.add(lblPayTo);
 
+        loadingCard = new LoadingCard();
+        loadingCard.setBounds(12, 10, 40, 40);
+        loadingCard.setVisible(false);
+        loadingCard.setEnabled(false);
+        panelPay.add(loadingCard);
+
         btnPay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
                 String str = tfCreditId.getText();
-//                try {
-//                    payFlash();
-//                } catch (InterruptedException ex) {
-//                    ex.printStackTrace();
-//                }
                 boolean right =false;
                 right = check(str);
-                if(right)
-                    State.setPc(State.getPc() + 1);
-                else
-                    {
-                        tfCreditId.setText("Credit card ID");
-                        tfCreditId.setForeground(new Color(128, 0, 0));
-                        panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
-                        errorWarning.setVisible(true);
-                    }
+                if (right)
+                    loading();
+                else {
+                    tfCreditId.setText("Credit card ID");
+                    tfCreditId.setForeground(new Color(128, 0, 0));
+                    panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
+                    errorWarning.setVisible(true);
+                }
             }
         });
+        mouseListener = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
+                btnPay.setForeground(Color.LIGHT_GRAY);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
+                btnPay.setForeground(Color.WHITE);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        };
+        btnPay.addMouseListener(mouseListener);
 
         tfCreditId.addMouseListener(new MouseAdapter() {
             @Override
@@ -190,9 +229,79 @@ public class PaymentPanel extends JPanel {
             }
         });
     }
+
+    public static class LoadingCard extends JPanel {
+
+        @Override
+        public void setBackground(Color bg) {
+            super.setBackground(new Color(165, 42, 42));
+        }
+
+        int angle = 0;
+        BufferedImage img;
+        {
+            try {
+                img = ImageIO.read(new File("Kiosk/icons/loading.png"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            rotate(g);
+        }
+
+        public void rotate(Graphics g) {
+            angle = (angle + 3) % 360;
+            Graphics2D g2 = (Graphics2D)g;
+            g2.setRenderingHint(
+                    RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.rotate(Math.toRadians(angle),img.getWidth() >> 1,img.getHeight() >> 1);
+            g2.drawImage(img,0,0,null);
+        }
+    }
+
+    public void loading() {
+        btnPay.setEnabled(false);
+        btnPay.removeMouseListener(mouseListener);
+        tfCreditId.setEnabled(false);
+        loadingCard.setEnabled(true);
+        loadingCard.setVisible(true);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < (150 + new Random().nextInt(50)); i++) {
+                    loadingCard.repaint();
+                    try {
+                        Thread.sleep(8);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                panelPay.remove(loadingCard);
+                JLabel lblTick = new JLabel("✔");
+                lblTick.setBounds(18, 10, 40, 40);
+                lblTick.setForeground(new Color(60,179,113));
+                lblTick.setFont(new Font("Default", Font.BOLD, 40));
+                panelPay.add(lblTick);
+                panelPay.repaint();
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                State.setPc(State.getPc() + 1);
+            }
+        });
+        thread.start();
+    }
+
     public JButton getButtonPay(){
         return btnPay;
     }
+
     public boolean check(String str){
         if (str.length() != 8)
             return false;
@@ -201,65 +310,12 @@ public class PaymentPanel extends JPanel {
         right = str.matches(regex);
         return right;
     }
+
     public JTextField getTfCreditId(){
         return tfCreditId;
     }
+
     public JLabel getErrorWarning(){
         return errorWarning;
     }
-//    public void payFlash() throws InterruptedException {
-//        JLabel waiticon = new JLabel();
-//        waiticon.setBounds(586, 421, 58, 67);
-//        panelUnionPay.add(waiticon);
-//        ArrayList<ImageIcon> icon = new ArrayList();
-//        ImageIcon wait = new ImageIcon("Kiosk/icons/wait/wait0.png");
-//        Image img_wait = wait.getImage();
-//        Image newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        ImageIcon icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait1.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait2.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait3.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait4.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait5.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait6.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        wait = new ImageIcon("Kiosk/icons/wait/wait7.png");
-//        img_wait = wait.getImage();
-//        newimg_wait= img_wait.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
-//        icon_wait = new ImageIcon(newimg_wait);
-//        icon.add(icon_wait);
-//        int a= 0,c = 0;
-//        for(int i = 0; i<24 ; i++){
-//            waiticon.setIcon(icon.get(a));
-//            a++;
-//            if(a==8){
-//                a=0;
-//            }
-//
-//        }
-//    }
 }
