@@ -112,7 +112,7 @@ public class PaymentPanel extends JPanel {
         btnPay.setBounds(0,0, 350, 60);
         panelPay.add(btnPay);
 
-        errorWarning.setFont(new Font("Tahoma", Font.BOLD, 20));
+        errorWarning.setFont(new Font("Arial", Font.BOLD, 20));
         errorWarning.setForeground(Color.RED);
         errorWarning.setBounds(265, 392, 300, 27);
         errorWarning.setVisible(false);
@@ -196,7 +196,7 @@ public class PaymentPanel extends JPanel {
     public boolean check(String str){
         if (str.length() != 8)
             return false;
-        boolean right=false;
+        boolean right;
         String regex ="^[0-9]{1,8}$";
         right = str.matches(regex);
         return right;
