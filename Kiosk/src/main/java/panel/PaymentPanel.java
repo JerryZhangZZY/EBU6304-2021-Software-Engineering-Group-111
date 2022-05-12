@@ -194,6 +194,8 @@ public class PaymentPanel extends JPanel {
         return btnPay;
     }
     public boolean check(String str){
+        if (str.length() != 8)
+            return false;
         boolean right=false;
         String regex ="^[0-9]{1,8}$";
         right = str.matches(regex);
