@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>D:/EBU6304-2021-Software-Engineering-Group-111/Kiosk/src/main/java</OriginalElement>
+  <nodes>
+    <node x="159.95032051282055" y="-16.0">panel.BillConfirmationPanel</node>
+    <node x="690.6930597601335" y="-980.5">printer.TagPrinter</node>
+    <node x="477.95032051282055" y="7.0">panel.ProgressPanel</node>
+    <node x="1615.6962701612888" y="-2400.51956989247">main.Clock</node>
+    <node x="1322.25" y="1065.0">card.MealPreferenceCard</node>
+    <node x="812.0753205128206" y="1053.5">card.SmallBillCard</node>
+    <node x="1896.0" y="1076.5">panel.WelcomePanel</node>
+    <node x="1064.5753205128206" y="-85.0">panel.BookingLoginPanel</node>
+    <node x="1686.5753205128206" y="-85.0">panel.FinalPanel</node>
+    <node x="2830.4046769644324" y="-980.5">dbReader.PlaneReader</node>
+    <node x="277.9791076095961" y="-980.5">printer.BarCode_QRCodeGenerator</node>
+    <node x="3101.1186291149697" y="-980.5">idCardReader.IdCardReader</node>
+    <node x="4073.974437717119" y="-980.5">dbReader.JsonReader</node>
+    <node x="2535.690724813895" y="-980.5">dbReader.FlightReader</node>
+    <node x="2154.0" y="1134.5">frame.AdminConsole</node>
+    <node x="1333.8349162117456" y="-980.5">dbWriter.SeatWriter</node>
+    <node x="3835.260485566582" y="-980.5">dbReader.PassengerReader</node>
+    <node x="1375.5753205128206" y="-16.0">panel.MealSelectionPanel</node>
+    <node x="1899.5753205128206" y="-280.5">frame.MainFrame</node>
+    <node x="2207.696270161289" y="-2400.51956989247">printer.BoardingPassPrinter</node>
+    <node x="2410.625" y="1065.0">card.ScanIdLoginCard</node>
+    <node x="2338.9503205128203" y="-62.0">panel.PaymentPanel</node>
+    <node x="909.4070119106708" y="-980.5">printer.TicketPrinter</node>
+    <node x="1132.1209640612083" y="-980.5">dbWriter.StatusWriter</node>
+    <node x="3578.5465334160444" y="-980.5">dbReader.AirlineWebsiteReader</node>
+    <node x="3918.625" y="1007.5">card.FlightInfoCard</node>
+    <node x="2063.9767726633577" y="-980.5">dbReader.PassengerFlightReader</node>
+    <node x="1884.6962701612888" y="-2400.51956989247">main.Config</node>
+    <node x="1598.548868362283" y="-980.5">dbWriter.JsonWriter</node>
+    <node x="3734.625" y="1147.5">card.SeatLegendCard</node>
+    <node x="3108.625" y="1147.5">card.PlaneInfoCard</node>
+    <node x="1848.2628205128203" y="-980.5">main.Control</node>
+    <node x="1091.6962701612888" y="-2400.51956989247">main.Theme</node>
+    <node x="1537.25" y="835.0">card.MealInfoCard</node>
+    <node x="2727.625" y="996.0">card.TypeIdLoginCard</node>
+    <node x="-56.0" y="1030.5">card.MealBillCard</node>
+    <node x="134.0" y="1147.5">card.FlightInfoTopBarCard</node>
+    <node x="2583.9503205128203" y="30.0">panel.IdLoginPanel</node>
+    <node x="3275.625" y="1099.5">dbReader.SeatReader</node>
+    <node x="353.0" y="1076.5">card.SeatBillCard</node>
+    <node x="3315.832581265507" y="-980.0">dbReader.MealPreferenceReader</node>
+    <node x="771.5584097601334" y="-2400.51956989247">main.State</node>
+    <node x="3353.0" y="-418.5">panel.SeatSelectionPanel</node>
+    <node x="3851.125" y="53.5">panel.FlightSelectionPanel</node>
+    <node x="3476.625" y="1111.0">card.ScrollCard</node>
+    <node x="1384.6962701612888" y="-2400.51956989247">dbWriter.DBGenerator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="panel.SeatSelectionPanel" target="card.SeatLegendCard" relationship="CREATE">
+      <point x="67.5" y="522.0" />
+      <point x="3555.5" y="795.0" />
+      <point x="3621.971153846154" y="795.0" />
+      <point x="3621.971153846154" y="815.0" />
+      <point x="3816.625" y="815.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.SeatBillCard" relationship="CREATE">
+      <point x="74.5" y="119.5" />
+      <point x="383.45032051282055" y="795.0" />
+      <point x="448.5" y="795.0" />
+      <point x="448.5" y="815.0" />
+      <point x="488.75" y="815.0" />
+      <point x="45.25" y="-85.0" />
+    </edge>
+    <edge source="main.Control" target="panel.SeatSelectionPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="3488.0" y="-593.0" />
+      <point x="0.0" y="-522.0" />
+    </edge>
+    <edge source="main.Control" target="panel.MealSelectionPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="1521.0753205128206" y="-593.0" />
+      <point x="0.0" y="-119.5" />
+    </edge>
+    <edge source="main.Control" target="panel.FinalPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="1783.0753205128206" y="-593.0" />
+      <point x="0.0" y="-188.5" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="dbReader.SeatReader" relationship="CREATE">
+      <point x="67.5" y="522.0" />
+      <point x="3555.5" y="795.0" />
+      <point x="3621.971153846154" y="795.0" />
+      <point x="3621.971153846154" y="815.0" />
+      <point x="3411.375" y="815.0" />
+      <point x="45.25" y="-62.0" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.TypeIdLoginCard" relationship="CREATE">
+      <point x="-70.5" y="73.5" />
+      <point x="2654.4503205128203" y="795.0" />
+      <point x="2554.125" y="795.0" />
+      <point x="2554.125" y="805.0" />
+      <point x="2817.875" y="805.0" />
+      <point x="-90.25" y="-165.5" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealInfoCard" relationship="TO_ONE">
+      <point x="-72.75" y="119.5" />
+      <point x="1448.3253205128206" y="795.0" />
+      <point x="1414.75" y="795.0" />
+      <point x="1414.75" y="805.0" />
+      <point x="1593.0" y="805.0" />
+      <point x="-55.75" y="-326.5" />
+    </edge>
+    <edge source="main.State" target="card.SmallBillCard" relationship="CREATE">
+      <point x="-68.5" y="671.5" />
+      <point x="840.0584097601334" y="795.0" />
+      <point x="902.5753205128206" y="795.0" />
+      <point x="902.5753205128206" y="815.0" />
+      <point x="859.8253205128206" y="815.0" />
+      <point x="-47.75" y="-108.0" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealPreferenceCard" relationship="TO_ONE">
+      <point x="-72.75" y="119.5" />
+      <point x="1448.3253205128206" y="795.0" />
+      <point x="1414.75" y="795.0" />
+      <point x="1414.75" y="805.0" />
+      <point x="1371.0" y="805.0" />
+      <point x="-48.75" y="-96.5" />
+    </edge>
+    <edge source="main.Control" target="panel.ProgressPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="608.9503205128206" y="-593.0" />
+      <point x="0.0" y="-96.5" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.MealBillCard" relationship="CREATE">
+      <point x="74.5" y="119.5" />
+      <point x="383.45032051282055" y="795.0" />
+      <point x="448.5" y="795.0" />
+      <point x="448.5" y="815.0" />
+      <point x="71.5" y="815.0" />
+      <point x="42.5" y="-131.0" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.SmallBillCard" relationship="CREATE">
+      <point x="74.5" y="119.5" />
+      <point x="383.45032051282055" y="795.0" />
+      <point x="448.5" y="795.0" />
+      <point x="448.5" y="805.0" />
+      <point x="902.5753205128206" y="805.0" />
+      <point x="902.5753205128206" y="815.0" />
+      <point x="859.8253205128206" y="815.0" />
+      <point x="-47.75" y="-108.0" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.FlightInfoTopBarCard" relationship="CREATE">
+      <point x="74.5" y="119.5" />
+      <point x="383.45032051282055" y="795.0" />
+      <point x="448.5" y="795.0" />
+      <point x="448.5" y="815.0" />
+      <point x="283.25" y="815.0" />
+      <point x="49.75" y="-14.0" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.SeatBillCard" relationship="TO_ONE">
+      <point x="-74.5" y="119.5" />
+      <point x="234.45032051282055" y="795.0" />
+      <point x="122.625" y="795.0" />
+      <point x="122.625" y="805.0" />
+      <point x="398.25" y="805.0" />
+      <point x="-45.25" y="-85.0" />
+    </edge>
+    <edge source="main.Control" target="panel.IdLoginPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="2724.9503205128203" y="-593.0" />
+      <point x="0.0" y="-73.5" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.PlaneInfoCard" relationship="TO_ONE">
+      <point x="-67.5" y="522.0" />
+      <point x="3420.5" y="795.0" />
+      <point x="3188.934294871795" y="795.0" />
+      <point x="3188.934294871795" y="805.0" />
+      <point x="3145.375" y="805.0" />
+      <point x="-36.75" y="-14.0" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="dbReader.SeatReader" relationship="TO_ONE">
+      <point x="-67.5" y="522.0" />
+      <point x="3420.5" y="795.0" />
+      <point x="3188.934294871795" y="795.0" />
+      <point x="3188.934294871795" y="805.0" />
+      <point x="3320.875" y="805.0" />
+      <point x="-45.25" y="-62.0" />
+    </edge>
+    <edge source="main.Control" target="frame.MainFrame" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="2078.5753205128203" y="-593.0" />
+      <point x="0.0" y="-384.0" />
+    </edge>
+    <edge source="main.Control" target="panel.PaymentPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="2451.4503205128203" y="-593.0" />
+      <point x="0.0" y="-165.5" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealPreferenceCard" relationship="CREATE">
+      <point x="72.75" y="119.5" />
+      <point x="1593.8253205128206" y="795.0" />
+      <point x="1647.9711538461538" y="795.0" />
+      <point x="1647.9711538461538" y="815.0" />
+      <point x="1468.5" y="815.0" />
+      <point x="48.75" y="-96.5" />
+    </edge>
+    <edge source="main.Control" target="panel.FlightSelectionPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="4014.125" y="-593.0" />
+      <point x="0.0" y="-50.0" />
+    </edge>
+    <edge source="frame.MainFrame" target="frame.AdminConsole" relationship="CREATE">
+      <point x="89.5" y="384.0" />
+      <point x="2168.0753205128203" y="795.0" />
+      <point x="2083.5753205128203" y="795.0" />
+      <point x="2083.5753205128203" y="805.0" />
+      <point x="2235.0" y="805.0" />
+      <point x="0.0" y="-27.0" />
+    </edge>
+    <edge source="panel.MealSelectionPanel" target="card.MealInfoCard" relationship="CREATE">
+      <point x="72.75" y="119.5" />
+      <point x="1593.8253205128206" y="795.0" />
+      <point x="1647.9711538461538" y="795.0" />
+      <point x="1647.9711538461538" y="815.0" />
+      <point x="1704.5" y="815.0" />
+      <point x="55.75" y="-326.5" />
+    </edge>
+    <edge source="frame.MainFrame" target="panel.WelcomePanel" relationship="TO_ONE">
+      <point x="-89.5" y="384.0" />
+      <point x="1989.0753205128206" y="795.0" />
+      <point x="1955.5" y="795.0" />
+      <point x="-59.5" y="-85.0" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.ScanIdLoginCard" relationship="CREATE">
+      <point x="-70.5" y="73.5" />
+      <point x="2654.4503205128203" y="795.0" />
+      <point x="2554.125" y="795.0" />
+      <point x="2554.125" y="805.0" />
+      <point x="2484.875" y="805.0" />
+      <point x="-74.25" y="-96.5" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.ScrollCard" relationship="TO_ONE">
+      <point x="-67.5" y="522.0" />
+      <point x="3420.5" y="795.0" />
+      <point x="3188.934294871795" y="795.0" />
+      <point x="3188.934294871795" y="805.0" />
+      <point x="3536.125" y="805.0" />
+      <point x="-59.5" y="-50.5" />
+    </edge>
+    <edge source="main.Control" target="panel.BillConfirmationPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="308.95032051282055" y="-593.0" />
+      <point x="0.0" y="-119.5" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.ScanIdLoginCard" relationship="TO_ONE">
+      <point x="70.5" y="73.5" />
+      <point x="2795.4503205128203" y="795.0" />
+      <point x="2903.721153846154" y="795.0" />
+      <point x="2903.721153846154" y="815.0" />
+      <point x="2633.375" y="815.0" />
+      <point x="74.25" y="-96.5" />
+    </edge>
+    <edge source="frame.MainFrame" target="panel.WelcomePanel" relationship="CREATE">
+      <point x="89.5" y="384.0" />
+      <point x="2168.0753205128203" y="795.0" />
+      <point x="2083.5753205128203" y="795.0" />
+      <point x="2083.5753205128203" y="805.0" />
+      <point x="2074.5" y="805.0" />
+      <point x="59.5" y="-85.0" />
+    </edge>
+    <edge source="main.Control" target="panel.BookingLoginPanel" relationship="CREATE">
+      <point x="0.0" y="27.0" />
+      <point x="1928.7628205128203" y="-593.0" />
+      <point x="1210.0753205128206" y="-593.0" />
+      <point x="0.0" y="-188.5" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.FlightInfoTopBarCard" relationship="TO_ONE">
+      <point x="-74.5" y="119.5" />
+      <point x="234.45032051282055" y="795.0" />
+      <point x="122.625" y="795.0" />
+      <point x="122.625" y="805.0" />
+      <point x="183.75" y="805.0" />
+      <point x="-49.75" y="-14.0" />
+    </edge>
+    <edge source="panel.FlightSelectionPanel" target="card.FlightInfoCard" relationship="CREATE">
+      <point x="0.0" y="50.0" />
+      <point x="0.0" y="-154.0" />
+    </edge>
+    <edge source="panel.BillConfirmationPanel" target="card.MealBillCard" relationship="TO_ONE">
+      <point x="-74.5" y="119.5" />
+      <point x="234.45032051282055" y="795.0" />
+      <point x="122.625" y="795.0" />
+      <point x="122.625" y="805.0" />
+      <point x="-13.5" y="805.0" />
+      <point x="-42.5" y="-131.0" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.ScrollCard" relationship="CREATE">
+      <point x="67.5" y="522.0" />
+      <point x="3555.5" y="795.0" />
+      <point x="3621.971153846154" y="795.0" />
+      <point x="3621.971153846154" y="815.0" />
+      <point x="3655.125" y="815.0" />
+      <point x="59.5" y="-50.5" />
+    </edge>
+    <edge source="panel.IdLoginPanel" target="card.TypeIdLoginCard" relationship="TO_ONE">
+      <point x="70.5" y="73.5" />
+      <point x="2795.4503205128203" y="795.0" />
+      <point x="2903.721153846154" y="795.0" />
+      <point x="2903.721153846154" y="815.0" />
+      <point x="2998.375" y="815.0" />
+      <point x="90.25" y="-165.5" />
+    </edge>
+    <edge source="main.State" target="card.SmallBillCard" relationship="TO_ONE">
+      <point x="68.5" y="671.5" />
+      <point x="977.0584097601334" y="795.0" />
+      <point x="955.3253205128206" y="795.0" />
+      <point x="47.75" y="-108.0" />
+    </edge>
+    <edge source="panel.SeatSelectionPanel" target="card.PlaneInfoCard" relationship="CREATE">
+      <point x="67.5" y="522.0" />
+      <point x="3555.5" y="795.0" />
+      <point x="3621.971153846154" y="795.0" />
+      <point x="3621.971153846154" y="815.0" />
+      <point x="3218.875" y="815.0" />
+      <point x="36.75" y="-14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.244140625" showDependencies="true" x="1895.9217220340106" y="-1292.9848923907175" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
