@@ -206,8 +206,6 @@ public abstract class Config {
                 # Recommended: E://, F://, G:// (Windows); /volumes/DRIVE NAME/ (Mac OS)
                 idCardDrive: F://
                 
-                
-                                    
                 # --------------< AIRPORT SETTINGS >--------------
                                     
                 # You can set the airport name here.
@@ -220,6 +218,8 @@ public abstract class Config {
                 # Check-in stops ... (minutes) before departure.
                 stopCheckInLeadingTime: 30
                                     
+                # --------------< TIMER SETTINGS >--------------
+                
                 # Enable/disable check-in timer.
                 checkinTimer: enable
                 # Set the limit time (seconds) for check-in timer
@@ -228,8 +228,6 @@ public abstract class Config {
                 # Enable/disable idle timer.
                 idleTimer: enable
                 
-                
-                                 
                 # -------------< APPEARANCE SETTINGS >------------
                                     
                 # Select a theme from the theme library.
