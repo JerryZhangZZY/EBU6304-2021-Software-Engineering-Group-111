@@ -1,6 +1,6 @@
 package cardTest;
 
-import card.MealBillcard;
+import card.MealBillCard;
 import frame.MainFrame;
 
 /**
@@ -12,7 +12,7 @@ import frame.MainFrame;
 public class MealBillCardTest {
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        MealBillcard h = new MealBillcard('a',"Kweichow Moutai","French meal","French meal",100,90,5);
+        MealBillCard h = new MealBillCard('a',"Kweichow Moutai","French meal","French meal",100,90,5);
         testMainFrame.loadPanel(h);
         testMainFrame.displayComponents(true, true, false);
         testMainFrame.setVisible(true);

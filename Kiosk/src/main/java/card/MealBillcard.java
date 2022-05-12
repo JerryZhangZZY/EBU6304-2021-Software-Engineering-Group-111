@@ -17,7 +17,7 @@ import java.awt.*;
  * @date 3/23
  *
  */
-public class MealBillcard extends JPanel {
+public class MealBillCard extends JPanel {
 
     private JLabel headline;
     private JLabel[] extr = new JLabel[3];
@@ -27,7 +27,7 @@ public class MealBillcard extends JPanel {
     private String[] pref = new String[3];
     private int[] pay = new int[3];
     
-    public MealBillcard(char basis, String extr1, String extr2, String extr3, int bill1, int bill2, int bill3) {
+    public MealBillCard(char basis, String extr1, String extr2, String extr3, int bill1, int bill2, int bill3) {
 
         pref[0] = extr1;
         pref[1] = extr2;

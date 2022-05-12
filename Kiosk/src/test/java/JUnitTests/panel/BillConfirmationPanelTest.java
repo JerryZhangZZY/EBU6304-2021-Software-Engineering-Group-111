@@ -1,7 +1,7 @@
 package panel;
 
 import backupDbOperation.BackupDbOperator;
-import card.MealBillcard;
+import card.MealBillCard;
 import card.SeatBillCard;
 import common.MainFrameBarsTest;
 import dbReader.PassengerFlightReader;
@@ -87,13 +87,13 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
         }
 
         BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
-        MealBillcard mealBillcard = billConfirmationPanel.getMealBillcard();
-        JLabel headline = mealBillcard.getHeadline();
-        JLabel[] extr = mealBillcard.getExtr();
-        JLabel[] bill = mealBillcard.getBill();
+        MealBillCard mealBillCard = billConfirmationPanel.getMealBillCard();
+        JLabel headline = mealBillCard.getHeadline();
+        JLabel[] extr = mealBillCard.getExtr();
+        JLabel[] bill = mealBillCard.getBill();
 
         assertEquals("Meal:  " + food[(int)State.getMeal() - 97], headline.getText());
-        assertEquals(120 + temp * 91, mealBillcard.getHeight());
+        assertEquals(120 + temp * 91, mealBillCard.getHeight());
         int n = 0;
         for (int i = 0; i < temp; i++) {
             while (!State.getSelectedPrefFood()[n])

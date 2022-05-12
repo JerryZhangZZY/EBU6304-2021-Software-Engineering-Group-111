@@ -1,7 +1,7 @@
 package panel;
 
 import card.FlightInfoTopBarCard;
-import card.MealBillcard;
+import card.MealBillCard;
 import card.SeatBillCard;
 import card.SmallBillCard;
 import dbReader.PassengerFlightReader;
@@ -40,7 +40,7 @@ public class BillConfirmationPanel extends JPanel {
 
     private FlightInfoTopBarCard flightInfoTopBarCard;
     private SeatBillCard seatBillCard;
-    private MealBillcard mealBillcard;
+    private MealBillCard mealBillCard;
     private JLabel lblScanningImg;
     private JLabel lblInstruction;
     private JButton btnConfirm;
@@ -78,11 +78,11 @@ public class BillConfirmationPanel extends JPanel {
             else
                 foodPay[i] = -1;
         }
-        mealBillcard = new MealBillcard(State.getMeal(),
+        mealBillCard = new MealBillCard(State.getMeal(),
                 State.getPrefFoodName()[0], State.getPrefFoodName()[1], State.getPrefFoodName()[2],
                 foodPay[0], foodPay[1], foodPay[2]);
-        mealBillcard.setLocation(50, 437);
-        add(mealBillcard);
+        mealBillCard.setLocation(50, 437);
+        add(mealBillCard);
 
         SmallBillCard totalBill = new SmallBillCard(State.getBill());
         totalBill.changeTitle("Total:");
@@ -146,8 +146,8 @@ public class BillConfirmationPanel extends JPanel {
         return seatBillCard;
     }
 
-    public MealBillcard getMealBillcard() {
-        return mealBillcard;
+    public MealBillCard getMealBillCard() {
+        return mealBillCard;
     }
 
     public JButton getBtnConfirm() {
