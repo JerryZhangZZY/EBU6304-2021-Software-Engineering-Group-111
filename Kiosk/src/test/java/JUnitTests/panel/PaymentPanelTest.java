@@ -2,6 +2,7 @@ package panel;
 
 import common.MainFrameBarsTest;
 import frame.MainFrame;
+import main.Config;
 import main.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Chenyu
  * @author Liang Zhehao
  *
+ * @version 4.1
+ * Skip animations.
+ * @date 2022/5/12
+ *
  * @version 4.0
+ * Bug fixed.
  * @date 5/12
  *
  * @version 3.0
@@ -38,6 +44,7 @@ public class PaymentPanelTest implements MainFrameBarsTest {
     @Test
     public void testPaymentPanel() {
         price = State.getBill();
+        Config.modifyConfigTemp("animationSpeed", "-1");
         PaymentPanel test = new PaymentPanel(price);
         JButton pay = test.getButtonPay();
         JTextField id = test.getTfCreditId();
@@ -49,6 +56,7 @@ public class PaymentPanelTest implements MainFrameBarsTest {
 
     @Test
     public void testChecksum() {
+        Config.modifyConfigTemp("animationSpeed", "-1");
         PaymentPanel test = new PaymentPanel(price);
         JButton pay = test.getButtonPay();
         JTextField id = test.getTfCreditId();
