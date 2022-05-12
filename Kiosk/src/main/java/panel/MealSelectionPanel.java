@@ -101,7 +101,7 @@ public class MealSelectionPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             if (mealInfoCard.getChosen() != 'd') {
-                State.setPc(State.getPc() + 1);
+                State.setPc(6);
                 State.setMeal(mealInfoCard.getChosen());
                 State.setSelectedPrefFood(mealPreferenceCard.getSelection());
                 State.setBill(State.smallBillCard.getPrice());

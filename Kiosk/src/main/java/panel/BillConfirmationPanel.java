@@ -128,9 +128,9 @@ public class BillConfirmationPanel extends JPanel {
                     lblInstruction.setText("Scan ID to continue");
                     lblInstruction.setForeground(Theme.getMainFontColor());
                     if (State.getBill() != 0) {
-                        State.setPc(State.getPc() + 1);
+                        State.setPc(7);
                     } else {
-                        State.setPc(State.getPc() + 2);
+                        State.setPc(8);
                     }
                 }
                 else

@@ -444,7 +444,7 @@ public class SeatSelectionPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             if (getTemp_row() != -1) {
-                State.setPc(State.getPc() + 1);
+                State.setPc(5);
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column + 1);
                 State.setColumnNum(columnNum[temp_column].charAt(0));

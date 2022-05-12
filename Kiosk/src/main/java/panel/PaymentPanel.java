@@ -160,7 +160,7 @@ public class PaymentPanel extends JPanel {
                 right = check(str);
                 if (right) {
                     if (Config.readConfig("animationSpeed").equals("-1"))
-                        State.setPc(State.getPc() + 1);
+                        State.setPc(8);
                     else
                         loading();
                 }
@@ -293,7 +293,7 @@ public class PaymentPanel extends JPanel {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                State.setPc(State.getPc() + 1);
+                State.setPc(8);
             }
         });
         thread.start();

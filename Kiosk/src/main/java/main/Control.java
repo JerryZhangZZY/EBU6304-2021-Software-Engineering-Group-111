@@ -74,7 +74,6 @@ public class Control {
         seatPanel = new ProgressPanel(2);
         mealPanel = new ProgressPanel(3);
         billPanel = new ProgressPanel(4);
-        payPanel = new ProgressPanel(4);
 
         /*
         control flow

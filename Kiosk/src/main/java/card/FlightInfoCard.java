@@ -147,6 +147,6 @@ public class FlightInfoCard extends JPanel {
         State.setIdFlight(idFlight);
         State.setBookingNum(State.getBookingNumList().get(column));
         State.setPassengerFlight_index(PassengerFlightReader.indexOf(State.getBookingNum(), idFlight));
-        State.setPc(State.getPc() + 1);
+        State.setPc(4);
     }
 }
