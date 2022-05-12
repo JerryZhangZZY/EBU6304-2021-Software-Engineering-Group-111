@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import javax.swing.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * test class for id card scanning panel
@@ -31,9 +32,38 @@ public class PaymentPanelTest implements MainFrameBarsTest {
         price = State.getBill();
         PaymentPanel test = new PaymentPanel(price);
         JButton pay = test.getButtonPay();
+        JTextField id  =test.getTfCreditId();
+        id.setText("12345678");
         currentPc  =  State.getPc();
         pay.doClick();
         assertEquals(currentPc+1, State.getPc());
+    }
+    @Test
+    public void testChecksum(){
+        PaymentPanel test = new PaymentPanel(price);
+        JButton pay = test.getButtonPay();
+        JTextField id  =test.getTfCreditId();
+        JLabel error  =test.getErrorWarning();
+        id.setText("123456789");
+        currentPc  =  State.getPc();
+        pay.doClick();
+        assertEquals(currentPc,State.getPc());
+        assertTrue(error.isVisible());
+        id.setText("123456llplp9");
+        currentPc  =  State.getPc();
+        pay.doClick();
+        assertEquals(currentPc,State.getPc());
+        assertTrue(error.isVisible());
+        id.setText("");
+        currentPc  =  State.getPc();
+        pay.doClick();
+        assertEquals(currentPc,State.getPc());
+        assertTrue(error.isVisible());
+        id.setText("12345678");
+        currentPc  =  State.getPc();
+        pay.doClick();
+        assertEquals(currentPc+1,State.getPc());
+        assertTrue(error.isVisible());
     }
     @Test
     public void testExit(){
