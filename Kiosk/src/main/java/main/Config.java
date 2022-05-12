@@ -14,6 +14,9 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 4.3
+ * New method modifyConfigTemp().
+ *
  * @version 4.2
  * Added config inspection
  * @date 5/10
@@ -134,6 +137,7 @@ public abstract class Config {
         }
         return 0;
     }
+
     /**
      * retrieve configuration
      * @param name tag name
@@ -145,6 +149,7 @@ public abstract class Config {
         }
         return config.get(name).toString();
     }
+
     /**
      * read file to config variable
      */
@@ -172,6 +177,14 @@ public abstract class Config {
         }
         checkConfig();
     }
+
+    /**
+     * temporarily modify configs in hashmap
+     */
+    public static void modifyConfigTemp(String name, String value) {
+        config.replace(name, value);
+    }
+
     /**
      * reset configuration to default
      */
@@ -224,37 +237,4 @@ public abstract class Config {
         fileWriter.write(strDefaultConfig);
         fileWriter.close();
     }
-//    /**
-//     * modify configuration file
-//     * @param name tag name
-//     * @param value tag value
-//     */
-//    public static void addConfig(String name, String value){
-//        try {
-//            List<String> oldConf = Files.readAllLines(filePath);
-//            String newConf = "";
-//            for (String s : oldConf) {
-//                if (!s.startsWith(name)) {                 //if duplicate
-//                    newConf = newConf.concat(s + "\n");    //discard old
-//                }
-//            }
-//            newConf = newConf.concat(name + ": " + value + "\n");
-//            Files.writeString(filePath, newConf);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    public static void addComment(String comment){
-//        try {
-//            List<String> oldConf = Files.readAllLines(filePath);
-//            String newConf = "";
-//            for (String s : oldConf) {
-//                newConf = newConf.concat(s + "\n");
-//            }
-//            newConf = newConf.concat("\n# " + comment + "\n");
-//            Files.writeString(filePath, newConf);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
