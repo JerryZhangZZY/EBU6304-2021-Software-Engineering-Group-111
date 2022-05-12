@@ -116,11 +116,11 @@ public class FlightSelectionPanel extends JPanel {
             lblAutoExit.setBounds(400, 400, 800, 200);
             add(lblAutoExit);
 
-            Clock.setBackstageTimer(3500);
+            Clock.setIdleTimer(3500);
         }
 
         else {
-            Clock.setTimer();
+            Clock.setCheckinTimer();
             int x = 500;
             if (bookingNumList.size() == 2) {
                 x = 200;

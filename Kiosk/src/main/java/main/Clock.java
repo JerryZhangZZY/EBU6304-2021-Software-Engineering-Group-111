@@ -12,6 +12,10 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Zhang Zeyu
  *
+ * @version 4.0
+ * Rename timers and reformat codes.
+ * @date 2022/5/12
+ *
  * @version 3.3
  * Added limit time config, and allowed managers to enable/disable timers.
  * @date 2022/4/27
@@ -37,15 +41,16 @@ import java.util.TimerTask;
  */
 public abstract class Clock {
     static Timer clockAction;
-    static Timer timerAction;
-    static Timer backStageTimerAction;
-    static int limitTime;
+    static Timer checkinTimerAction;
+    static Timer idleTimerAction;
+    static int checkinTimeLimit;
     static JLabel tempTimer;
     static int flag1 = 0;
     static int flag2 = 0;
 
     /**
      * Set the clock
+     *
      * @param clock panel of the clock
      */
     public static void setClock(JLabel clock) {
@@ -58,105 +63,106 @@ public abstract class Clock {
                 SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd  HH:mm:ss");
                 varClock.setText(df.format(new Date(timemillis)));
             }
-        },0,1);
+        }, 0, 1);
     }
 
     /**
-     * Load the panel from MainFrame to this class. Deploy configurations.
+     * Load the panel from MainFrame to this class.
+     * Deploy configurations.
+     *
      * @param timer panel of the timer
      */
-    public static void loadTimer(JLabel timer){
-        if(Config.readConfig("overallTimer").equals("disable")){disableTimer();}
-        if(Config.readConfig("backStageTimer").equals("disable")){disableBackstageTimer();}
-        limitTime = Integer.parseInt(Config.readConfig("limitTime"));
+    public static void loadTimer(JLabel timer) {
+        if (Config.readConfig("checkinTimer").equals("disable"))
+            disableCheckinTimer();
+        if (Config.readConfig("idleTimer").equals("disable"))
+            disableIdleTimer();
+        checkinTimeLimit = Integer.parseInt(Config.readConfig("checkinTimeLimit"));
         tempTimer = timer;
     }
 
     /**
      * Set the Timer which can make the system exit to welcome page in a fixed time.
      */
-    public static void setTimer() {
+    public static void setCheckinTimer() {
         final JLabel varTimer = tempTimer;
-        if(flag1 == 0){
-            long timeSeconds = System.currentTimeMillis()/1000;
-            long tempMillisTime = limitTime+timeSeconds;
-            timerAction = new Timer();
+        if (flag1 == 0) {
+            long timeSeconds = System.currentTimeMillis() / 1000;
+            long tempMillisTime = checkinTimeLimit + timeSeconds;
+            checkinTimerAction = new Timer();
             flag1 = 1;
-            timerAction.schedule(new TimerTask() {
+            checkinTimerAction.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    long nowTime = System.currentTimeMillis()/1000;
-                    varTimer.setText(String.valueOf(tempMillisTime-nowTime));
+                    long nowTime = System.currentTimeMillis() / 1000;
+                    varTimer.setText(String.valueOf(tempMillisTime - nowTime));
                     tempTimer.setVisible(true);
-                    if(tempMillisTime-nowTime ==-1){
-                        stopTimer();
+                    if (tempMillisTime - nowTime == -1) {
+                        stopCheckinTimer();
                         State.setPc(0);
-                        //System.out.println("Back to welcome page by overall Timer");
-                        State.setIsReady(new boolean[]{true, true, true,
-                                false, false, false, false, true, true});
+                        State.setIsReady(new boolean[]{true, true, true, false, false, false, false, true, true});
                     }
                 }
-            },0,1);
+            }, 0, 1);
         }
     }
 
     /**
-     * Stop the Timer, and reset it.
+     * Stop check-in timer and reset it.
      */
-    public static void stopTimer(){
-        if(flag1 == 1){
-            timerAction.cancel();
+    public static void stopCheckinTimer() {
+        if (flag1 == 1) {
+            checkinTimerAction.cancel();
             tempTimer.setVisible(false);
             flag1 = 0;
-        }
-        else{
+        } else {
             tempTimer.setVisible(false);
         }
     }
 
     /**
-     * Invoke a backstage timer with limit time
+     * Invoke an idle timer with limit time
+     *
      * @param limitTime return to welcome page at limitTime (millisecond)
      */
-    public static void setBackstageTimer(long limitTime){
-        if (flag2 == 0){
-            backStageTimerAction = new Timer();
+    public static void setIdleTimer(long limitTime) {
+        if (flag2 == 0) {
+            idleTimerAction = new Timer();
             flag2 = 1;
-            backStageTimerAction.schedule(new TimerTask() {
+            idleTimerAction.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    stopBackstageTimer();
-                    stopTimer();
+                    stopIdleTimer();
+                    stopCheckinTimer();
                     State.setPc(0);
                     System.out.println("Back to welcome page by backStage Timer");
-                    State.setIsReady(new boolean[]{true, true, true,
-                            false, false, false, false, true, true});
+                    State.setIsReady(new boolean[]{true, true, true, false, false, false, false, true, true});
                 }
-            },limitTime);
+            }, limitTime);
         }
     }
 
     /**
-     * Stop the backstage timer.
+     * Stop idle timer.
      */
-    public static void stopBackstageTimer(){
-        if(flag2 == 1){
-            backStageTimerAction.cancel();
+    public static void stopIdleTimer() {
+        if (flag2 == 1) {
+            idleTimerAction.cancel();
             flag2 = 0;
         }
     }
 
     /**
-     * Disable the overall Timer.
+     * Disable check-in timer.
      */
-    public static void disableTimer(){
+    public static void disableCheckinTimer() {
         flag1 = 2;
     }
 
     /**
-     * Disable the backstage Timer.
+     * Disable idle timer.
      */
-    public static void disableBackstageTimer(){
+    public static void disableIdleTimer() {
         flag2 = 2;
     }
 }

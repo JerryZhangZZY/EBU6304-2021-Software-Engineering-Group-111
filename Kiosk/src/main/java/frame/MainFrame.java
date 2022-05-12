@@ -181,8 +181,8 @@ public class MainFrame extends JFrame {
         mouseListener = new AWTEventListener() {
             public void eventDispatched(AWTEvent e) {
                 //System.out.println(e);
-                Clock.stopBackstageTimer();
-                Clock.setBackstageTimer(15000);
+                Clock.stopIdleTimer();
+                Clock.setIdleTimer(15000);
             }
         };
 
@@ -205,8 +205,8 @@ public class MainFrame extends JFrame {
                 else {
                     State.setIsReady(new boolean[]{true, true, true,
                             false, false, false, false, true, true});
-                    Clock.stopTimer();
-                    Clock.stopBackstageTimer();
+                    Clock.stopCheckinTimer();
+                    Clock.stopIdleTimer();
                     State.setPc(0);
                 }
             }
@@ -470,7 +470,7 @@ public class MainFrame extends JFrame {
     public void stopMouseListener(){
         if(mouseListenerFlag == 1){
             container.removeAWTEventListener(mouseListener);
-            Clock.stopBackstageTimer();
+            Clock.stopIdleTimer();
             mouseListenerFlag = 0;
         }
     }

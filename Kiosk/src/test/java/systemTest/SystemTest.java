@@ -31,7 +31,7 @@ import java.util.Random;
 public class SystemTest {
     @BeforeAll
     public static void disableTimer(){
-        Clock.disableTimer();
+        Clock.disableCheckinTimer();
         //Clock.disableBackstageTimer();
     }
     @BeforeEach

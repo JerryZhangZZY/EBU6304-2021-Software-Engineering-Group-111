@@ -14,8 +14,13 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 4.4
+ * Rename timers and improve reformat.
+ * @date 2022/5/12
+ *
  * @version 4.3
  * New method modifyConfigTemp().
+ * @date 2022/5/12
  *
  * @version 4.2
  * Added config inspection
@@ -197,8 +202,11 @@ public abstract class Config {
                 # Supported language: English.
                 language: English
                                     
-                # USB drive that holds ID document, recommended: E://, F://, G:// (Windows); /volumes/DRIVE NAME/ (Mac OS)
+                # USB drive that holds ID document
+                # Recommended: E://, F://, G:// (Windows); /volumes/DRIVE NAME/ (Mac OS)
                 idCardDrive: F://
+                
+                
                                     
                 # --------------< AIRPORT SETTINGS >--------------
                                     
@@ -212,13 +220,15 @@ public abstract class Config {
                 # Check-in stops ... (minutes) before departure.
                 stopCheckInLeadingTime: 30
                                     
-                # Enable/disable global timer.
-                overallTimer: enable
-                # Set the limit time (seconds) for the global Timer
-                limitTime: 120
+                # Enable/disable check-in timer.
+                checkinTimer: enable
+                # Set the limit time (seconds) for check-in timer
+                checkinTimeLimit: 120
                                     
-                # Enable/disable backstage timer.
-                backStageTimer: enable
+                # Enable/disable idle timer.
+                idleTimer: enable
+                
+                
                                  
                 # -------------< APPEARANCE SETTINGS >------------
                                     

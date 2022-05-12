@@ -118,7 +118,7 @@ public class FinalPanel extends JPanel {
         exit_begin.setContentAreaFilled(false);
         exit_begin.setBorderPainted(false);
         exit_begin.addActionListener(e -> {
-            Clock.stopBackstageTimer();
+            Clock.stopIdleTimer();
             State.setPc(3);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
@@ -136,7 +136,7 @@ public class FinalPanel extends JPanel {
         exit_system.setContentAreaFilled(false);
         exit_system.setBorderPainted(false);
         exit_system.addActionListener(e -> {
-            Clock.stopBackstageTimer();
+            Clock.stopIdleTimer();
             State.setPc(0);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
@@ -156,7 +156,7 @@ public class FinalPanel extends JPanel {
         qrLabel.setVerticalTextPosition(1);
         add(qrLabel);
         qrLabel.setVisible(false);
-        Clock.setBackstageTimer(15000);
+        Clock.setIdleTimer(15000);
         timer.schedule(new MyTask1(),3000);
         timer1.schedule(new MyTask2(),4500);
     }
