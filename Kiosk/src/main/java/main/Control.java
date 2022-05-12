@@ -177,6 +177,7 @@ public class Control {
                     currentPC = State.getPc();
                 }
                 case 7 -> {   //pay
+                    payPanel = new ProgressPanel(4);
                     payPanel.loadCardsPanel(new PaymentPanel(State.getBill()));
                     if (currentPC < State.getPc())
                         kiosk.scrollDown(payPanel);

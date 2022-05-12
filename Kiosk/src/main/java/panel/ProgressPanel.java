@@ -84,7 +84,6 @@ public class ProgressPanel extends JPanel {
         right panel to hold option cards
          */
         cardsPanel = new JPanel();
-        cardsPanel.setBackground(Color.PINK);
         cardsPanel.setBounds(320, 0, 1600, 880);
         cardsPanel.setLayout(null);
         add(cardsPanel);
