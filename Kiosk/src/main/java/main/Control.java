@@ -13,6 +13,10 @@ import static java.lang.Thread.sleep;
  * @author zaitian
  * @author Liang Zhehao
  *
+ * @version 4.1
+ * No-operation detection
+ * @date 2022/5/11
+ *
  * @version 4.0
  * Auto dark theme.
  * @date 2022/5/7
@@ -85,6 +89,7 @@ public class Control {
                 sleep(10);
             switch (State.getPc()) {
                 case 0 -> {    //welcome
+                    kiosk.stopMouseListener();
                     if (Theme.autoDarkTheme()) {
                         kiosk.refreshColor();
                     }
@@ -93,6 +98,7 @@ public class Control {
                     kiosk.resetWelcomeText();
                     kiosk.unloadPanel(kiosk.getLoadedPanel());
                     kiosk.loadPanel(new BookingLoginPanel());
+                    kiosk.mouseListener();
                     kiosk.repaint();
                     kiosk.lockScreen();
                     currentPC = State.getPc();
@@ -105,6 +111,7 @@ public class Control {
                         kiosk.resetWelcomeText();
                         kiosk.scrollUp(new BookingLoginPanel());
                     }
+                    kiosk.mouseListener();
                     currentPC = State.getPc();
                 }
                 case 2 -> {    //enter or scan ID
@@ -113,9 +120,11 @@ public class Control {
                         kiosk.scrollDown(new IdLoginPanel());
                     else
                         kiosk.scrollUp(new IdLoginPanel());
+                    kiosk.mouseListener();
                     currentPC = State.getPc();
                 }
                 case 3 -> {    //flights
+                    kiosk.stopMouseListener();
                     if (!State.getIsReady()[3]) {
                         flightsPanel = new ProgressPanel(1);
                         flightsPanel.loadCardsPanel(new FlightSelectionPanel());

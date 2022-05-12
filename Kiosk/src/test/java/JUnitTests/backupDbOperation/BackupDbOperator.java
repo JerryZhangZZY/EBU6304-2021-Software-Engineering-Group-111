@@ -1,11 +1,8 @@
 package backupDbOperation;
 
-import java.io.*;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import java.util.Properties;
 
 /**
  * This class contains methods to recover master database
@@ -24,17 +21,40 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public abstract class BackupDbOperator {
 
-    static final String masterRoot = "DB\\";
-    static final String backupRoot = "DBbackup\\";
+    static String masterRoot;
+    static String backupRoot;
+    static String os;
+    static String cmds;
+    static String specialCmd;
+    static String deletecmd;
 
     /**
      * Update backup database from master database.
      */
     public static void pull() {
-        String cmds = "xcopy " + masterRoot + "*.* " + backupRoot + " /s/y";
+        getOS();
+        if(os.startsWith("Windows")){
+            masterRoot = "DB\\";
+            backupRoot = "DBbackup\\";
+            cmds = "xcopy " + masterRoot + "*.* " + backupRoot + " /s/y";
+        }
+        else if(os.startsWith("Linux")){
+            masterRoot = "/DB";
+            backupRoot = "/DBbackup";
+            cmds = "cp -r " + masterRoot + " " + backupRoot;
+        }
+        else if(os.startsWith("Mac OS")){
+            masterRoot = "/DB";
+            backupRoot = "/DBbackup";
+            cmds = "cp -r " + masterRoot + " " + backupRoot;
+            specialCmd = "sudo mount -uw /";
+        }
         try {
             if (!Files.exists(Path.of(backupRoot))){
                 Files.createDirectory(Path.of(backupRoot));
+            }
+            if(os.startsWith("Mac OS")){
+                Runtime.getRuntime().exec(specialCmd);
             }
             Runtime.getRuntime().exec(cmds);
             Thread.sleep(100);
@@ -47,9 +67,30 @@ public abstract class BackupDbOperator {
      * Recover master database from backup database.
      */
     public static void push() {
-        String cmds = "xcopy " + backupRoot + "*.* " + masterRoot + " /s/y";
-        String deletecmd = "cmd /c rd "+ backupRoot +" /s/q";
+        getOS();
+        if(os.startsWith("Windows")){
+            masterRoot = "DB\\";
+            backupRoot = "DBbackup\\";
+            cmds = "xcopy " + backupRoot + "*.* " + masterRoot + " /s/y";
+            deletecmd = "cmd /c rd "+ backupRoot +" /s/q";
+        }
+        else if(os.startsWith("Linux")){
+            masterRoot = "/DB/";
+            backupRoot = "/DBbackup/";
+            cmds = "cp -r " + backupRoot + " " + masterRoot;
+            deletecmd = "sudo rm -rf "+ backupRoot;
+        }
+        else if(os.startsWith("Mac OS")){
+            masterRoot = "/DB/";
+            backupRoot = "/DBbackup/";
+            cmds = "cp -r " + backupRoot + " " + masterRoot;
+            deletecmd = "sudo rm -rf "+ backupRoot;
+            specialCmd = "sudo mount -uw /";
+        }
         try {
+            if(os.startsWith("Mac OS")){
+                Runtime.getRuntime().exec(specialCmd);
+            }
             Runtime.getRuntime().exec(cmds);
             Thread.sleep(100);
             Runtime.getRuntime().exec(deletecmd);
@@ -57,5 +98,11 @@ public abstract class BackupDbOperator {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void getOS() {
+        Properties pros = System.getProperties();
+        os = (String) pros.get("os.name");
+        System.out.println(os);
     }
 }
