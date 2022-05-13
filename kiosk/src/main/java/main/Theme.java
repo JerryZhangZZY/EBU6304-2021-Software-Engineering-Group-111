@@ -15,6 +15,10 @@ import java.util.Calendar;
  *
  * @author Zhang Zeyu
  *
+ * @version 5.0
+ * Update theme library.
+ * @date 2022/5/13
+ *
  * @version 4.0
  * Auto dark theme.
  * @date 2022/5/7
@@ -137,6 +141,24 @@ public abstract class Theme {
                              "tertiaryFontColor": "73,81,89",
                              "minorFontColor": "201,209,217"
                            },
+                           "Jungle": {
+                             "themeColor": "23,133,105",
+                             "backgroundColor": "245,245,245",
+                             "cardColor": "255,255,255",
+                             "mainFontColor": "51,51,51",
+                             "secondaryFontColor": "42,84,71",
+                             "tertiaryFontColor": "179,185,192",
+                             "minorFontColor": "255,255,255"
+                           },
+                           "Tyrian": {
+                             "themeColor": "95,5,78",
+                             "backgroundColor": "238,238,238",
+                             "cardColor": "255,255,255",
+                             "mainFontColor": "69,69,69",
+                             "secondaryFontColor": "95,5,78",
+                             "tertiaryFontColor": "192,192,192",
+                             "minorFontColor": "255,255,255"
+                           },
                            "Tiber": {
                              "themeColor": "24,77,71",
                              "backgroundColor": "240,250,244",
@@ -147,13 +169,13 @@ public abstract class Theme {
                              "minorFontColor": "250,255,254"
                            },
                            "Anchor": {
-                             "themeColor": "72,88,104",
-                             "backgroundColor": "240,242,244",
-                             "cardColor": "221,226,231",
-                             "mainFontColor": "47,47,79",
-                             "secondaryFontColor": "86,105,124",
-                             "tertiaryFontColor": "164,178,192",
-                             "minorFontColor": "244,244,255"
+                             "themeColor": "36,41,47",
+                             "backgroundColor": "246,248,250",
+                             "cardColor": "255,255,255",
+                             "mainFontColor": "36,41,47",
+                             "secondaryFontColor": "87,96,106",
+                             "tertiaryFontColor": "186,192,198",
+                             "minorFontColor": "255,255,255"
                            },
                            "Almond": {
                              "themeColor": "255,160,122",
@@ -163,15 +185,6 @@ public abstract class Theme {
                              "secondaryFontColor": "132,66,18",
                              "tertiaryFontColor": "245,186,96",
                              "minorFontColor": "255,250,240"
-                           },
-                           "Tomato": {
-                             "themeColor": "245,89,61",
-                             "backgroundColor": "255,252,251",
-                             "cardColor": "253,220,215",
-                             "mainFontColor": "84,15,4",
-                             "secondaryFontColor": "200,37,10",
-                             "tertiaryFontColor": "247,129,109",
-                             "minorFontColor": "255,255,255"
                            },
                            "Maroon": {
                              "themeColor": "165,42,42",
