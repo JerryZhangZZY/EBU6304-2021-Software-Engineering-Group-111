@@ -28,7 +28,7 @@ import java.util.TimerTask;
  * @author Liang Zhehao
  *
  * @version 2.4
- * Create directory ./printerOutput if not exists
+ * Create directory ./printer-output if not exists
  * @date 2022/4/14
  *
  * @version 2.3
@@ -82,8 +82,8 @@ public class FinalPanel extends JPanel {
     public FinalPanel(){
         try {
             char columnInLetter = (char)(State.getSeatColumn() + (int)'A' - 1);
-            if (!Files.exists(Path.of("printerOutput"))){
-                Files.createDirectory(Path.of("printerOutput"));
+            if (!Files.exists(Path.of("printer-output"))){
+                Files.createDirectory(Path.of("printer-output"));
             }
             BarCode_QRCodeGenerator.generateQRcode(State.getPassengerFlight_index());
             BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);

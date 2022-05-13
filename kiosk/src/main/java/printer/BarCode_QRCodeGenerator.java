@@ -184,7 +184,7 @@ public final class BarCode_QRCodeGenerator {
         String text = AirlineWebsiteReader.getWebsite(AirlineWebsiteReader.indexOf(airline));
         String format = "jpg";
         //Generate QRCode
-        File outputFile = new File("printer-outputqrcode.jpg");
+        File outputFile = new File("printer-output/qrcode.jpg");
         BarCode_QRCodeGenerator.writeToFile(BarCode_QRCodeGenerator.toQRCodeMatrix(text, 200, 200), format, outputFile);
     }
 
