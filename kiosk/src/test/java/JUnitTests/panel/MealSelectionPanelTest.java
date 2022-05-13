@@ -136,7 +136,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
 //            System.out.println("B2: " + State.getPc());
             confirm.doClick();
 //            System.out.println("A2: " + State.getPc());
-            choose=State.smallBillCard.getPrice();
+            choose=State.getSmallBillCard().getPrice();
             if(pre[r]){
                 price-=bill[r];
                 pre[r]=false;

@@ -131,11 +131,11 @@ public class MealPreferenceCard extends JPanel {
         public void itemStateChanged(ItemEvent e) {
             for (int i=0 ; i<3 ; i++) {
                 if (e.getSource() == pref[i] && pref[i].isSelected()) {
-                    State.smallBillCard.addPrice(price[i]);
+                    State.getSmallBillCard().addPrice(price[i]);
                     select[i] = true;
                 }
                 else if (e.getSource() == pref[i] && !pref[i].isSelected()) {
-                    State.smallBillCard.subPrice(price[i]);
+                    State.getSmallBillCard().subPrice(price[i]);
                     select[i] = false;
                 }
             }

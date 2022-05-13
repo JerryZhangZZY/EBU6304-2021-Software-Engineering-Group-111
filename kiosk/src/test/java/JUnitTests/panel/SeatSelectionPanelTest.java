@@ -89,7 +89,7 @@ public class SeatSelectionPanelTest implements MainFrameBarsTest {
             if (chosen) {
                 assertEquals(expectedSeatRow, State.getSeatRow());
                 assertEquals(expectedSeatColumn, State.getSeatColumn());
-                assertEquals(State.smallBillCard.getPrice(), State.getBill());
+                assertEquals(State.getSmallBillCard().getPrice(), State.getBill());
                 assertEquals(5, State.getPc());
                 assertEquals(seatSelectionPanel.getWarn().getBorder(), null);
             } else {

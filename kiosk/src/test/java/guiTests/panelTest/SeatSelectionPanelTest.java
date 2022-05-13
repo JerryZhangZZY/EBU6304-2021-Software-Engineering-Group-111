@@ -25,7 +25,7 @@ public class SeatSelectionPanelTest {
         MainFrame frame = new MainFrame();
         ProgressPanel progressPanel = new ProgressPanel(2);
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();
-        seatSelectionPanel.add(State.smallBillCard);
+        seatSelectionPanel.add(State.getSmallBillCard());
         progressPanel.loadCardsPanel(seatSelectionPanel);
         frame.loadPanel(progressPanel);
         frame.setVisible(true);

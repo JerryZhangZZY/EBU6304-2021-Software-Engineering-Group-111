@@ -396,22 +396,22 @@ public class SeatSelectionPanel extends JPanel {
                 if (getTemp_row() >= row && getTemp_row() <= row + range - 1) {
                     seatButton[getTemp_row() - row].get(getTemp_column()).setIcon(iconEmpty[seatPattern[getTemp_row() - 1]]);
                     avail_seat[getTemp_row() - row][getTemp_column()] = 0;
-                    State.smallBillCard.subPrice(price[seatPattern[getTemp_row() - 1]]);
+                    State.getSmallBillCard().subPrice(price[seatPattern[getTemp_row() - 1]]);
                 } else if (getTemp_row() != -1) {
-                    State.smallBillCard.subPrice(price[seatPattern[getTemp_row() - 1]]);
+                    State.getSmallBillCard().subPrice(price[seatPattern[getTemp_row() - 1]]);
                 }
                 setTemp_row(row + clickRow);
                 setTemp_column(clickColumn);
                 avail_seat[clickRow][clickColumn] = 2;
                 seatButton[clickRow].get(clickColumn).setIcon(iconSelected[seatPattern[getTemp_row() - 1]]);
                 warn.setBorder(null);
-                State.smallBillCard.addPrice(price[seatPattern[getTemp_row() - 1]]);
+                State.getSmallBillCard().addPrice(price[seatPattern[getTemp_row() - 1]]);
             } else if (avail_seat[clickRow][clickColumn] == 2) {
                 setTemp_row(-1);
                 setTemp_column(-1);
                 avail_seat[clickRow][clickColumn] = 0;
                 seatButton[clickRow].get(clickColumn).setIcon(iconEmpty[seatPattern[row + clickRow - 1]]);
-                State.smallBillCard.subPrice(price[seatPattern[row + clickRow - 1]]);
+                State.getSmallBillCard().subPrice(price[seatPattern[row + clickRow - 1]]);
             }
         }
     }
@@ -448,7 +448,7 @@ public class SeatSelectionPanel extends JPanel {
                 State.setSeatRow(temp_row);
                 State.setSeatColumn(temp_column + 1);
                 State.setColumnNum(columnNum[temp_column].charAt(0));
-                State.setBill(State.smallBillCard.getPrice());
+                State.setBill(State.getSmallBillCard().getPrice());
                 State.setSeatPre(seatPattern[getTemp_row() - 1]);
             } else {
                 warn.setBorder(tipBorder);

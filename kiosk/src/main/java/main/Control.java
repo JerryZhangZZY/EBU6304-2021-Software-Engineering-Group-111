@@ -143,7 +143,7 @@ public class Control {
                         seatSelectionPanel = new SeatSelectionPanel();
                         seatPanel.loadCardsPanel(seatSelectionPanel);
                     }
-                    seatSelectionPanel.add(State.smallBillCard);
+                    seatSelectionPanel.add(State.getSmallBillCard());
                     kiosk.displayComponents(true, true, true);
                     if (currentPC < State.getPc())
                         kiosk.scrollDown(seatPanel);
@@ -157,7 +157,7 @@ public class Control {
                         mealSelectionPanel = new MealSelectionPanel();
                         mealPanel.loadCardsPanel(mealSelectionPanel);
                     }
-                    mealSelectionPanel.add(State.smallBillCard);
+                    mealSelectionPanel.add(State.getSmallBillCard());
                     if (currentPC < State.getPc())
                         kiosk.scrollDown(mealPanel);
                     else

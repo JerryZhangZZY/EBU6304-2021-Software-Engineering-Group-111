@@ -60,6 +60,7 @@ public abstract class State {
     private static int[] prefSeatPrice = {0, 10, 20, 50};
     private static String[] prefFoodName = {"Extra", "Kweichow Moutai", "Ice-cream"};
     private static int[] prefFoodPrice = {5, 100, 10};
+    private static SmallBillCard smallBillCard = new SmallBillCard(0);
 
     public static int getPc() { return pc; }
     public static boolean[] getIsReady() { return isReady; }
@@ -81,9 +82,12 @@ public abstract class State {
     public static String[] getPrefFoodName() { return prefFoodName; }
     public static int[] getPrefFoodPrice() { return prefFoodPrice; }
     public static int getBill() { return bill; }
+    public static SmallBillCard getSmallBillCard() {
+        return smallBillCard;
+    }
+
     public static void setPc(int pcNext) { pc = pcNext; }
     public static void setIsReady(boolean isReady, int page) { State.isReady[page] = isReady; }
-
     public static void setIsReady(boolean[] isReady) { State.isReady = isReady; }
     public static void setPassengerName(String passengerName) { State.passengerName = passengerName; }
     public static void setBookingNumList(List<String> bookingNumList) { State.bookingNumList = bookingNumList; }
@@ -104,7 +108,6 @@ public abstract class State {
     public static void setPrefFoodPrice(int[] prefFoodPrice) { State.prefFoodPrice = prefFoodPrice; }
     public static void setBill(int bill) { State.bill = bill; }
 
-    public static SmallBillCard smallBillCard = new SmallBillCard(0);
     public static void resetSmallBillCard() {
         smallBillCard = new SmallBillCard(0);
     }

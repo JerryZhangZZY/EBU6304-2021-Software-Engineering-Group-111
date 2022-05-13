@@ -104,7 +104,7 @@ public class MealSelectionPanel extends JPanel {
                 State.setPc(6);
                 State.setMeal(mealInfoCard.getChosen());
                 State.setSelectedPrefFood(mealPreferenceCard.getSelection());
-                State.setBill(State.smallBillCard.getPrice());
+                State.setBill(State.getSmallBillCard().getPrice());
             } else {
                 mealInfoCard.setBorder(tipBorder);
                 State.setMeal('d');

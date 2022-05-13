@@ -22,7 +22,7 @@ public class MealSelectionPanelTest {
         MainFrame frame = new MainFrame();
         ProgressPanel progressPanel = new ProgressPanel(3);
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();
-        mealSelectionPanel.add(State.smallBillCard);
+        mealSelectionPanel.add(State.getSmallBillCard());
         progressPanel.loadCardsPanel(mealSelectionPanel);
         frame.loadPanel(progressPanel);
         frame.setVisible(true);
