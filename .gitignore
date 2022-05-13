@@ -84,16 +84,16 @@ node3/
 
 # ANTLR
 antlr/gen/
-antlr/src/main/antlr4/org/apache/iotdb/db/qp/sql/gen/
-antlr/src/main/antlr4/org/apache/iotdb/db/qp/sql/IoTDBSqlLexer.tokens
+antlr/src/main/antlr4/org/apache/iotdatabase/database/qp/sql/gen/
+antlr/src/main/antlr4/org/apache/iotdatabase/database/qp/sql/IoTDBSqlLexer.tokens
 
 # Testing package flies
-Kiosk/src/main/java/myTests/*.java
+kiosk/src/main/java/myTests/*.java
 
 # Printed material
-printerOutput/*.jpg
-printerOutput/*.png
-printerOutput/*.txt
+printer-output*.jpg
+printer-output*.png
+printer-output*.txt
 
 #user config
 conf/*.yaml
