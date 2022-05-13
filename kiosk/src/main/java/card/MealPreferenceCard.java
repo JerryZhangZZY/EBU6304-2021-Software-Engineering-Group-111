@@ -14,6 +14,11 @@ import java.awt.event.ItemListener;
  * This card can return a meal preference card
  *
  * @author Liang Zhehao
+ * @author Zhang Zeyu
+ *
+ * @version 5.0
+ * Appearance improvement.
+ * @date 2022/5/13
  *
  * @version 3.1
  * Paint radio button icons and fix bugs.
@@ -103,7 +108,8 @@ public class MealPreferenceCard extends JPanel {
         taDetail.setWrapStyleWord(true);
         taDetail.setEditable(false);
         taDetail.setOpaque(false);
-        taDetail.setEnabled(false);
+        taDetail.setSelectedTextColor(Theme.getSecondaryFontColor());
+        taDetail.setSelectionColor(Theme.getCardColor());
         taDetail.setFont(new Font("Arial", Font.PLAIN, 18));
         taDetail.setForeground(Theme.getSecondaryFontColor());
         taDetail.setBounds(50, i * 150 +125, 250, 100);
