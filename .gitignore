@@ -91,9 +91,9 @@ antlr/src/main/antlr4/org/apache/iotdatabase/database/qp/sql/IoTDBSqlLexer.token
 kiosk/src/main/java/myTests/*.java
 
 # Printed material
-printer-output*.jpg
-printer-output*.png
-printer-output*.txt
+printer-output/*.jpg
+printer-output/*.png
+printer-output/*.txt
 
 #user config
 conf/*.yaml

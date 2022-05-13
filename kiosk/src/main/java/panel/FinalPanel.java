@@ -149,7 +149,7 @@ public class FinalPanel extends JPanel {
         qrLabel.setForeground(Theme.getMainFontColor());
         qrLabel.setBounds(700, 350, 500, 300);
         qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
-        qrLabel.setIcon(new ImageIcon("printer-outputqrcode.jpg"));
+        qrLabel.setIcon(new ImageIcon("printer-output/qrcode.jpg"));
         qrLabel.setHorizontalAlignment(SwingConstants.CENTER);
         qrLabel.setVerticalAlignment(SwingConstants.CENTER);
         qrLabel.setHorizontalTextPosition(0);

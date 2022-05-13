@@ -39,7 +39,7 @@ public class TicketPrinter {
         int checkin_left = checkin_num;
 
         String ticket_file = idPassenger +"-"+idPassengerFlight_index+"-ticket";
-        String ticket_path ="printer-output";
+        String ticket_path ="printer-output/";
         ticket_temp = ticket_path +ticket_file +".txt";
         File ticket = new File(ticket_temp);
         ticket.createNewFile();

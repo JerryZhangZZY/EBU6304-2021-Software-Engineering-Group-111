@@ -35,7 +35,7 @@ public abstract class BoardingPassPrinter {
         String surname = PassengerReader.getSurname(idPassenger_index);
         String airLine = PlaneReader.getAirline(idPlane_index);
         String ticket_file = idPassenger + "-" + idFlight + "-" + date;
-        String ticket_path = "printer-output";
+        String ticket_path = "printer-output/";
         ticket_temp = ticket_path + ticket_file + ".txt";
         File ticket = new File(ticket_temp);
         ticket.createNewFile();
