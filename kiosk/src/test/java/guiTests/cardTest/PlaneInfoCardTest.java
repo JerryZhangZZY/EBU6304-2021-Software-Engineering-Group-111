@@ -12,6 +12,7 @@ import main.State;
  * @version 4.0
  * @date 2022/5/7
  */
+
 public class PlaneInfoCardTest {
 
     public static void main(String[] args) {
