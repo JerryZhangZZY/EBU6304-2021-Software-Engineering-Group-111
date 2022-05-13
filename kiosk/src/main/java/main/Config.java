@@ -14,6 +14,10 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 5.0
+ * Remove theme config check.
+ * @date 2022/5/13
+ *
  * @version 4.4
  * Rename timers and improve reformat.
  * @date 2022/5/12
@@ -117,23 +121,11 @@ public abstract class Config {
                     if (!value.matches("[0-9]+"))
                         return i;
                 }
-                case 7, 9 -> {  //timer, backstage
+                case 7, 9 -> {  //check-in timer, idle timer
                     if (!value.equals("enable") && !value.equals("disable"))
                         return i;
                 }
-                case 10, 11 -> { //theme, dark theme
-                    boolean match = false;
-                    for (String s : new String[]{"Cobalt", "Onyx",
-                            "Tiber", "Anchor","Almond", "Tomato", "Maroon"}
-                    ) {
-                        if (value.equals(s)) {
-                            match = true;
-                            break;
-                        }
-                    }
-                    if (!match)
-                        return i;
-                }
+                case 10, 11 -> {} //theme, dark theme
                 case 13 -> {    //anime speed
                     if (!value.equals("-1") && !(value.matches("[12345]")))
                         return i;
@@ -231,7 +223,7 @@ public abstract class Config {
                 # -------------< APPEARANCE SETTINGS >------------
                                     
                 # Select a theme from the theme library.
-                theme: Anchor
+                theme: Jungle
                 
                 # Select the dark theme from the theme library.
                 darkTheme: Onyx
