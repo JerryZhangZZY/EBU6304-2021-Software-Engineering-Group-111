@@ -122,7 +122,7 @@ public abstract class Config {
                         return i;
                 }
                 case 7, 9 -> {  //check-in timer, idle timer
-                    if (!value.equals("enable") && !value.equals("disable"))
+                    if (!value.equals("true") && !value.equals("false"))
                         return i;
                 }
                 case 10, 11 -> {} //theme, dark theme
@@ -212,13 +212,13 @@ public abstract class Config {
                                     
                 # --------------< TIMER SETTINGS >--------------
                 
-                # Enable/disable check-in timer.
-                checkinTimer: enable
+                # Enable check-in timer.
+                checkinTimer: true
                 # Set the limit time (seconds) for check-in timer
                 checkinTimeLimit: 120
                                     
-                # Enable/disable idle timer.
-                idleTimer: enable
+                # Enable idle timer.
+                idleTimer: true
                 
                 # -------------< APPEARANCE SETTINGS >------------
                                     

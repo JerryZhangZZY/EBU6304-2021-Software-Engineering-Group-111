@@ -73,9 +73,9 @@ public abstract class Clock {
      * @param timer panel of the timer
      */
     public static void loadTimer(JLabel timer) {
-        if (Config.readConfig("checkinTimer").equals("disable"))
+        if (!Boolean.parseBoolean(Config.readConfig("checkinTimer")))
             disableCheckinTimer();
-        if (Config.readConfig("idleTimer").equals("disable"))
+        if (!Boolean.parseBoolean(Config.readConfig("idleTimer")))
             disableIdleTimer();
         checkinTimeLimit = Integer.parseInt(Config.readConfig("checkinTimeLimit"));
         tempTimer = timer;
