@@ -63,7 +63,7 @@ public class WelcomePanel extends JPanel {
          */
         lblTime = new JLabel();
         lblTime.setBounds(760, 20, 400, 30);
-        lblTime.setFont(new Font("Default", Font.PLAIN, 30));
+        lblTime.setFont(new Font("Arial", Font.PLAIN, 30));
         Clock.setClock(lblTime);
         lblTime.setHorizontalAlignment(SwingConstants.CENTER);
         add(lblTime,0);

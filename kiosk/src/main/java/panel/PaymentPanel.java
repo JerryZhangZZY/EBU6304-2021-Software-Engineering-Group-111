@@ -287,7 +287,7 @@ public class PaymentPanel extends JPanel {
                 JLabel lblTick = new JLabel("✔");
                 lblTick.setBounds(18, 10, 40, 40);
                 lblTick.setForeground(new Color(60,179,113));
-                lblTick.setFont(new Font("Default", Font.BOLD, 40));
+                lblTick.setFont(new Font("Arial", Font.BOLD, 40));
                 panelPay.add(lblTick);
                 panelPay.repaint();
                 try {
