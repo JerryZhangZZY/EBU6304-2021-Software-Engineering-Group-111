@@ -68,7 +68,7 @@ public class BillConfirmationPanel extends JPanel {
         add(seatBillCard);
 
         /*
-        Initialize mealBillcard
+        Initialize mealBillCard
          */
         boolean[] select = State.getSelectedPrefFood();
         int[] foodPay = new int[3];
@@ -81,7 +81,7 @@ public class BillConfirmationPanel extends JPanel {
         mealBillCard = new MealBillCard(State.getMeal(),
                 State.getPrefFoodName()[0], State.getPrefFoodName()[1], State.getPrefFoodName()[2],
                 foodPay[0], foodPay[1], foodPay[2]);
-        mealBillCard.setLocation(50, 437);
+        mealBillCard.setLocation(50, 455);
         add(mealBillCard);
 
         SmallBillCard totalBill = new SmallBillCard(State.getBill());
