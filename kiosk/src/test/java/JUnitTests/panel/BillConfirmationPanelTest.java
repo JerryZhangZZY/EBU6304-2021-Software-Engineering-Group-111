@@ -63,7 +63,7 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
 
         BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
         SeatBillCard seatBillCard = billConfirmationPanel.getSeatBillCard();
-        JLabel headline = seatBillCard.getHeadline();
+        JLabel headline = seatBillCard.getHeadText();
         JLabel pref = seatBillCard.getPreference();
         JLabel bill = seatBillCard.getBill();
 
@@ -88,18 +88,36 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
 
         BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
         MealBillCard mealBillCard = billConfirmationPanel.getMealBillCard();
-        JLabel headline = mealBillCard.getHeadline();
+        JLabel headline = mealBillCard.getHeadText();
         JLabel[] extr = mealBillCard.getExtr();
         JLabel[] bill = mealBillCard.getBill();
 
         assertEquals("Meal:  " + food[(int)State.getMeal() - 97], headline.getText());
-        assertEquals(120 + temp * 91, mealBillCard.getHeight());
+
+        int[] expectPrice = State.getPrefFoodPrice();
+        String[] expectName = State.getPrefFoodName();
+        boolean[] expectSelect = State.getSelectedPrefFood();
+        for (int i = 0; i < 2; i++) {
+            for (int j = 2; j > i; j--) {
+                if (expectPrice[j] < expectPrice[j - 1]) {
+                    int temp1 = expectPrice[j];
+                    expectPrice[j] = expectPrice[j - 1];
+                    expectPrice[j - 1] = temp1;
+                    String temp2 = expectName[j];
+                    expectName[j] = expectName[j - 1];
+                    expectName[j - 1] = temp2;
+                    boolean temp3 = expectSelect[j];
+                    expectSelect[j] = expectSelect[j - 1];
+                    expectSelect[j - 1] = temp3;
+                }
+            }
+        }
         int n = 0;
         for (int i = 0; i < temp; i++) {
             while (!State.getSelectedPrefFood()[n])
                 n ++;
-            assertEquals("· " + State.getPrefFoodName()[n], extr[i].getText());
-            assertEquals("$" + State.getPrefFoodPrice()[n], bill[i].getText());
+            assertEquals("· " + expectName[n], extr[i].getText());
+            assertEquals("$" + expectPrice[n], bill[i].getText());
             n ++;
         }
     }

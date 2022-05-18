@@ -154,8 +154,8 @@ public class MealBillCard extends JPanel {
 
     }
 
-    public JLabel getHeadline() {
-        return headline;
+    public JLabel getHeadText() {
+        return headText;
     }
 
     public JLabel[] getExtr() {
