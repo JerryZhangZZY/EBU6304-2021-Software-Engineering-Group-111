@@ -5,22 +5,30 @@ import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * This class can return a panel of flight info top bar card.
  *
  * @author Zhang Zeyu
+ * @author Liang Zhehao
  *
- * @version 1.0
- * @date 2022/3/24
+ * @version 5.0
+ * Modify Layout
+ * Appearance improvement
+ * @date 2022/5/18
+ *
+ * @version 1.2
+ * Labels relocation.
+ * @date 2022/3/29
  *
  * @version 1.1
  * Panel size changed.
  * @date 2022/3/28
  *
- * @version 1.2
- * Labels relocation.
- * @date 2022/3/29
+ * @version 1.0
+ * @date 2022/3/24
  */
 
 public class FlightInfoTopBarCard extends JPanel {
@@ -35,17 +43,23 @@ public class FlightInfoTopBarCard extends JPanel {
         setLayout(null);
         setSize(1560,180);
 
+        JLabel lblTopLine = new JLabel();
+        lblTopLine.setBounds(0, 0, 1560, 10);
+        lblTopLine.setOpaque(true);
+        lblTopLine.setBackground(Theme.getThemeColor());
+        add(lblTopLine);
+
         JLabel lblIdFlight = new JLabel(idFlight);
-        lblIdFlight.setForeground(Theme.getMainFontColor());
+        lblIdFlight.setForeground(Theme.getSecondaryFontColor());
         lblIdFlight.setFont(new Font("Arial", Font.PLAIN, 55));
-        lblIdFlight.setBounds(100, 55, 237, 70);
+        lblIdFlight.setBounds(1204, 60, 237, 70);
         add(lblIdFlight);
 
         JLabel lblDate = new JLabel();
         lblDate.setFont(new Font("Arial", Font.PLAIN, 45));
-        lblDate.setForeground(Theme.getMainFontColor());
+        lblDate.setForeground(Theme.getTertiaryFontColor());
         lblDate.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblDate.setBounds(1194, 55, 274, 70);
+        lblDate.setBounds(65, 60, 274, 70);
         lblDate.setText(date);
         add(lblDate);
 
@@ -53,7 +67,7 @@ public class FlightInfoTopBarCard extends JPanel {
         lblDepartureTime.setHorizontalAlignment(SwingConstants.CENTER);
         lblDepartureTime.setForeground(Theme.getMainFontColor());
         lblDepartureTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
-        lblDepartureTime.setBounds(428, 40, 200, 46);
+        lblDepartureTime.setBounds(428, 45, 200, 46);
         lblDepartureTime.setText(departureTime);
         add(lblDepartureTime);
 
@@ -61,7 +75,7 @@ public class FlightInfoTopBarCard extends JPanel {
         lblArrivalTime.setForeground(Theme.getMainFontColor());
         lblArrivalTime.setHorizontalAlignment(SwingConstants.CENTER);
         lblArrivalTime.setFont(new Font("Eras Bold ITC", Font.BOLD, 55));
-        lblArrivalTime.setBounds(885, 40, 184, 46);
+        lblArrivalTime.setBounds(885, 45, 184, 46);
         lblArrivalTime.setText(arrivalTime);
         add(lblArrivalTime);
 
@@ -69,7 +83,7 @@ public class FlightInfoTopBarCard extends JPanel {
         lblDeparture.setHorizontalAlignment(SwingConstants.CENTER);
         lblDeparture.setForeground(Theme.getMainFontColor());
         lblDeparture.setFont(new Font("Arial", Font.PLAIN, 30));
-        lblDeparture.setBounds(428, 101, 200, 46);
+        lblDeparture.setBounds(428, 106, 200, 46);
         lblDeparture.setText(departure);
         add(lblDeparture);
 
@@ -77,14 +91,29 @@ public class FlightInfoTopBarCard extends JPanel {
         lblArrival.setHorizontalAlignment(SwingConstants.CENTER);
         lblArrival.setForeground(Theme.getMainFontColor());
         lblArrival.setFont(new Font("Arial", Font.PLAIN, 30));
-        lblArrival.setBounds(877, 101, 200, 46);
+        lblArrival.setBounds(877, 106, 200, 46);
         lblArrival.setText(arrival);
         add(lblArrival);
 
-        JLabel lblArrow = new JLabel("--------->");
+        String timeSpan, arrivalDate;
+        arrivalDate = FlightReader.getArrivalDate(FlightReader.indexOf(idFlight));
+        Period period = Period.between(LocalDate.parse(arrivalDate), LocalDate.parse(date));
+        int spanDays = Math.abs(period.getDays());
+        timeSpan = spanDays == 0 ? null : ("+" + spanDays + "day" + (spanDays > 1 ? "s" : ""));
+
+        JLabel lblTimeSpan = new JLabel();
+        lblTimeSpan.setText(timeSpan);
+        lblTimeSpan.setBounds(710, 65, 90, 25);
+        lblTimeSpan.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblTimeSpan.setForeground(Theme.getSecondaryFontColor());
+        lblTimeSpan.setHorizontalAlignment(SwingConstants.CENTER);
+        add(lblTimeSpan);
+
+        JLabel lblArrow = new JLabel(">—————>");
         lblArrow.setForeground(Theme.getTertiaryFontColor());
-        lblArrow.setFont(new Font("Tahoma", Font.BOLD, 45));
-        lblArrow.setBounds(649, 68, 219, 34);
+        lblArrow.setHorizontalAlignment(SwingConstants.CENTER);
+        lblArrow.setFont(new Font("Tahoma", Font.BOLD, 35));
+        lblArrow.setBounds(649, 73, 219, 34);
         add(lblArrow);
     }
 }
