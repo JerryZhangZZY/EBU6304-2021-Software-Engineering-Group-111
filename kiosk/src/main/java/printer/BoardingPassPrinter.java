@@ -26,7 +26,7 @@ public abstract class BoardingPassPrinter {
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
         int idPlane = FlightReader.getIdPlane(idFlight_index);
         int idPlane_index = PlaneReader.indexOf(idPlane);
-        String date = FlightReader.getDate(idFlight_index);
+        String date = FlightReader.getDepartureDate(idFlight_index);
         String departure = FlightReader.getDeparture(idFlight_index);
         String arrival = FlightReader.getArrival(idFlight_index);
         String gate = FlightReader.getGate(idFlight_index);

@@ -13,6 +13,11 @@ import java.util.Date;
  *
  * @author Zhang Zeyu
  * @author Liang Zhehao
+ * @author zaitian
+ *
+ * @version 3.2
+ * add arrival date reader and rename dept date reader
+ * @date 5/18
  *
  * @version 3.1
  * Add getFoodName() and getFoodPrice()
@@ -108,12 +113,22 @@ public abstract class FlightReader {
      * @param index got from indexOf()
      * @return date of departure
      */
-    public static String getDate(int index) {
+    public static String getDepartureDate(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("database/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");
         return arr.getJSONObject(index).getString("departureTime").substring(0, 10);
     }
 
+    /**
+     * read the date of arrival
+     * @param index got from indexOf()
+     * @return date of arrival
+     */
+    public static String getArrivalDate(int index) {
+        JSONObject object = JSON.parseObject(JsonReader.read("database/flight.json"));
+        JSONArray array = object.getJSONArray("flight");
+        return array.getJSONObject(index).getString("arrivalTime").substring(0, 10);
+    }
     /**
      * Get full departure time in Date.
      * @param index got from indexOf()

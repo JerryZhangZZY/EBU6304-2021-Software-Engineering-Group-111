@@ -26,7 +26,7 @@ import java.awt.*;
 public class FlightInfoTopBarCard extends JPanel {
 
     public FlightInfoTopBarCard(String idFlight) {
-        String date = FlightReader.getDate(FlightReader.indexOf(idFlight));
+        String date = FlightReader.getDepartureDate(FlightReader.indexOf(idFlight));
         String departureTime = FlightReader.getDepartureTime(FlightReader.indexOf(idFlight));
         String arrivalTime = FlightReader.getArrivalTime(FlightReader.indexOf(idFlight));
         String departure = FlightReader.getDeparture(FlightReader.indexOf(idFlight));

@@ -79,7 +79,7 @@ class FlightReaderTest {
 
     @Test
     void getDate() {
-        assertEquals("2022-04-20", FlightReader.getDate(0));
+        assertEquals("2022-04-20", FlightReader.getDepartureDate(0));
     }
 
     @Test
