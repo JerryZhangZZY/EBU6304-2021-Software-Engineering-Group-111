@@ -7,13 +7,18 @@ import java.awt.*;
 
 /**
  * @author Wang Chenyu
- * @version 1.0
- * @date 3/23
- * a card of seat bill
- *
  * @author Liang Zhehao
+ *
+ * @version 5.0
+ * Appearance improvement
+ * @date 2022/5/19
+ *
  * @version 1.1
  * @date 2022/3/26
+ *
+ * @version 1.0
+ * a card of seat bill
+ * @date 3/23
  */
 public class SeatBillCard extends JPanel {
     private JLabel headline = new JLabel("Seat:");

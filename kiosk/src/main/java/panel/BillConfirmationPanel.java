@@ -22,18 +22,22 @@ import java.awt.event.MouseEvent;
  * @author Liang Zhehao
  * @author Zhang Zeyu
  *
- * @version 1.0
- * @date 2022/3/25
+ * @version 5.0
+ * Appearance improvement
+ * @date 2022/5.18
+ *
+ * @version 1.2
+ * Add function: scanning card to confirm
+ * and appearance improved.
+ * @date 2022/3/29
  *
  * @version 1.1
  * Reuse SmallBillCard
  * and appearance improved.
  * @date 2022/3/28
  *
- * @version 1.2
- * Add function: scanning card to confirm
- * and appearance improved.
- * @date 2022/3/29
+ * @version 1.0
+ * @date 2022/3/25
  */
 
 public class BillConfirmationPanel extends JPanel {
