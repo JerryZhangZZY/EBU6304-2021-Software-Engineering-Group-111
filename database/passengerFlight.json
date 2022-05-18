@@ -23,7 +23,7 @@
     {
       "idPassengerFlight": 3,
       "idPassenger": "123001",
-      "idFlight": "LH1365",
+      "idFlight": "LH2345",
       "bookingNum": "bn0002",
       "carryon": 1,
       "checkin": 0,
