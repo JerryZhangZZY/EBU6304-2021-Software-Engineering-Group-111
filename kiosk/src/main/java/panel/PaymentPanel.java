@@ -23,6 +23,7 @@ import java.util.Random;
  *
  * @version 4.2
  * Can disable animations in config.
+ * @date 2022/5/12
  *
  * @version 4.1
  * Add animations.
@@ -44,6 +45,7 @@ import java.util.Random;
  * Generate class which can enter the credit card ID of users
  * @date 3/26
  */
+
 public class PaymentPanel extends JPanel {
     private JTextField tfCreditId;
     private JLabel lblPrice;
