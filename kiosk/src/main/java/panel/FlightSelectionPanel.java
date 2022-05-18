@@ -136,10 +136,10 @@ public class FlightSelectionPanel extends JPanel {
             }
             for (int column = 0; column < bookingNumList.size(); column++) {
                 JLabel lblBookingNum = new JLabel(bookingNumList.get(column));
-                lblBookingNum.setBounds(x + 670 * column, 120, 530, 60);
+                lblBookingNum.setBounds(x + 670 * column, 130, 530, 60);
                 lblBookingNum.setHorizontalAlignment(SwingConstants.CENTER);
                 lblBookingNum.setForeground(Theme.getMainFontColor());
-                lblBookingNum.setFont(new Font("Arial", Font.BOLD, 70));
+                lblBookingNum.setFont(new Font("Arial", Font.BOLD, 60));
                 add(lblBookingNum);
                 for (int cardNum = 0; cardNum < idFlightList[column].size(); cardNum++) {
                     FlightInfoCard flightInfoCard = new FlightInfoCard(idFlightList[column].get(cardNum), column);
