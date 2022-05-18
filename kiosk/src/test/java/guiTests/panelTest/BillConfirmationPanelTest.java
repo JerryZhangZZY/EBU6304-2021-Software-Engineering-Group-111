@@ -1,15 +1,20 @@
 package panelTest;
 
 import frame.MainFrame;
+import main.State;
 import panel.BillConfirmationPanel;
+import panel.ProgressPanel;
 
 public class BillConfirmationPanelTest {
 
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
+        State.setIdFlight("AC0001");
+        State.setSelectedPrefFood(new boolean[]{true, true, true});
 
-        BillConfirmationPanel billConfirmationPanel = new BillConfirmationPanel();
-        testMainFrame.loadPanel(billConfirmationPanel);
+        ProgressPanel progressPanel = new ProgressPanel(4);
+        progressPanel.loadCardsPanel(new BillConfirmationPanel());
+        testMainFrame.loadPanel(progressPanel);
         testMainFrame.displayComponents(true, true, true);
         testMainFrame.setVisible(true);
     }
