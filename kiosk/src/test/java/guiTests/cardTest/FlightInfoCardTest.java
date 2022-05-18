@@ -40,7 +40,7 @@ public class FlightInfoCardTest extends JFrame{
         frame.loadPanel(flightInfoCard);
         frame.displayComponents(true, true, true);
         frame.setVisible(true);
-
+//        System.out.println(flightInfoCard.lblTimeSpan.getText());
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
