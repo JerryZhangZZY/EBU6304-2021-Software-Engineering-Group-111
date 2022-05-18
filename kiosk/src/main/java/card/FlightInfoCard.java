@@ -7,11 +7,18 @@ import main.Theme;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * This class can return a panel of a flight info card.
  *
  * @author Zhang Zeyu
+ * @author zaitian
+ *
+ * @version 5.0
+ * add time span
+ * @date 5/18
  *
  * @version 4.0
  * Optimize text makeup.
@@ -57,6 +64,7 @@ public class FlightInfoCard extends JPanel {
     JLabel lblArrival = new JLabel();
     JLabel lblArrow = new JLabel("--------->");
     JLabel lblGray = new JLabel();
+    JLabel lblTimeSpan = new JLabel();
 
     public FlightInfoCard(String idFlight, int column) {
         this.idFlight = idFlight;
@@ -66,6 +74,12 @@ public class FlightInfoCard extends JPanel {
         String arrivalTime = FlightReader.getArrivalTime(FlightReader.indexOf(idFlight));
         String departure = FlightReader.getDeparture(FlightReader.indexOf(idFlight));
         String arrival = FlightReader.getArrival(FlightReader.indexOf(idFlight));
+
+        String timeSpan, arrivalDate;
+        arrivalDate = FlightReader.getArrivalDate(FlightReader.indexOf(idFlight));
+        Period period = Period.between(LocalDate.parse(arrivalDate), LocalDate.parse(date));
+        timeSpan = "+ " + Math.abs(period.getDays()) + " day(s)";
+        lblTimeSpan.setText(timeSpan);
 
         setBackground(Theme.getCardColor());
         setLayout(null);
