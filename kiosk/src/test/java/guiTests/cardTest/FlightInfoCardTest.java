@@ -11,6 +11,11 @@ import java.io.IOException;
  *
  * @author Zhang Zeyu
  *
+ * @version 5.0
+ * Adjust location displayed.
+ * Extend switching time delay.
+ * @date 2022/5/18
+ *
  * @version 3.0
  * Add unavailable label.
  * @date 2022/4/20
@@ -36,19 +41,19 @@ public class FlightInfoCardTest extends JFrame{
     public static void main(String[] args) throws IOException {
 
         MainFrame frame = new MainFrame();
-        FlightInfoCard flightInfoCard = new FlightInfoCard("CA0001", 1);
+        FlightInfoCard flightInfoCard = new FlightInfoCard("LH1607", 1);
+        flightInfoCard.setLocation(100, 100);
         frame.loadPanel(flightInfoCard);
         frame.displayComponents(true, true, true);
         frame.setVisible(true);
-//        System.out.println(flightInfoCard.lblTimeSpan.getText());
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         flightInfoCard.setGray(true);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

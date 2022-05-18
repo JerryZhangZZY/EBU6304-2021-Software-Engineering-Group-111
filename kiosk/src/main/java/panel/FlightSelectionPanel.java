@@ -23,6 +23,10 @@ import java.util.List;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @version 5.0
+ * Modify layout and improve appearance.
+ * @date 2022/5/18
+ *
  * @version 3.3
  * Use Theme generated color.
  * @date 2022/4/26
@@ -132,14 +136,14 @@ public class FlightSelectionPanel extends JPanel {
             }
             for (int column = 0; column < bookingNumList.size(); column++) {
                 JLabel lblBookingNum = new JLabel(bookingNumList.get(column));
-                lblBookingNum.setBounds(x + 670 * column, 150, 530, 60);
+                lblBookingNum.setBounds(x + 670 * column, 120, 530, 60);
                 lblBookingNum.setHorizontalAlignment(SwingConstants.CENTER);
                 lblBookingNum.setForeground(Theme.getMainFontColor());
-                lblBookingNum.setFont(new Font("Arial", Font.BOLD, 50));
+                lblBookingNum.setFont(new Font("Arial", Font.BOLD, 70));
                 add(lblBookingNum);
                 for (int cardNum = 0; cardNum < idFlightList[column].size(); cardNum++) {
                     FlightInfoCard flightInfoCard = new FlightInfoCard(idFlightList[column].get(cardNum), column);
-                    flightInfoCard.setBounds(x + 670 * column, 250 + 250 * cardNum, 530, 150);
+                    flightInfoCard.setLocation(x + 670 * column, 250 + 250 * cardNum);
                     if (unavailableList[column].get(cardNum))
                         flightInfoCard.setGray(false);
                     else if (statusList[column].get(cardNum))
