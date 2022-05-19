@@ -11,6 +11,9 @@ public class BillConfirmationPanelTest {
         MainFrame testMainFrame = new MainFrame();
         State.setIdFlight("AC0001");
         State.setSelectedPrefFood(new boolean[]{true, true, true});
+        State.setPassengerName("Mike");
+        State.setSeatRow(6);
+        State.setSeatColumn(3);
 
         ProgressPanel progressPanel = new ProgressPanel(4);
         progressPanel.loadCardsPanel(new BillConfirmationPanel());

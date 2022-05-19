@@ -78,6 +78,7 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
         String[] food = {"Normal", "Vegetarian", "Halal"};
 
         Random random = new Random();
+        State.setSeatColumn(1);
         State.setMeal(c[random.nextInt(3)]);
         State.setSelectedPrefFood(new boolean[]{random.nextBoolean(), random.nextBoolean(), random.nextBoolean()});
         int temp = 0;
