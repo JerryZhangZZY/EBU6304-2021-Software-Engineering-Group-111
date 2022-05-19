@@ -136,6 +136,16 @@ public abstract class Config {
                 }
             }
         }
+        Object[] names = config.keySet().toArray();
+        String[] check = {"language", "idCardDrive", "airportName",
+                "enableCheckInLeadingTime", "startCheckInLeadingTime", "stopCheckInLeadingTime",
+        "checkinTimer", "checkinTimeLimit", "idleTimer",
+        "theme", "darkTheme", "enableAutoDarkTheme", "animationSpeed"};
+        for (int i = 1; i <= names.length ; i++) {
+            String name = names[i-1].toString();
+            if (!name.equals(check[i-1]))
+                return i;
+        }
         return 0;
     }
 
