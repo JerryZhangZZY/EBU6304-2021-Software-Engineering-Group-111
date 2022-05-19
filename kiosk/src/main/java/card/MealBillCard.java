@@ -41,7 +41,7 @@ public class MealBillCard extends JPanel {
         pay[1] = bill2;
         pay[2] = bill3;
 
-        setSize(1120, 375);
+        setSize(1120, 295);
         setBackground(Theme.getCardColor());
         setLayout(null);
 
@@ -65,17 +65,19 @@ public class MealBillCard extends JPanel {
         else if (basis == 'c')
             food = "Halal";
         headline = new JLabel("Meal:");
-        headline.setBounds(40, 20, 140, 69);
+        headline.setBounds(40, 10, 140, 70);
         headline.setFont(new Font("Arial", Font.PLAIN, 50));
         headline.setForeground(Theme.getMainFontColor());
         headline.setBackground(Theme.getCardColor());
+        headline.setVerticalAlignment(SwingConstants.CENTER);
         headline.setOpaque(true);
         add(headline);
 
         headText = new JLabel("Meal:  " + food);
-        headText.setBounds(40, 20, 600, 69);
+        headText.setBounds(40, 10, 600, 70);
         headText.setFont(new Font("Arial", Font.BOLD, 50));
         headText.setForeground(Theme.getMainFontColor());
+        headText.setVerticalAlignment(SwingConstants.CENTER);
         add(headText);
 
         JLabel lblTopLine = new JLabel();
@@ -84,7 +86,7 @@ public class MealBillCard extends JPanel {
         lblTopLine.setBackground(Theme.getThemeColor());
         add(lblTopLine);
 
-        int gain = 85, base = 100, x = 30, wid = 1060;
+        int gain = 65, base = 80, x = 30, wid = 1060;
 
         JLabel line1 = new JLabel();
         line1.setBounds(x, base, wid, 2);
@@ -131,7 +133,7 @@ public class MealBillCard extends JPanel {
             bill[n].setHorizontalAlignment(SwingConstants.RIGHT);
             bill[n].setForeground(new Color(255,69,0));
             bill[n].setVerticalAlignment(SwingConstants.CENTER);
-            bill[n].setFont(new Font("Arial", Font.PLAIN, 38));
+            bill[n].setFont(new Font("Arial", Font.BOLD, 38));
             add(bill[n]);
 
             line[n] = new JLabel("  ·····························");

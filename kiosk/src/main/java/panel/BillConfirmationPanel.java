@@ -1,6 +1,6 @@
 package panel;
 
-import card.FlightInfoTopBarCard;
+import card.BoardingPassCard;
 import card.MealBillCard;
 import card.SeatBillCard;
 import card.SmallBillCard;
@@ -42,7 +42,7 @@ import java.awt.event.MouseEvent;
 
 public class BillConfirmationPanel extends JPanel {
 
-    private FlightInfoTopBarCard flightInfoTopBarCard;
+    private BoardingPassCard boardingPassCard;
     private SeatBillCard seatBillCard;
     private MealBillCard mealBillCard;
     private JLabel lblScanningImg;
@@ -55,11 +55,11 @@ public class BillConfirmationPanel extends JPanel {
         setLayout(null);
         setSize(1600, 880);
         /*
-        Initialize flightInfoTopBarCard
+        Initialize boardingPassCard
          */
-        flightInfoTopBarCard = new FlightInfoTopBarCard(State.getIdFlight());
-        flightInfoTopBarCard.setLocation(20, 20);
-        add(flightInfoTopBarCard);
+        boardingPassCard = new BoardingPassCard(State.getIdFlight());
+        boardingPassCard.setLocation(50, 20);
+        add(boardingPassCard);
 
         /*
         Initialize seatBillCard
@@ -68,7 +68,7 @@ public class BillConfirmationPanel extends JPanel {
         int seatPay = State.getPrefSeatPrice()[State.getSeatPre()];
 
         seatBillCard = new SeatBillCard(State.getSeatRow(), State.getColumnNum(), seatPre, seatPay);
-        seatBillCard.setLocation(50, 224);
+        seatBillCard.setLocation(50, 345);
         add(seatBillCard);
 
         /*
@@ -85,7 +85,7 @@ public class BillConfirmationPanel extends JPanel {
         mealBillCard = new MealBillCard(State.getMeal(),
                 State.getPrefFoodName()[0], State.getPrefFoodName()[1], State.getPrefFoodName()[2],
                 foodPay[0], foodPay[1], foodPay[2]);
-        mealBillCard.setLocation(50, 455);
+        mealBillCard.setLocation(50, 535);
         add(mealBillCard);
 
         SmallBillCard totalBill = new SmallBillCard(State.getBill());
@@ -93,7 +93,7 @@ public class BillConfirmationPanel extends JPanel {
         add(totalBill);
 
         lblScanningImg = new JLabel();
-        lblScanningImg.setBounds(1210, 150, 400, 400);
+        lblScanningImg.setBounds(1210, 90, 400, 400);
         lblScanningImg.setIcon(new ImageIcon("kiosk/icons/scan.png"));
         add(lblScanningImg);
 
@@ -109,7 +109,7 @@ public class BillConfirmationPanel extends JPanel {
         lblInstruction = new JLabel();
         lblInstruction.setText("Scan ID to continue");
         lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
-        lblInstruction.setBounds(1220, 520, 330, 40);
+        lblInstruction.setBounds(1220, 450, 330, 40);
         lblInstruction.setFont(new Font("Arial", Font.PLAIN, 35));
         lblInstruction.setForeground(Theme.getMainFontColor());
         add(lblInstruction);
