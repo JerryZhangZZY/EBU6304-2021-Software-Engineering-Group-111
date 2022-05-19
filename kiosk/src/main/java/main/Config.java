@@ -139,7 +139,7 @@ public abstract class Config {
         Object[] names = config.keySet().toArray();
         String[] check = {"language", "idCardDrive", "airportName",
                 "enableCheckInLeadingTime", "startCheckInLeadingTime", "stopCheckInLeadingTime",
-        "checkinTimer", "checkinTimeLimit", "idleTimer", "imagePrinter", 
+        "checkinTimer", "checkinTimeLimit", "idleTimer", "imagePrinter",
         "theme", "darkTheme", "enableAutoDarkTheme", "animationSpeed"};
         for (int i = 1; i <= names.length ; i++) {
             String name = names[i-1].toString();
