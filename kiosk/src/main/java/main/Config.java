@@ -14,6 +14,10 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 5.1
+ * Add image printer config.
+ * @date 2022/5/19
+ *
  * @version 5.0
  * Remove theme config check.
  * @date 2022/5/13
@@ -113,7 +117,7 @@ public abstract class Config {
                     if (value.isBlank())
                         return i;
                 }
-                case 4, 12 -> { //enable check-in leading time,
+                case 4, 10, 13 -> { //enable check-in leading time, image printer, auto dark mode
                     if (!value.equals("false") && !value.equals("true"))
                         return i;
                 }
@@ -125,16 +129,25 @@ public abstract class Config {
                     if (!value.equals("true") && !value.equals("false"))
                         return i;
                 }
-                case 10, 11 -> {} //theme, dark theme
-                case 13 -> {    //anime speed
+                case 11, 12 -> {} //theme, dark theme
+                case 14 -> {    //anime speed
                     if (!value.equals("-1") && !(value.matches("[12345]")))
                         return i;
                 }
             }
         }
+        Object[] names = config.keySet().toArray();
+        String[] check = {"language", "idCardDrive", "airportName",
+                "enableCheckInLeadingTime", "startCheckInLeadingTime", "stopCheckInLeadingTime",
+        "checkinTimer", "checkinTimeLimit", "idleTimer", "imagePrinter",
+        "theme", "darkTheme", "enableAutoDarkTheme", "animationSpeed"};
+        for (int i = 1; i <= names.length ; i++) {
+            String name = names[i-1].toString();
+            if (!name.equals(check[i-1]))
+                return i;
+        }
         return 0;
     }
-
     /**
      * retrieve configuration
      * @param name tag name
@@ -191,7 +204,7 @@ public abstract class Config {
                             
                 # --------------< GENERAL SETTINGS >--------------
                                     
-                # Supported language: English.
+                # Supported language: English
                 language: English
                                     
                 # USB drive that holds ID document
@@ -200,37 +213,42 @@ public abstract class Config {
                 
                 # --------------< AIRPORT SETTINGS >--------------
                                     
-                # You can set the airport name here.
+                # You can set the airport name here
                 airportName: Beijing International Airport
                                     
-                # Enable/disable the check-in leading time function.
+                # Enable/disable the check-in leading time function
                 enableCheckInLeadingTime: false
-                # Check-in starts ... (hours) before departure.
+                # Check-in starts ... (hours) before departure
                 startCheckInLeadingTime: 24
-                # Check-in stops ... (minutes) before departure.
+                # Check-in stops ... (minutes) before departure
                 stopCheckInLeadingTime: 30
                                     
-                # --------------< TIMER SETTINGS >--------------
+                # ---------------< TIMER SETTINGS >---------------
                 
-                # Enable check-in timer.
+                # Enable/disable check-in timer
                 checkinTimer: true
                 # Set the limit time (seconds) for check-in timer
                 checkinTimeLimit: 120
                                     
-                # Enable idle timer.
+                # Enable/disable idle timer
                 idleTimer: true
+                
+                # --------------< PRINTER SETTINGS >--------------
+                
+                # Enable/disable image output for printer.
+                imagePrinter: true
                 
                 # -------------< APPEARANCE SETTINGS >------------
                                     
-                # Select a theme from the theme library.
+                # Select a theme from the theme library
                 theme: Jungle
                 
-                # Select the dark theme from the theme library.
+                # Select the dark theme from the theme library
                 darkTheme: Onyx
                 # Enable/disable auto dark theme
                 enableAutoDarkTheme: true
                                     
-                # Animation speed (1-5, -1 to disable), default: 3.
+                # Animation speed (1-5, -1 to disable), default: 3
                 animationSpeed: 3
                 """;
         FileWriter fileWriter = new FileWriter(String.valueOf(filePath), false);
