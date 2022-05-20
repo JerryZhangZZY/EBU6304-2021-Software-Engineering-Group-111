@@ -20,6 +20,11 @@ import java.util.Random;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  * @author Li Chunlin
+ * @author zaitian
+ *
+ * @version 5.0
+ * change error message cancelling logic
+ * @date 5/20
  *
  * @version 4.2
  * Can disable animations in config.
@@ -97,7 +102,7 @@ public class PaymentPanel extends JPanel {
         tfCreditId.setBounds(68, 10, 270, 40);
         tfCreditId.setSelectionColor(new Color(128, 0, 0));
         tfCreditId.setSelectedTextColor(Color.BLACK);
-        tfCreditId.setEditable(false);
+//        tfCreditId.setEditable(false);
         tfCreditId.setColumns(10);
         panelInput.add(tfCreditId);
 
@@ -158,7 +163,7 @@ public class PaymentPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 panelPay.setBorder(new LineBorder(new Color(128, 0, 0), 30, true));
                 String str = tfCreditId.getText();
-                boolean right =false;
+                boolean right;
                 right = check(str);
                 if (right) {
                     if (Config.readConfig("animationSpeed").equals("-1"))
@@ -168,9 +173,11 @@ public class PaymentPanel extends JPanel {
                 }
                 else {
                     tfCreditId.setText("Credit card ID");
+//                    tfCreditId.setEditable(false);
                     tfCreditId.setForeground(new Color(128, 0, 0));
                     panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
                     errorWarning.setVisible(true);
+                    tfCreditId.setCaretPosition(0);
                 }
             }
         });
@@ -202,32 +209,44 @@ public class PaymentPanel extends JPanel {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
-                tfCreditId.setEditable(true);
-                if (!tfCreditId.getText().equals("")){
-                    errorWarning.setVisible(false);
-                }
-                if (tfCreditId.getText().equals("Credit card ID")) {
-                    tfCreditId.setText(null);
-                    tfCreditId.setForeground(Color.WHITE);
-                }
+//                tfCreditId.setEditable(true);
+//                if (!tfCreditId.getText().equals("")){
+//                    errorWarning.setVisible(false);
+//                }
+//                if (tfCreditId.getText().equals("Credit card ID")) {
+//                    tfCreditId.setText(null);
+//                    tfCreditId.setForeground(Color.WHITE);
+//                }
             }
             public void mousePressed(MouseEvent e) {
                 super.mouseClicked(e);
-                tfCreditId.setEditable(true);
-                if (!tfCreditId.getText().equals("")){
-                    errorWarning.setVisible(false);
-                }
+//                tfCreditId.setEditable(true);
                 if (tfCreditId.getText().equals("Credit card ID")) {
+                    errorWarning.setVisible(false);
                     tfCreditId.setText(null);
                     tfCreditId.setForeground(Color.WHITE);
                 }
             }
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
-                tfCreditId.setEditable(false);
+//                tfCreditId.setEditable(false);
                 if (tfCreditId.getText().equals("")){
                     tfCreditId.setText("Credit card ID");
+                    tfCreditId.setCaretPosition(0);
                     tfCreditId.setForeground(new Color(128, 0, 0));
+                }
+            }
+        });
+        tfCreditId.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                    btnPay.doClick();
+                else if (tfCreditId.getText().equals("Credit card ID")){
+                    tfCreditId.setText(null);
+                    tfCreditId.setForeground(Color.WHITE);
+                    errorWarning.setVisible(false);
                 }
             }
         });

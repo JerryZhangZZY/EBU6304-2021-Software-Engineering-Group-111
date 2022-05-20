@@ -18,6 +18,10 @@ import java.util.List;
  * @author zaitian
  * @author Zhang Zeyu
  *
+ * @version 4.0
+ * change error hint cancelling logic
+ * @date 5/20
+ *
  * @version 3.0
  * Separate altButton pressed color.
  * @date 2022/4/26
@@ -186,12 +190,10 @@ public class BookingLoginPanel extends JPanel {
 
         bookingNumberTextField.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
                 if(bookingNumberTextField.getForeground().equals(new Color(205,92,92))) {
-                    bookingNumberTextField.setText("");
-                    bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
-                    bookingNumberTextField.setForeground(Color.BLACK);
+                    reset();
                 }
             }
         });
@@ -217,6 +219,7 @@ public class BookingLoginPanel extends JPanel {
     public void setWaring() {
         bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
         bookingNumberTextField.setText("Invalid booking number!");
+        bookingNumberTextField.setCaretPosition(0);
         bookingNumberTextField.setForeground(new Color(205,92,92));
     }
 
