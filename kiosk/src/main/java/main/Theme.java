@@ -15,6 +15,10 @@ import java.util.Calendar;
  *
  * @author Zhang Zeyu
  *
+ * @version 5.1
+ * Delete 'Almond' and add 'Platium'.
+ * @date 2022/5/20
+ *
  * @version 5.0
  * Update theme library.
  * @date 2022/5/13
@@ -159,6 +163,15 @@ public abstract class Theme {
                              "tertiaryFontColor": "192,192,192",
                              "minorFontColor": "255,255,255"
                            },
+                           "Platium": {
+                             "themeColor": "36,41,47",
+                             "backgroundColor": "243,244,246",
+                             "cardColor": "255,255,255",
+                             "mainFontColor": "36,41,47",
+                             "secondaryFontColor": "87,96,106",
+                             "tertiaryFontColor": "196,202,208",
+                             "minorFontColor": "255,255,255"
+                           },
                            "Tiber": {
                              "themeColor": "24,77,71",
                              "backgroundColor": "240,250,244",
@@ -176,15 +189,6 @@ public abstract class Theme {
                              "secondaryFontColor": "87,96,106",
                              "tertiaryFontColor": "186,192,198",
                              "minorFontColor": "255,255,255"
-                           },
-                           "Almond": {
-                             "themeColor": "255,160,122",
-                             "backgroundColor": "253,245,230",
-                             "cardColor": "255,250,240",
-                             "mainFontColor": "88,44,12",
-                             "secondaryFontColor": "132,66,18",
-                             "tertiaryFontColor": "245,186,96",
-                             "minorFontColor": "255,250,240"
                            },
                            "Maroon": {
                              "themeColor": "165,42,42",
