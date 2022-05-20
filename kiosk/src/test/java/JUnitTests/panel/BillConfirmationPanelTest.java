@@ -22,6 +22,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * This class test BillConfirmationPanel
  *
  * @author Liang Zhehao
+ * @author Zhang Zeyu
+ *
+ * @version 5.0
+ * Adapt to SeatBillCard v5.1
+ * @date 2022/5/20
  *
  * @version 2.0
  * @date 2022/4/8
@@ -67,7 +72,7 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
         JLabel pref = seatBillCard.getPreference();
         JLabel bill = seatBillCard.getBill();
 
-        assertEquals("Seat:  " + State.getSeatRow() + State.getColumnNum(), headline.getText());
+        assertEquals(Integer.toString(State.getSeatRow()) + State.getColumnNum(), headline.getText());
         assertEquals("· " + State.getPrefSeatName()[State.getSeatPre()], pref.getText());
         assertEquals("$" + State.getPrefSeatPrice()[State.getSeatPre()], bill.getText());
     }
@@ -93,7 +98,7 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
         JLabel[] extr = mealBillCard.getExtr();
         JLabel[] bill = mealBillCard.getBill();
 
-        assertEquals("Meal:  " + food[(int)State.getMeal() - 97], headline.getText());
+        assertEquals(food[(int)State.getMeal() - 97], headline.getText());
 
         int[] expectPrice = State.getPrefFoodPrice();
         String[] expectName = State.getPrefFoodName();
