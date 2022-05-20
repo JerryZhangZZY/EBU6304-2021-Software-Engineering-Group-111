@@ -20,6 +20,10 @@ import java.io.IOException;
  * A Ticket Printer which can print out tickets of the check-in baggage in .txt files
  * @auther Wcy
  * @author Ni Ruijie
+ * @author Liang Zhehao
+ *
+ * @version 5.0
+ * @date 2022/5/20
  *
  * @version 2.0
  * add jpg ticket and finish config
@@ -29,41 +33,41 @@ import java.io.IOException;
  * @date 3/23
  */
 public class TicketPrinter extends JPanel {
-    static String ticket_txt;
-    static String ticket_jpg;
+    static String ticketTxt;
+    static String ticketImage;
 
     /**
      * Generate .txt for tickets
      *
-     * @param idPassengerFlight_index primary key
+     * @param idPassengerFlightIndex primary key
      */
-    public static void creatTicket(int idPassengerFlight_index) throws IOException{
+    public static void creatTicket(int idPassengerFlightIndex) throws IOException{
         Boolean choosen = Boolean.parseBoolean(Config.readConfig("imagePrinter"));
         if (choosen) {
-            TicketPrinter.creatTicketJPG(idPassengerFlight_index);
+            TicketPrinter.creatTicketJPG(idPassengerFlightIndex);
         }
         else{
-            TicketPrinter.creatTicketTXT(idPassengerFlight_index);
+            TicketPrinter.creatTicketTXT(idPassengerFlightIndex);
         }
     }
     public static void creatTicketJPG(int idPassengerFlight_index) throws IOException{
-        int checkin_num = PassengerFlightReader.getCheckin(idPassengerFlight_index);
+        int checkinNum = PassengerFlightReader.getCheckin(idPassengerFlight_index);
         int bagDropCounter = PassengerFlightReader.getBagDropCounter(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
-        int idFlight_index = FlightReader.indexOf(idFlight);
-        String departure = FlightReader.getDeparture(idFlight_index);
-        String arrival = FlightReader.getArrival(idFlight_index);
-        int idPlane = FlightReader.getIdPlane(idFlight_index);
-        int idPlane_index = PlaneReader.indexOf(idPlane);
-        String airline = PlaneReader.getAirline(idPlane_index);
-        int idPassenger_index = PassengerReader.indexOf(idPassenger);
-        String surname = PassengerReader.getSurname(idPassenger_index);
-        int checkin_left = checkin_num;
-        String ticket_file = idPassenger + "-" + idPassengerFlight_index + "-ticket";
-        String ticket_path = "printer-output/";
+        int idFlightIndex = FlightReader.indexOf(idFlight);
+        String departure = FlightReader.getDeparture(idFlightIndex);
+        String arrival = FlightReader.getArrival(idFlightIndex);
+        int idPlane = FlightReader.getIdPlane(idFlightIndex);
+        int idPlaneIndex = PlaneReader.indexOf(idPlane);
+        String airline = PlaneReader.getAirline(idPlaneIndex);
+        int idPassengerIndex = PassengerReader.indexOf(idPassenger);
+        String surname = PassengerReader.getSurname(idPassengerIndex);
+        int checkinLeft = checkinNum;
+        String ticketFile = idPassenger + "-" + idPassengerFlight_index + "-ticket";
+        String ticketPath = "printer-output/";
 
-        ticket_jpg = ticket_path + ticket_file + ".jpg";
+        ticketImage = ticketPath + ticketFile + ".jpg";
 
         Border ticketBorder = BorderFactory.createLineBorder(Color.BLACK, 7, false);
 
@@ -179,21 +183,21 @@ public class TicketPrinter extends JPanel {
         lblSecond.setBounds(5, 601, 440, 8);
         ticketPanel.add(lblSecond);
 
-        JLabel lblCheck = new JLabel("Check-in baggage");
-        lblCheck.setVerticalTextPosition(SwingConstants.CENTER);
-        lblCheck.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheck.setForeground(new Color(28, 28, 28));
-        lblCheck.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCheck.setBounds(100, 643, 250, 35);
-        ticketPanel.add(lblCheck);
+        JLabel lblCheckText1 = new JLabel("Check-in baggage");
+        lblCheckText1.setVerticalTextPosition(SwingConstants.CENTER);
+        lblCheckText1.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheckText1.setForeground(new Color(28, 28, 28));
+        lblCheckText1.setFont(new Font("Arial", Font.BOLD, 25));
+        lblCheckText1.setBounds(100, 643, 250, 35);
+        ticketPanel.add(lblCheckText1);
 
-        JLabel lblCheck_1 = new JLabel("1 of 3");
-        lblCheck_1.setVerticalTextPosition(SwingConstants.CENTER);
-        lblCheck_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheck_1.setForeground(new Color(28, 28, 28));
-        lblCheck_1.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCheck_1.setBounds(100, 701, 250, 35);
-        ticketPanel.add(lblCheck_1);
+        JLabel lblCheck1 = new JLabel();
+        lblCheck1.setVerticalTextPosition(SwingConstants.CENTER);
+        lblCheck1.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheck1.setForeground(new Color(28, 28, 28));
+        lblCheck1.setFont(new Font("Arial", Font.BOLD, 25));
+        lblCheck1.setBounds(100, 701, 250, 35);
+        ticketPanel.add(lblCheck1);
 
         JLabel lblThird = new JLabel();
         lblThird.setOpaque(true);
@@ -201,21 +205,21 @@ public class TicketPrinter extends JPanel {
         lblThird.setBounds(5, 765, 440, 8);
         ticketPanel.add(lblThird);
 
-        JLabel lblCheck_2 = new JLabel("Check-in baggage");
-        lblCheck_2.setVerticalTextPosition(SwingConstants.CENTER);
-        lblCheck_2.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheck_2.setForeground(new Color(28, 28, 28));
-        lblCheck_2.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCheck_2.setBounds(100, 811, 250, 35);
-        ticketPanel.add(lblCheck_2);
+        JLabel lblCheckText2 = new JLabel("Check-in baggage");
+        lblCheckText2.setVerticalTextPosition(SwingConstants.CENTER);
+        lblCheckText2.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheckText2.setForeground(new Color(28, 28, 28));
+        lblCheckText2.setFont(new Font("Arial", Font.BOLD, 25));
+        lblCheckText2.setBounds(100, 811, 250, 35);
+        ticketPanel.add(lblCheckText2);
 
-        JLabel lblCheck_2_1 = new JLabel("2 of 3");
-        lblCheck_2_1.setVerticalTextPosition(SwingConstants.CENTER);
-        lblCheck_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheck_2_1.setForeground(new Color(28, 28, 28));
-        lblCheck_2_1.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCheck_2_1.setBounds(100, 867, 250, 35);
-        ticketPanel.add(lblCheck_2_1);
+        JLabel lblCheck2 = new JLabel("2 of 3");
+        lblCheck2.setVerticalTextPosition(SwingConstants.CENTER);
+        lblCheck2.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheck2.setForeground(new Color(28, 28, 28));
+        lblCheck2.setFont(new Font("Arial", Font.BOLD, 25));
+        lblCheck2.setBounds(100, 867, 250, 35);
+        ticketPanel.add(lblCheck2);
 
         JLabel lblForth = new JLabel();
         lblForth.setOpaque(true);
@@ -223,68 +227,74 @@ public class TicketPrinter extends JPanel {
         lblForth.setBounds(5, 930, 440, 8);
         ticketPanel.add(lblForth);
 
-        JLabel lblCheck_3 = new JLabel("Check-in baggage");
-        lblCheck_3.setVerticalTextPosition(SwingConstants.CENTER);
-        lblCheck_3.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheck_3.setForeground(new Color(28, 28, 28));
-        lblCheck_3.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCheck_3.setBounds(100, 960, 250, 35);
-        ticketPanel.add(lblCheck_3);
+        JLabel lblCheckText3 = new JLabel("Check-in baggage");
+        lblCheckText3.setVerticalTextPosition(SwingConstants.CENTER);
+        lblCheckText3.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheckText3.setForeground(new Color(28, 28, 28));
+        lblCheckText3.setFont(new Font("Arial", Font.BOLD, 25));
+        lblCheckText3.setBounds(100, 960, 250, 35);
+        ticketPanel.add(lblCheckText3);
 
-        JLabel lblCheck_3_1 = new JLabel("3 of 3");
-        lblCheck_3_1.setVerticalTextPosition(SwingConstants.CENTER);
-        lblCheck_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCheck_3_1.setForeground(new Color(28, 28, 28));
-        lblCheck_3_1.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCheck_3_1.setBounds(100, 1009, 250, 35);
-        ticketPanel.add(lblCheck_3_1);
-        if (checkin_left == 0) {
+        JLabel lblCheck3 = new JLabel("3 of 3");
+        lblCheck3.setVerticalTextPosition(SwingConstants.CENTER);
+        lblCheck3.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCheck3.setForeground(new Color(28, 28, 28));
+        lblCheck3.setFont(new Font("Arial", Font.BOLD, 25));
+        lblCheck3.setBounds(100, 1009, 250, 35);
+        ticketPanel.add(lblCheck3);
+        if (checkinLeft == 0) {
             ticketPanel.setBounds(0, 0, 450, 508);
             BufferedImage image = new BufferedImage(ticketPanel.getWidth(), ticketPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = image.createGraphics();
             ticketPanel.paint(g2); // instead of just paint(g2);
-            ImageIO.write(image, "jpeg", new java.io.File(ticket_jpg));
-        } else if (checkin_left == 1) {
+            ImageIO.write(image, "jpeg", new java.io.File(ticketImage));
+        } else if (checkinLeft == 1) {
+            lblCheck1.setText("1 of 1");
             ticketPanel.setBounds(0, 0, 450, 765);
             BufferedImage image = new BufferedImage(ticketPanel.getWidth(), ticketPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = image.createGraphics();
             ticketPanel.paint(g2); // instead of just paint(g2);
-            ImageIO.write(image, "jpeg", new java.io.File(ticket_jpg));
-        } else if (checkin_left == 2) {
+            ImageIO.write(image, "jpeg", new java.io.File(ticketImage));
+        } else if (checkinLeft == 2) {
+            lblCheck1.setText("1 of 2");
+            lblCheck2.setText("2 of 2");
             ticketPanel.setBounds(0, 0, 450, 930);
             BufferedImage image = new BufferedImage(ticketPanel.getWidth(), ticketPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = image.createGraphics();
             ticketPanel.paint(g2); // instead of just paint(g2);
-            ImageIO.write(image, "jpeg", new java.io.File(ticket_jpg));
-        } else if (checkin_left == 3) {
+            ImageIO.write(image, "jpeg", new java.io.File(ticketImage));
+        } else if (checkinLeft == 3) {
+            lblCheck1.setText("1 of 3");
+            lblCheck2.setText("2 of 3");
+            lblCheck3.setText("3 of 3");
             ticketPanel.setBounds(0, 0, 450, 1095);
             BufferedImage image = new BufferedImage(ticketPanel.getWidth(), ticketPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = image.createGraphics();
             ticketPanel.paint(g2); // instead of just paint(g2);
-            ImageIO.write(image, "jpeg", new java.io.File(ticket_jpg));
+            ImageIO.write(image, "jpeg", new java.io.File(ticketImage));
         }
     }
     public static void creatTicketTXT(int idPassengerFlight_index) throws IOException{
-        int checkin_num = PassengerFlightReader.getCheckin(idPassengerFlight_index);
+        int checkinNum = PassengerFlightReader.getCheckin(idPassengerFlight_index);
         int bagDropCounter = PassengerFlightReader.getBagDropCounter(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
-        int idFlight_index = FlightReader.indexOf(idFlight);
-        String departure = FlightReader.getDeparture(idFlight_index);
-        String arrival = FlightReader.getArrival(idFlight_index);
-        int idPlane = FlightReader.getIdPlane(idFlight_index);
-        int idPlane_index = PlaneReader.indexOf(idPlane);
-        String airline = PlaneReader.getAirline(idPlane_index);
+        int idFlightIndex = FlightReader.indexOf(idFlight);
+        String departure = FlightReader.getDeparture(idFlightIndex);
+        String arrival = FlightReader.getArrival(idFlightIndex);
+        int idPlane = FlightReader.getIdPlane(idFlightIndex);
+        int idPlaneIndex = PlaneReader.indexOf(idPlane);
+        String airline = PlaneReader.getAirline(idPlaneIndex);
         int idPassenger_index = PassengerReader.indexOf(idPassenger);
         String surname = PassengerReader.getSurname(idPassenger_index);
-        int checkin_left = checkin_num;
-        String ticket_file = idPassenger + "-" + idPassengerFlight_index + "-ticket";
-        String ticket_path = "printer-output/";
+        int checkinLeft = checkinNum;
+        String ticketFile = idPassenger + "-" + idPassengerFlight_index + "-ticket";
+        String ticketPath = "printer-output/";
 
-        ticket_txt = ticket_path + ticket_file + ".txt";
-        File ticket = new File(ticket_txt);
+        ticketTxt = ticketPath + ticketFile + ".txt";
+        File ticket = new File(ticketTxt);
         ticket.createNewFile();
-        FileWriter bucket = new FileWriter(ticket_txt);
+        FileWriter bucket = new FileWriter(ticketTxt);
         BufferedWriter buffer = new BufferedWriter(bucket);
         String side_bound = "|";
         buffer.write("_________________________________________");
@@ -394,7 +404,7 @@ public class TicketPrinter extends JPanel {
             }
             buffer.write(side_bound);
         }
-        while (checkin_left >= 1) {
+        while (checkinLeft >= 1) {
             buffer.newLine();
             buffer.write("_________________________________________");
             buffer.newLine();
@@ -407,19 +417,19 @@ public class TicketPrinter extends JPanel {
             buffer.write(side_bound);
             buffer.newLine();
             buffer.write(side_bound);
-            buffer.write("                " + (checkin_num - checkin_left + 1) + " of " + checkin_num + "                 ");
+            buffer.write("                " + (checkinNum - checkinLeft + 1) + " of " + checkinNum + "                 ");
             buffer.write(side_bound);
-            checkin_left--;
+            checkinLeft--;
         }
         buffer.newLine();
         buffer.write("_________________________________________");
         buffer.close();
     }
     public static String getFilePhotoPath(){
-        return ticket_jpg;
+        return ticketImage;
     }
     public static String getFileTxtPath(){
-        return ticket_txt;
+        return ticketTxt;
     }
 }
 

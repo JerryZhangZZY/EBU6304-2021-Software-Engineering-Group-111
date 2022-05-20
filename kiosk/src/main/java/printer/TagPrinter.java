@@ -17,6 +17,10 @@ import java.io.IOException;
  * A Tag Printer which can print out tags of the carry-on baggage in .txt files
  * @author Wcy
  * @author Ni Ruijie
+ * @author Liang Zhehao
+ *
+ * @version 5.0
+ * @date 2022/5/20
  *
  * @version 2.0
  * add jpg tag and finish config
@@ -26,8 +30,8 @@ import java.io.IOException;
  * @date 3/22
  */
 public abstract class TagPrinter extends JPanel {
-    static String tag_txt;
-    static String tag_jpg;
+    static String tagTxt;
+    static String tagImage;
 
     /**
      * Generate .txt for tags
@@ -36,9 +40,9 @@ public abstract class TagPrinter extends JPanel {
      */
     public static void creatTag(int idPassengerFlight_index) throws IOException {
 
-        Boolean choosen = Boolean.parseBoolean(Config.readConfig("imagePrinter"));
+        Boolean chosen = Boolean.parseBoolean(Config.readConfig("imagePrinter"));
 
-        if(choosen) {
+        if(chosen) {
             TagPrinter.getPhoto(idPassengerFlight_index);
         }
         else {
@@ -46,11 +50,11 @@ public abstract class TagPrinter extends JPanel {
         }
     }
     public static void getPhoto(int idPassengerFlight_index) throws IOException{
-        int carryon_num = PassengerFlightReader.getCarryon(idPassengerFlight_index);
+        int carryonNum = PassengerFlightReader.getCarryon(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
-        int idPassenger_index = PassengerReader.indexOf(idPassenger);
-        String surname = PassengerReader.getSurname(idPassenger_index);
-        int carryon_left = carryon_num;
+        int idPassengerIndex = PassengerReader.indexOf(idPassenger);
+        String surname = PassengerReader.getSurname(idPassengerIndex);
+        int carryonLeft = carryonNum;
 
         Border tagBorder = BorderFactory.createLineBorder(Color.BLACK, 5, false);
 
@@ -88,32 +92,32 @@ public abstract class TagPrinter extends JPanel {
         lblPackage.setForeground(new Color(28, 28, 28));
         lblPackage.setBounds(44, 152, 361, 35);
         tagPanel.add(lblPackage);
-        while (carryon_left >= 1) {
-            lblPackage.setText("This is " + (carryon_num - carryon_left + 1) + " / " + carryon_num + " of your baggage");
-            String tag_file = idPassenger + "-" + idPassengerFlight_index + "-" + (carryon_num - carryon_left + 1) + "of" + carryon_num;
+        while (carryonLeft >= 1) {
+            lblPackage.setText("This is " + (carryonNum - carryonLeft + 1) + " / " + carryonNum + " of your baggage");
+            String tag_file = idPassenger + "-" + idPassengerFlight_index + "-" + (carryonNum - carryonLeft + 1) + "of" + carryonNum;
             String tag_path = "printer-output/";
-            tag_jpg = tag_path + tag_file + ".jpg";
+            tagImage = tag_path + tag_file + ".jpg";
             BufferedImage image = new BufferedImage(tagPanel.getWidth(), tagPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D g2 = image.createGraphics();
             tagPanel.paint(g2); // instead of just paint(g2);
-            ImageIO.write(image, "jpeg", new java.io.File(tag_jpg));
-            carryon_left--;
+            ImageIO.write(image, "jpeg", new java.io.File(tagImage));
+            carryonLeft--;
         }
     }
     public static void getTxt(int idPassengerFlight_index) throws IOException{
-        int carryon_num = PassengerFlightReader.getCarryon(idPassengerFlight_index);
+        int carryonNum = PassengerFlightReader.getCarryon(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
-        int idPassenger_index = PassengerReader.indexOf(idPassenger);
-        String surname = PassengerReader.getSurname(idPassenger_index);
-        int carryon_left = carryon_num;
+        int idPassengerIndex = PassengerReader.indexOf(idPassenger);
+        String surname = PassengerReader.getSurname(idPassengerIndex);
+        int carryonLeft = carryonNum;
 
-        while (carryon_left >= 1) {
-            String tag_file = idPassenger + "-" + idPassengerFlight_index + "-" + (carryon_num - carryon_left + 1) + "of" + carryon_num;
+        while (carryonLeft >= 1) {
+            String tag_file = idPassenger + "-" + idPassengerFlight_index + "-" + (carryonNum - carryonLeft + 1) + "of" + carryonNum;
             String tag_path = "printer-output/";
-            tag_txt = tag_path + tag_file + ".txt";
-            File tag = new File(tag_txt);
+            tagTxt = tag_path + tag_file + ".txt";
+            File tag = new File(tagTxt);
             tag.createNewFile();
-            FileWriter bucket = new FileWriter(tag_txt);
+            FileWriter bucket = new FileWriter(tagTxt);
             BufferedWriter buffer = new BufferedWriter(bucket);
             String side_bound = "|";
             buffer.write("_________________________________________");
@@ -137,19 +141,19 @@ public abstract class TagPrinter extends JPanel {
             buffer.write(side_bound);
             buffer.newLine();
             buffer.write(side_bound);
-            buffer.write("     This is " + (carryon_num - carryon_left + 1) + " / " + carryon_num + " of your baggage     ");
+            buffer.write("     This is " + (carryonNum - carryonLeft + 1) + " / " + carryonNum + " of your baggage     ");
             buffer.write(side_bound);
             buffer.newLine();
             buffer.write("_________________________________________");
-            carryon_left--;
+            carryonLeft--;
             buffer.close();
         }
     }
     public static String getFilePhotoPath(){
-        return tag_jpg;
+        return tagImage;
     }
     public static String getFileTxtPath(){
-        return tag_txt;
+        return tagTxt;
     }
 }
 
