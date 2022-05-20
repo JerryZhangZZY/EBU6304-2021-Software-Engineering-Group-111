@@ -51,7 +51,7 @@ public class ScanIdLoginCardTest implements MainFrameBarsTest {
         mainFrame.loadPanel(panel);
         ref.getTfId().setText(id);
         ref.getTfSurname().setText(name);
-        ref.getButtonOk().doClick();
+        ref.getBtnOk().doClick();
         if (State.getPc() == 3){
             State.setPc(2);
             btn.doClick();
