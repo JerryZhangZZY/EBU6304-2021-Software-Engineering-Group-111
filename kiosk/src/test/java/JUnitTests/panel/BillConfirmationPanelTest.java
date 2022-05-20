@@ -140,12 +140,10 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
                 String s2 = PassengerFlightReader.getIdPassenger(State.getPassengerFlight_index());
                 if (s1.equals(s2)) {
                     State.setBill(0);
-//                    tempPc = State.getPc();
                     button.doClick();
                     assertEquals(tempPc + 2, State.getPc());
                     State.setPc(tempPc);
                     State.setBill(1);
-//                    tempPc = State.getPc();
                     button.doClick();
                     assertEquals(tempPc + 1, State.getPc());
                 } else {
