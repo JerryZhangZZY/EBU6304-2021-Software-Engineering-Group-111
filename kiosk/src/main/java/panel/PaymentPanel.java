@@ -16,11 +16,16 @@ import java.util.Random;
 
 /**
  * integrated test, calling all tests
+ *
  * @author Chenyu
  * @author Zhang Zeyu
  * @author Ni Ruijie
  * @author Li Chunlin
  * @author zaitian
+ *
+ * @version 5.1
+ * Refine hint display logic.
+ * @date 2022/5/20
  *
  * @version 5.0
  * change error message cancelling logic
@@ -102,7 +107,6 @@ public class PaymentPanel extends JPanel {
         tfCreditId.setBounds(68, 10, 270, 40);
         tfCreditId.setSelectionColor(new Color(128, 0, 0));
         tfCreditId.setSelectedTextColor(Color.BLACK);
-//        tfCreditId.setEditable(false);
         tfCreditId.setColumns(10);
         panelInput.add(tfCreditId);
 
@@ -132,7 +136,7 @@ public class PaymentPanel extends JPanel {
 
         errorWarning.setText("Incorrect format");
         errorWarning.setFont(new Font("Arial", Font.BOLD, 25));
-        errorWarning.setForeground(Color.RED);
+        errorWarning.setForeground(new Color(128, 0, 0));
         errorWarning.setBounds(225, 300, 350, 25);
         errorWarning.setHorizontalAlignment(SwingConstants.CENTER);
         errorWarning.setVisible(false);
@@ -173,7 +177,6 @@ public class PaymentPanel extends JPanel {
                 }
                 else {
                     tfCreditId.setText("Credit card ID");
-//                    tfCreditId.setEditable(false);
                     tfCreditId.setForeground(new Color(128, 0, 0));
                     panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
                     errorWarning.setVisible(true);
@@ -205,60 +208,36 @@ public class PaymentPanel extends JPanel {
         };
         btnPay.addMouseListener(mouseListener);
 
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                requestFocus();
+                if (tfCreditId.getText().equals(""))
+                    setTfHint();
+            }
+        });
+
         tfCreditId.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-//                tfCreditId.setEditable(true);
-//                if (!tfCreditId.getText().equals("")){
-//                    errorWarning.setVisible(false);
-//                }
-//                if (tfCreditId.getText().equals("Credit card ID")) {
-//                    tfCreditId.setText(null);
-//                    tfCreditId.setForeground(Color.WHITE);
-//                }
-            }
             public void mousePressed(MouseEvent e) {
-                super.mouseClicked(e);
-//                tfCreditId.setEditable(true);
-                if (tfCreditId.getText().equals("Credit card ID")) {
-                    errorWarning.setVisible(false);
-                    tfCreditId.setText(null);
-                    tfCreditId.setForeground(Color.WHITE);
-                }
-            }
-            public void mouseExited(MouseEvent e) {
-                super.mouseExited(e);
-//                tfCreditId.setEditable(false);
-                if (tfCreditId.getText().equals("")){
-                    tfCreditId.setText("Credit card ID");
-                    tfCreditId.setCaretPosition(0);
-                    tfCreditId.setForeground(new Color(128, 0, 0));
-                }
+                super.mousePressed(e);
+                errorWarning.setVisible(false);
+                if (tfCreditId.getForeground().equals(new Color(128, 0, 0)))
+                    setTfEdit();
             }
         });
-        tfCreditId.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                super.keyPressed(e);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER)
-                    btnPay.doClick();
-                else if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE && tfCreditId.getText().equals("Credit card ID")){
-                    tfCreditId.setText(null);
-                    tfCreditId.setForeground(Color.WHITE);
-                    errorWarning.setVisible(false);
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {
-                super.keyReleased(e);
-                if (tfCreditId.getText().isBlank()) {
-                    tfCreditId.setText("Credit card ID");
-                    tfCreditId.setCaretPosition(0);
-                    tfCreditId.setForeground(new Color(128, 0, 0));
-                }
-            }
-        });
+    }
+
+    public void setTfEdit() {
+        tfCreditId.setText(null);
+        tfCreditId.setForeground(Color.WHITE);
+    }
+
+    public void setTfHint() {
+        tfCreditId.setCaretPosition(0);
+        tfCreditId.setForeground(new Color(128, 0, 0));
+        tfCreditId.setText("Credit card ID");
     }
 
     public static class LoadingCard extends JPanel {
