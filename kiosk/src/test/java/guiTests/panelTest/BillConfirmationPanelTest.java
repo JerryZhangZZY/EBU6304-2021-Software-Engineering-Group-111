@@ -14,6 +14,8 @@ public class BillConfirmationPanelTest {
         State.setPassengerName("Mike");
         State.setSeatRow(6);
         State.setSeatColumn(3);
+        State.setColumnNum('C');
+        State.setMeal('a');
 
         ProgressPanel progressPanel = new ProgressPanel(4);
         progressPanel.loadCardsPanel(new BillConfirmationPanel());
