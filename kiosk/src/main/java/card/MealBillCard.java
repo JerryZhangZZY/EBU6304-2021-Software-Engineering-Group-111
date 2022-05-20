@@ -7,8 +7,14 @@ import java.awt.*;
 
 /**
  * a card of meal bill
+ *
  * @author Liang Zhehao
  * @author Wang Chenyu
+ * @author Zhang Zeyu
+ *
+ * @version 5.1
+ * Layout and appearance improvement
+ * @date 2022/5/20
  *
  * @version 5.0
  * Appearance improvement
@@ -64,18 +70,21 @@ public class MealBillCard extends JPanel {
             food = "Vegetarian";
         else if (basis == 'c')
             food = "Halal";
-        headline = new JLabel("Meal:");
-        headline.setBounds(40, 10, 140, 70);
-        headline.setFont(new Font("Arial", Font.PLAIN, 50));
-        headline.setForeground(Theme.getMainFontColor());
-        headline.setBackground(Theme.getCardColor());
+
+        headline = new JLabel();
+        headline.setText("MEAL");
+        headline.setBounds(0, 0, 100, 40);
+        headline.setFont(new Font("Arial", Font.BOLD, 25));
+        headline.setForeground(Theme.getMinorFontColor());
+        headline.setBackground(Theme.getThemeColor());
         headline.setVerticalAlignment(SwingConstants.CENTER);
+        headline.setHorizontalAlignment(SwingConstants.CENTER);
         headline.setOpaque(true);
         add(headline);
 
-        headText = new JLabel("Meal:  " + food);
-        headText.setBounds(40, 10, 600, 70);
-        headText.setFont(new Font("Arial", Font.BOLD, 50));
+        headText = new JLabel(food);
+        headText.setBounds(140, 10, 600, 70);
+        headText.setFont(new Font("Arial", Font.BOLD, 40));
         headText.setForeground(Theme.getMainFontColor());
         headText.setVerticalAlignment(SwingConstants.CENTER);
         add(headText);
@@ -119,8 +128,8 @@ public class MealBillCard extends JPanel {
             }
             extr[n] = new JLabel();
             extr[n].setText("· " + pref[i]);
-            extr[n].setLocation(120, base + 1 + gain * n);
-            extr[n].setFont(new Font("Arial", Font.PLAIN, 38));
+            extr[n].setLocation(150, base + 1 + gain * n);
+            extr[n].setFont(new Font("Arial", Font.PLAIN, 30));
             extr[n].setForeground(Theme.getSecondaryFontColor());
             extr[n].setVerticalAlignment(SwingConstants.CENTER);
             extr[n].setSize(350, gain);
@@ -133,7 +142,7 @@ public class MealBillCard extends JPanel {
             bill[n].setHorizontalAlignment(SwingConstants.RIGHT);
             bill[n].setForeground(new Color(255,69,0));
             bill[n].setVerticalAlignment(SwingConstants.CENTER);
-            bill[n].setFont(new Font("Arial", Font.BOLD, 38));
+            bill[n].setFont(new Font("Arial", Font.BOLD, 30));
             add(bill[n]);
 
             line[n] = new JLabel("  ·····························");
@@ -151,7 +160,7 @@ public class MealBillCard extends JPanel {
             extr[0] = new JLabel();
             extr[0].setText("· No preference selected");
             extr[0].setLocation(120, base + 1);
-            extr[0].setFont(new Font("Arial", Font.PLAIN, 38));
+            extr[0].setFont(new Font("Arial", Font.PLAIN, 30));
             extr[0].setForeground(Theme.getSecondaryFontColor());
             extr[0].setVerticalAlignment(SwingConstants.CENTER);
             extr[0].setSize(700, gain);

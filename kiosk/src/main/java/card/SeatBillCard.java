@@ -8,6 +8,11 @@ import java.awt.*;
 /**
  * @author Wang Chenyu
  * @author Liang Zhehao
+ * @author Zhang Zeyu
+ *
+ * @version 5.1
+ * Layout and appearance improvement
+ * @date 2022/5/20
  *
  * @version 5.0
  * Appearance improvement
@@ -21,7 +26,7 @@ import java.awt.*;
  * @date 3/23
  */
 public class SeatBillCard extends JPanel {
-    private JLabel headline = new JLabel("Seat:");
+    private JLabel headline;
     private JLabel headText;
     private JLabel preference = new JLabel();
     private JLabel bill = new JLabel();
@@ -38,18 +43,22 @@ public class SeatBillCard extends JPanel {
         lblTopLine.setBackground(Theme.getThemeColor());
         add(lblTopLine);
 
-        headline.setLocation(40, 10);
-        headline.setSize(140, 70);
-        headline.setFont(new Font("Arial", Font.PLAIN, 50));
-        headline.setForeground(Theme.getMainFontColor());
-        headline.setBackground(Theme.getCardColor());
+        headline = new JLabel();
+        headline.setText("SEAT");
+        headline.setBounds(0, 0, 100, 40);
+        headline.setFont(new Font("Arial", Font.BOLD, 25));
+        headline.setForeground(Theme.getMinorFontColor());
+        headline.setBackground(Theme.getThemeColor());
         headline.setVerticalAlignment(SwingConstants.CENTER);
+        headline.setHorizontalAlignment(SwingConstants.CENTER);
         headline.setOpaque(true);
         add(headline);
 
-        headText = new JLabel("Seat:  " + row + column);
-        headText.setBounds(40, 10, 500, 70);
-        headText.setFont(new Font("Arial", Font.BOLD, 50));
+        headText = new JLabel();
+        String seatNum = Integer.toString(row) + column;
+        headText.setText(seatNum);
+        headText.setBounds(140, 10, 500, 70);
+        headText.setFont(new Font("Arial", Font.BOLD, 40));
         headText.setForeground(Theme.getMainFontColor());
         headText.setVerticalAlignment(SwingConstants.CENTER);
         add(headText);
@@ -69,8 +78,8 @@ public class SeatBillCard extends JPanel {
         add(line2);
 
         preference.setText("· " + prefer);
-        preference.setBounds(120, base + 1, 831, gain);
-        preference.setFont(new Font("Arial", Font.PLAIN, 38));
+        preference.setBounds(150, base + 1, 831, gain);
+        preference.setFont(new Font("Arial", Font.PLAIN, 30));
         preference.setForeground(Theme.getSecondaryFontColor());
         preference.setVerticalAlignment(SwingConstants.CENTER);
         add(preference);
@@ -86,7 +95,7 @@ public class SeatBillCard extends JPanel {
         bill.setLocation(955, base + 1);
         bill.setSize(100, gain);
         bill.setForeground(new Color(255,69,0));
-        bill.setFont(new Font("Arial", Font.BOLD, 38));
+        bill.setFont(new Font("Arial", Font.BOLD, 30));
         bill.setText("$" + pay);
         bill.setHorizontalAlignment(SwingConstants.RIGHT);
         bill.setVerticalAlignment(SwingConstants.CENTER);
