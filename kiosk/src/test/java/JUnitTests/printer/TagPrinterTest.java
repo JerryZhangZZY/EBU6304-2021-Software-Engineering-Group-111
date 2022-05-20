@@ -11,7 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * JUnit test program for Tag Printer
  *
+ * @suther Wcy
  * @author Ni Ruijie
+ *
+ * @version 1.1
+ * @date 2022/5/20
+ *
  * @version 1.0
  * @date 2022/4/7
  */
