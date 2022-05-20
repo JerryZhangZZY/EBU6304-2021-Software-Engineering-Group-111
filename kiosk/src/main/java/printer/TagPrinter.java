@@ -23,13 +23,13 @@ import java.io.IOException;
  * @date 2022/5/20
  *
  * @version 2.0
- * add jpg tag and finish config
- * @data 5/19
+ * add jpg tag
+ * @date 5/19
  *
  * @version 1.0
  * @date 3/22
  */
-public abstract class TagPrinter extends JPanel {
+public abstract class TagPrinter {
     static String tagTxt;
     static String tagImage;
 

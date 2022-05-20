@@ -32,7 +32,7 @@ import java.io.IOException;
  * @version 1.0
  * @date 3/23
  */
-public class TicketPrinter extends JPanel {
+public class TicketPrinter {
     static String ticketTxt;
     static String ticketImage;
 
