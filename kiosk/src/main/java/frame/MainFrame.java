@@ -139,6 +139,7 @@ public class MainFrame extends JFrame {
          * basic settings
          */
         setTitle("Satisflight Check-in System");
+        setIconImage(new ImageIcon("kiosk/icons/satisflight.png").getImage());
         setResizable(false);
         setUndecorated(true);
         setBounds(new Rectangle(0, 0, 1920, 1080));
