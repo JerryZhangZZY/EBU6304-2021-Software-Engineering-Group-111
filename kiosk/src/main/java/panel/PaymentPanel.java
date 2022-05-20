@@ -64,7 +64,7 @@ public class PaymentPanel extends JPanel {
     private JPanel panelUnionPay = new JPanel();
     private JPanel panelPay;
     private LoadingCard loadingCard;
-    private MouseListener mouseListener;
+    private MouseListener payMouseListener;
 
     public PaymentPanel(int price) {
         setBackground(Theme.getBackgroundColor());
@@ -176,15 +176,12 @@ public class PaymentPanel extends JPanel {
                         loading();
                 }
                 else {
-                    tfCreditId.setText("Credit card ID");
-                    tfCreditId.setForeground(new Color(128, 0, 0));
-                    panelPay.setBorder(new LineBorder(new Color(165, 42, 42), 30, true));
                     errorWarning.setVisible(true);
-                    tfCreditId.setCaretPosition(0);
+                    setTfHint();
                 }
             }
         });
-        mouseListener = new MouseListener() {
+        payMouseListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {}
 
@@ -206,7 +203,7 @@ public class PaymentPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {}
         };
-        btnPay.addMouseListener(mouseListener);
+        btnPay.addMouseListener(payMouseListener);
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -275,7 +272,7 @@ public class PaymentPanel extends JPanel {
 
     public void loading() {
         btnPay.setEnabled(false);
-        btnPay.removeMouseListener(mouseListener);
+        btnPay.removeMouseListener(payMouseListener);
         tfCreditId.setEnabled(false);
         loadingCard.setEnabled(true);
         loadingCard.setVisible(true);
