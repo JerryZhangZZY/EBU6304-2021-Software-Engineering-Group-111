@@ -1,5 +1,6 @@
 package printer;
 
+import main.Config;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
@@ -10,7 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * JUnit test program for Tag Printer
  *
+ * @suther Wcy
  * @author Ni Ruijie
+ *
+ * @version 1.1
+ * @date 2022/5/20
+ *
  * @version 1.0
  * @date 2022/4/7
  */
@@ -20,12 +26,20 @@ public class TagPrinterTest {
     @RepeatedTest(4)
     void testTagPrinter() throws IOException {
         int index = new Random().nextInt(expectedIndex.length);
-        TagPrinter.creatTag(index);
-        String filePath = TagPrinter.getFilePath();
-        File file = new File(filePath);
-        assertTrue(file.exists());
-        System.out.println("index: "+index);
-        System.out.println(filePath);
+        TagPrinter.getPhoto(index);
+        String filejpgPath = TagPrinter.getFilePhotoPath();
+        File filejpg = new File(filejpgPath);
+        assertTrue(filejpg.exists());
+        System.out.println("index: " + index);
+        System.out.println(filejpgPath);
+        System.out.println("---------------");
+
+        TagPrinter.getTxt(index);
+        String filetxtPath = TagPrinter.getFileTxtPath();
+        File filetxt = new File(filetxtPath);
+        assertTrue(filetxt.exists());
+        System.out.println("index: " + index);
+        System.out.println(filetxtPath);
         System.out.println("---------------");
     }
 }
