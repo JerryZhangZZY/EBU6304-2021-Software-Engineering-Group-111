@@ -144,6 +144,7 @@ public class TypeIdLoginCard extends JPanel {
         btnOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                resetBorder();
                 List<String> bookingNumList = getBookingNumByTyping(tfSurname.getText(), tfId.getText());
                 if (bookingNumList.size() == 3)
                     lblError.setVisible(true);
