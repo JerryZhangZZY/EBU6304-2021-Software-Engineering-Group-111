@@ -46,8 +46,8 @@ public class BookingLoginPanelTest implements MainFrameBarsTest {
     @RepeatedTest(10)
     public void testBookingLoginPanel(){
         int bn = new Random().nextInt(candidateBookingNumber.length);
-        bookingLoginPanel.getBookingNumberTextField().setText(candidateBookingNumber[bn]);
-        JButton okBtn = bookingLoginPanel.getOkButton();
+        bookingLoginPanel.getTfBookingNumber().setText(candidateBookingNumber[bn]);
+        JButton okBtn = bookingLoginPanel.getBtnOk();
         okBtn.doClick();
 
         System.out.println(bn);
@@ -57,9 +57,9 @@ public class BookingLoginPanelTest implements MainFrameBarsTest {
         if(candidateBookingNumber[bn].isBlank() ||
                 !PassengerFlightReader.bookingValid(candidateBookingNumber[bn])){
                     assertAll("proper warning",
-                            () -> assertEquals("Invalid booking number!", bookingLoginPanel.getBookingNumberTextField().getText()),
-                            () -> assertEquals(new Color(205,92,92), bookingLoginPanel.getBookingNumberTextField().getForeground()),
-                            () -> assertEquals(new Font("Arial", Font.ITALIC, 25), bookingLoginPanel.getBookingNumberTextField().getFont())
+                            () -> assertEquals("Invalid booking number!", bookingLoginPanel.getTfBookingNumber().getText()),
+                            () -> assertEquals(new Color(205,92,92), bookingLoginPanel.getTfBookingNumber().getForeground()),
+                            () -> assertEquals(new Font("Arial", Font.ITALIC, 25), bookingLoginPanel.getTfBookingNumber().getFont())
                     );
                     System.out.println("check-in failed\n----------------");
         }
@@ -75,7 +75,7 @@ public class BookingLoginPanelTest implements MainFrameBarsTest {
     @DisplayName("use other ways to check-in")
     @Test
     public void testAlternativeCheckIn(){
-        JButton altBtn = bookingLoginPanel.getAltButton();
+        JButton altBtn = bookingLoginPanel.getBtnAlt();
         altBtn.doClick();
         assertEquals(2, State.getPc());
     }
