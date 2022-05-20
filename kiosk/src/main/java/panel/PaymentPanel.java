@@ -243,10 +243,19 @@ public class PaymentPanel extends JPanel {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER)
                     btnPay.doClick();
-                else if (tfCreditId.getText().equals("Credit card ID")){
+                else if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE && tfCreditId.getText().equals("Credit card ID")){
                     tfCreditId.setText(null);
                     tfCreditId.setForeground(Color.WHITE);
                     errorWarning.setVisible(false);
+                }
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                if (tfCreditId.getText().isBlank()) {
+                    tfCreditId.setText("Credit card ID");
+                    tfCreditId.setCaretPosition(0);
+                    tfCreditId.setForeground(new Color(128, 0, 0));
                 }
             }
         });
