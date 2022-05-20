@@ -27,6 +27,10 @@ import java.util.TimerTask;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @version 5.0
+ * Get rid of 'cyy style'.
+ * @date 2022/5/20
+ *
  * @version 2.4
  * Create directory ./printer-output if not exists
  * @date 2022/4/14
@@ -69,16 +73,9 @@ import java.util.TimerTask;
 public class FinalPanel extends JPanel {
     private JLabel qrLabel;;
     private JLabel headline = new JLabel();
-    private JButton exit_begin = new JButton();
-    private JButton exit_system = new JButton();
-    private ImageIcon icon1_back = new ImageIcon("kiosk/icons/initial.png");
-    private Image img_back = icon1_back.getImage();
-    private Image newing_back = img_back.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_back = new ImageIcon(newing_back);
-    private ImageIcon icon1_exit = new ImageIcon("kiosk/icons/final_exit.png");
-    private Image img_exit = icon1_exit.getImage();
-    private Image newImg_exit = img_exit.getScaledInstance(80, 70, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_exit = new ImageIcon(newImg_exit);
+    private JButton btnContinue = new JButton();
+    private JButton btnExit = new JButton();
+
     public FinalPanel(){
         try {
             char columnInLetter = (char)(State.getSeatColumn() + (int)'A' - 1);
@@ -109,41 +106,43 @@ public class FinalPanel extends JPanel {
         headline.setBounds(250, 150, 1400, 203);
         add(headline);
 
-        exit_begin.setText("Continue check-in");
-        exit_begin.setForeground(Theme.getMainFontColor());
-        exit_begin.setFont(new Font("Arial", Font.PLAIN, 35));
-        exit_begin.setVerticalTextPosition(SwingConstants.BOTTOM);
-        exit_begin.setHorizontalTextPosition(SwingConstants.CENTER);
-        exit_begin.setBounds(500, 700, 350, 120);
-        exit_begin.setContentAreaFilled(false);
-        exit_begin.setBorderPainted(false);
-        exit_begin.addActionListener(e -> {
+        btnContinue.setText("Continue check-in");
+        btnContinue.setForeground(Theme.getMainFontColor());
+        btnContinue.setFont(new Font("Arial", Font.PLAIN, 35));
+        btnContinue.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btnContinue.setHorizontalTextPosition(SwingConstants.CENTER);
+        btnContinue.setBounds(500, 700, 350, 120);
+        btnContinue.setContentAreaFilled(false);
+        btnContinue.setBorderPainted(false);
+        btnContinue.setFocusPainted(false);
+        btnContinue.addActionListener(e -> {
             Clock.stopIdleTimer();
             State.setPc(3);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
         });
-        exit_begin.setIcon(icon_back);
-        exit_begin.setVisible(false);
-        add(exit_begin);
+        btnContinue.setIcon(new ImageIcon("kiosk/icons/finalContinue.png"));
+        btnContinue.setVisible(false);
+        add(btnContinue);
 
-        exit_system.setText("          Exit          ");
-        exit_system.setForeground(Theme.getMainFontColor());
-        exit_system.setVerticalTextPosition(SwingConstants.BOTTOM);
-        exit_system.setHorizontalTextPosition(SwingConstants.CENTER);
-        exit_system.setFont(new Font("Arial", Font.PLAIN, 35));
-        exit_system.setBounds(1100, 700, 350, 120);
-        exit_system.setContentAreaFilled(false);
-        exit_system.setBorderPainted(false);
-        exit_system.addActionListener(e -> {
+        btnExit.setText("          Exit          ");
+        btnExit.setForeground(Theme.getMainFontColor());
+        btnExit.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btnExit.setHorizontalTextPosition(SwingConstants.CENTER);
+        btnExit.setFont(new Font("Arial", Font.PLAIN, 35));
+        btnExit.setBounds(1100, 700, 350, 120);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setBorderPainted(false);
+        btnExit.setFocusPainted(false);
+        btnExit.addActionListener(e -> {
             Clock.stopIdleTimer();
             State.setPc(0);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
         });
-        exit_system.setIcon(icon_exit);
-        exit_system.setVisible(false);
-        add(exit_system);
+        btnExit.setIcon(new ImageIcon("kiosk/icons/finalExit.png"));
+        btnExit.setVisible(false);
+        add(btnExit);
 
         qrLabel = new JLabel("Get more information on your airline website");
         qrLabel.setForeground(Theme.getMainFontColor());
@@ -169,8 +168,8 @@ public class FinalPanel extends JPanel {
     }
     class MyTask2 extends TimerTask {
         public void run() {
-            exit_begin.setVisible(true);
-            exit_system.setVisible(true);
+            btnContinue.setVisible(true);
+            btnExit.setVisible(true);
         }
 
     }
@@ -188,7 +187,7 @@ public class FinalPanel extends JPanel {
         DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), "" + State.getSeatRow() + State.getColumnNum(), food[(int)State.getMeal() - 97], prefFood[0], prefFood[1], prefFood[2]);
     }
 
-    public JButton getExit_begin(){return exit_begin;}
+    public JButton getBtnContinue(){return btnContinue;}
 
-    public JButton getExit_system(){return exit_system;}
+    public JButton getBtnExit(){return btnExit;}
 }

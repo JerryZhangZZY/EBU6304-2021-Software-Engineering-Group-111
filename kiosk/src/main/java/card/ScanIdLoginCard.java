@@ -41,9 +41,7 @@ import java.util.List;
 public class ScanIdLoginCard extends JPanel {
 
     private JLabel lblScanningImg;
-
-    private JButton buttonScan;
-
+    private JButton btnScan;
     private JLabel lblError;
 
     public ScanIdLoginCard() {
@@ -56,13 +54,14 @@ public class ScanIdLoginCard extends JPanel {
         lblScanningImg.setIcon(new ImageIcon("kiosk/icons/scan.png"));
         add(lblScanningImg);
 
-        buttonScan = new JButton("Scan");
-        buttonScan.setBounds(235, 540, 300, 70);
-        buttonScan.setFont(new Font("Arial", Font.BOLD,35));
-        buttonScan.setBackground(Theme.getThemeColor());
-        buttonScan.setForeground(Theme.getMinorFontColor());
-        buttonScan.setBorderPainted(false);
-        add(buttonScan);
+        btnScan = new JButton("Scan");
+        btnScan.setBounds(235, 540, 300, 70);
+        btnScan.setFont(new Font("Arial", Font.BOLD,35));
+        btnScan.setBackground(Theme.getThemeColor());
+        btnScan.setForeground(Theme.getMinorFontColor());
+        btnScan.setBorderPainted(false);
+        btnScan.setFocusPainted(false);
+        add(btnScan);
 
         lblError = new JLabel("Scanning failed!");
         lblError.setBounds(235, 495, 300, 40);
@@ -80,7 +79,7 @@ public class ScanIdLoginCard extends JPanel {
             }
         });
 
-        buttonScan.addActionListener(new ActionListener() {
+        btnScan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<String> bookingNumList = getBookingNumByScanning();
@@ -123,8 +122,8 @@ public class ScanIdLoginCard extends JPanel {
         lblError.setVisible(false);
     }
 
-    public JButton getButtonScan() {
-        return buttonScan;
+    public JButton getBtnScan() {
+        return btnScan;
     }
 
     public JLabel getLblError() {

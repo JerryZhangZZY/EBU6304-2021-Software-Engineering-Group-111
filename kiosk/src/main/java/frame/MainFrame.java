@@ -97,15 +97,15 @@ import static java.lang.Thread.sleep;
 public class MainFrame extends JFrame {
 
     private JPanel topPanel;
-    private JLabel welcomeLabel;
-    private JButton exitButton;
+    private JLabel lblWelcome;
+    private JButton btnExit;
     private JPanel centerPanel;
     private JPanel bottomPanel;
-    private JButton backButton;
-    private JLabel satisflightLabel;
+    private JButton btnBack;
+    private JLabel lblSatisflight;
     private WelcomePanel welcomePanel;
-    private JLabel clock;
-    private JLabel timer;
+    private JLabel lblClock;
+    private JLabel lblTimer;
     private Toolkit container;
     private AWTEventListener mouseListener;
     private int mouseListenerFlag = 0;
@@ -154,29 +154,29 @@ public class MainFrame extends JFrame {
         topPanel.setLayout(null);
         add(topPanel);
 
-        welcomeLabel = new JLabel();
-        welcomeLabel.setFont(new Font("Arial", Font.PLAIN, 45));
-        welcomeLabel.setForeground(Theme.getMinorFontColor());
-        welcomeLabel.setBounds(50, 20, 1000, 60);
-        topPanel.add(welcomeLabel);
+        lblWelcome = new JLabel();
+        lblWelcome.setFont(new Font("Arial", Font.PLAIN, 45));
+        lblWelcome.setForeground(Theme.getMinorFontColor());
+        lblWelcome.setBounds(50, 20, 1000, 60);
+        topPanel.add(lblWelcome);
 
-        clock = new JLabel();
-        clock.setForeground(Theme.getMinorFontColor());
-        clock.setBounds(810, 20, 300, 60);
-        clock.setHorizontalAlignment(SwingConstants.CENTER);
-        clock.setFont(new Font("Arial", Font.BOLD, 30));
-        Clock.setClock(clock);
-        clock.setVisible(false);
-        topPanel.add(clock);
+        lblClock = new JLabel();
+        lblClock.setForeground(Theme.getMinorFontColor());
+        lblClock.setBounds(810, 20, 300, 60);
+        lblClock.setHorizontalAlignment(SwingConstants.CENTER);
+        lblClock.setFont(new Font("Arial", Font.BOLD, 30));
+        Clock.setClock(lblClock);
+        lblClock.setVisible(false);
+        topPanel.add(lblClock);
 
-        timer = new JLabel();
-        timer.setForeground(Theme.getMinorFontColor());
-        timer.setBounds(1680, 20, 100, 60);
-        timer.setHorizontalAlignment(SwingConstants.TRAILING);
-        timer.setFont(new Font("Arial", Font.BOLD, 45));
-        timer.setVisible(false);
-        Clock.loadTimer(timer);
-        topPanel.add(timer);
+        lblTimer = new JLabel();
+        lblTimer.setForeground(Theme.getMinorFontColor());
+        lblTimer.setBounds(1680, 20, 100, 60);
+        lblTimer.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblTimer.setFont(new Font("Arial", Font.BOLD, 45));
+        lblTimer.setVisible(false);
+        Clock.loadTimer(lblTimer);
+        topPanel.add(lblTimer);
 
         container = Toolkit.getDefaultToolkit();
         mouseListener = new AWTEventListener() {
@@ -187,13 +187,14 @@ public class MainFrame extends JFrame {
             }
         };
 
-        exitButton = new JButton();
-        exitButton.setRequestFocusEnabled(false);
-        exitButton.setContentAreaFilled(false);
-        exitButton.setBorderPainted(false);
-        exitButton.setIcon(new ImageIcon("kiosk/icons/exit.png"));
-        exitButton.setBounds(1815, 12, 80, 70);
-        exitButton.addActionListener(new ActionListener() {
+        btnExit = new JButton();
+        btnExit.setRequestFocusEnabled(false);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setBorderPainted(false);
+        btnExit.setIcon(new ImageIcon("kiosk/icons/exit.png"));
+        btnExit.setBounds(1815, 12, 80, 70);
+        btnExit.setFocusPainted(false);
+        btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 /*
@@ -212,7 +213,7 @@ public class MainFrame extends JFrame {
                 }
             }
         });
-        topPanel.add(exitButton);
+        topPanel.add(btnExit);
         /*
          * main panel that holds other panels
          * use centerPanel.add(JPanel panel) to add components
@@ -231,17 +232,18 @@ public class MainFrame extends JFrame {
         add(bottomPanel);
         bottomPanel.setLayout(null);
 
-        backButton = new JButton();
-        backButton.setContentAreaFilled(false);
-        backButton.setBorderPainted(false);
-        backButton.setBounds(25, 11, 80, 80);
+        btnBack = new JButton();
+        btnBack.setContentAreaFilled(false);
+        btnBack.setBorderPainted(false);
+        btnBack.setBounds(25, 11, 80, 80);
         ImageIcon backIcon = new ImageIcon("kiosk/icons/back.png");
         backIcon.setImage(backIcon.getImage().getScaledInstance(80, 70, Image.SCALE_SMOOTH));
-        backButton.setIcon(backIcon);
-        backButton.addActionListener(new ActionListener() {
+        btnBack.setIcon(backIcon);
+        btnBack.setFocusPainted(false);
+        btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                backButton.setEnabled(false);
+                btnBack.setEnabled(false);
                 switch (State.getPc()) {
                     case 2://alt ID
                         break;
@@ -257,14 +259,14 @@ public class MainFrame extends JFrame {
                 State.setPc(State.getPc() - 1);
             }
         });
-        bottomPanel.add(backButton);
+        bottomPanel.add(btnBack);
 
-        satisflightLabel = new JLabel("Satisflight Check-in System");
-        satisflightLabel.setBounds(1350, 10, 550, 80);
-        satisflightLabel.setFont(new Font("Arial", Font.PLAIN, 40));
-        satisflightLabel.setForeground(Theme.getMinorFontColor());
-        satisflightLabel.setIcon(new ImageIcon("kiosk/icons/satisflight.png"));
-        bottomPanel.add(satisflightLabel);
+        lblSatisflight = new JLabel("Satisflight Check-in System");
+        lblSatisflight.setBounds(1350, 10, 550, 80);
+        lblSatisflight.setFont(new Font("Arial", Font.PLAIN, 40));
+        lblSatisflight.setForeground(Theme.getMinorFontColor());
+        lblSatisflight.setIcon(new ImageIcon("kiosk/icons/satisflight.png"));
+        bottomPanel.add(lblSatisflight);
     }
 
     /**
@@ -304,12 +306,12 @@ public class MainFrame extends JFrame {
      * @param back back button
      */
     public void displayComponents(Boolean welcome, Boolean exit, Boolean back){
-        welcomeLabel.setVisible(welcome);
-        exitButton.setVisible(exit);
-        backButton.setVisible(back);
+        lblWelcome.setVisible(welcome);
+        btnExit.setVisible(exit);
+        btnBack.setVisible(back);
     }
     public void showClock(Boolean flag){
-        clock.setVisible(flag);
+        lblClock.setVisible(flag);
     }
 
     /**
@@ -317,14 +319,14 @@ public class MainFrame extends JFrame {
      */
     public void setWelcomeText(){
         showClock(true);
-        welcomeLabel.setText("Welcome, " + State.getPassengerName());
+        lblWelcome.setText("Welcome, " + State.getPassengerName());
     }
 
     /**
      * reset welcome text to default when passenger's name is not available
      */
     public void resetWelcomeText() {
-        welcomeLabel.setText(
+        lblWelcome.setText(
                 "Welcome to " + Config.readConfig(("airportName")) + "!");
     }
 
@@ -360,7 +362,7 @@ public class MainFrame extends JFrame {
                 centerPanel.remove(centerPanel.getComponent(0));
                 repaint();
                 revalidate();
-                backButton.setEnabled(true);
+                btnBack.setEnabled(true);
             }
         });
         thread.start();
@@ -389,7 +391,7 @@ public class MainFrame extends JFrame {
                 centerPanel.remove(centerPanel.getComponent(0));
                 repaint();
                 revalidate();
-                backButton.setEnabled(true);
+                btnBack.setEnabled(true);
             }
         });
         thread.start();
@@ -451,13 +453,13 @@ public class MainFrame extends JFrame {
     public void refreshColor() {
         UIManager.put("Button.select", Theme.getButtonPressedColor());
         topPanel.setBackground(Theme.getThemeColor());
-        welcomeLabel.setForeground(Theme.getMinorFontColor());
-        welcomeLabel.setForeground(Theme.getMinorFontColor());
-        clock.setForeground(Theme.getMinorFontColor());
-        timer.setForeground(Theme.getMinorFontColor());
+        lblWelcome.setForeground(Theme.getMinorFontColor());
+        lblWelcome.setForeground(Theme.getMinorFontColor());
+        lblClock.setForeground(Theme.getMinorFontColor());
+        lblTimer.setForeground(Theme.getMinorFontColor());
         centerPanel.setBackground(Theme.getBackgroundColor());
         bottomPanel.setBackground(Theme.getThemeColor());
-        satisflightLabel.setForeground(Theme.getMinorFontColor());
+        lblSatisflight.setForeground(Theme.getMinorFontColor());
     }
 
     public void mouseListener(){
@@ -476,11 +478,11 @@ public class MainFrame extends JFrame {
         }
     }
 
-    public JButton getExitButton() {
-        return exitButton;
+    public JButton getBtnExit() {
+        return btnExit;
     }
 
-    public JButton getBackButton() {
-        return backButton;
+    public JButton getBtnBack() {
+        return btnBack;
     }
 }

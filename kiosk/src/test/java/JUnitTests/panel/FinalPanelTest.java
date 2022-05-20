@@ -57,7 +57,7 @@ public class FinalPanelTest {
         State.setMeal(food[random.nextInt(3)]);
         State.setPassengerFlight_index(0);
         FinalPanel finalPanel = new FinalPanel();
-        JButton exit = finalPanel.getExit_begin();
+        JButton exit = finalPanel.getBtnContinue();
         exit.doClick();
         assertEquals(3, State.getPc());
         System.out.println("continue checking-in");
@@ -79,7 +79,7 @@ public class FinalPanelTest {
         State.setMeal(food[random.nextInt(3)]);
         State.setPassengerFlight_index(0);
         FinalPanel finalPanel = new FinalPanel();
-        JButton exit = finalPanel.getExit_system();
+        JButton exit = finalPanel.getBtnExit();
         exit.doClick();
         assertEquals(0, State.getPc());
         System.out.println("quit");

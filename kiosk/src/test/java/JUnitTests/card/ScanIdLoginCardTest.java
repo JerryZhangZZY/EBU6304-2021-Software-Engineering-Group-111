@@ -29,7 +29,7 @@ public class ScanIdLoginCardTest implements MainFrameBarsTest {
     IdLoginPanel panel = new IdLoginPanel();
     TypeIdLoginCard ref = panel.getTypeIdLoginCard();
     ScanIdLoginCard card = panel.getScanIdLoginCard();
-    JButton btn = card.getButtonScan();
+    JButton btn = card.getBtnScan();
     JLabel lbl = card.getLblError();
     String id = IdCardReader.readId();
     String name = IdCardReader.readName();
