@@ -67,7 +67,6 @@ public final class BarCode_QRCodeGenerator {
             bitMatrix = new MultiFormatWriter().encode(text,
                     BarcodeFormat.QR_CODE, width, height, hints);
         } catch (WriterException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return bitMatrix;
@@ -87,7 +86,6 @@ public final class BarCode_QRCodeGenerator {
                 writeToFile(matrix, format, file);
                 return true;
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
