@@ -8,9 +8,7 @@ import panel.WelcomePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.AWTEventListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 import static java.lang.Thread.sleep;
 
@@ -24,6 +22,10 @@ import static java.lang.Thread.sleep;
  * @author wcy
  * @author Zhang Zeyu
  * @author Ni Ruijie
+ *
+ * @version 5.0
+ * Support AboutSatisflight.
+ * @date 2022/5/21
  *
  * @version 4.2
  * Added no-operation detection
@@ -265,7 +267,15 @@ public class MainFrame extends JFrame {
         lblSatisflight.setBounds(1350, 10, 550, 80);
         lblSatisflight.setFont(new Font("Arial", Font.PLAIN, 40));
         lblSatisflight.setForeground(Theme.getMinorFontColor());
-        lblSatisflight.setIcon(new ImageIcon("kiosk/icons/satisflight.png"));
+        Image logoImage = new ImageIcon("kiosk/icons/satisflight.png").getImage().getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        lblSatisflight.setIcon(new ImageIcon(logoImage));
+        lblSatisflight.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                callAboutSatisflight();
+            }
+        });
         bottomPanel.add(lblSatisflight);
     }
 
@@ -446,8 +456,12 @@ public class MainFrame extends JFrame {
     /**
      * calling of admin console
      */
-    private void callAdminConsole(){
-        AdminConsole adminConsole = new AdminConsole(this);
+    private void callAdminConsole() {
+        new AdminConsole(this);
+    }
+
+    private void callAboutSatisflight() {
+        new AboutSatisflight(this);
     }
 
     public void refreshColor() {
