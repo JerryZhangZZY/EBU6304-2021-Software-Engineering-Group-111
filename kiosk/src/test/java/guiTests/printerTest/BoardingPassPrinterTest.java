@@ -14,7 +14,7 @@ import java.io.IOException;
 public class BoardingPassPrinterTest {
     public static void main(String[] args) {
        try {
-           BoardingPassPrinter.creatBoardingPass(1,"23A");
+           BoardingPassPrinter.creatBoardingPass(1);
        }
        catch (IOException e) {
            e.printStackTrace();

@@ -28,7 +28,7 @@ public class BoardingPassPrinterTest {
         System.out.println("column: "+column);
         System.out.println("column in letter: "+columnInLetter);
         System.out.println("row: "+row);
-        BoardingPassPrinter.creatBoardingPass(index, Integer.toString(row)+columnInLetter);
+        BoardingPassPrinter.creatBoardingPass(index);
         String filePath = BoardingPassPrinter.getFilePath();
         File file = new File(filePath);
         assertTrue(file.exists());

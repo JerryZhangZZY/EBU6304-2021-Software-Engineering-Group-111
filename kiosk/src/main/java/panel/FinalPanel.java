@@ -83,7 +83,7 @@ public class FinalPanel extends JPanel {
                 Files.createDirectory(Path.of("printer-output"));
             }
             BarCode_QRCodeGenerator.generateQRcode(State.getPassengerFlight_index());
-            BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index(), Integer.toString(State.getSeatRow())+columnInLetter);
+            BoardingPassPrinter.creatBoardingPass(State.getPassengerFlight_index());
             TagPrinter.creatTag(State.getPassengerFlight_index());
             TicketPrinter.creatTicket(State.getPassengerFlight_index());
         }
