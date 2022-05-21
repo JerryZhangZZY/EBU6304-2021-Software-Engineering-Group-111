@@ -267,13 +267,14 @@ public class SeatSelectionPanel extends JPanel {
         sp.setBounds(1220, 50, 330, 570);
         add(sp);
 
-        btnFold.setBorderPainted(false);
         btnFold.setBounds(0, 555, 330, 15);
         btnFold.setText("▲ more aircraft information    ");
         btnFold.setFont(new Font("Arial", Font.PLAIN, 20));
         btnFold.setForeground(Theme.getTertiaryFontColor());
         btnFold.setContentAreaFilled(false);
         btnFold.setHorizontalAlignment(SwingConstants.CENTER);
+        btnFold.setBorderPainted(false);
+        btnFold.setFocusPainted(false);
         btnFold.addActionListener(new FolderListener());
         sp.add(btnFold);
 
@@ -303,6 +304,7 @@ public class SeatSelectionPanel extends JPanel {
         btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
         btnOK.setBorderPainted(false);
+        btnOK.setFocusPainted(false);
         add(btnOK);
     }
 

@@ -98,10 +98,18 @@ public class PaymentPanel extends JPanel {
         panelUnionPay.add(panelInput);
         panelInput.setLayout(null);
 
+        /*
+        Use to move focus
+         */
+        JTextField tf = new JTextField();
+        tf.setBounds(-1, -1, 0, 0);
+        add(tf);
+
         tfCreditId = new JTextField();
         tfCreditId.setText("Credit card ID");
         tfCreditId.setForeground(new Color(128, 0, 0));
         tfCreditId.setBackground(new Color(165, 42, 42));
+        tfCreditId.setCaretColor(Color.LIGHT_GRAY);
         tfCreditId.setFont(new Font("Arial", Font.BOLD, 35));
         tfCreditId.setBorder(null);
         tfCreditId.setBounds(68, 10, 270, 40);

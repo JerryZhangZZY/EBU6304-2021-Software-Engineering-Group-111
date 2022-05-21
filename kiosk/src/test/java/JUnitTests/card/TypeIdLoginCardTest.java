@@ -38,7 +38,7 @@ public class TypeIdLoginCardTest implements MainFrameBarsTest {
     JTextField idTF = card.getTfId();
     JTextField nameTF = card.getTfSurname();
     JLabel errLbl = card.getLblError();
-    JButton okBtn = card.getButtonOk();
+    JButton okBtn = card.getBtnOk();
     int currentPc;
 
     @BeforeEach

@@ -22,6 +22,10 @@ import java.util.List;
  * @author Zhang Zeyu
  * @author zaitian
  *
+ * @version 5.0
+ * Highlight focus on text field.
+ * @date 2022/5/20
+ *
  * @version 2.1
  * setBookingNum() -> setBookingNumList.
  * @date 2022/4/10
@@ -41,7 +45,7 @@ import java.util.List;
 public class TypeIdLoginCard extends JPanel {
     private JLabel lblSurname;
     private JLabel lblId;
-    private JButton buttonOk;
+    private JButton btnOk;
     private JTextField tfSurname;
     private JTextField tfId;
     private JLabel vertical;
@@ -63,6 +67,13 @@ public class TypeIdLoginCard extends JPanel {
         lblId.setForeground(Theme.getMainFontColor());
         add(lblId);
 
+        /*
+        Just use to force focus
+         */
+        JTextField tf = new JTextField();
+        tf.setBounds(-1, -1, 0, 0);
+        add(tf);
+
         tfSurname = new JTextField();
         tfSurname.setFont(new Font("Arial", Font.PLAIN,35));
         tfSurname.setBackground(Theme.getCardColor());
@@ -71,6 +82,7 @@ public class TypeIdLoginCard extends JPanel {
         tfSurname.setHorizontalAlignment(SwingConstants.CENTER);
         tfSurname.setColumns(20);
         tfSurname.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+        tfSurname.setCaretColor(Theme.getTertiaryFontColor());
         add(tfSurname);
 
         tfId = new JTextField();
@@ -81,15 +93,17 @@ public class TypeIdLoginCard extends JPanel {
         tfId.setHorizontalAlignment(SwingConstants.CENTER);
         tfId.setColumns(10);
         tfId.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+        tfId.setCaretColor(Theme.getTertiaryFontColor());
         add(tfId);
 
-        buttonOk = new JButton("OK");
-        buttonOk.setFont(new Font("Arial", Font.BOLD,35));
-        buttonOk.setBackground(Theme.getThemeColor());
-        buttonOk.setForeground(Theme.getMinorFontColor());
-        buttonOk.setBounds(375,540,400,70);
-        buttonOk.setBorderPainted(false);
-        add(buttonOk);
+        btnOk = new JButton("OK");
+        btnOk.setFont(new Font("Arial", Font.BOLD,35));
+        btnOk.setBackground(Theme.getThemeColor());
+        btnOk.setForeground(Theme.getMinorFontColor());
+        btnOk.setBounds(375,540,400,70);
+        btnOk.setBorderPainted(false);
+        btnOk.setFocusPainted(false);
+        add(btnOk);
 
         vertical = new JLabel();
         vertical.setBounds(1145, 40, 5, 800);
@@ -127,9 +141,10 @@ public class TypeIdLoginCard extends JPanel {
             }
         });
 
-        buttonOk.addActionListener(new ActionListener() {
+        btnOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                resetBorder();
                 List<String> bookingNumList = getBookingNumByTyping(tfSurname.getText(), tfId.getText());
                 if (bookingNumList.size() == 3)
                     lblError.setVisible(true);
@@ -143,6 +158,42 @@ public class TypeIdLoginCard extends JPanel {
                 }
             }
         });
+
+        tfSurname.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfSurname.setBorder(new LineBorder(Theme.getThemeColor(), 4));
+                tfId.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+            }
+        });
+
+        tfId.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfId.setBorder(new LineBorder(Theme.getThemeColor(), 4));
+                tfSurname.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+            }
+        });
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                resetBorder();
+                lblError.setVisible(false);
+                requestFocus();
+            }
+        });
+    }
+
+    /**
+     * Reset border of tfSurname and tfId to original.
+     */
+    public void resetBorder() {
+        tfSurname.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+        tfId.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
     }
 
     /**
@@ -175,8 +226,8 @@ public class TypeIdLoginCard extends JPanel {
         lblError.setVisible(false);
     }
 
-    public JButton getButtonOk() {
-        return buttonOk;
+    public JButton getBtnOk() {
+        return btnOk;
     }
 
     public JTextField getTfSurname() {

@@ -104,6 +104,7 @@ public class BillConfirmationPanel extends JPanel {
         btnConfirm.setBackground(Theme.getThemeColor());
         btnConfirm.addActionListener(new ConfirmListener());
         btnConfirm.setBorderPainted(false);
+        btnConfirm.setFocusPainted(false);
         add(btnConfirm);
 
         lblInstruction = new JLabel();

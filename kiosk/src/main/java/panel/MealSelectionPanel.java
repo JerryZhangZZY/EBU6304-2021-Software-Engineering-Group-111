@@ -83,6 +83,7 @@ public class MealSelectionPanel extends JPanel {
         btnOK.setBackground(Theme.getThemeColor());
         btnOK.addActionListener(okListener);
         btnOK.setBorderPainted(false);
+        btnOK.setFocusPainted(false);
         add(btnOK);
     }
 

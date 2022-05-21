@@ -18,6 +18,11 @@ import java.util.List;
  * @author zaitian
  * @author Zhang Zeyu
  *
+ * @version 5.0
+ * Highlight focus on text field.
+ * Appearance improvement.
+ * @date 2022/5/20
+ *
  * @version 4.0
  * change error hint cancelling logic
  * @date 5/20
@@ -54,15 +59,15 @@ import java.util.List;
 
 public class BookingLoginPanel extends JPanel {
     private JPanel textPanel;
-    private JLabel instructLabel;
+    private JLabel lblInstruction;
     private JPanel InputPanel;
-    private JTextField bookingNumberTextField;
+    private JTextField tfBookingNumber;
     private JPanel buttonPanel;
-    private JButton okButton;
-    private JButton altButton;
+    private JButton btnOk;
+    private JButton btnAlt;
     private JSeparator separator1;
     private JSeparator separator2;
-    private JLabel orLabel;
+    private JLabel lblOR;
 
     /**
      * Create the panel.
@@ -80,12 +85,12 @@ public class BookingLoginPanel extends JPanel {
         textPanel.setLayout(null);
         add(textPanel);
 
-        instructLabel = new JLabel("Please enter your booking number");
-        instructLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        instructLabel.setFont(new Font("Arial", Font.PLAIN, 50));
-        instructLabel.setForeground(Theme.getMainFontColor());
-        instructLabel.setBounds(560, 200, 800, 80);
-        textPanel.add(instructLabel);
+        lblInstruction = new JLabel("Please enter your booking number");
+        lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
+        lblInstruction.setFont(new Font("Arial", Font.PLAIN, 50));
+        lblInstruction.setForeground(Theme.getMainFontColor());
+        lblInstruction.setBounds(560, 200, 800, 80);
+        textPanel.add(lblInstruction);
         /*
          * input panel
          */
@@ -95,15 +100,16 @@ public class BookingLoginPanel extends JPanel {
         InputPanel.setLayout(null);
         add(InputPanel);
 
-        bookingNumberTextField = new JTextField();
-        bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
-        bookingNumberTextField.setBounds(760, 60, 400, 70);
-        bookingNumberTextField.setForeground(Theme.getMainFontColor());
-        bookingNumberTextField.setBackground(Theme.getCardColor());
-        bookingNumberTextField.setColumns(10);
-        bookingNumberTextField.setHorizontalAlignment(SwingConstants.CENTER);
-        bookingNumberTextField.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
-        InputPanel.add(bookingNumberTextField);
+        tfBookingNumber = new JTextField();
+        tfBookingNumber.setFont(new Font("Arial", Font.PLAIN, 35));
+        tfBookingNumber.setBounds(760, 60, 400, 70);
+        tfBookingNumber.setForeground(Theme.getMainFontColor());
+        tfBookingNumber.setBackground(Theme.getCardColor());
+        tfBookingNumber.setColumns(10);
+        tfBookingNumber.setHorizontalAlignment(SwingConstants.CENTER);
+        tfBookingNumber.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+        tfBookingNumber.setCaretColor(Theme.getTertiaryFontColor());
+        InputPanel.add(tfBookingNumber);
 
         /*
          * button panel
@@ -114,21 +120,23 @@ public class BookingLoginPanel extends JPanel {
         buttonPanel.setLayout(null);
         add(buttonPanel);
 
-        okButton = new JButton("OK");
-        okButton.setFont(new Font("Arial", Font.BOLD, 35));
-        okButton.setForeground(Theme.getMinorFontColor());
-        okButton.setBackground(Theme.getThemeColor());
-        okButton.setBounds(760, 10, 400, 70);
-        okButton.setBorderPainted(false);
-        buttonPanel.add(okButton);
+        btnOk = new JButton("OK");
+        btnOk.setFont(new Font("Arial", Font.BOLD, 35));
+        btnOk.setForeground(Theme.getMinorFontColor());
+        btnOk.setBackground(Theme.getThemeColor());
+        btnOk.setBounds(760, 10, 400, 70);
+        btnOk.setBorderPainted(false);
+        btnOk.setFocusPainted(false);
+        buttonPanel.add(btnOk);
 
-        altButton = new JButton("Use my ID");
-        altButton.setFont(new Font("Arial", Font.PLAIN, 30));
-        altButton.setForeground(Theme.getMainFontColor());
-        altButton.setBackground(Theme.getBackgroundColor());
-        altButton.setBounds(760, 161, 400, 70);
-        altButton.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
-        buttonPanel.add(altButton);
+        btnAlt = new JButton("Use my ID");
+        btnAlt.setFont(new Font("Arial", Font.PLAIN, 30));
+        btnAlt.setForeground(Theme.getMainFontColor());
+        btnAlt.setBackground(Theme.getBackgroundColor());
+        btnAlt.setBounds(760, 161, 400, 70);
+        btnAlt.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+        btnAlt.setFocusPainted(false);
+        buttonPanel.add(btnAlt);
 
         separator1 = new JSeparator();
         separator1.setBounds(560, 120, 360, 2);
@@ -142,40 +150,43 @@ public class BookingLoginPanel extends JPanel {
         separator2.setBackground(Theme.getSecondaryFontColor());
         buttonPanel.add(separator2);
 
-        orLabel = new JLabel("OR");
-        orLabel.setForeground(Theme.getSecondaryFontColor());
-        orLabel.setFont(new Font("Arial", Font.ITALIC, 20));
-        orLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        orLabel.setBounds(931, 100, 60, 40);
-        buttonPanel.add(orLabel);
+        lblOR = new JLabel("OR");
+        lblOR.setForeground(Theme.getSecondaryFontColor());
+        lblOR.setFont(new Font("Arial", Font.ITALIC, 20));
+        lblOR.setHorizontalAlignment(SwingConstants.CENTER);
+        lblOR.setBounds(931, 100, 60, 40);
+        buttonPanel.add(lblOR);
 
 
-        okButton.addActionListener(new ActionListener() {
+        btnOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(bookingNumberTextField.getText().isBlank() || !PassengerFlightReader.bookingValid(bookingNumberTextField.getText())){
+                tfBookingNumber.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+                if(tfBookingNumber.getText().isBlank() || !PassengerFlightReader.bookingValid(tfBookingNumber.getText())){
                     setWaring();
                 }
                 else {
                     List<String> bookingNumList = new ArrayList<>();
-                    bookingNumList.add(bookingNumberTextField.getText());
+                    bookingNumList.add(tfBookingNumber.getText());
                     State.setBookingNumList(bookingNumList);
-                    State.setPassengerName(PassengerFlightReader.getPassengerNameByBookingNum(bookingNumberTextField.getText()));
+                    State.setPassengerName(PassengerFlightReader.getPassengerNameByBookingNum(tfBookingNumber.getText()));
                     reset();
                     State.setPc(3);
                 }
             }
         });
 
-        altButton.addActionListener(new ActionListener() {
+        btnAlt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                tfBookingNumber.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
                 reset();
                 State.setPc(2);
                 UIManager.put("Button.select", Theme.getButtonPressedColor());
             }
         });
-        altButton.addMouseListener(new MouseAdapter() {
+
+        btnAlt.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
@@ -188,50 +199,70 @@ public class BookingLoginPanel extends JPanel {
             }
         });
 
-        bookingNumberTextField.addMouseListener(new MouseAdapter() {
+        tfBookingNumber.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                if(bookingNumberTextField.getForeground().equals(new Color(205,92,92))) {
+                if(tfBookingNumber.getForeground().equals(new Color(205,92,92))) {
                     reset();
                 }
             }
         });
-        bookingNumberTextField.addKeyListener(new KeyAdapter() {
+
+        tfBookingNumber.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
                 if (e.getKeyCode() == KeyEvent.VK_ENTER)
-                    okButton.doClick();
-                else if (bookingNumberTextField.getForeground().equals(new Color(205,92,92))){
+                    btnOk.doClick();
+                else if (tfBookingNumber.getForeground().equals(new Color(205,92,92))){
                     reset();
                 }
+            }
+        });
+
+        tfBookingNumber.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfBookingNumber.setBorder(new LineBorder(Theme.getThemeColor(), 4));
+            }
+        });
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                tfBookingNumber.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
+                if (tfBookingNumber.getForeground().equals(new Color(205,92,92)))
+                    reset();
+                requestFocus();
             }
         });
     }
 
     public void reset() {
-        bookingNumberTextField.setText("");
-        bookingNumberTextField.setFont(new Font("Arial", Font.PLAIN, 35));
-        bookingNumberTextField.setForeground(Color.BLACK);
+        tfBookingNumber.setText("");
+        tfBookingNumber.setFont(new Font("Arial", Font.PLAIN, 35));
+        tfBookingNumber.setForeground(Color.BLACK);
     }
 
     public void setWaring() {
-        bookingNumberTextField.setFont(new Font("Arial", Font.ITALIC, 25));
-        bookingNumberTextField.setText("Invalid booking number!");
-        bookingNumberTextField.setCaretPosition(0);
-        bookingNumberTextField.setForeground(new Color(205,92,92));
+        tfBookingNumber.setFont(new Font("Arial", Font.ITALIC, 25));
+        tfBookingNumber.setText("Invalid booking number!");
+        tfBookingNumber.setCaretPosition(0);
+        tfBookingNumber.setForeground(new Color(205,92,92));
     }
 
-    public JTextField getBookingNumberTextField() {
-        return bookingNumberTextField;
+    public JTextField getTfBookingNumber() {
+        return tfBookingNumber;
     }
 
-    public JButton getOkButton() {
-        return okButton;
+    public JButton getBtnOk() {
+        return btnOk;
     }
 
-    public JButton getAltButton() {
-        return altButton;
+    public JButton getBtnAlt() {
+        return btnAlt;
     }
 }

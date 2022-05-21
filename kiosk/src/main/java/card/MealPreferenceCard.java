@@ -94,6 +94,7 @@ public class MealPreferenceCard extends JPanel {
         pref[i].setIcon(new IconRadioButton(30, false));
         pref[i].setSelectedIcon(new IconRadioButton(30, true));
         pref[i].addItemListener(prefListener);
+        pref[i].setFocusPainted(false);
         add(pref[i]);
 
         JLabel lblPrice = new JLabel("$" + price[i]);

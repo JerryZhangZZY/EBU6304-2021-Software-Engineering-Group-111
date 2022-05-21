@@ -20,7 +20,7 @@ public interface MainFrameBarsTest {
      * @param mainFrame the main frame used in a certain test class
      */
     default void doExit(MainFrame mainFrame){
-        JButton exitBtn = mainFrame.getExitButton();
+        JButton exitBtn = mainFrame.getBtnExit();
         exitBtn.doClick();
         assertEquals(0, State.getPc());
     }
@@ -30,7 +30,7 @@ public interface MainFrameBarsTest {
      * @param currentPC pc at that time when method is called
      */
     default void doBack(MainFrame mainFrame, int currentPC){
-        JButton backBtn = mainFrame.getBackButton();
+        JButton backBtn = mainFrame.getBtnBack();
         backBtn.doClick();
         assertEquals (currentPC-1, State.getPc());
     }
