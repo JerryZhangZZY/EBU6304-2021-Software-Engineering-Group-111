@@ -12,7 +12,10 @@ import printer.TagPrinter;
 import printer.TicketPrinter;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Timer;
@@ -103,16 +106,14 @@ public class FinalPanel extends JPanel {
         headline.setHorizontalAlignment(JLabel.CENTER);
         headline.setFont(new Font("Helvetica", Font.BOLD, 50));
         headline.setForeground(Theme.getMainFontColor());
-        headline.setBounds(250, 150, 1400, 203);
+        headline.setBounds(250, 100, 1400, 203);
         add(headline);
 
         btnContinue.setText("Continue check-in");
-        btnContinue.setForeground(Theme.getMainFontColor());
+        btnContinue.setForeground(Theme.getMinorFontColor());
+        btnContinue.setBackground(Theme.getThemeColor());
         btnContinue.setFont(new Font("Arial", Font.PLAIN, 35));
-        btnContinue.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btnContinue.setHorizontalTextPosition(SwingConstants.CENTER);
-        btnContinue.setBounds(500, 700, 350, 120);
-        btnContinue.setContentAreaFilled(false);
+        btnContinue.setBounds(450, 650, 400, 70);
         btnContinue.setBorderPainted(false);
         btnContinue.setFocusPainted(false);
         btnContinue.addActionListener(e -> {
@@ -121,32 +122,41 @@ public class FinalPanel extends JPanel {
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
         });
-        btnContinue.setIcon(new ImageIcon("kiosk/icons/finalContinue.png"));
         btnContinue.setVisible(false);
         add(btnContinue);
 
         btnExit.setText("          Exit          ");
         btnExit.setForeground(Theme.getMainFontColor());
-        btnExit.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btnExit.setHorizontalTextPosition(SwingConstants.CENTER);
+        btnExit.setBackground(Theme.getBackgroundColor());
+        btnExit.setBorder(new LineBorder(Theme.getTertiaryFontColor(), 2));
         btnExit.setFont(new Font("Arial", Font.PLAIN, 35));
-        btnExit.setBounds(1100, 700, 350, 120);
-        btnExit.setContentAreaFilled(false);
-        btnExit.setBorderPainted(false);
+        btnExit.setBounds(1050, 650, 400, 70);
         btnExit.setFocusPainted(false);
         btnExit.addActionListener(e -> {
+            UIManager.put("Button.select", Theme.getButtonPressedColor());
             Clock.stopIdleTimer();
             State.setPc(0);
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
         });
-        btnExit.setIcon(new ImageIcon("kiosk/icons/finalExit.png"));
+        btnExit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                UIManager.put("Button.select", Theme.getAltButtonPressedColor());
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                UIManager.put("Button.select", Theme.getButtonPressedColor());
+            }
+        });
         btnExit.setVisible(false);
         add(btnExit);
 
         qrLabel = new JLabel("Get more information on your airline website");
         qrLabel.setForeground(Theme.getMainFontColor());
-        qrLabel.setBounds(700, 350, 500, 300);
+        qrLabel.setBounds(700, 300, 500, 300);
         qrLabel.setFont(new Font("Arial", Font.PLAIN, 25));
         qrLabel.setIcon(new ImageIcon("printer-output/qrcode.jpg"));
         qrLabel.setHorizontalAlignment(SwingConstants.CENTER);
