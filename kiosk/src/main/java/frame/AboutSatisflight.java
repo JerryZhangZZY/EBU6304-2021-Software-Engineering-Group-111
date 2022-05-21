@@ -43,6 +43,7 @@ public class AboutSatisflight extends JFrame {
     public AboutSatisflight(JFrame frameParent) {
         frameParent.setEnabled(false);
 
+        setIconImage(new ImageIcon("kiosk/icons/satisflight.png").getImage());
         setBounds((1920 - width - 4) / 2, (1080 - height - 4) / 2, width + 4, height + 4);
         setUndecorated(true);
         setAlwaysOnTop(true);

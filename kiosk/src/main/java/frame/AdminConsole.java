@@ -24,6 +24,7 @@ public class AdminConsole extends JFrame {
     JPanel contentPane = new JPanel();
 
     public AdminConsole(JFrame parent){
+        setIconImage(new ImageIcon("kiosk/icons/satisflight.png").getImage());
         setBounds(new Rectangle(720, 360, 480, 270));
         setSize(480, 270);
         setUndecorated(true);
