@@ -9,6 +9,8 @@ import panel.WelcomePanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.TimerTask;
+import java.util.Timer;
 
 import static java.lang.Thread.sleep;
 
@@ -22,6 +24,11 @@ import static java.lang.Thread.sleep;
  * @author wcy
  * @author Zhang Zeyu
  * @author Ni Ruijie
+ * @author Liang Zhehao
+ *
+ * @version 5.1
+ * Add AboutListener
+ * @date 2022/5/22
  *
  * @version 5.0
  * Support AboutSatisflight.
@@ -263,19 +270,15 @@ public class MainFrame extends JFrame {
         });
         bottomPanel.add(btnBack);
 
+        AboutListener aboutListener = new AboutListener();
+
         lblSatisflight = new JLabel("Satisflight Check-in System");
         lblSatisflight.setBounds(1350, 10, 550, 80);
         lblSatisflight.setFont(new Font("Arial", Font.PLAIN, 40));
         lblSatisflight.setForeground(Theme.getMinorFontColor());
         Image logoImage = new ImageIcon("kiosk/icons/satisflight.png").getImage().getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
         lblSatisflight.setIcon(new ImageIcon(logoImage));
-        lblSatisflight.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                callAboutSatisflight();
-            }
-        });
+        lblSatisflight.addMouseListener(aboutListener);
         bottomPanel.add(lblSatisflight);
     }
 
@@ -498,5 +501,40 @@ public class MainFrame extends JFrame {
 
     public JButton getBtnBack() {
         return btnBack;
+    }
+
+    public class AboutListener implements MouseListener {
+
+        private int counter = 5;
+        private boolean j = false;
+        private Timer timer = new Timer();
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (!j) {
+                j = true;
+                TimerTask timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        counter = 5;
+                        j = false;
+                    }
+                };
+                timer.schedule(timerTask, 2000);
+            }
+            counter--;
+            System.out.println(counter);
+            if (counter == 0) {
+                counter = 5;
+                callAboutSatisflight();
+            }
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+        @Override
+        public void mouseEntered(MouseEvent e) {}
+        @Override
+        public void mouseExited(MouseEvent e) {}
     }
 }
