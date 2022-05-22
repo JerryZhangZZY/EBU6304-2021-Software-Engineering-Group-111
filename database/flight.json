@@ -91,10 +91,10 @@
     },
     {
       "idFlight": "LH2345",
-      "departure": "Guiyang T1",
+      "departure": "Vancouver T1",
       "arrival": "Stuttgart T2",
-      "departureTime": "2022-04-20 14:00",
-      "arrivalTime": "2022-04-22 01:00",
+      "departureTime": "2022-04-21 14:00",
+      "arrivalTime": "2022-04-23 01:00",
       "boardingTime": "07:30",
       "gate": "2F",
       "idPlane": 4,
