@@ -1,5 +1,7 @@
 package frame;
 
+import main.Config;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -40,8 +42,58 @@ public class AboutSatisflight extends JFrame {
     private JTextArea taDeveloper1;
     private JTextArea taDeveloper2;
 
+    private String title, headline, version, intro, visitRepo, repo, dev1, dev2;
+    private int repoTextWidth;
+    private void localize() {
+        String language = Config.readConfig("language");
+        if (language.equals("English")) {
+            title = "About Satisflight";
+            headline = "<HTML><B>Satisflight</B> Oriental</HTML>";
+            version = "Version 5.0";
+            intro = "Satisflight is an open source group project of Software Engineering course. The project started from 15 March 2022 and took 2.5 months to finish development.";
+            visitRepo = "Visit                       to get more information.";
+            repo = "GitHub Repo";
+            dev1 = """
+                Developer Group:
+                · Zhang Zeyu
+                · Wang Zaitian
+                · Liang Zhehao
+                """;
+            dev2 = """
+                
+                · Ni Ruijie
+                · Wang Chenyu
+                · Li Chunlin
+                """;
+            repoTextWidth = 150;
+        }
+        else if (language.equals("Chinese")) {
+            title = "关于Satisflight";
+            headline = "<HTML><B>Satisflight</B> Oriental</HTML>";
+            version = "Version 5.0";
+            intro = "Satisflight 是一款为软件工程课大作业而开发的开源软件。本项目于2022年3月15日开工，共花费两个半月的时间完成开发。";
+            visitRepo = "访问                     以获取更多信息。";
+            repo = " GitHub仓库 ";
+            dev1 = """
+                开发团队:
+                · Zhang Zeyu
+                · Wang Zaitian
+                · Liang Zhehao
+                """;
+            dev2 = """
+                
+                · Ni Ruijie
+                · Wang Chenyu
+                · Li Chunlin
+                """;
+            repoTextWidth = 105;
+        }
+
+    }
     public AboutSatisflight(JFrame frameParent) {
         frameParent.setEnabled(false);
+
+        localize();
 
         setIconImage(new ImageIcon("kiosk/icons/satisflight.png").getImage());
         setBounds((1920 - width - 4) / 2, (1080 - height - 4) / 2, width + 4, height + 4);
@@ -86,7 +138,7 @@ public class AboutSatisflight extends JFrame {
 
         lblTitle = new JLabel();
         lblTitle.setBounds(40, 0, width - 80, 44);
-        lblTitle.setText("About Satisflight");
+        lblTitle.setText(title);
         lblTitle.setFont(new Font("Helvetica", Font.PLAIN, 24));
         lblTitle.setForeground(new Color(71, 71, 71));
         lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
@@ -117,21 +169,21 @@ public class AboutSatisflight extends JFrame {
         mainPanel.add(lblLogo);
 
         lblHeadline = new JLabel();
-        lblHeadline.setText("<HTML><B>Satisflight</B> Oriental</HTML>");
+        lblHeadline.setText(headline);
         lblHeadline.setFont(new Font("Helvetica", Font.PLAIN, 35));
         lblHeadline.setForeground(new Color(51, 51, 51));
         lblHeadline.setBounds(300, 70, 500, 45);
         mainPanel.add(lblHeadline);
 
         lblVersion = new JLabel();
-        lblVersion.setText("Version 5.0");
+        lblVersion.setText(version);
         lblVersion.setFont(new Font("Helvetica", Font.PLAIN, 20));
         lblVersion.setForeground(new Color(51, 51, 51));
         lblVersion.setBounds(300, 110, 200, 20);
         mainPanel.add(lblVersion);
 
         taIntro = new JTextArea();
-        taIntro.setText("Satisflight is an open source group project of Software Engineering course. The project started from 15 March 2022 and took 2.5 months to finish development.");
+        taIntro.setText(intro);
         taIntro.setFont(new Font("Helvetica", Font.PLAIN, 18));
         taIntro.setForeground(new Color(51, 51, 51));
         taIntro.setBounds(300, 150, 400, 120);
@@ -142,17 +194,17 @@ public class AboutSatisflight extends JFrame {
         mainPanel.add(taIntro);
 
         lblVisitRepo = new JLabel();
-        lblVisitRepo.setText("Visit                       to get more information.");
+        lblVisitRepo.setText(visitRepo);
         lblVisitRepo.setFont(new Font("Helvetica", Font.PLAIN, 18));
         lblVisitRepo.setForeground(new Color(51, 51, 51));
         lblVisitRepo.setBounds(300, 264, 400, 22);
         mainPanel.add(lblVisitRepo);
 
         lblRepo = new JLabel();
-        lblRepo.setText("GitHub Repo");
+        lblRepo.setText(repo);
         lblRepo.setFont(new Font("Helvetica", Font.PLAIN, 18));
         lblRepo.setForeground(new Color(20, 124, 229));
-        lblRepo.setBounds(338, 264, 150, 22);
+        lblRepo.setBounds(338, 264, repoTextWidth, 22);
         lblRepo.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -170,7 +222,7 @@ public class AboutSatisflight extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 super.mouseEntered(e);
                 setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                lblRepo.setText("<HTML><U>GitHub Repo</U></HTML>");
+                lblRepo.setText("<HTML><U>" + repo + "</U></HTML>");
             }
         });
         lblRepo.addMouseListener(new MouseAdapter() {
@@ -178,18 +230,13 @@ public class AboutSatisflight extends JFrame {
             public void mouseExited(MouseEvent e) {
                 super.mouseExited(e);
                 setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-                lblRepo.setText("GitHub Repo");
+                lblRepo.setText(repo);
             }
         });
         mainPanel.add(lblRepo);
 
         taDeveloper1 = new JTextArea();
-        taDeveloper1.setText("""
-                Developer Group:
-                · Zhang Zeyu
-                · Wang Zaitian
-                · Liang Zhehao
-                """);
+        taDeveloper1.setText(dev1);
         taDeveloper1.setFont(new Font("Helvetica", Font.PLAIN, 18));
         taDeveloper1.setForeground(new Color(51, 51, 51));
         taDeveloper1.setBounds(300, 304, 400, 400);
@@ -200,12 +247,7 @@ public class AboutSatisflight extends JFrame {
         mainPanel.add(taDeveloper1);
 
         taDeveloper2 = new JTextArea();
-        taDeveloper2.setText("""
-                
-                · Ni Ruijie
-                · Wang Chenyu
-                · Li Chunlin
-                """);
+        taDeveloper2.setText(dev2);
         taDeveloper2.setFont(new Font("Helvetica", Font.PLAIN, 18));
         taDeveloper2.setForeground(new Color(51, 51, 51));
         taDeveloper2.setBounds(436, 304, 400, 400);

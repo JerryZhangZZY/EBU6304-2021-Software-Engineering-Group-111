@@ -102,7 +102,7 @@ public abstract class Config {
             String value = values[i-1].toString();
             switch (i) {
                 case 1 -> { //language
-                    if (!value.equals("English"))
+                    if (!value.equals("English") && !value.equals("Chinese"))
                         return i;
                 }
                 case 2 -> { //drive
