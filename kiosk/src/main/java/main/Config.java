@@ -106,11 +106,11 @@ public abstract class Config {
                         return i;
                 }
                 case 2 -> { //drive
-                    if(     //not windows
+                    if (     //not windows
                             (!String.valueOf(value.charAt(0)).matches("[A-Z]")
                                     || !value.endsWith("://")
-                                    || !(value.length()==4))
-                            && !value.startsWith("/volumes"))   //nor mac
+                                    || !(value.length() == 4))
+                                    && !value.startsWith("/volumes"))   //nor mac
                         return i;
                 }
                 case 3 -> { //airport name
@@ -204,7 +204,7 @@ public abstract class Config {
                             
                 # --------------< GENERAL SETTINGS >--------------
                                     
-                # Supported language: English
+                # Supported language: English, Chinese (partial)
                 language: English
                                     
                 # USB drive that holds ID document

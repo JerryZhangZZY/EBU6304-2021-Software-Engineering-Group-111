@@ -71,9 +71,9 @@ public class AboutSatisflight extends JFrame {
             title = "关于Satisflight";
             headline = "<HTML><B>Satisflight</B> Oriental</HTML>";
             version = "Version 5.0";
-            intro = "Satisflight 是一款为软件工程课大作业而开发的开源软件。本项目于2022年3月15日开工，共花费两个半月的时间完成开发。";
-            visitRepo = "访问                     以获取更多信息。";
-            repo = " GitHub仓库 ";
+            intro = "Satisflight 是一款为软件工程课大作业而开发的开源软件。本项目于2022年3月15日开工，历时两个半月的时间完成开发。";
+            visitRepo = "访问                   以获取更多信息。";
+            repo = "GitHub仓库";
             dev1 = """
                 开发团队:
                 · Zhang Zeyu
