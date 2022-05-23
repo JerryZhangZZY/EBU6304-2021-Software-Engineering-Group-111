@@ -519,10 +519,9 @@ public class MainFrame extends JFrame {
                         j = false;
                     }
                 };
-                timer.schedule(timerTask, 2000);
+                timer.schedule(timerTask, 1500);
             }
             counter--;
-            System.out.println(counter);
             if (counter == 0) {
                 counter = 5;
                 callAboutSatisflight();
