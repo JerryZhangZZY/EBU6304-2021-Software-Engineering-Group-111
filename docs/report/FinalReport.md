@@ -9,34 +9,34 @@ management techniques, tools, planning, estimating, decision making
 and adapting to changes.*
 
 - version control/dev platform
- - github
-  - commit
-  - issue
-   - milestone
-  - insight
-  - branch
-  - release
-  - actions
- - gitee
-  - mirror
-  - connection problem
+  - github
+    - commit
+    - issue
+    - milestone
+    - insight
+    - branch
+    - release
+    - actions
+  - gitee
+    - mirror
+    - connection problem
 - journal
- - github
-  - log
- - qmplus hub
-  - development timeline
-  - minutes of meetings
+  - github
+    - log
+  - qmplus hub
+    - development timeline
+    - minutes of meetings
 - communication
- - qmplus hub
-  - forum
- - tencent meeting
- - wechat
- - github/email
+  - qmplus hub
+    - forum
+    - tencent meeting
+    - wechat
+    - github/email
 - scheduling 
- - progress barchart
+  - progress barchart
 - planning
- - group meetings before iterations
- - milestones/ddl
+  - group meetings before iterations
+  - milestones/ddl
 - have a break!
 
 ## Requirements
@@ -48,17 +48,17 @@ and adapting to changes.*
 • Adapt to changes.*
 
 - requirements findingg
- - held meeting before each iteration
-  - source of idea
-   - questionire
-   - go to real airport
-   - website
-   - our new idea
-  - epics
- - write stories
- - backlog
+  - held meeting before each iteration
+    - source of idea
+      - questionire
+      - go to real airport
+      - website
+      - our new idea
+    - epics
+  - write stories
+  - backlog
 - estimating
- - new issues, now or delay
+  - new issues, now or delay
 - prototyping
 
 ## Analysis and Design
@@ -73,11 +73,11 @@ change where necessary.
 meets the main design principles of programming.*
 
 - analysis
- - class sterotypes
- - association
+  - class sterotypes
+  - association
 - design
- - modular
- - coupling
+  - modular
+  - coupling
 
 ## Implementation and Testing
 
@@ -90,12 +90,12 @@ whole software, however, you should try to use TDD to develop a few
 programs.*
 
 - implementation
- - from design
- - build/commit
- - iteration/branch
+  - from design
+  - build/commit
+  - iteration/branch
 - testing
- - unit
- - system
+  - unit
+  - system
 
 ## Appendix
 
