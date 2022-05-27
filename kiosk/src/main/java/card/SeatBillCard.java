@@ -78,21 +78,21 @@ public class SeatBillCard extends JPanel {
         add(line2);
 
         preference.setText("· " + prefer);
-        preference.setBounds(150, base + 1, 831, gain);
+        preference.setBounds(150, base + 2, 831, gain);
         preference.setFont(new Font("Arial", Font.PLAIN, 30));
         preference.setForeground(Theme.getSecondaryFontColor());
         preference.setVerticalAlignment(SwingConstants.CENTER);
         add(preference);
 
         JLabel line = new JLabel("  ·····························");
-        line.setLocation(495, base + 1);
+        line.setLocation(495, base + 2);
         line.setSize(413, gain);
         line.setForeground(Theme.getTertiaryFontColor());
         line.setVerticalAlignment(SwingConstants.CENTER);
         line.setFont(new Font("Arial", Font.PLAIN, 38));
         add(line);
 
-        bill.setLocation(955, base + 1);
+        bill.setLocation(955, base + 2);
         bill.setSize(100, gain);
         bill.setForeground(new Color(255,69,0));
         bill.setFont(new Font("Arial", Font.BOLD, 30));
