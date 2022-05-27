@@ -131,12 +131,49 @@ Apart from major and minor builds, there are also many "micro" builds, i.e. comm
 
 ### Testing
 
- - from design
- - build/commit
- - iteration/branch
- - testing
-   - unit
-   - system
+#### Testing Overview
+
+The basic testing mechanism is as following: 
+
+1. Using methods like `JTextField.setText()`, `JButton.doClick()` to manipulate software GUI, simulating user operation, and injecting data into database.
+2. Retrieving data from database using `XXReader.getXX()` to get the result of an operation,
+3. Comparing expected value with actual value using `Assertions.assertEqual()`, checking if actions indeed lead to changes in database, which means a passenger have successfully checked-in (or succeeded in a step of check-in process. 
+
+Our testing consists of three parts: GUI Test, unit test, and system test.
+
+#### GUI Testing
+
+When designing the GUI, we carefully tested each component. Every GUI class is accompanied by a test class that creates an instance of this GUI class, so that we could see what our design looks and make sure interactive components work in good manners before the whole interface is assembled.
+
+#### Unit Testing
+
+We apply `JUnit 5.7.0` library to implement test programmes. Depending on the complexity, a testing class is design for a panel or a card(sub-panel). There are also unit testing classes for database reader classes. Test programmes contain several subtests that independently check different functionalities of classes. 
+
+For instance, in testing class `BookingLogingPanelTest`, there are three tests:
+```java
+void testBookingLoginPanel();
+void testAlternativeCheckIn();
+void testExit();
+```
+They respectively test if the panel can properly log in by entering booking number, moving to another page that use ID to log in, and exit the log in process. If all three tests pass, the test class passes. In order to eliminate uncertainty, we use `@RepeatedTest(int)` to run each test multiple times. 
+
+#### System Testing
+
+To verify that the programme works as a whole, we also implemented system testing, aka integrated testing. In order to simplify the operation of testers and reduce workload, we utilized unit testing classes mentioned in the last section. Note that integrated test is not simply running all unit tests in sequence. Instead, it uses a delicate mechanism, stochastic process, to perform the check-in operation.
+
+Operation on each page of the software is considered as a "state", and a user has certain probability to transfer from this state to another, namely turning to next page, go back to last page, or exit to the starting page. This kind of stochastic process is called Markov process. We designed a Markov matrix to simulate the possibility of users' operation at each page. The system testing class will toll a die before going to another page. The point of the die is compared with the Markov matrix, and based on the result, the class turn to a certain page, namely, running the test method of a certain unit test class.
+
+We designed this algorithm to simulate uncertainty when users are using the software. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation, so we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example must make sure no matter how we switch page, no error display happens. 
+
+- [ ] pic or code to be added
+
+#### Test Case Design
+
+- [ ] not yet done
+
+#### The Use of TDD
+
+- [ ] not yet done
 
 ## Appendix
 
