@@ -26,6 +26,9 @@ import static java.lang.Thread.sleep;
  * @author Ni Ruijie
  * @author Liang Zhehao
  *
+ * @version 5.2
+ * GUI adapt to all platform.
+ *
  * @version 5.1
  * Add AboutListener
  * @date 2022/5/22
@@ -126,6 +129,11 @@ public class MainFrame extends JFrame {
      */
     public MainFrame() {
 
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
         UIManager.put("Button.select", Theme.getButtonPressedColor());
 
         try {
