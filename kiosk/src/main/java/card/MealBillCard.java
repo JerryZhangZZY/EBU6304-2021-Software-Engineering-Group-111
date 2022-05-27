@@ -128,7 +128,7 @@ public class MealBillCard extends JPanel {
             }
             extr[n] = new JLabel();
             extr[n].setText("· " + pref[i]);
-            extr[n].setLocation(150, base + 1 + gain * n);
+            extr[n].setLocation(150, base + 2 + gain * n);
             extr[n].setFont(new Font("Arial", Font.PLAIN, 30));
             extr[n].setForeground(Theme.getSecondaryFontColor());
             extr[n].setVerticalAlignment(SwingConstants.CENTER);
@@ -136,7 +136,7 @@ public class MealBillCard extends JPanel {
             add(extr[n]);
 
             bill[n] = new JLabel();
-            bill[n].setLocation(955, base + 1 + gain * n);
+            bill[n].setLocation(955, base + 2 + gain * n);
             bill[n].setSize(100, gain);
             bill[n].setText("$" + pay[i]);
             bill[n].setHorizontalAlignment(SwingConstants.RIGHT);
@@ -146,7 +146,7 @@ public class MealBillCard extends JPanel {
             add(bill[n]);
 
             line[n] = new JLabel("  ·····························");
-            line[n].setLocation(495, base + 1 + gain * n);
+            line[n].setLocation(495, base + 2 + gain * n);
             line[n].setSize(413, gain);
             line[n].setForeground(Theme.getTertiaryFontColor());
             line[n].setVerticalAlignment(SwingConstants.CENTER);
@@ -159,7 +159,7 @@ public class MealBillCard extends JPanel {
         if (pay[0] == -1 && pay[1] == -1 && pay[2] == -1) {
             extr[0] = new JLabel();
             extr[0].setText("· No preference selected");
-            extr[0].setLocation(120, base + 1);
+            extr[0].setLocation(150, base + 1);
             extr[0].setFont(new Font("Arial", Font.PLAIN, 30));
             extr[0].setForeground(Theme.getSecondaryFontColor());
             extr[0].setVerticalAlignment(SwingConstants.CENTER);
@@ -180,9 +180,4 @@ public class MealBillCard extends JPanel {
     public JLabel[] getBill() {
         return bill;
     }
-
-    public JLabel[] getLine() {
-        return line;
-    }
-
 }
