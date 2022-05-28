@@ -129,6 +129,7 @@ public abstract class FlightReader {
         JSONArray array = object.getJSONArray("flight");
         return array.getJSONObject(index).getString("arrivalTime").substring(0, 10);
     }
+
     /**
      * Get full departure time in Date.
      * @param index got from indexOf()
@@ -145,6 +146,11 @@ public abstract class FlightReader {
         }
     }
 
+    /**
+     * Get the index of preference food
+     * @param index got from indexOf()
+     * @return preference food index
+     */
     public static int[] getMealPreference(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("database/flight.json"));
         JSONArray arr = obj.getJSONArray("flight");

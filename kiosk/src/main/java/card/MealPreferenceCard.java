@@ -126,6 +126,9 @@ public class MealPreferenceCard extends JPanel {
         return pref;
     }
 
+    /**
+     * Listener for preference selection
+     */
     private class PrefListener implements ItemListener {
 
         @Override

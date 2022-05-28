@@ -97,6 +97,9 @@ public class MealSelectionPanel extends JPanel {
 
     public  JRadioButton[] getrdbtnMeal(){return mealPreferenceCard.getPref();}
 
+    /**
+     * Listener for ok button
+     */
     private class OKListener implements ActionListener {
 
         @Override
