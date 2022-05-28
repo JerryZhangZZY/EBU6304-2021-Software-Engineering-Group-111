@@ -54,6 +54,10 @@ public class SmallBillCard extends JPanel{
         add(lblTitle);
     }
 
+    /**
+     * set the price displayed in the SmallBillCard
+     * @param price price
+     */
     public void setPrice(int price) {
         this.price = price;
         lblPrice.setText("$" + price);
@@ -63,11 +67,19 @@ public class SmallBillCard extends JPanel{
         return price;
     }
 
+    /**
+     * add price
+     * @param price price
+     */
     public void addPrice(int price) {
         this.price += price;
         lblPrice.setText("$" + this.price);
     }
 
+    /**
+     * subtract price
+     * @param price price
+     */
     public void subPrice(int price) {
         this.price -= price;
         lblPrice.setText("$" + this.price);

@@ -55,18 +55,34 @@ public abstract class PlaneReader {
         return arr.getJSONObject(index).getString("airline");
     }
 
+    /**
+     * The number of digits indicates the number of seating segments,
+     * Each number represents the number of seats in each segment.
+     * @param index got from indexOf()
+     * @return seat model
+     */
     public static int getSeatModel(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("database/plane.json"));
         JSONArray arr = obj.getJSONArray("plane");
         return arr.getJSONObject(index).getInteger("seatModel");
     }
 
+    /**
+     * Get column number
+     * @param index got from indexOf()
+     * @return column number
+     */
     public static String getColumnNum(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("database/plane.json"));
         JSONArray arr = obj.getJSONArray("plane");
         return arr.getJSONObject(index).getString("columnNum");
     }
 
+    /**
+     * Get plane age
+     * @param index got from indexOf()
+     * @return plane age
+     */
     public static int getPlaneAge(int index) {
         JSONObject obj = JSON.parseObject(JsonReader.read("database/plane.json"));
         JSONArray arr = obj.getJSONArray("plane");

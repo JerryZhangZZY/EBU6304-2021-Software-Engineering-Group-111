@@ -17,6 +17,12 @@ import java.awt.*;
 
 public class SeatLegendCard extends JPanel {
 
+    /**
+     *
+     * @param empty empty icon
+     * @param selected selected icon
+     * @param occupied occupied icon
+     */
     public SeatLegendCard(ImageIcon[] empty, ImageIcon selected, ImageIcon occupied) {
         setBackground(Theme.getCardColor());
         setSize(330,780);

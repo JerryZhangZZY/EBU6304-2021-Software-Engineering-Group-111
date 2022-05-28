@@ -14,18 +14,33 @@ import com.alibaba.fastjson.JSONObject;
  */
 public abstract class MealPreferenceReader {
 
+    /**
+     * Get preference food name
+     * @param index got from FlightReader.getMealPreference()
+     * @return preference food name
+     */
     public static String getName(int index) {
         JSONObject jsonObject = JSON.parseObject(JsonReader.read("database/mealPreference.json"));
         JSONArray jsonArray = jsonObject.getJSONArray("meal");
         return jsonArray.getJSONObject(index).getString("name");
     }
 
+    /**
+     * Get preference food price
+     * @param index got from FlightReader.getMealPreference()
+     * @return preference food price
+     */
     public static int getPrice(int index) {
         JSONObject jsonObject = JSON.parseObject(JsonReader.read("database/mealPreference.json"));
         JSONArray jsonArray = jsonObject.getJSONArray("meal");
         return jsonArray.getJSONObject(index).getInteger("price");
     }
 
+    /**
+     * Get preference food introduction
+     * @param index got from FlightReader.getMealPreference()
+     * @return preference food introduction
+     */
     public static String getIntroduction(int index) {
         JSONObject jsonObject = JSON.parseObject(JsonReader.read("database/mealPreference.json"));
         JSONArray jsonArray = jsonObject.getJSONArray("meal");

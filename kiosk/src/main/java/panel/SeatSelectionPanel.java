@@ -308,6 +308,10 @@ public class SeatSelectionPanel extends JPanel {
         add(btnOK);
     }
 
+    /**
+     * Add seat icon
+     * @param avail seat information
+     */
     private void addSeatIcon(int[][] avail) {
         if (getTemp_row() >= row && getTemp_row() <= row + range - 1) {
             avail[getTemp_row() - row][getTemp_column()] = 2;
@@ -376,6 +380,9 @@ public class SeatSelectionPanel extends JPanel {
         return tipBorder;
     }
 
+    /**
+     * Listener for seat button
+     */
     private class SeatListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -418,6 +425,9 @@ public class SeatSelectionPanel extends JPanel {
         }
     }
 
+    /**
+     * Listener for scroll bar
+     */
     private class ScrollListener implements AdjustmentListener {
 
         @Override
@@ -441,6 +451,9 @@ public class SeatSelectionPanel extends JPanel {
         }
     }
 
+    /**
+     * Listener for ok button
+     */
     public class OKListener implements ActionListener {
 
         @Override
@@ -458,6 +471,9 @@ public class SeatSelectionPanel extends JPanel {
         }
     }
 
+    /**
+     * Listener to display plane info
+     */
     public class FolderListener implements ActionListener {
 
         private boolean onoff = false;

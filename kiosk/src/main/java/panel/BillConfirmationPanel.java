@@ -125,6 +125,9 @@ public class BillConfirmationPanel extends JPanel {
         });
     }
 
+    /**
+     * Listener for confirm button
+     */
     public class ConfirmListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {

@@ -121,9 +121,7 @@ public class MainFrame extends JFrame {
     private Toolkit container;
     private AWTEventListener mouseListener;
     private int mouseListenerFlag = 0;
-
     private int freshTime = 8;
-
     /**
      * Main frame with panels initialized.
      */
@@ -214,10 +212,6 @@ public class MainFrame extends JFrame {
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*
-                 * alt + exit: for developers to exit program easily and elegantly
-                 * note that for ordinary users, clicking the exit just return to welcome page
-                 */
                 if ((e.getModifiers() & ActionEvent.ALT_MASK) != 0) {
                     callAdminConsole();
                 }
@@ -471,6 +465,9 @@ public class MainFrame extends JFrame {
         new AdminConsole(this);
     }
 
+    /**
+     * calling of about window
+     */
     private void callAboutSatisflight() {
         new AboutSatisflight(this);
     }
@@ -503,14 +500,25 @@ public class MainFrame extends JFrame {
         }
     }
 
+    /**
+     * get exit button
+     * @return exit button
+     */
     public JButton getBtnExit() {
         return btnExit;
     }
 
+    /**
+     * get back button
+     * @return back button
+     */
     public JButton getBtnBack() {
         return btnBack;
     }
 
+    /**
+     * mouse listener for about window
+     */
     public class AboutListener implements MouseListener {
 
         private int counter = 5;
