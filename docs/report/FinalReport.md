@@ -4,28 +4,32 @@
 
 ## Project management
 
-### Version control/develop platform:
+### Development Platform
 
-Our group mainly uses **GitHub** and **Gitee** as the version control/develop platform, aiming to facilitate remote collaboration between team members.
+Our group mainly uses **GitHub** and **Gitee** as the development platform, aiming to facilitate remote collaboration between team members and implement version control.
+
 GitHub's **commit** feature allows team members to upload their code to the cloud repository. Then GitHub **Actions** will check code rationality after we push code. We use GitHub **Issue** to list the tasks that need to be completed during each iteration and limit the completion time through **milestone**. And we use different **branches** to manage project versions and publish them in GitHub **Releases**. Group members’ contributions are all documented in GitHub **Insights**.
-In order to facilitate team members with limited network access to connect the cloud repository, we configured GitHub repository mirror on **Gitee** platform.
 
-### Journal tools:
+In order to facilitate team members with challenged network access to GitHub cloud repository, we configured a **Gitee** repository as the mirror.
 
-All code updates are recorded in the **GitHub log**. If there is a problem with the code, the person in charge can be found through the log.
-The **QMPlus Hub** keeps track of our application development timelines, team meetings, and personal progress.
+### Journal Tools
 
-### Communication tools:
+All code updates are recorded in the **git log**. If there is any problem with the code, the author can be found through the log.
 
-We use **QMPlus Hub Forum** to share and exchange views, **Tencent Meeting** for online meetings, and **WeChat** for private communication and group message notification. GitHub updates are also **emailed** to group members.
+We also use **QMPlus Hub** to keep track of our progress. Development timelines, minutes of meetings, and personal pages record every step of our development.
 
-### Scheduling:
+### Communication tools
+
+We use **QMPlus Hub Forum** to share and exchange views, **Tencent Meeting** to discuss tasks and timetable, and **WeChat** to communicate real-time ideas. GitHub also send **emails** to group members is there is any new issues.
+
+### Scheduling
 
 ![](report-images/scheduling.png)
 
-### Planning:
+### Planning
 
 At the beginning of each iteration, we planned iteration goals, formulated and distributed phase tasks through online meetings. We use **milestone** to set the completion time for each task to ensure the progress of the project.
+
 At the end of each iteration, the programmers are given a short vacation so that we can rest and be more productive.
 
 ## Requirements
