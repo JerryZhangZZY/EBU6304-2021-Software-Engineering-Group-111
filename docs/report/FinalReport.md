@@ -34,25 +34,41 @@ At the end of each iteration, the programmers are given a short vacation so that
 
 ## Requirements
 
-*• Apply the requirements finding techniques.
-• User stories, including estimation and prioritise of user stories.
-• Iterations planning.
-• Prototype.
-• Adapt to changes.*
+### Requirements finding techniques
 
-- requirements findingg
-  - held meeting before each iteration
-    - source of idea
-      - questionire
-      - go to real airport
-      - website
-      - our new idea
-    - epics
-  - write stories
-  - backlog
-- estimating
-  - new issues, now or delay
-- prototyping
+In this part, our team adopted a variety of different ways to find public demand.
+
+#### Group meeting 
+
+Our group group meeting every week trying to identify problems in time, our group will be before each iteration for everyone to participate in team meetings for many times, everyone will be put forward at the meeting in the previous iteration to solve the problems by themselves and the newly discovered problems, and through discussion with classmates around looking for other team strength to make up for our team.
+
+#### Questionnaire 
+
+In order to expand the scope of investigation and research, our team chose to fill in questionnaires and expand its influence through the Internet, so that more samples can be obtained. By analyzing a large enough sample, we can study the general functions of software needed by the public.
+
+#### Field research
+
+Our group firmly believes that software development without talking about requirements will never succeed. Therefore, our team members went to the local airport to conduct field research on the domestic aircraft check-in system, and felt the progressiveness and pain points of the real software through personal use. To solve these problems in subsequent iterations, we believe that relying on reality is the mindset of software developers.
+
+#### Website 
+
+In addition to traveling to real airports, the websites of major airlines also provide a lot of inspiration and improvement. These real airlines through years of operation experience summed up the production of check-in system experience let us benefit a lot.
+
+#### New ideas
+
+Our team members have a broad vision. Through the pain points of the flight check-in system we feel in our daily life, we can find the problems existing in our system and solve them. In order to make our system more user-friendly, we also thought of many ways to make customers like it, including the user-friendly dark mode, where everyone can choose to customize their own theme colors. These are our exclusive design functions, through these functions we hope that customers can truly experience the meticulous care of the airline.
+
+### Epics and User stories
+
+Through the above information acquisition approach, we completed the general idea of the software, and then we wrote them as Epic. Our Epic is mainly divided into three parts. From there, we continued to increase requirements and improve the original part, resulting in 44 User Stories. There are almost 10 tasks to complete in each iteration, so our system is pretty good right now.
+
+### Backlog
+
+Once User Stories was built, we had to create a Backlog with a strict hierarchy of priorities and prioritize functionality to meet User needs. In the process of completing software requirements, we often find problems. At this time, we will estimate whether this problem can be completed in this iteration according to the existing time. If not, this problem will be put to be completed in the next iteration.
+
+### Prototype
+
+We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
 
 ## Analysis and Design
 
