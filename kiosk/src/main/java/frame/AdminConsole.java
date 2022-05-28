@@ -13,12 +13,12 @@ import static java.lang.Thread.sleep;
  * small window for admin to exit the programme
  * @author zaitian
  *
- * @version 1.0
- * @date 4/11
- *
  * @version 1.1
  * improve interaction
  * @date 4/13
+ *
+ * @version 1.0
+ * @date 4/11
  */
 public class AdminConsole extends JFrame {
     JPanel contentPane = new JPanel();
