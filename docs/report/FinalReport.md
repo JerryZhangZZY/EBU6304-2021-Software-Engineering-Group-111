@@ -185,21 +185,51 @@ They respectively test if the panel can properly log in by entering booking numb
 
 #### System Testing
 
-To verify that the programme works as a whole, we also implemented system testing, aka integrated testing. In order to simplify the operation of testers and reduce workload, we utilized unit testing classes mentioned in the last section. Note that integrated test is not simply running all unit tests in sequence. Instead, it uses a delicate mechanism, stochastic process, to perform the check-in operation.
+To verify that the programme works as a whole, we also implemented system testing, aka integrated testing. In order to simplify the operation of testers and reduce workload, we utilized unit testing classes mentioned in the last section. Note that integrated test is not simply running all unit tests in sequence. Instead, it uses a delicate mechanism, **stochastic process**, to perform the check-in operation in real-life.
 
-Operation on each page of the software is considered as a "state", and a user has certain probability to transfer from this state to another, namely turning to next page, go back to last page, or exit to the starting page. This kind of stochastic process is called Markov process. We designed a Markov matrix to simulate the possibility of users' operation at each page. The system testing class will toll a die before going to another page. The point of the die is compared with the Markov matrix, and based on the result, the class turn to a certain page, namely, running the test method of a certain unit test class.
+Operation on each page of the software is considered as a "state", and a user has certain probability to transfer from this state to another, namely turning to next page, go back to last page, or exit to the starting page. This kind of stochastic process is called Markov process. We designed a **Markov matrix** to simulate the possibility of users' operation at each page. The system testing class will toll a die before going to another page. The point of the die is compared with the Markov matrix, and based on the result, the class turn to a certain page, namely, running the test method of a certain unit test class.
 
-We designed this algorithm to simulate uncertainty when users are using the software. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation, so we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example must make sure no matter how we switch page, no error display happens. 
+The figure below illustrate the markov matrix we use. 
 
-- [ ] pic or code to be added
+![](report-images/markov.png)
+
+To utilize this transition matrix, we developed a Markov class to decide the next page to be tested.
+
+```java
+public class Markov extends CsvReader {
+//    ...
+  public int nextStateOf(int current){
+//    ...
+  }
+}
+```
+
+We designed this algorithm to **simulate uncertainty when users are using the software**. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation, so we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example must make sure no matter how we switch page, no error display happens.
 
 #### Test Case Design
 
-- [ ] not yet done
+The disciplined technique used in test case design is partition testing. Take class `TypeIdLoginCardTest` for example. Here we test if the panel where passengers enter their name and ID number to check in is working properly. Input data fall into the following classes:
+
+1. valid input with non-zero flights
+2. valid input without flights to check in
+3. valid in terms of format but contents do not match
+4. invalid even in format
+
+Specific test cases chosen from these partitions are as below:
+
+```java
+String[] candidateName = {"Jack", "Mike", "Amy", "Karl", "Amy", "nay"}; 
+String[] candidateID = {"123001", "123002", "123003","123003", "123006", "nil"};
+String[] expectedBookingNum = {"bn0001", "bn0003", null, null, null, null};
+```
+
+Only the two test cases from partition 1 will return valid booking number results.
 
 #### The Use of TDD
 
-- [ ] not yet done
+We started to learn this topic long after we had finished most parts of the project, so only a few classes is designed. The flow show an example of using TDD to develop GUI classes.
+
+![](report-images/flow.png)
 
 ## Appendix
 
@@ -211,3 +241,5 @@ We designed this algorithm to simulate uncertainty when users are using the soft
 - csv/json/yaml
 
 ### Main screenshots of the system should be included in the appendix.
+
+### And a List of All Issues?
