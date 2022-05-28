@@ -94,7 +94,6 @@ public class FinalPanel extends JPanel {
             e.printStackTrace();
         }
         confirm();
-        StatusWriter.setTrue(State.getPassengerFlight_index());
         Timer timer = new Timer();
         Timer timer1 = new Timer();
         setBounds(new Rectangle(0, 0, 1920, 980));
@@ -184,6 +183,11 @@ public class FinalPanel extends JPanel {
 
     }
 
+    /**
+     * Upload seat selection information to the flightSeatStatus,
+     * update back-end-system database,
+     * Upload passenger status to passengerFlight.json.
+     */
     public void confirm() {
         SeatWriter.setSeat(State.getIdFlight(), State.getSeatRow(), State.getSeatColumn());
         String[] food = {"Normal", "Vegetarian", "Halal"};
@@ -195,6 +199,7 @@ public class FinalPanel extends JPanel {
                 prefFood[i] = State.getPrefFoodName()[i];
         }
         DBwrite.changeline(State.getBookingNum(), State.getIdFlight(), "" + State.getSeatRow() + State.getColumnNum(), food[(int)State.getMeal() - 97], prefFood[0], prefFood[1], prefFood[2]);
+        StatusWriter.setTrue(State.getPassengerFlight_index());
     }
 
     public JButton getBtnContinue(){return btnContinue;}

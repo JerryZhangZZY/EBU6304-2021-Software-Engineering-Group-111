@@ -37,9 +37,10 @@ public class TicketPrinter {
     static String ticketImage;
 
     /**
-     * Generate .txt for tickets
+     * Generate .txt or .jpg tickets based on config
      *
      * @param idPassengerFlightIndex primary key
+     * @exception IOException write error
      */
     public static void creatTicket(int idPassengerFlightIndex) throws IOException{
         Boolean choosen = Boolean.parseBoolean(Config.readConfig("imagePrinter"));
@@ -50,6 +51,10 @@ public class TicketPrinter {
             TicketPrinter.creatTicketTXT(idPassengerFlightIndex);
         }
     }
+
+    /**
+     * print jpg form ticket
+     */
     public static void creatTicketJPG(int idPassengerFlight_index) throws IOException{
         int checkinNum = PassengerFlightReader.getCheckin(idPassengerFlight_index);
         int bagDropCounter = PassengerFlightReader.getBagDropCounter(idPassengerFlight_index);
@@ -274,6 +279,10 @@ public class TicketPrinter {
             ImageIO.write(image, "jpeg", new java.io.File(ticketImage));
         }
     }
+
+    /**
+     * print txt form ticket
+     */
     public static void creatTicketTXT(int idPassengerFlight_index) throws IOException{
         int checkinNum = PassengerFlightReader.getCheckin(idPassengerFlight_index);
         int bagDropCounter = PassengerFlightReader.getBagDropCounter(idPassengerFlight_index);

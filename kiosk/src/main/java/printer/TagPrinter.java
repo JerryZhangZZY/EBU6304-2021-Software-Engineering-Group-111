@@ -34,9 +34,10 @@ public abstract class TagPrinter {
     static String tagImage;
 
     /**
-     * Generate .txt for tags
+     * Generate tags
      *
      * @param idPassengerFlight_index primary key
+     * @exception IOException write error
      */
     public static void creatTag(int idPassengerFlight_index) throws IOException {
 
@@ -49,6 +50,10 @@ public abstract class TagPrinter {
             TagPrinter.getTxt(idPassengerFlight_index);
         }
     }
+
+    /**
+     * print several jpg form tags
+     */
     public static void getPhoto(int idPassengerFlight_index) throws IOException{
         int carryonNum = PassengerFlightReader.getCarryon(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
@@ -104,6 +109,10 @@ public abstract class TagPrinter {
             carryonLeft--;
         }
     }
+
+    /**
+     * print txt form tags
+     */
     public static void getTxt(int idPassengerFlight_index) throws IOException{
         int carryonNum = PassengerFlightReader.getCarryon(idPassengerFlight_index);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);

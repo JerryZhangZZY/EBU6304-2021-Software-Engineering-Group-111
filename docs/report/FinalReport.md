@@ -4,51 +4,71 @@
 
 ## Project management
 
-### Version control/develop platform:
+### Development Platform
 
-Our group mainly uses **GitHub** and **Gitee** as the version control/develop platform, aiming to facilitate remote collaboration between team members.
+Our group mainly uses **GitHub** and **Gitee** as the development platform, aiming to facilitate remote collaboration between team members and implement version control.
+
 GitHub's **commit** feature allows team members to upload their code to the cloud repository. Then GitHub **Actions** will check code rationality after we push code. We use GitHub **Issue** to list the tasks that need to be completed during each iteration and limit the completion time through **milestone**. And we use different **branches** to manage project versions and publish them in GitHub **Releases**. Group members’ contributions are all documented in GitHub **Insights**.
-In order to facilitate team members with limited network access to connect the cloud repository, we configured GitHub repository mirror on **Gitee** platform.
 
-### Journal tools:
+In order to facilitate team members with challenged network access to GitHub cloud repository, we configured a **Gitee** repository as the mirror.
 
-All code updates are recorded in the **GitHub log**. If there is a problem with the code, the person in charge can be found through the log.
-The **QMPlus Hub** keeps track of our application development timelines, team meetings, and personal progress.
+### Journal Tools
 
-### Communication tools:
+All code updates are recorded in the **git log**. If there is any problem with the code, the author can be found through the log.
 
-We use **QMPlus Hub Forum** to share and exchange views, **Tencent Meeting** for online meetings, and **WeChat** for private communication and group message notification. GitHub updates are also **emailed** to group members.
+We also use **QMPlus Hub** to keep track of our progress. Development timelines, minutes of meetings, and personal pages record every step of our development.
 
-### Scheduling:
+### Communication tools
+
+We use **QMPlus Hub Forum** to share and exchange views, **Tencent Meeting** to discuss tasks and timetable, and **WeChat** to communicate real-time ideas. GitHub also send **emails** to group members is there is any new issues.
+
+### Scheduling
 
 ![](report-images/scheduling.png)
 
-### Planning:
+### Planning
 
 At the beginning of each iteration, we planned iteration goals, formulated and distributed phase tasks through online meetings. We use **milestone** to set the completion time for each task to ensure the progress of the project.
+
 At the end of each iteration, the programmers are given a short vacation so that we can rest and be more productive.
 
 ## Requirements
 
-*• Apply the requirements finding techniques.
-• User stories, including estimation and prioritise of user stories.
-• Iterations planning.
-• Prototype.
-• Adapt to changes.*
+### Requirements finding techniques
 
-- requirements findingg
-  - held meeting before each iteration
-    - source of idea
-      - questionire
-      - go to real airport
-      - website
-      - our new idea
-    - epics
-  - write stories
-  - backlog
-- estimating
-  - new issues, now or delay
-- prototyping
+In this part, our team adopted a variety of different ways to find public demand.
+
+#### Group meeting 
+
+Our group group meeting every week trying to identify problems in time, our group will be before each iteration for everyone to participate in team meetings for many times, everyone will be put forward at the meeting in the previous iteration to solve the problems by themselves and the newly discovered problems, and through discussion with classmates around looking for other team strength to make up for our team.
+
+#### Questionnaire 
+
+In order to expand the scope of investigation and research, our team chose to fill in questionnaires and expand its influence through the Internet, so that more samples can be obtained. By analyzing a large enough sample, we can study the general functions of software needed by the public.
+
+#### Field research
+
+Our group firmly believes that software development without talking about requirements will never succeed. Therefore, our team members went to the local airport to conduct field research on the domestic aircraft check-in system, and felt the progressiveness and pain points of the real software through personal use. To solve these problems in subsequent iterations, we believe that relying on reality is the mindset of software developers.
+
+#### Website 
+
+In addition to traveling to real airports, the websites of major airlines also provide a lot of inspiration and improvement. These real airlines through years of operation experience summed up the production of check-in system experience let us benefit a lot.
+
+#### New ideas
+
+Our team members have a broad vision. Through the pain points of the flight check-in system we feel in our daily life, we can find the problems existing in our system and solve them. In order to make our system more user-friendly, we also thought of many ways to make customers like it, including the user-friendly dark mode, where everyone can choose to customize their own theme colors. These are our exclusive design functions, through these functions we hope that customers can truly experience the meticulous care of the airline.
+
+### Epics and User stories
+
+Through the above information acquisition approach, we completed the general idea of the software, and then we wrote them as Epic. Our Epic is mainly divided into three parts. From there, we continued to increase requirements and improve the original part, resulting in 44 User Stories. There are almost 10 tasks to complete in each iteration, so our system is pretty good right now.
+
+### Backlog
+
+Once User Stories was built, we had to create a Backlog with a strict hierarchy of priorities and prioritize functionality to meet User needs. In the process of completing software requirements, we often find problems. At this time, we will estimate whether this problem can be completed in this iteration according to the existing time. If not, this problem will be put to be completed in the next iteration.
+
+### Prototype
+
+We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
 
 ## Analysis and Design
 
@@ -60,15 +80,17 @@ Here's the UML diagram of the whole software (**BackEndSystem** excluded). The e
 
 ![](report-images/uml-v5-simplified.png)
 
-As you can see, the tree-based structure starts at the **Control** class, where all the page switching happens. It create a **MainFrame** object which contains top and bottom bar of the software GUI. It also holds different function **panels** and switches them by being called from the Control class. **Cards** that contain different functions respectively were added to each panel. So that same function can be **reused** by creating the card object again.
+As you can see, the tree-based structure starts at the **Control** class, where all the page switching happens. It creates a **MainFrame** object which contains top and bottom bar of the software GUI. It also holds different functional **panels** and switches them if being called by the Control class. **Cards** are smaller panels or "sub-panels" , which have different functions respectively. They were added to each panel. So that same function can be **reused** by creating the card object again.
 
-In order to use the database efficiently, we designed several abstract **database reader/writer** classes. So any class can read from or write to the database by simply calling a method from those database readers/writers. The only **non-abstract** reader is **SeatReader**, since only a single seat status file will be visit when a user selecting a seat and will be request at a high frequency. By creating an object, we are able to read in the file only once, improving I/O performance. Details like this can be found everywhere in our code. These data readers/writers also show the high reusability of our program.
+In order to use the database efficiently, we designed several abstract **database reader/writer** classes. So any class can read from or write to the database by simply calling a method from those database readers/writers. The only **non-abstract** reader is **SeatReader**, since only a single seat status file will be visited when a user selecting a seat and will be request at a high frequency. By creating an object, we are able to read in the file only once, improving I/O performance. Details like this can be found everywhere in our code. These data readers/writers also show the high reusability of our program.
 
-Another light spot of our design is the class **State**. It contains all the temporary values during a check-in process and the information is gradually completed with the check-in process. So that latter pages can use the previous information directly instead of accept the parameters pass from the latter pages. By using State, we are able to separate classes totally, designing a fully-independent, **loosely-coupled** software. Since user operations on a latter page may afflict the pages before it, we are also able to achieve jumping back and forth freely between pages thanks to this design.
+Another light spot of our design is the class **State**. It contains all the temporary values during a check-in process and the information is gradually completed through the check-in process. So that latter pages can use the previous information directly instead of accept the parameters pass from the earlier pages. By using State class, we are able to separate panel classes totally, designing a fully-independent, **loosely-coupled** software. 
+
+- [ ] Since user operations on a latter page may afflict the pages before it, we are also able to achieve jumping back and forth freely between pages thanks to this design.
 
 ### Design
 
-We have high standards for *Satisflight* check-in system. It has to be easy to use, modular, highly customizable, beautiful looking as well as error freed.
+We have high standards for *Satisflight* check-in system. It has to be easy to use, modular, highly customizable, beautiful-looking as well as error-free.
 
 #### Ease of use
 
@@ -76,19 +98,19 @@ The software has only **one** main **frame** and all function panels are **switc
 
 #### Modularity
 
-As you have seen above, the software is designed to have a **tree** structure. And **State** class enables a independent relationship between classes. So each **card** can be seen as a small **module** and can be added/removed/modified in function **panel** without any restriction. To achieve page switching, the action listener change the value **pc** in **State**, which was detected continuously in **Control** at a frequency of **100Hz**(>60Hz screen fresh rate). So the switching can be handled timely. In this case, we can encapsulate each function module in a panel and easily manage all modules by assigning different **pc** to each of them.
+As shown in the previous section, the software is designed with a **tree** structure. And **State** class enables a independent relationship between classes. So each **card** can be seen as a small **module** and can be added/removed/modified in function **panel** without any restriction. To achieve page switching, the action listener change the value **pc** in **State**, which was detected continuously in **Control** at a frequency of **100Hz**(>60Hz screen fresh rate). So the switching can be handled timely. In this case, we can encapsulate each function module in a panel and easily manage all modules by assigning different **pc** to each of them.
 
 #### Configurability
 
-There are tones of configurations in **config.yaml** enable *Satisflight* to suit every airport. For example, you can set check-in leading time so the flight check-in will be unavailable before a period of time. You can find more details in the **user manual**. The software also support any type of **aircraft**. You can use any **seat pattern** and customize aisle positions. Further more, airline companies can set their own meal **preferences** as many as they want.
+There are tons of configurations in **config.yaml**, enabling *Satisflight* to suit every airport. For example, you can set check-in leading time so the flight check-in will be unavailable before a period of time, say, stop checking-in 30 minutes before departure. You can find more details in the **user manual**. The software also support any type of **aircraft**. You can use any **seat pattern** and customize aisle positions. Furthermore, airline companies can set their own meal **preferences** as many as they want.
 
 #### Aesthetic
 
-The software has a theme library which has 8 built-in themes in **theme.json**. Airport manager can customize colors in detail by editing the json file.  **Auto dark mode** allows *Satisflight* to switch to a dark theme in the evening. This function can be closed in config. Also, an non-liner **animation** is applied when switching pages or locking screen. The animation speed is also configurable.
+The software has a theme library which has 8 built-in themes in **theme.json**. Airport manager can customize colors in detail by editing the json file.  **Auto dark mode** allows *Satisflight* to switch to a dark theme in the evening. This function can be closed in config. Also, a non-liner **animation** is applied when switching pages or locking screen. The animation speed is also configurable.
 
 #### Robustness
 
-Rigorous **exception handling** is applied to make sure the **stability** of the software which would run continuously for a long time. **Input** values are checked strictly at every step. All operations of **writing** to the database will not be executed until reaching the final page, ensuring the **safety** of data even if the software crashes. The config and theme are well checked before the frame shows. It will generate a default file if the file is missing. If the **theme** load failed, it will used theme "*Cobalt*" and "*Onyx*" as **default**. If any of the **config** load failed, *Satisflight* will **refused to start** for **safety** reasons.
+Rigorous **exception handling** is applied to make sure the **stability** of the software which would run continuously for a long time. **Input** values are checked strictly at every step. All operations of **writing** to the database will not be executed until reaching the final page, ensuring the **safety** of data even if the software crashes. The config and theme are well checked before the frame shows. It will generate a default file if the file is missing. If **theme** configuration fails to load, it will use theme "*Cobalt*" and "*Onyx*" as **default**. If any of the **config** load failed, *Satisflight* will **refuse to start** for **safety** reasons.
 
 ### Design Principles
 
