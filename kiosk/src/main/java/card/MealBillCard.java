@@ -37,7 +37,17 @@ public class MealBillCard extends JPanel {
 
     private String[] pref = new String[3];
     private int[] pay = new int[3];
-    
+
+    /**
+     *
+     * @param basis 'a' Normal, 'b' Vegetarian, 'c' Halal
+     * @param extr1 preference food name 1
+     * @param extr2 preference food name 2
+     * @param extr3 preference food name 3
+     * @param bill1 preference price name 1
+     * @param bill2 preference price name 2
+     * @param bill3 preference price name 3
+     */
     public MealBillCard(char basis, String extr1, String extr2, String extr3, int bill1, int bill2, int bill3) {
 
         pref[0] = extr1;

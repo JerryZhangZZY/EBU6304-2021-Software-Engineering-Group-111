@@ -27,9 +27,15 @@ import java.io.IOException;
 public abstract class BoardingPassPrinter {
     static String ticket_temp;
 
+    /**
+     * Generate .txt or .jpg tags based on config
+     *
+     * @param idPassengerFlightIndex got from state
+     * @exception IOException write error
+     */
     public static void creatBoardingPass(int idPassengerFlightIndex) throws IOException{
-        Boolean choosen = Boolean.parseBoolean(Config.readConfig("imagePrinter"));
-        if (choosen) {
+        Boolean chosen = Boolean.parseBoolean(Config.readConfig("imagePrinter"));
+        if (chosen) {
             BoardingPassPrinter.creatBoardingPassJPG(idPassengerFlightIndex);
         }
         else{
@@ -37,7 +43,10 @@ public abstract class BoardingPassPrinter {
         }
     }
 
-    public static void creatBoardingPassJPG(int idPassengerFlight_index)throws IOException{
+    /**
+     * print a jpg form boarding pass
+     */
+    public static void creatBoardingPassJPG(int idPassengerFlight_index) throws IOException{
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         int idFlight_index = FlightReader.indexOf(idFlight);
         String idPassenger = PassengerFlightReader.getIdPassenger(idPassengerFlight_index);
@@ -52,6 +61,9 @@ public abstract class BoardingPassPrinter {
         ImageIO.write(image, "jpeg", new java.io.File(ticket_temp));
     }
 
+    /**
+     * print a txt form boarding pass
+     */
     public static void creatBoardingPassTxt(int idPassengerFlight_index) throws IOException {
         String idFlight = PassengerFlightReader.getIdFlight(idPassengerFlight_index);
         String seat = State.getPrefSeatName()[State.getSeatPre()];
