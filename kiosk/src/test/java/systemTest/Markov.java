@@ -42,19 +42,4 @@ public class Markov extends CsvReader{
         }
         return next;
     }
-
-    public static void main(String[] args) throws IOException {
-        int[] ns = {0,0,0,0};
-        for (int i = 0; i < 10; i++) {
-            Markov markov = new Markov();
-            int next = markov.nextStateOf(1);
-            if (next==0) ns[0]++;
-            else if (next==2) ns[1]++;
-            else if (next==3) ns[2]++;
-            else ns[3]++;
-        }
-        for (int n : ns) {
-            System.out.println(n);
-        }
-    }
 }
