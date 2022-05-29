@@ -70,6 +70,26 @@ Once the user story is built, we must create a Backlog with a strict hierarchy o
 
 Before the software was built, we sketched out on paper the rough configuration, the interaction elements, the elements that were connected in series, how the software should be manipulated. Using this draft of the physics design we can get faster feedback. The prototype we draw is low-fidelity prototyping. The nice thing about prototype is that it's very fast and we can usually do it during a team meeting. It is also very efficient, with low time and resource investment allowing us to speed up the detailed design later.We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
 
+### Metrics
+
+Our system should be easy to use, so that users can minimize the error, we will give our system to friends and relatives after each update iteration. We strive to make them learn to use the system within two minutes of turning it on.
+
+#### Size
+
+Since our program would have significant changes and more functions in each iteration, we would compress the previous code in the early release stage, and the final code was only 12.5MB.
+
+#### Ease of use
+
+We added Pages of Instructions to the system, so that users can know the completion degree according to the progress bar and adjust their use time in time.
+
+#### Robustness
+
+Our system has a high level of robustness, we have completed the automatic refresh time feature (Story 3.4) our system will countdown 120 seconds once it starts running, after 120 seconds it will automatically exit and return to the start page.
+
+#### Reliability
+
+By setting our program to not run if config fails to load (Story 4.1). This makes it extremely difficult for the program to crash, thus increasing the stability of the program.
+
 ## Analysis and Design
 
 ### Analysis
