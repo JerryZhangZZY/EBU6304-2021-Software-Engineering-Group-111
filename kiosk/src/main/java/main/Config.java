@@ -241,7 +241,7 @@ public abstract class Config {
                 # -------------< APPEARANCE SETTINGS >------------
                                     
                 # Select a theme from the theme library
-                theme: Jungle
+                theme: Cobalt
                 
                 # Select the dark theme from the theme library
                 darkTheme: Onyx
