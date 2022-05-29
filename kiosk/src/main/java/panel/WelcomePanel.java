@@ -15,6 +15,10 @@ import java.awt.event.ActionListener;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 5.0
+ * Change file name of cover image: cover.jpg.
+ * @date 2022/5/29
+ *
  * @version 3.0
  * Better way of setting background image.
  * @date 2022/4/23
@@ -53,9 +57,9 @@ public class WelcomePanel extends JPanel {
         hint for continuing
          */
         lblHint = new JLabel("click anywhere to start your check-in");
-        lblHint.setBounds(360, 100, 1200, 1600);
+        lblHint.setBounds(360, 35, 1200, 1600);
         lblHint.setFont(new Font("Calibri", Font.PLAIN, 36));
-        lblHint.setForeground(Color.lightGray);
+        lblHint.setForeground(Color.WHITE);
         lblHint.setHorizontalAlignment(SwingConstants.CENTER);
         add(lblHint, 0);
         /*
@@ -97,6 +101,6 @@ public class WelcomePanel extends JPanel {
      */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(new ImageIcon("kiosk/icons/bg.png").getImage(), 0, 0,this.getWidth(), this.getHeight(), this);
+        g.drawImage(new ImageIcon("kiosk/icons/cover.jpg").getImage(), 0, 0,this.getWidth(), this.getHeight(), this);
     }
 }

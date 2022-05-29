@@ -2,8 +2,8 @@
   "flight": [
     {
       "idFlight": "CA0001",
-      "departure": "Beijing T3",
-      "arrival": "Shanghai T2",
+      "departure": "London T3",
+      "arrival": "Paris T2",
       "gate": "3A",
       "departureTime": "2022-04-20 10:00",
       "arrivalTime": "2022-04-20 12:00",
@@ -13,8 +13,8 @@
     },
     {
       "idFlight": "CA0002",
-      "departure": "Shanghai T3",
-      "arrival": "Beijing T2",
+      "departure": "Paris T3",
+      "arrival": "London T2",
       "gate": "8C",
       "departureTime": "2022-04-20 14:30",
       "arrivalTime": "2022-04-20 18:00",
@@ -25,7 +25,7 @@
     },
     {
       "idFlight": "AC0001",
-      "departure": "Shanghai T2",
+      "departure": "Milan T2",
       "arrival": "Vancouver T1",
       "gate": "2B",
       "departureTime": "2022-04-20 13:00",
@@ -157,8 +157,8 @@
     },
     {
       "idFlight": "MU1314",
-      "departure": "Guiyang T1",
-      "arrival": "Shanghai T2",
+      "departure": "London T1",
+      "arrival": "Milan T2",
       "departureTime": "2022-04-20 08:00",
       "arrivalTime": "2022-04-20 11:00",
       "boardingTime": "07:30",

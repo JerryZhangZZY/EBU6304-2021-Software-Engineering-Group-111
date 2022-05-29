@@ -196,12 +196,12 @@ public class DBGenerator {
             case 0 -> {
                 idFlight = "CA"+(r.nextInt(8000)+1000);
                 seat = r.nextInt(12)+1+randomSeats[seatForm1[r.nextInt(6)]];
-                airline = "AIR CHINA";
+                airline = "British Airways";
             }
             case 1 -> {
                 idFlight = "AC"+(r.nextInt(8000)+1000);
                 seat = r.nextInt(20)+1+randomSeats[seatForm1[r.nextInt(6)]];
-                airline = "AIR CANADA";
+                airline = "British Airways";
             }
             case 2 -> {
                 idFlight = "UA"+(r.nextInt(8000)+1000);
