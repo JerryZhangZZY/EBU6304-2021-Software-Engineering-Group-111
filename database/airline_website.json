@@ -1,14 +1,6 @@
 {
   "airline_website": [
     {
-      "airline": "AIR CHINA",
-      "website": "http://www.airchina.com"
-    },
-    {
-      "airline": "AIR CANADA",
-      "website": "https://www.aircanada.com"
-    },
-    {
       "airline": "UNITED AIRLINES",
       "website": "https://www.united.com"
     },

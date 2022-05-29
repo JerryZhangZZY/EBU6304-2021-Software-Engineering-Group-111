@@ -17,7 +17,7 @@ public class PlaneInfoCardTest {
 
     public static void main(String[] args) {
 
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         MainFrame testMainFrame = new MainFrame();
         PlaneInfoCard planeInfoCard = new PlaneInfoCard();
         planeInfoCard.setLocation(0, 0);

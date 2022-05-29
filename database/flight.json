@@ -1,7 +1,7 @@
 {
   "flight": [
     {
-      "idFlight": "CA0001",
+      "idFlight": "BA0002",
       "departure": "London T3",
       "arrival": "Paris T2",
       "gate": "3A",
@@ -12,7 +12,7 @@
       "mealPreference": [0, 1, 2]
     },
     {
-      "idFlight": "CA0002",
+      "idFlight": "BA0003",
       "departure": "Paris T3",
       "arrival": "London T2",
       "gate": "8C",
@@ -24,7 +24,7 @@
       
     },
     {
-      "idFlight": "AC0001",
+      "idFlight": "BA0001",
       "departure": "Milan T2",
       "arrival": "Vancouver T1",
       "gate": "2B",
@@ -46,7 +46,7 @@
       "mealPreference": [0, 7, 8]
     },
     {
-      "idFlight": "AC3079",
+      "idFlight": "BA3079",
       "departure": "Edmonton T1",
       "arrival": "Toronto T2",
       "departureTime": "2022-04-20 12:00",
@@ -57,7 +57,7 @@
       "mealPreference": [0, 4, 7]
     },
     {
-      "idFlight": "AC3577",
+      "idFlight": "BA3577",
       "departure": "Munich T2",
       "arrival": "Edmonton T1",
       "departureTime": "2022-04-20 10:00",
@@ -68,7 +68,7 @@
       "mealPreference": [1, 3, 4]
     },
     {
-      "idFlight": "AC2485",
+      "idFlight": "BA2485",
       "departure": "NewYork T2",
       "arrival": "Toronto T2",
       "departureTime": "2022-04-20 08:00",

@@ -13,13 +13,13 @@
 #### To get simple attribute:
 
 ```java
-FlightReader.getDepartureTime(FlightReader.indexOf("CA0001"));
+FlightReader.getDepartureTime(FlightReader.indexOf("BA0002"));
 ```
 
 #### To get multiple attributes:
 
 ```java
-int tmpIndex = FlightReader.indexOf("CA0001");
+int tmpIndex = FlightReader.indexOf("BA0002");
 FlightReader.getDepartureTime(tmpIndex);
 FlightReader.getArrivalTime(tmpIndex);
 ```

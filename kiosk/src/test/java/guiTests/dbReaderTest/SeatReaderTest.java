@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class SeatReaderTest {
     public static void main(String[] args) {
-        SeatReader sr1 = new SeatReader("AC0001");
+        SeatReader sr1 = new SeatReader("BA0001");
         for(int i = 1; i <= 12; i++) {
             System.out.println(Arrays.toString(sr1.getSeat(i)));
         }

@@ -15,7 +15,7 @@ import panel.FinalPanel;
 public class FinalPanelTest {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        State.setIdFlight("CA0001");
+        State.setIdFlight("BA0002");
         State.setBookingNum("bn0001");
         State.setSeatRow(1);
         State.setSeatColumn(4);

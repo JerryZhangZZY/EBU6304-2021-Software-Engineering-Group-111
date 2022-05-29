@@ -48,7 +48,7 @@ public class FinalPanelTest {
         String[] column = {"A", "B", "C", "D", "E", "F"};
         String[] foodName = {"Normal", "Vegetarian", "Halal"};
 
-        State.setIdFlight("CA0001");
+        State.setIdFlight("BA0002");
         State.setSeatRow(random.nextInt(6) + 1);
         State.setSeatColumn(random.nextInt(6) + 1);
         State.setSelectedPrefFood(new boolean[]{random.nextBoolean(), random.nextBoolean(), random.nextBoolean()});
@@ -70,7 +70,7 @@ public class FinalPanelTest {
         String[] column = {"A", "B", "C", "D", "E", "F"};
         String[] foodName = {"Normal", "Vegetarian", "Halal"};
 
-        State.setIdFlight("CA0001");
+        State.setIdFlight("BA0002");
         State.setSeatRow(random.nextInt(6) + 1);
         State.setSeatColumn(random.nextInt(6) + 1);
         State.setSelectedPrefFood(new boolean[]{random.nextBoolean(), random.nextBoolean(), random.nextBoolean()});
@@ -92,7 +92,7 @@ public class FinalPanelTest {
         String[] column = {"A", "B", "C", "D", "E", "F"};
         String[] foodName = {"Normal", "Vegetarian", "Halal"};
 
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         State.setSeatRow(random.nextInt(6) + 1);
         State.setSeatColumn(random.nextInt(6) + 1);
         State.setColumnNum('A');
@@ -104,7 +104,7 @@ public class FinalPanelTest {
 
         FinalPanel finalPanel = new FinalPanel();
 
-        SeatReader seatReader = new SeatReader("AC0001");
+        SeatReader seatReader = new SeatReader("BA0001");
         boolean[] seat = seatReader.getSeat(State.getSeatRow());
         assertFalse(seat[State.getSeatColumn() - 1]);
 

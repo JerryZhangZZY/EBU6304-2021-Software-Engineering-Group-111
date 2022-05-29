@@ -23,7 +23,7 @@ public class BoardingPassCardTest {
         State.setSeatRow(8);
         State.setPassengerName("Jack");
         MainFrame frame = new MainFrame();
-        BoardingPassCard boardingPassCard = new BoardingPassCard("CA0001");
+        BoardingPassCard boardingPassCard = new BoardingPassCard("BA0002");
         boardingPassCard.setLocation(100, 100);
         frame.loadPanel(boardingPassCard);
         frame.setVisible(true);
