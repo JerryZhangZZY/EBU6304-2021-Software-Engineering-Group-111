@@ -14,6 +14,10 @@ import java.util.LinkedHashMap;
  * @author Zhang Zeyu
  * @author Ni Ruijie
  *
+ * @version 5.2
+ * Change default airport name: London Heathrow Airport
+ * @date 2022/5/29
+ *
  * @version 5.1
  * Add image printer config.
  * @date 2022/5/19
@@ -214,7 +218,7 @@ public abstract class Config {
                 # --------------< AIRPORT SETTINGS >--------------
                                     
                 # You can set the airport name here
-                airportName: Beijing International Airport
+                airportName: London Heathrow Airport
                                     
                 # Enable/disable the check-in leading time function
                 enableCheckInLeadingTime: false
