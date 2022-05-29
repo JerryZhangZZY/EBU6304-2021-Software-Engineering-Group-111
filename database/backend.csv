@@ -15,103 +15,103 @@ idPassenger,surName,idFlight,bookingNum,status,seat,meal,mealPre1,mealPre2,mealP
 123403,Davis,LH1607,bn0013,0,NULL,NULL,NULL,NULL,NULL,LUFTHANSA
 123962,Lewis,MU1314,bn0014,0,NULL,NULL,NULL,NULL,NULL,CHINA EASTERN
 123588,Jason,MU3241,bn0015,0,NULL,NULL,NULL,NULL,NULL,CHINA EASTERN
-123856,Harrison,MU5389,bn4017,1,8J,Normal,Spanish ham,Extra,Taro Pie,CHINA EASTERN
-123859,Isaac,LH1335,bn8093,1,34F,Vegetarian,NULL,NULL,NULL,LUFTHANSA
-123226,Denny,MU8799,bn7522,1,6A,Vegetarian,Baguette,NULL,NULL,CHINA EASTERN
-123400,Dennis,AC1187,bn5630,1,8L,Normal,NULL,Taro Pie,Hamburger,AIR CANADA
-123263,Aidan,UA1983,bn1389,1,18B,Normal,NULL,Rice,Hamburger,UNITED AIRLINES
-123892,Brant,LH1568,bn6386,1,13C,Halal,NULL,Spanish ham,Ice-Cream,LUFTHANSA
-123602,Glendon,UA5679,bn2210,1,29L,Normal,NULL,NULL,Rice,UNITED AIRLINES
-123165,Clark,AC6151,bn2138,1,19B,Normal,NULL,Hamburger,Hamburger,AIR CANADA
-123199,Blake,CA8704,bn8723,1,3L,Halal,NULL,Extra,Spanish ham,British Airways
-123982,Edmund,LH6964,bn2083,1,68K,Vegetarian,NULL,NULL,Kweichow Moutai,LUFTHANSA
-123839,Edwin,MU2335,bn4280,1,10L,Normal,Candy Floss,NULL,Mousse Cake,CHINA EASTERN
-123434,Clark,LH6046,bn8831,1,77K,Vegetarian,Spanish ham,Candy Floss,NULL,LUFTHANSA
-123276,Andy,LH1352,bn9730,1,9K,Vegetarian,NULL,NULL,NULL,LUFTHANSA
-123124,Apollo,CA1896,bn2026,1,7C,Normal,NULL,Hamburger,NULL,British Airways
-123827,Jason,MU7028,bn4187,1,4A,Halal,NULL,NULL,Chocolate,CHINA EASTERN
-123236,Clark,MU8106,bn2799,1,12A,Vegetarian,NULL,Chocolate,NULL,CHINA EASTERN
-123759,Adam,UA2613,bn7141,1,24K,Normal,Chocolate,Spanish ham,Mousse Cake,UNITED AIRLINES
-123668,Cecil,MU2305,bn2835,1,7A,Vegetarian,NULL,NULL,NULL,CHINA EASTERN
-123384,Francis,UA1589,bn8142,1,23B,Vegetarian,French fries,Baguette,Mousse Cake,UNITED AIRLINES
-123633,August,LH4660,bn9635,1,48L,Halal,NULL,NULL,NULL,LUFTHANSA
-123177,Christopher,CA2280,bn5225,1,12A,Normal,Ice-Cream,NULL,NULL,British Airways
-123493,Anthony,MU5446,bn7891,1,14C,Vegetarian,Cheese Tart,Cheese Tart,Rice,CHINA EASTERN
-123511,Derek,UA1046,bn9990,1,9L,Normal,Spanish ham,NULL,French fries,UNITED AIRLINES
-123165,Harrison,LH2621,bn2840,1,14K,Vegetarian,Italian Pizza,Hamburger,NULL,LUFTHANSA
-123871,Evan,UA7309,bn7056,1,30J,Normal,Baguette,NULL,Rice,UNITED AIRLINES
-123260,James,MU1094,bn5848,1,1J,Halal,Mousse Cake,NULL,NULL,CHINA EASTERN
-123730,Eugene,MU2403,bn4224,1,13L,Normal,NULL,NULL,NULL,CHINA EASTERN
-123319,Dylan,LH4091,bn5293,1,9J,Normal,NULL,Spanish ham,Hamburger,LUFTHANSA
-123115,Cary,UA7987,bn4464,1,3J,Vegetarian,Italian Pizza,NULL,Cookies,UNITED AIRLINES
-123538,Howard,AC8049,bn3469,1,17L,Halal,Russian caviar,French fries,NULL,AIR CANADA
-123916,Eugene,AC7344,bn8171,1,4L,Normal,Candy Floss,NULL,NULL,AIR CANADA
-123180,Adrian,AC3460,bn4503,1,9B,Halal,NULL,Kweichow Moutai,NULL,AIR CANADA
-123598,Alex,AC6796,bn4202,1,9B,Vegetarian,NULL,Cookies,Spanish ham,AIR CANADA
-123483,Bert,UA5106,bn7236,1,18A,Normal,NULL,Russian caviar,Italian Pizza,UNITED AIRLINES
-123615,Jason,MU3329,bn5451,1,5A,Vegetarian,NULL,NULL,NULL,CHINA EASTERN
-123767,Derek,UA4952,bn2640,1,6B,Vegetarian,NULL,NULL,Baguette,UNITED AIRLINES
-123210,Hayden,UA4492,bn2540,1,3J,Vegetarian,Ice-Cream,NULL,NULL,UNITED AIRLINES
-123205,Christopher,LH2306,bn3303,1,64B,Vegetarian,Cookies,NULL,Taro Pie,LUFTHANSA
-123149,Ian,MU8386,bn9192,1,3J,Halal,NULL,Ice-Cream,Russian caviar,CHINA EASTERN
-123667,Alex,CA6757,bn8144,1,11B,Normal,Baguette,NULL,Taro Pie,British Airways
-123156,Derek,LH4554,bn6111,1,5C,Halal,Candy Floss,NULL,Mousse Cake,LUFTHANSA
-123694,Angus,LH8487,bn6575,1,72C,Halal,Baguette,NULL,NULL,LUFTHANSA
-123934,Hugo,MU3721,bn5592,1,15J,Normal,NULL,NULL,Russian caviar,CHINA EASTERN
-123455,Jerry,MU6520,bn2432,1,15L,Halal,NULL,NULL,Cookies,CHINA EASTERN
-123779,Cole,MU5888,bn6686,1,3J,Normal,Rice,Extra,Cheese Tart,CHINA EASTERN
-123380,Henry,MU8790,bn6424,1,6L,Halal,NULL,NULL,NULL,CHINA EASTERN
-123519,Bill,CA5039,bn2474,1,12J,Normal,Kweichow Moutai,NULL,NULL,British Airways
-123634,Glendon,UA6417,bn8200,1,13J,Halal,Taro Pie,NULL,NULL,UNITED AIRLINES
-123220,Caspar,CA6806,bn8465,1,5L,Normal,NULL,NULL,Taro Pie,British Airways
-123539,Jay,AC7188,bn8939,1,9J,Halal,Ice-Cream,Cookies,NULL,AIR CANADA
-123927,Isaiah,MU6221,bn4787,1,6L,Vegetarian,NULL,NULL,NULL,CHINA EASTERN
-123465,Edmund,AC3918,bn5543,1,4J,Halal,Spanish ham,NULL,NULL,AIR CANADA
-123171,Brandon,UA5136,bn9925,1,32L,Halal,Baguette,Russian caviar,Baguette,UNITED AIRLINES
-123520,Angus,AC2928,bn5854,1,12L,Vegetarian,NULL,Cheese Tart,NULL,AIR CANADA
-123814,Carl,UA8028,bn8850,1,14J,Halal,Extra,Candy Floss,French fries,UNITED AIRLINES
-123448,Albert,MU6809,bn7712,1,10L,Halal,Cheese Tart,Rice,Extra,CHINA EASTERN
-123530,Arthur,AC3709,bn2589,1,1J,Halal,Mousse Cake,NULL,NULL,AIR CANADA
-123227,Harrison,UA1523,bn6192,1,25B,Vegetarian,Rice,NULL,NULL,UNITED AIRLINES
-123671,Isaiah,LH7354,bn4942,1,41K,Vegetarian,NULL,NULL,Italian Pizza,LUFTHANSA
-123781,Colin,MU7096,bn4704,1,13C,Normal,NULL,Cookies,NULL,CHINA EASTERN
-123960,Brent,UA5638,bn9242,1,25J,Vegetarian,NULL,Italian Pizza,Russian caviar,UNITED AIRLINES
-123406,Donald,UA7232,bn4584,1,31B,Halal,French fries,Candy Floss,Candy Floss,UNITED AIRLINES
-123500,Cary,AC4325,bn9127,1,12A,Vegetarian,NULL,NULL,NULL,AIR CANADA
-123202,Douglas,LH4282,bn2372,1,19F,Halal,NULL,Italian Pizza,NULL,LUFTHANSA
-123264,Brandon,CA3358,bn1634,1,1K,Halal,Taro Pie,NULL,Cookies,British Airways
-123344,Gary,AC5158,bn7812,1,18C,Vegetarian,Taro Pie,French fries,Cheese Tart,AIR CANADA
-123591,Jeffery,UA2704,bn4432,1,21J,Vegetarian,Cheese Tart,NULL,NULL,UNITED AIRLINES
-123645,Darwin,CA1152,bn4162,1,9A,Vegetarian,NULL,NULL,Russian caviar,British Airways
-123958,Anthony,CA6729,bn8282,1,4B,Halal,NULL,NULL,Candy Floss,British Airways
-123965,Gino,MU2359,bn4819,1,3C,Vegetarian,Cheese Tart,NULL,NULL,CHINA EASTERN
-123684,Bert,MU6638,bn9918,1,6C,Normal,NULL,NULL,NULL,CHINA EASTERN
-123667,Hayden,UA7308,bn5512,1,1L,Normal,Spanish ham,Taro Pie,Extra,UNITED AIRLINES
-123729,Fred,AC6947,bn1657,1,3A,Halal,NULL,NULL,NULL,AIR CANADA
-123437,Cliff,UA5052,bn6622,1,1A,Normal,NULL,NULL,NULL,UNITED AIRLINES
-123835,Arthur,LH3681,bn1795,1,9C,Vegetarian,NULL,NULL,Cookies,LUFTHANSA
-123315,Arthur,UA1323,bn6617,1,16J,Vegetarian,NULL,NULL,NULL,UNITED AIRLINES
-123661,Cole,AC4966,bn8490,1,9K,Vegetarian,Rice,NULL,NULL,AIR CANADA
-123565,Elvis,UA3652,bn4157,1,17A,Normal,Russian caviar,NULL,Kweichow Moutai,UNITED AIRLINES
-123523,Brian,CA5418,bn1011,1,12A,Halal,Baguette,Hamburger,NULL,British Airways
-123552,Douglas,UA8188,bn3444,1,24K,Halal,NULL,NULL,Russian caviar,UNITED AIRLINES
-123420,Howard,LH7115,bn4959,1,5L,Vegetarian,Spanish ham,NULL,Spanish ham,LUFTHANSA
-123712,Arnold,CA8999,bn3555,1,6C,Vegetarian,Kweichow Moutai,Hamburger,Taro Pie,British Airways
-123406,Henry,LH8207,bn1408,1,40D,Vegetarian,NULL,Ice-Cream,NULL,LUFTHANSA
-123929,Carl,MU3241,bn3162,1,13A,Vegetarian,NULL,NULL,Russian caviar,CHINA EASTERN
-123986,Ethan,MU7125,bn5895,1,14A,Halal,Extra,NULL,Spanish ham,CHINA EASTERN
-123653,Hardy,AC4255,bn9218,1,6J,Vegetarian,Russian caviar,NULL,Cheese Tart,AIR CANADA
-123237,Carlos,LH2730,bn9233,1,34L,Normal,Italian Pizza,French fries,NULL,LUFTHANSA
-123345,Elvis,MU4266,bn9274,1,6L,Vegetarian,NULL,NULL,Chocolate,CHINA EASTERN
-123577,Alex,LH8533,bn7287,1,51A,Normal,NULL,Kweichow Moutai,NULL,LUFTHANSA
-123933,David,AC7734,bn2519,1,8B,Vegetarian,Rice,NULL,Mousse Cake,AIR CANADA
-123712,Dennis,CA1386,bn7528,1,11A,Normal,Chocolate,Italian Pizza,NULL,British Airways
-123277,Eric,UA2609,bn3793,1,30J,Halal,NULL,NULL,Kweichow Moutai,UNITED AIRLINES
-123701,Darwin,CA7222,bn7327,1,6B,Normal,NULL,NULL,NULL,British Airways
-123836,Hunk,AC8095,bn2997,1,13L,Halal,Baguette,Hamburger,NULL,AIR CANADA
-123596,Carlos,MU8029,bn4041,1,15J,Normal,Spanish ham,Candy Floss,Candy Floss,CHINA EASTERN
-123702,Arthur,UA8994,bn7919,1,29L,Vegetarian,Candy Floss,Cheese Tart,NULL,UNITED AIRLINES
-123767,Elliott,MU4184,bn4466,1,14C,Normal,NULL,Spanish ham,Ice-Cream,CHINA EASTERN
-123740,Angus,CA2672,bn5641,1,5J,Halal,NULL,Chocolate,NULL,British Airways
-123478,Donald,UA1091,bn4641,1,26A,Vegetarian,Baguette,Ice-Cream,Baguette,UNITED AIRLINES
-123385,Abel,AC2630,bn7453,1,4A,Halal,NULL,Rice,NULL,AIR CANADA
+123944,Christopher,MU2015,bn6506,1,4L,Normal,NULL,Kweichow Moutai,NULL,CHINA EASTERN
+123957,Dick,UA8089,bn9272,1,27K,Halal,Rice,NULL,NULL,UNITED AIRLINES
+123182,Edison,CA4883,bn3058,1,3C,Halal,NULL,NULL,Ice-Cream,British Airways
+123625,Darwin,AC7632,bn6934,1,4J,Normal,NULL,NULL,Baguette,British Airways
+123431,Carlos,UA2784,bn7867,1,4C,Normal,NULL,Candy Floss,NULL,UNITED AIRLINES
+123229,Ignativs,CA2298,bn6830,1,3C,Halal,French fries,Ice-Cream,NULL,British Airways
+123151,Eric,MU6326,bn2926,1,6C,Vegetarian,NULL,Cheese Tart,NULL,CHINA EASTERN
+123285,Jerry,CA1147,bn9406,1,8L,Normal,NULL,NULL,Cookies,British Airways
+123102,Hank,UA2797,bn1058,1,15L,Halal,Kweichow Moutai,NULL,NULL,UNITED AIRLINES
+123641,Jerome,AC1287,bn4148,1,2K,Vegetarian,Hamburger,NULL,Ice-Cream,British Airways
+123565,Brian,AC5544,bn2575,1,19A,Halal,NULL,NULL,Mousse Cake,British Airways
+123609,Geoffrey,UA6196,bn9590,1,5L,Vegetarian,Ice-Cream,Mousse Cake,NULL,UNITED AIRLINES
+123304,Ford,UA8462,bn1603,1,5C,Halal,Kweichow Moutai,Mousse Cake,Cheese Tart,UNITED AIRLINES
+123192,Jeffery,CA8126,bn9348,1,11L,Normal,Baguette,Mousse Cake,NULL,British Airways
+123516,Gavin,MU8339,bn7442,1,10C,Vegetarian,NULL,NULL,NULL,CHINA EASTERN
+123104,Albert,AC6664,bn9184,1,4L,Normal,NULL,NULL,NULL,British Airways
+123657,Edward,MU1978,bn8993,1,12C,Halal,Cookies,Chocolate,NULL,CHINA EASTERN
+123983,David,UA1749,bn3970,1,31K,Vegetarian,NULL,NULL,Cookies,UNITED AIRLINES
+123358,Andrew,MU7749,bn1756,1,10A,Vegetarian,Ice-Cream,NULL,NULL,CHINA EASTERN
+123319,Brown,CA7856,bn6000,1,6C,Halal,NULL,NULL,NULL,British Airways
+123513,Hilton,MU7446,bn8700,1,15C,Halal,NULL,NULL,Extra,CHINA EASTERN
+123954,Bobby,MU8344,bn1250,1,14J,Halal,NULL,Mousse Cake,Candy Floss,CHINA EASTERN
+123484,Alfred,UA7489,bn9369,1,31A,Vegetarian,Kweichow Moutai,NULL,NULL,UNITED AIRLINES
+123856,Arnold,UA4865,bn3333,1,24L,Vegetarian,Chocolate,Spanish ham,Spanish ham,UNITED AIRLINES
+123412,Christian,UA2289,bn7754,1,8J,Vegetarian,NULL,French fries,NULL,UNITED AIRLINES
+123516,Brad,LH4192,bn8390,1,18J,Halal,Ice-Cream,NULL,NULL,LUFTHANSA
+123237,Caleb,CA4231,bn1423,1,8L,Halal,Chocolate,NULL,Kweichow Moutai,British Airways
+123689,Brian,AC8603,bn7981,1,2J,Vegetarian,NULL,Chocolate,NULL,British Airways
+123201,Hilton,LH1182,bn1059,1,66J,Vegetarian,Italian Pizza,NULL,NULL,LUFTHANSA
+123151,Dennis,CA4890,bn4262,1,10L,Vegetarian,NULL,NULL,Candy Floss,British Airways
+123967,Jacob,LH8528,bn2309,1,16H,Halal,NULL,NULL,Kweichow Moutai,LUFTHANSA
+123900,Alva,UA2500,bn2502,1,5J,Halal,Russian caviar,NULL,NULL,UNITED AIRLINES
+123412,Brian,AC3231,bn2628,1,13A,Normal,NULL,Spanish ham,NULL,British Airways
+123820,Brad,AC7241,bn6185,1,11L,Halal,Ice-Cream,Russian caviar,NULL,British Airways
+123988,Dylan,MU2080,bn2617,1,12C,Normal,NULL,Mousse Cake,Baguette,CHINA EASTERN
+123662,Apollo,CA6103,bn8998,1,2L,Halal,NULL,NULL,Italian Pizza,British Airways
+123548,Jackson,AC7100,bn6170,1,13A,Normal,NULL,NULL,Hamburger,British Airways
+123565,Glen,MU3475,bn7528,1,5A,Normal,NULL,Hamburger,Cookies,CHINA EASTERN
+123589,Alfred,AC7966,bn4307,1,6B,Normal,Taro Pie,NULL,Italian Pizza,British Airways
+123500,Bob,CA5120,bn3523,1,4C,Vegetarian,Italian Pizza,NULL,NULL,British Airways
+123563,Aidan,UA3791,bn2731,1,17K,Halal,NULL,NULL,Baguette,UNITED AIRLINES
+123278,Billy,MU7810,bn1585,1,1J,Halal,NULL,Hamburger,NULL,CHINA EASTERN
+123782,Austin,MU5018,bn8264,1,8C,Vegetarian,Cookies,Rice,NULL,CHINA EASTERN
+123908,Brant,CA3772,bn1071,1,5B,Vegetarian,Rice,Baguette,NULL,British Airways
+123262,Andy,AC1629,bn9999,1,6K,Vegetarian,NULL,NULL,Cheese Tart,British Airways
+123201,Gavin,MU3267,bn1097,1,9C,Vegetarian,NULL,NULL,Rice,CHINA EASTERN
+123407,Gavin,LH4430,bn1460,1,2E,Normal,Cookies,Russian caviar,NULL,LUFTHANSA
+123857,Albert,LH1759,bn1450,1,39B,Halal,NULL,Russian caviar,Candy Floss,LUFTHANSA
+123789,Harry,UA7306,bn4739,1,32A,Normal,NULL,Baguette,Candy Floss,UNITED AIRLINES
+123155,Bill,UA3634,bn9865,1,4A,Normal,Kweichow Moutai,NULL,NULL,UNITED AIRLINES
+123215,Cameron,AC4127,bn4447,1,6C,Vegetarian,Taro Pie,Italian Pizza,NULL,British Airways
+123670,Gabriel,UA7302,bn2842,1,31C,Vegetarian,NULL,NULL,NULL,UNITED AIRLINES
+123322,Caspar,LH7376,bn1358,1,77F,Vegetarian,NULL,NULL,Cheese Tart,LUFTHANSA
+123885,Eddie,UA7987,bn2858,1,7L,Halal,Spanish ham,NULL,French fries,UNITED AIRLINES
+123735,Abraham,CA7403,bn4229,1,8A,Vegetarian,NULL,Baguette,Hamburger,British Airways
+123595,Hilton,LH8384,bn3733,1,36F,Normal,Kweichow Moutai,NULL,Baguette,LUFTHANSA
+123988,Ethan,AC3539,bn7839,1,12K,Normal,Baguette,Cookies,NULL,British Airways
+123760,Cole,LH7099,bn9123,1,11F,Normal,Baguette,Taro Pie,NULL,LUFTHANSA
+123404,Apollo,LH4692,bn7323,1,11B,Normal,Extra,Spanish ham,Spanish ham,LUFTHANSA
+123261,Glendon,CA4031,bn8395,1,11B,Normal,Cookies,NULL,NULL,British Airways
+123563,David,MU3238,bn2549,1,13L,Normal,Cheese Tart,NULL,Mousse Cake,CHINA EASTERN
+123674,Henry,LH2553,bn4572,1,17B,Normal,NULL,Mousse Cake,Cookies,LUFTHANSA
+123306,Christian,AC5875,bn4742,1,5A,Vegetarian,NULL,NULL,Mousse Cake,British Airways
+123285,Clark,LH8142,bn7810,1,38E,Halal,NULL,Cheese Tart,NULL,LUFTHANSA
+123514,Brant,UA8939,bn3271,1,19L,Normal,NULL,NULL,Candy Floss,UNITED AIRLINES
+123248,Dennis,AC6132,bn5345,1,3B,Vegetarian,NULL,Extra,Mousse Cake,British Airways
+123201,Edgar,MU3632,bn5143,1,15A,Vegetarian,NULL,French fries,NULL,CHINA EASTERN
+123588,Ian,AC6139,bn7100,1,5A,Normal,Spanish ham,Spanish ham,NULL,British Airways
+123179,Duke,UA4116,bn1883,1,25A,Normal,Mousse Cake,NULL,Russian caviar,UNITED AIRLINES
+123879,Jack,AC1719,bn2257,1,4L,Halal,Mousse Cake,NULL,NULL,British Airways
+123541,Glendon,MU8056,bn4609,1,14J,Vegetarian,NULL,NULL,NULL,CHINA EASTERN
+123855,Jacob,UA7327,bn4909,1,14K,Normal,NULL,French fries,NULL,UNITED AIRLINES
+123633,Jerry,MU2658,bn4631,1,9A,Vegetarian,NULL,Taro Pie,Cookies,CHINA EASTERN
+123721,Geoffrey,MU3191,bn5478,1,9L,Vegetarian,NULL,NULL,Cheese Tart,CHINA EASTERN
+123796,Jackson,MU8784,bn2238,1,12A,Halal,French fries,NULL,NULL,CHINA EASTERN
+123719,Alexander,MU8080,bn8379,1,2J,Vegetarian,Rice,Cookies,NULL,CHINA EASTERN
+123211,James,UA6755,bn8087,1,16J,Halal,NULL,Mousse Cake,NULL,UNITED AIRLINES
+123511,Andy,MU7123,bn7378,1,4A,Halal,Baguette,NULL,NULL,CHINA EASTERN
+123908,Anthony,MU4308,bn1687,1,8J,Vegetarian,NULL,NULL,NULL,CHINA EASTERN
+123882,Brandon,AC6133,bn2199,1,14J,Vegetarian,Spanish ham,NULL,Cheese Tart,British Airways
+123593,Clark,LH7853,bn2507,1,19A,Normal,Candy Floss,Candy Floss,NULL,LUFTHANSA
+123522,Darwin,AC6940,bn6681,1,5K,Vegetarian,Russian caviar,Spanish ham,NULL,British Airways
+123975,Brandon,MU1878,bn6233,1,2L,Normal,Italian Pizza,NULL,NULL,CHINA EASTERN
+123920,Hunk,MU4363,bn5329,1,12L,Vegetarian,Spanish ham,Russian caviar,NULL,CHINA EASTERN
+123470,Alexander,MU2850,bn2999,1,4A,Halal,NULL,Baguette,NULL,CHINA EASTERN
+123969,Cliff,CA3256,bn4752,1,1J,Vegetarian,NULL,Rice,NULL,British Airways
+123943,Jacob,MU1077,bn5217,1,15L,Halal,Spanish ham,Kweichow Moutai,NULL,CHINA EASTERN
+123837,David,UA1436,bn1634,1,15J,Normal,Rice,NULL,NULL,UNITED AIRLINES
+123319,Henry,CA3433,bn9367,1,5J,Halal,NULL,NULL,Hamburger,British Airways
+123955,Ford,AC3427,bn6686,1,6L,Halal,Taro Pie,Italian Pizza,Spanish ham,British Airways
+123618,Hunk,LH5486,bn4215,1,76G,Halal,NULL,NULL,NULL,LUFTHANSA
+123890,Colin,AC8451,bn1967,1,6L,Vegetarian,Ice-Cream,NULL,Spanish ham,British Airways
+123106,Andy,LH3542,bn7977,1,74K,Vegetarian,Rice,Italian Pizza,NULL,LUFTHANSA
+123509,Elvis,UA6813,bn6448,1,20A,Vegetarian,Cheese Tart,NULL,NULL,UNITED AIRLINES
+123432,Denny,LH5714,bn2210,1,15J,Vegetarian,Italian Pizza,NULL,NULL,LUFTHANSA
+123241,Clark,MU1738,bn5639,1,4A,Halal,Kweichow Moutai,Italian Pizza,Cheese Tart,CHINA EASTERN
+123769,Jackson,UA7911,bn7118,1,10C,Normal,NULL,Ice-Cream,French fries,UNITED AIRLINES
+123968,Ford,AC6730,bn8054,1,5B,Halal,Russian caviar,NULL,Cookies,British Airways
+123523,Alex,CA3497,bn7073,1,12B,Vegetarian,Ice-Cream,NULL,NULL,British Airways
+123658,Fred,LH5937,bn3266,1,7L,Halal,NULL,NULL,NULL,LUFTHANSA
