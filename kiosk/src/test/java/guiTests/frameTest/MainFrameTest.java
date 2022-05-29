@@ -20,7 +20,7 @@ import javax.swing.*;
 
 public class MainFrameTest {
     public static void main(String[] args) {
-        JPanel flightInfoCard = new FlightInfoCard("CA0001", 1);
+        JPanel flightInfoCard = new FlightInfoCard("BA0002", 1);
         MainFrame testMainFrame = new MainFrame();
         testMainFrame.loadPanel(flightInfoCard);
         testMainFrame.displayComponents(true, true, true);

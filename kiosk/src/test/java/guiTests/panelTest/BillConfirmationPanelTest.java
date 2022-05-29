@@ -9,7 +9,7 @@ public class BillConfirmationPanelTest {
 
     public static void main(String[] args) {
         MainFrame testMainFrame = new MainFrame();
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         State.setSelectedPrefFood(new boolean[]{true, true, true});
         State.setPassengerName("Mike");
         State.setSeatRow(6);

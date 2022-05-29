@@ -12,9 +12,9 @@ import dbReader.FlightReader;
 
 public class FlightReaderTest {
     public static void main(String[] args) {
-        System.out.println(FlightReader.indexOf("CA0001"));
-        System.out.println(FlightReader.getDeparture(FlightReader.indexOf("CA0002")));
-        System.out.println(FlightReader.getIdPlane(FlightReader.indexOf("CA0001")));
-        System.out.println(FlightReader.getDepartureDate(FlightReader.indexOf("AC0001")));
+        System.out.println(FlightReader.indexOf("BA0002"));
+        System.out.println(FlightReader.getDeparture(FlightReader.indexOf("BA0003")));
+        System.out.println(FlightReader.getIdPlane(FlightReader.indexOf("BA0002")));
+        System.out.println(FlightReader.getDepartureDate(FlightReader.indexOf("BA0001")));
     }
 }

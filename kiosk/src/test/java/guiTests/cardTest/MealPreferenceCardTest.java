@@ -16,7 +16,7 @@ public class MealPreferenceCardTest {
 
     public static void main(String[] args) {
 
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         MainFrame testMainFrame = new MainFrame();
         MealPreferenceCard mealPreferenceCard = new MealPreferenceCard();
         mealPreferenceCard.setLocation(0, 0);

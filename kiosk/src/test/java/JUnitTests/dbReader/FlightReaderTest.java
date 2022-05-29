@@ -34,12 +34,12 @@ class FlightReaderTest {
 
     @Test
     void indexOf() {
-        assertEquals(0, FlightReader.indexOf("CA0001"));
+        assertEquals(0, FlightReader.indexOf("BA0002"));
     }
 
     @Test
     void getIdFlight() {
-        assertEquals("CA0001", FlightReader.getIdFlight(0));
+        assertEquals("BA0002", FlightReader.getIdFlight(0));
     }
 
     @Test

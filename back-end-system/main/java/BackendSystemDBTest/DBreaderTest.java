@@ -23,7 +23,7 @@ public class DBreaderTest {
 //        ArrayList<String[]> data = reader.getDataBase();
 //        System.out.print(data.get(4)[9]);
         //System.out.println(reader.getNumberOfLine());
-        //ArrayList<String[]> airline = reader.getSpecialAirline("AIR China");
+        //ArrayList<String[]> airline = reader.getSpecialAirline("British Airways");
         //System.out.println(airline.get(0)[0]);
 
     }
