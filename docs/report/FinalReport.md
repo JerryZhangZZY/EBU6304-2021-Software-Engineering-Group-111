@@ -264,15 +264,24 @@ We started to learn this topic long after we had finished most parts of the proj
 ## Appendix
 
 ### Reference
-#### JDK
+- JDK
+
 https://docs.oracle.com/en/java/javase/15/docs/api/index.html
-#### JUnit
-https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
-#### Fastjson
+
+- JUnit
+
+https://junit.org/junit5/docs/current/user-guide/
+
+- Fastjson
+
 https://mvnrepository.com/artifact/com.alibaba/fastjson/1.2.17
-#### Csv
+
+- CSV
+
 http://javacsv.sourceforge.net/
-#### SnakeYAML
+
+- SnakeYAML
+
 https://bitbucket.org/snakeyaml/snakeyaml/wiki/Documentation#markdown-header-snakeyaml-documentation
 
 ### Main screenshots of the system should be included in the appendix.
