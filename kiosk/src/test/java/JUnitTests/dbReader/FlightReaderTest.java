@@ -44,12 +44,12 @@ class FlightReaderTest {
 
     @Test
     void getDeparture() {
-        assertEquals("Beijing T3", FlightReader.getDeparture(0));
+        assertEquals("London T3", FlightReader.getDeparture(0));
     }
 
     @Test
     void getArrival() {
-        assertEquals("Shanghai T2", FlightReader.getArrival(0));
+        assertEquals("Paris T2", FlightReader.getArrival(0));
     }
 
     @Test
