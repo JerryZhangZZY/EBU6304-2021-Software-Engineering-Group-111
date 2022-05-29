@@ -60,15 +60,15 @@ Our team members have a broad vision. Through the pain points of the flight chec
 
 ### Epics and User stories
 
-Through the above information acquisition approach, we completed the general idea of the software, and then we wrote them as Epic. Our Epic is mainly divided into three parts. From there, we continued to increase requirements and improve the original part, resulting in 44 User Stories. There are almost 10 tasks to complete in each iteration, so our system is pretty good right now.
+In Agile process, user requirements are expressed as user stories. We turn user needs into discussions about them. Through the above information acquisition methods, we completed the general idea of the software, and compiled it as Epic. Because an epic is generally too large for an agile team to complete in one iteration, it is split into multiple smaller user stories before it is worked on. Since then, we have continued to add requirements and improve the original section, resulting in 44 user stories. We write each user Story as a Story card template And discuss them later in the group meeting, which is crucial in our r&d process. There are almost 10 tasks to complete in each iteration, so our system is pretty good right now.
 
 ### Backlog
 
-Once User Stories was built, we had to create a Backlog with a strict hierarchy of priorities and prioritize functionality to meet User needs. In the process of completing software requirements, we often find problems. At this time, we will estimate whether this problem can be completed in this iteration according to the existing time. If not, this problem will be put to be completed in the next iteration.
+Once the user story is built, we must create a Backlog with a strict hierarchy of priorities and prioritize functionality to meet user needs. Product backlog, which is a priority list of the functionality to be developed in a product or service. Our product backlog is arranged from top to bottom based on decreasing priority of business value. In the process of completing software requirements, we often find problems. At this point, we estimate whether the problem can be completed in this iteration based on the time available. If not, the problem will be solved in the next iteration.
 
 ### Prototype
 
-We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
+Before the software was built, we sketched out on paper the rough configuration, the interaction elements, the elements that were connected in series, how the software should be manipulated. Using this draft of the physics design we can get faster feedback. The prototype we draw is low-fidelity prototyping. The nice thing about prototype is that it's very fast and we can usually do it during a team meeting. It is also very efficient, with low time and resource investment allowing us to speed up the detailed design later.We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
 
 ## Analysis and Design
 
