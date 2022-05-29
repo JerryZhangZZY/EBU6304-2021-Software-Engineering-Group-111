@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Project management
+## Project Management
 
 ### Development Platform
 
@@ -34,61 +34,49 @@ At the end of each iteration, the programmers are given a short vacation so that
 
 ## Requirements
 
-### Requirements finding techniques
+### Stories Writing Workshop
+- [ ] todo
+Our group meeting every week trying to identify problems in time, our group will be before each iteration for everyone to participate in team meetings for many times, everyone will be put forward at the meeting in the previous iteration to solve the problems by themselves and the newly discovered problems, and through discussion with classmates around looking for other team strength to make up for our team.
 
-In this part, our team adopted a variety of different ways to find public demand.
-
-#### Group meeting 
-
-Our group group meeting every week trying to identify problems in time, our group will be before each iteration for everyone to participate in team meetings for many times, everyone will be put forward at the meeting in the previous iteration to solve the problems by themselves and the newly discovered problems, and through discussion with classmates around looking for other team strength to make up for our team.
+### Requirements Finding Techniques
 
 #### Questionnaire 
 
-In order to expand the scope of investigation and research, our team chose to fill in questionnaires and expand its influence through the Internet, so that more samples can be obtained. By analyzing a large enough sample, we can study the general functions of software needed by the public.
+In order to understand public demand, our team used questionnaires to collect peoples' opinions. Based on the results, we concluded many important functions to implement.
 
-#### Field research
+#### Observation - Field Research
 
-Our group firmly believes that software development without talking about requirements will never succeed. Therefore, our team members went to the local airport to conduct field research on the domestic aircraft check-in system, and felt the progressiveness and pain points of the real software through personal use. To solve these problems in subsequent iterations, we believe that relying on reality is the mindset of software developers.
+Before starting to write epics, one of our team members went to a local airport to conduct field research on the domestic aircraft check-in system, and analysed pros and cons of those check-in kiosks. These findings helped us come up with useful ideas. 
 
-#### Website 
+#### Observation - Website 
 
-In addition to traveling to real airports, the websites of major airlines also provide a lot of inspiration and improvement. These real airlines through years of operation experience summed up the production of check-in system experience let us benefit a lot.
+Websites of major airlines or airports also provides us with a lot of inspiration. These real-life products worked as major reference when we were designing the GUI.
 
-#### New ideas
+#### Original Ideas
 
-Our team members have a broad vision. Through the pain points of the flight check-in system we feel in our daily life, we can find the problems existing in our system and solve them. In order to make our system more user-friendly, we also thought of many ways to make customers like it, including the user-friendly dark mode, where everyone can choose to customize their own theme colors. These are our exclusive design functions, through these functions we hope that customers can truly experience the meticulous care of the airline.
+Our team is highly imaginative. We came up with many original ideas. For example, we enable users to use auto dark mode, which makes the screen more eye-friendly at night. This feature has never been used in any check-in kiosk software.
 
 ### Epics and User stories
 
-In Agile process, user requirements are expressed as user stories. We turn user needs into discussions about them. Through the above information acquisition methods, we completed the general idea of the software, and compiled it as Epic. Because an epic is generally too large for an agile team to complete in one iteration, it is split into multiple smaller user stories before it is worked on. Since then, we have continued to add requirements and improve the original section, resulting in 44 user stories. We write each user Story as a Story card template And discuss them later in the group meeting, which is crucial in our r&d process. There are almost 10 tasks to complete in each iteration, so our system is pretty good right now.
-
-### Backlog
-
-Once the user story is built, we must create a Backlog with a strict hierarchy of priorities and prioritize functionality to meet user needs. Product backlog, which is a priority list of the functionality to be developed in a product or service. Our product backlog is arranged from top to bottom based on decreasing priority of business value. In the process of completing software requirements, we often find problems. At this point, we estimate whether the problem can be completed in this iteration based on the time available. If not, the problem will be solved in the next iteration.
-
-### Prototype
-
-Before the software was built, we sketched out on paper the rough configuration, the interaction elements, the elements that were connected in series, how the software should be manipulated. Using this draft of the physics design we can get faster feedback. The prototype we draw is low-fidelity prototyping. The nice thing about prototype is that it's very fast and we can usually do it during a team meeting. It is also very efficient, with low time and resource investment allowing us to speed up the detailed design later.We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
+In Agile process, user requirements are expressed as user stories. Through the above requirement finding methods, we completed the general idea of the software, and compiled it in **Epics**. Because an epic is generally too large for an agile team to complete in one iteration, it is split into multiple smaller **user stories** before it is worked on. We have been adding new stories since the very start of our project, resulting in 44 user stories. We write each user stories as a story cards and discuss them in the group meetings, which is crucial in our agile process. There are about 10 tasks to complete in each iteration.
 
 ### Metrics
 
-Our system should be easy to use, so that users can minimize the error, we will give our system to friends and relatives after each update iteration. We strive to make them learn to use the system within two minutes of turning it on.
+When writing stories, we used specific measures to make sure that these requirements can be tested. Here are some examples.
 
-#### Size
+- story 3.4 - The time before returning to welcome page is specified as **120 seconds**. It is not vaguely "for some time".
+- story 4.2 - We made it clear that, only **8** digits is accepted, instead of simply saying "certain length".
 
-Since our program would have significant changes and more functions in each iteration, we would compress the previous code in the early release stage, and the final code was only 12.5MB.
+### Product Backlog
+- [ ] todo
+Once the user story is built, we create a **Backlog** with a strict hierarchy of priorities and prioritize functionality to meet user's needs. Product backlog, which is a priority list of the functionality to be developed in a product or service. Our product backlog is arranged from top to bottom based on decreasing priority of business value.
+In the process of completing software requirements, we often find problems. At this point, we estimate whether the problem can be completed in this iteration based on the time available. If not, the problem will be solved in the next iteration.
 
-#### Ease of use
 
-We added Pages of Instructions to the system, so that users can know the completion degree according to the progress bar and adjust their use time in time.
+### Prototype
+- [ ] todo
+Before the software was built, we sketched out on paper the rough configuration, the interaction elements, the elements that were connected in series, how the software should be manipulated. Using this draft of the physics design we can get faster feedback. The prototype we draw is low-fidelity prototyping. The nice thing about prototype is that it's very fast and we can usually do it during a team meeting. It is also very efficient, with low time and resource investment allowing us to speed up the detailed design later.We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
 
-#### Robustness
-
-Our system has a high level of robustness, we have completed the automatic refresh time feature (Story 3.4) our system will countdown 120 seconds once it starts running, after 120 seconds it will automatically exit and return to the start page.
-
-#### Reliability
-
-By setting our program to not run if config fails to load (Story 4.1). This makes it extremely difficult for the program to crash, thus increasing the stability of the program.
 
 ## Analysis and Design
 
