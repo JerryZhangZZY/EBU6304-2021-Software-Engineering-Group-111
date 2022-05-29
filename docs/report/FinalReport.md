@@ -234,11 +234,13 @@ public class Markov extends CsvReader {
 }
 ```
 
-We designed this algorithm to **simulate uncertainty when users are using the software**. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation, so we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example must make sure no matter how we switch page, no error display happens.
+We designed this algorithm to **simulate uncertainty when users are using the software**. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation, so we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example, must make sure no matter how we switch page, no error display happens. 
+
+By ensuring that all critical modules are executed and all independent paths are tested, this system test can be considered as using **white-box testing**.
 
 #### Test Case Design
 
-The disciplined technique used in test case design is partition testing. Take class `TypeIdLoginCardTest` for example. Here we test if the panel where passengers enter their name and ID number to check in is working properly. Input data fall into the following classes:
+The disciplined technique used in test case design is **partition testing**. Take class `TypeIdLoginCardTest` for example. Here we test if the panel where passengers enter their name and ID number to check in is working properly. Input data fall into the following classes:
 
 1. valid input with non-zero flights
 2. valid input without flights to check in
