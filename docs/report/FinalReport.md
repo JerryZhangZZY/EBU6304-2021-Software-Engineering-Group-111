@@ -20,13 +20,15 @@ In order to deliver and evolve working software quickly to meet changing require
 
 Our group mainly uses **GitHub** and **Gitee** as the development platform, aiming to facilitate remote collaboration between team members and implement version control.
 
-GitHub's **commit** feature allows team members to upload their code to the cloud repository. Then GitHub **Actions** will check code rationality after we push code. We use GitHub **Issue** to list and categorize the tasks that need to be completed during each iteration and assign tacks to team members. GitHub issue is directly related to the story backlog, so that our progress can be visually shown. **Milestone** is used to limit the completion time of each task. And we use different **branches** to manage project versions and publish them in GitHub **Releases**. Group members’ contributions are all documented in GitHub **Insights**.
+GitHub's **commit** feature allows team members to upload their code to the cloud repository. Then GitHub **Actions** will check code rationality after we push code. We use GitHub **Issues** to list and categorize the tasks that need to be completed during each iteration and assign them to team members. GitHub issue is directly related to the story backlog so that our progress can be visually shown. **Milestones** are used to limit the completion time of each task. And we use different **branches** to manage project versions and publish them in GitHub **Releases**. Group members’ code contributions are all documented in GitHub **Insights**.
 
-In order to facilitate team members with challenged network access to GitHub cloud repository, we configured a **Gitee** repository as the mirror.
+In order to facilitate team members with challenging network access to GitHub cloud repository, we configured a **Gitee** repository as the mirror, which is real-time **synchronized** with the master repo.
 
 ### Journal Tools
 
-All code updates are recorded in the **git log**. If there is any problem with the code, the author can be found through the log.
+All code updates are recorded in the **git log** in units of **commit**. If there is any problem with the code, the author can be found through the log.
+
+<img src="report-images/git-log.png" style="zoom: 67%;" />
 
 We also use **QMPlus Hub** to keep track of our progress. Development timelines, minutes of meetings, and personal pages record every step of our development.
 
@@ -90,7 +92,7 @@ If we come up with new ideas in the middle of an iteration, we estimate the time
 
 Before writing GUI classes codes, we first draw a **sketch** that specifies layout and outlines component of each page. We use low-fidelity prototyping in this step, so it is quick and effective. When GUI design changes, we make an **amendment** to previous prototypes. There are three versions in total. 
 
-## Analysis and Design
+## Analysis & Design
 
 ### Analysis
 
@@ -130,7 +132,7 @@ The software has a theme library which has 8 built-in themes in **theme.json**. 
 
 Rigorous **exception handling** is applied to make sure the **stability** of the software which would run continuously for a long time. **Input** values are checked strictly at every step. All operations of **writing** to the database will not be executed until reaching the final page, ensuring the **safety** of data even if the software crashes. The config and theme are well checked before the frame shows. It will generate a default file if the file is missing. If **theme** configuration fails to load, it will use theme "*Cobalt*" and "*Onyx*" as **default**. If any of the **config** load failed, *Satisflight* will **refuse to start** for **safety** reasons.
 
-## Implementation and Testing
+## Implementation & Testing
 
 ### Implementation
 
@@ -155,7 +157,7 @@ For detailed component structure, vide chart below. Component stereotypes are ap
 
 Among all directories, `src` is the core of this project, which contains all the codes of the kiosk programme. With in this directory, we use package to implement subsystems. To be specific, we applied a **hierarchical** structure to organize classes. We classify boundary classes, or GUI classes into `frame`, `panel`, and `card` (small panel or sub-panel) packages. And control classes to access database are held in `...Reader/Writer` packages. `main` package are for some system-level classes.
 
-![](report-images/packages.png "packages")
+![](report-images/packages.png)
 
 #### Traceability
 
@@ -163,9 +165,9 @@ As we know, in the process of implementation, an important principle is to make 
 
 These figures show how classes and database tables in implementation can be traced back to design stage.
 
-![](report-images/tracing1.png)
+<img src="report-images/tracing1.png" style="zoom:67%;" />
 
-![](report-images/tracing2.png)
+<img src="report-images/tracing2.png" style="zoom: 67%;" />
 
 #### Build
 
@@ -215,7 +217,7 @@ Operation on each page of the software is considered as a "state", and a user ha
 
 The figure below illustrate the markov matrix we use. 
 
-![](report-images/markov.png)
+<img src="report-images/markov.png" style="zoom:67%;" />
 
 To utilize this transition matrix, we developed a Markov class to decide the next page to be tested.
 
@@ -255,17 +257,25 @@ Only the two test cases from partition 1 will return valid booking number result
 
 We started to learn this topic long after we had finished most parts of the project, so only a few classes is designed. The flow show an example of using TDD to develop GUI classes.
 
-![](report-images/flow.png)
+<img src="report-images/flow.png" style="zoom:67%;" />
 
-## Conclusion and Reflection
+## Conclusion & Outlook
 
-This group project is not only a good practice for our software engineering study, but also a rehearsal for real projects we may encounter in future work. Our insight into software engineering has been greatly gained during this project. But there are a few shortcomings that need to be mentioned. Firstly, we did not use TDD at the beginning of the project (Iteration 1), but since iteration 2, we have implemented TDD rigorously. Secondly, although basically following the best practice, some user stories are not written carefully enough. Some requirements are difficult to verify. For example, we mentioned the need for animation to be smooth, but didn't mention how smooth it should be (for example, how many frames per second). Thirdly, in code design, generalisation is not particularly good. For example, many buttons have similar functionality and can be optimized by inheritance. But because we didn't take this into account early on, the code became slightly redundant in a few classes. These problems we encountered are also great harvest the group project brought to us, and we believe that they can be properly solved in the future iterations.
+This group project is not only a good practice for our software engineering study, but also a rehearsal for real projects we may encounter in future work. Our insight into software engineering has been greatly gained during this project. But there are a few shortcomings that need to be mentioned.
+
+Firstly, we did not use TDD at the beginning of the project (Iteration 1), causing a series of problems. But since iteration 2, we have implemented TDD rigorously and taken full advantage of it.
+
+Secondly, although basically following the best practice, some user stories are not written quantitatively, making them difficult to verify. Take story 2.5 as an example: we mentioned the need for animation to be smooth "like silky chocolate", which is unclear about how it should be exactly (for example, how many frames per second).
+
+Thirdly, in code design, generalization is not particularly good. For example, many buttons have the same functionality and can be optimized by inheritance. But because we didn't take this into account early on, the code became a little redundant in a few classes.
+
+These problems we encountered are also great harvest the group project brought to us. And we believe that they can be properly solved in future iterations.
 
 ## Appendix
 
-### Main Screenshots
+### Main screenshots
 
-In the screenshots displayed hear, each page demonstrates a style in out theme library, while in one run, all pages are consistent in theme color.
+> In the screenshots displayed here, each page demonstrates a style in our theme library. All pages are consistent in theme color in one run.
 
 ![](report-images/screenshots.jpg)
 
