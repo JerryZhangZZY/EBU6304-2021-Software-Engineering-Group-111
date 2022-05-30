@@ -296,4 +296,13 @@ These problems we encountered are also great harvest the group project brought t
 
 ### Code Contribution
 
-<img src="report-images/code-contribution.png" style="zoom: 80%;" />
+**Group Members**
+
+- Zhang Zeyu [*@JerryZhangZZY*](https://github.com/JerryZhangZZY)
+- Wang Zaitian [*@ZaitianWang*](https://github.com/ZaitianWang)
+- Liang Zhehao [*@BHobbes*](https://github.com/BHobbes)
+- Ni Ruijie [*@zhuantomato*](https://github.com/zhuantomato)
+- Wang Chenyu [*@wcyfrank*](https://github.com/wcyfrank)
+- Li Chunlin [*@CuSO5*](https://github.com/CuSO5)
+
+<img src="report-images/code-contribution.png"  />
