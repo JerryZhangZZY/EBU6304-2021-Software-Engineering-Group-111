@@ -20,7 +20,7 @@ In order to deliver and evolve working software quickly to meet changing require
 
 Our group mainly uses **GitHub** and **Gitee** as the development platform, aiming to facilitate remote collaboration between team members and implement version control.
 
-GitHub's **commit** feature allows team members to upload their code to the cloud repository. Then GitHub **Actions** will check code rationality after we push code. We use GitHub **Issue** to list the tasks that need to be completed during each iteration and limit the completion time through **milestone**. And we use different **branches** to manage project versions and publish them in GitHub **Releases**. Group members’ contributions are all documented in GitHub **Insights**.
+GitHub's **commit** feature allows team members to upload their code to the cloud repository. Then GitHub **Actions** will check code rationality after we push code. We use GitHub **Issue** to list and categorize the tasks that need to be completed during each iteration and assign tacks to team members. GitHub issue is directly related to the story backlog, so that our progress can be visually shown. **Milestone** is used to limit the completion time of each task. And we use different **branches** to manage project versions and publish them in GitHub **Releases**. Group members’ contributions are all documented in GitHub **Insights**.
 
 In order to facilitate team members with challenged network access to GitHub cloud repository, we configured a **Gitee** repository as the mirror.
 
@@ -256,6 +256,10 @@ Only the two test cases from partition 1 will return valid booking number result
 We started to learn this topic long after we had finished most parts of the project, so only a few classes is designed. The flow show an example of using TDD to develop GUI classes.
 
 ![](report-images/flow.png)
+
+## Conclusion and Reflection
+
+This group project is not only a good practice for our software engineering study, but also a rehearsal for real projects we may encounter in future work. Our insight into software engineering has been greatly gained during this project. But there are a few shortcomings that need to be mentioned. Firstly, we did not use TDD at the beginning of the project (Iteration 1), but since iteration 2, we have implemented TDD rigorously. Secondly, some user stories are not written carefully enough. Some requirements are difficult to verify. For example, we mentioned the need for animation to be smooth, but didn't mention how smooth it should be. Thirdly, in code design, generalisation is not particularly good. For example, many buttons have the same functionality and can be optimized by inheritance. But because we didn't take this into account early on, the code became a little redundant. These problems we encountered are also great harvest the group project brought to us, and we believe that they can be properly solved in the future iterations.
 
 ## Appendix
 
