@@ -20,11 +20,8 @@ import java.nio.charset.StandardCharsets;
  */
 public class DBreader {
     private final String path = "database/backend.csv";
-    private String idPassenger;
     private CsvReader csvReaderhead;
-    private CsvReader csvReaderDB;
     private CsvReader csvReaderNL;
-    int row;
 
     public String[] getheadline() throws IOException {
         try {

@@ -92,7 +92,6 @@ public class SeatSelectionPanel extends JPanel {
     private final ImageIcon[] iconEmpty = new ImageIcon[4];
     private final ImageIcon[] iconSelected = new ImageIcon[5];
     private final ImageIcon iconNotAvailable = new ImageIcon(new ImageIcon("kiosk/icons/seatNotAvailable.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
-    private ImageIcon iconFold, iconUnfold;
     private final JButton btnOK = new JButton("OK");
 
     private SeatReader seatReader;
@@ -362,10 +361,6 @@ public class SeatSelectionPanel extends JPanel {
 
     public int getTotalRow() {
         return totalRow;
-    }
-
-    public int getTotalColumn() {
-        return totalColumn;
     }
 
     public int[][] getAvail_seat() {

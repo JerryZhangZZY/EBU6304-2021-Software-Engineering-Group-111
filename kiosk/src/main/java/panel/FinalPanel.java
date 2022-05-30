@@ -81,7 +81,6 @@ public class FinalPanel extends JPanel {
 
     public FinalPanel(){
         try {
-            char columnInLetter = (char)(State.getSeatColumn() + (int)'A' - 1);
             if (!Files.exists(Path.of("printer-output"))){
                 Files.createDirectory(Path.of("printer-output"));
             }

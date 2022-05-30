@@ -2,9 +2,7 @@ package BackendSystemDB;
 
 import com.csvreader.CsvWriter;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -24,18 +22,6 @@ import java.io.IOException;
  * Modify changeline function
  */
 public abstract class DBwrite {
-    public static void writeline(String[] info) {
-        File f = new File("database/backend.csv");
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(f, true));
-            CsvWriter cwriter = new CsvWriter(writer, ',');
-            cwriter.writeRecord(info, false);
-            cwriter.close();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void changeline(String bookingNum, String idFlight, String seat,
                                   String meal, String mealPre1, String mealPre2, String mealPre3) {

@@ -203,7 +203,7 @@ public class TypeIdLoginCard extends JPanel {
     public List<String> getBookingNumByTyping(String surName, String passengerId) {
         List<String> list = new ArrayList<>();
         try {
-            if (!tfSurname.getText().equals(PassengerReader.getSurname(PassengerReader.indexOf(tfId.getText())))) {
+            if (!surName.equals(PassengerReader.getSurname(PassengerReader.indexOf(tfId.getText())))) {
                 for(int i = 0; i < 3; i++)
                     list.add("F");
             }

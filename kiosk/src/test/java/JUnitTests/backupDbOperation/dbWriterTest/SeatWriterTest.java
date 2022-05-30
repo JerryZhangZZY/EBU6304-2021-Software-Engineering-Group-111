@@ -1,4 +1,4 @@
-package dbWriterTest;
+package backupDbOperation.dbWriterTest;
 
 import dbWriter.SeatWriter;
 

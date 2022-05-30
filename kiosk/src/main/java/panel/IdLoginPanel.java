@@ -30,11 +30,6 @@ public class IdLoginPanel extends JPanel {
         add(scanIdLoginCard);
     }
 
-    public void reset() {
-        typeIdLoginCard.reset();
-        scanIdLoginCard.reset();
-    }
-
     public TypeIdLoginCard getTypeIdLoginCard() {
         return typeIdLoginCard;
     }

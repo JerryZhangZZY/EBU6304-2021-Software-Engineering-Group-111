@@ -63,7 +63,6 @@ public class TablePanel extends JPanel {
         setSize(1920, 980);
 
         DBreader reader = new DBreader();
-        String[] head = reader.getheadline();
         pane.setBorder(new TitledBorder(null, "DataBase Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         pane.setLocation(0, 180);
         pane.setSize(1920, 800);

@@ -103,25 +103,4 @@ public class ProgressPanel extends JPanel {
             State.resetSmallBillCard();
         }
     }
-    /**
-     * access the cards panel loaded
-     * @return the cards panel loaded
-     */
-    public Component getLoadedCardsPanel(){
-	    if (cardsPanel.getComponentCount()>0){
-	        return cardsPanel.getComponent(0);
-        }
-	    else{
-	        return null;
-        }
-    }
-    /**
-     * remove the cards panel loaded
-     * @param cardsPanel the currently loaded cards panel
-     */
-    public void unloadCardsPanel(Component cardsPanel){
-	    if (cardsPanel != null){
-	        this.cardsPanel.remove(cardsPanel);
-        }
-    }
 }
