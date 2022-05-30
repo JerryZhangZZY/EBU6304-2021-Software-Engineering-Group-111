@@ -47,8 +47,8 @@ At the end of each iteration, the programmers are given a short vacation so that
 ## Requirements
 
 ### Stories Writing Workshop
-- [ ] todo
-Our group meeting every week trying to identify problems in time, our group will be before each iteration for everyone to participate in team meetings for many times, everyone will be put forward at the meeting in the previous iteration to solve the problems by themselves and the newly discovered problems, and through discussion with classmates around looking for other team strength to make up for our team.
+
+Before each iteration, we hold a group meeting to discuss new requirements. Everyone put forward the new features and improvements. Then we write story cards, which is later collected by a group member and compiled into product backlog. 
 
 ### Requirements Finding Techniques
 
@@ -80,15 +80,15 @@ When writing stories, we used specific measures to make sure that these requirem
 - story 4.2 - We made it clear that, only **8** digits is accepted, instead of simply saying "certain length".
 
 ### Product Backlog
-- [ ] todo
-Once the user story is built, we create a **Backlog** with a strict hierarchy of priorities and prioritize functionality to meet user's needs. Product backlog, which is a priority list of the functionality to be developed in a product or service. Our product backlog is arranged from top to bottom based on decreasing priority of business value.
-In the process of completing software requirements, we often find problems. At this point, we estimate whether the problem can be completed in this iteration based on the time available. If not, the problem will be solved in the next iteration.
+
+Once the user story is built, we create a **Backlog** to record all the stories and the date when we start or complete the implementation of each requirement. 
+
+If we come up with new ideas in the middle of an iteration, we estimate the time need to do it. If a new requirement takes too long, we keep it to the next iteration to make sure all tasks in one iteration can be finished in time. 
 
 
 ### Prototype
-- [ ] todo
-Before the software was built, we sketched out on paper the rough configuration, the interaction elements, the elements that were connected in series, how the software should be manipulated. Using this draft of the physics design we can get faster feedback. The prototype we draw is low-fidelity prototyping. The nice thing about prototype is that it's very fast and we can usually do it during a team meeting. It is also very efficient, with low time and resource investment allowing us to speed up the detailed design later.We'll redraw Prototype as soon as the user interface changes, and we changed the user interface three times as we wrote the program
 
+Before writing GUI classes codes, we first draw a sketch that specifies layout and outlines component of each page. We use low-fidelity prototyping in this step, so it is quick and effective. When GUI design changes, we make an amendment to previous prototypes. There are three versions in total. 
 
 ## Analysis and Design
 
@@ -106,15 +106,13 @@ In order to use the database efficiently, we designed several abstract **databas
 
 Another light spot of our design is the class **State**. It contains all the temporary values during a check-in process and the information is gradually completed through the check-in process. So that latter pages can use the previous information directly instead of accept the parameters pass from the earlier pages. By using State class, we are able to separate panel classes totally, designing a fully-independent, **loosely-coupled** software. 
 
-- [ ] Since user operations on a latter page may afflict the pages before it, we are also able to achieve jumping back and forth freely between pages thanks to this design.
-
 ### Design
 
 We have high standards for *Satisflight* check-in system. It has to be easy to use, modular, highly customizable, beautiful-looking as well as error-free.
 
 #### Ease of use
 
-The software has only **one** main **frame** and all function panels are **switched** on it. Each panel only provide small amount of information and has a **clear layout** and **instructions** for guidance if input is wrong or missed. Users can jump **back-and-forth** between pages freely. An **exit** button is always on the top right corner, enable to exit at any time. There is also a **clock** on top to the screen showing the exact local time. Plus, all pages are optimized for **touch** screens and providing visual **feedback** everywhere.
+The software has only **one** main **frame** and all function panels are **switched** on it. Each panel only provide small amount of information and has a **clear layout** and **instructions** for guidance if input is wrong or missed. Users can jump **back-and-forth** between pages freely. An **exit** button is always in the top right corner, enable to exit at any time. There is also a **clock** on top to the screen showing the exact local time. Plus, all pages are optimized for **touch** screens and providing visual **feedback** everywhere.
 
 #### Modularity
 
@@ -132,19 +130,7 @@ The software has a theme library which has 8 built-in themes in **theme.json**. 
 
 Rigorous **exception handling** is applied to make sure the **stability** of the software which would run continuously for a long time. **Input** values are checked strictly at every step. All operations of **writing** to the database will not be executed until reaching the final page, ensuring the **safety** of data even if the software crashes. The config and theme are well checked before the frame shows. It will generate a default file if the file is missing. If **theme** configuration fails to load, it will use theme "*Cobalt*" and "*Onyx*" as **default**. If any of the **config** load failed, *Satisflight* will **refuse to start** for **safety** reasons.
 
-### Design Principles
-
-- [ ] wz help me : )
-
 ## Implementation and Testing
-
-*• Discuss the implementation strategy and iteration/built plan.
-• Discuss the test strategy and test techniques you have used in your
-testing.
-EBU6304 – Software Engineering (2021/22) Page 5 of 7
-• Discuss the using of TDD. Note: TDD is not required for developing the
-whole software, however, you should try to use TDD to develop a few
-programs.*
 
 ### Implementation
 
@@ -192,10 +178,6 @@ We decided that we create a major build at the end of each iteration by creating
 When each build is finished, we create a new branch to. Old versions are always kept in those slave branches, while the master branch is under active development and is up-to-date. 
 
 Apart from major and minor builds, there are also many "micro" builds, i.e. commits. On finishing a part of development, we commit and push our changes, uploading the new files to GitHub repo and merging them with branches from other developers local repo. All actions are saved in git log. This makes sure that even the smallest changes are independently recorded in our version control system. If anything goes wrong, we can easily identify the defect, the author who cause it, and the timestamp when the erroneous commit is made. A simple revert can fix anything.
-
-#### Elegance of Code (?)
-
-- [ ] maybe
 
 ### Testing
 
