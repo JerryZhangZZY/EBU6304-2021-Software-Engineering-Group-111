@@ -58,16 +58,16 @@ import java.util.List;
  */
 
 public class BookingLoginPanel extends JPanel {
-    private JPanel textPanel;
-    private JLabel lblInstruction;
-    private JPanel InputPanel;
-    private JTextField tfBookingNumber;
-    private JPanel buttonPanel;
-    private JButton btnOk;
-    private JButton btnAlt;
-    private JSeparator separator1;
-    private JSeparator separator2;
-    private JLabel lblOR;
+    private final JPanel textPanel;
+    private final JLabel lblInstruction;
+    private final JPanel InputPanel;
+    private final JTextField tfBookingNumber;
+    private final JPanel buttonPanel;
+    private final JButton btnOk;
+    private final JButton btnAlt;
+    private final JSeparator separator1;
+    private final JSeparator separator2;
+    private final JLabel lblOR;
 
     /**
      * Create the panel.

@@ -25,10 +25,10 @@ import java.awt.*;
  */
 
 public class ProgressPanel extends JPanel {
-    private JPanel progressPanel;
-    private JLabel progressLabel;
-    private JPanel cardsPanel;
-    private int progress;
+    private final JPanel progressPanel;
+    private final JLabel progressLabel;
+    private final JPanel cardsPanel;
+    private final int progress;
 	/**
 	 * Create the panel.
      * @param progress which step have customers reached

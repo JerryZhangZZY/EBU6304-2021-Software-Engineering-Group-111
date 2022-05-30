@@ -43,13 +43,13 @@ import java.util.List;
  */
 
 public class TypeIdLoginCard extends JPanel {
-    private JLabel lblSurname;
-    private JLabel lblId;
-    private JButton btnOk;
-    private JTextField tfSurname;
-    private JTextField tfId;
-    private JLabel vertical;
-    private JLabel lblError;
+    private final JLabel lblSurname;
+    private final JLabel lblId;
+    private final JButton btnOk;
+    private final JTextField tfSurname;
+    private final JTextField tfId;
+    private final JLabel vertical;
+    private final JLabel lblError;
     public TypeIdLoginCard(){
         setSize(1150,980);
         setBackground(Theme.getBackgroundColor());

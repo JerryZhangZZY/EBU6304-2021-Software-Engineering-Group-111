@@ -10,18 +10,18 @@ package BSAdministratorDB;
 import com.csvreader.CsvReader;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class AdministratorReader {
     String path = "database/backend_administrator.csv";
     CsvReader csvReaderDB;
-    private String account;
+    private final String account;
     public AdministratorReader(String account){
         this.account = account;
     }
     private ArrayList<String[]> getDatabase() throws IOException {
-        csvReaderDB = new CsvReader(path,',', Charset.forName("UTF-8"));
+        csvReaderDB = new CsvReader(path,',', StandardCharsets.UTF_8);
         ArrayList<String[]> data = new ArrayList<String[]>();
         String[] record;
         while (csvReaderDB.readRecord()){

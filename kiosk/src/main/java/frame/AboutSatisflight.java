@@ -28,19 +28,19 @@ public class AboutSatisflight extends JFrame {
     private final int height = 440;
     private final String repoUrl = "https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111";
 
-    private JButton btnExit;
-    private JLabel lblTitle;
-    private JLabel lblSeparator1;
-    private JLabel lblSeparator2;
-    private JLabel lblSeparator3;
-    private JLabel lblLogo;
-    private JLabel lblHeadline;
-    private JLabel lblVersion;
-    private JTextArea taIntro;
-    private JLabel lblVisitRepo;
-    private JLabel lblRepo;
-    private JTextArea taDeveloper1;
-    private JTextArea taDeveloper2;
+    private final JButton btnExit;
+    private final JLabel lblTitle;
+    private final JLabel lblSeparator1;
+    private final JLabel lblSeparator2;
+    private final JLabel lblSeparator3;
+    private final JLabel lblLogo;
+    private final JLabel lblHeadline;
+    private final JLabel lblVersion;
+    private final JTextArea taIntro;
+    private final JLabel lblVisitRepo;
+    private final JLabel lblRepo;
+    private final JTextArea taDeveloper1;
+    private final JTextArea taDeveloper2;
 
     private String title, headline, version, intro, visitRepo, repo, dev1, dev2;
     private int repoTextWidth;

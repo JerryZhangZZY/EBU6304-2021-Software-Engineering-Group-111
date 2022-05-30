@@ -29,14 +29,14 @@ import java.awt.*;
  */
 public class MealBillCard extends JPanel {
 
-    private JLabel headline;
-    private JLabel headText;
-    private JLabel[] extr = new JLabel[3];
-    private JLabel[] bill = new JLabel[3];
-    private JLabel[] line = new JLabel[3];
+    private final JLabel headline;
+    private final JLabel headText;
+    private final JLabel[] extr = new JLabel[3];
+    private final JLabel[] bill = new JLabel[3];
+    private final JLabel[] line = new JLabel[3];
 
-    private String[] pref = new String[3];
-    private int[] pay = new int[3];
+    private final String[] pref = new String[3];
+    private final int[] pay = new int[3];
 
     /**
      *

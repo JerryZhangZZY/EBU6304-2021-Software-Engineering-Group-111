@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class PaymentPanelTest implements MainFrameBarsTest {
     private int price;
-    private MainFrame mainFrame = new MainFrame();
+    private final MainFrame mainFrame = new MainFrame();
     int currentPc;
 
     @BeforeEach

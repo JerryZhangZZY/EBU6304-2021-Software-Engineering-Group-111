@@ -31,24 +31,28 @@ import java.awt.event.ActionListener;
 
 public class MealInfoCard extends JPanel {
     private char chosen='d';
-    private JButton normal_food = new JButton();
-    private JButton vegetarian_food = new JButton();
-    private JButton halal_food = new JButton();
-    private ImageIcon icon1_normal = new ImageIcon("kiosk/icons/normal.png");
-    private Image img_normal = icon1_normal.getImage();
-    private Image newimg_normal= img_normal.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_normal = new ImageIcon(newimg_normal);
-    private ImageIcon icon1_vegetarian = new ImageIcon("kiosk/icons/vegetarian.png");
-    private Image img_vegetarian = icon1_vegetarian.getImage();
-    private Image newimg_vegetarian= img_vegetarian.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_vegetarian = new ImageIcon(newimg_vegetarian);
-    private ImageIcon icon1_halal = new ImageIcon("kiosk/icons/halal.png");
-    private Image img_halal = icon1_halal.getImage();
-    private Image newimg_halal= img_halal.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
-    private ImageIcon icon_halal = new ImageIcon(newimg_halal);
-    private Border button_chosen = BorderFactory.createLineBorder(new Color(60,179,113),10, true);
-    private int x1 = 40, x2 = 425, x3 = 810;
-    private int nx1 = x1 - 4, nx2 = x2 - 4, nx3 = x3 - 4;
+    private final JButton normal_food = new JButton();
+    private final JButton vegetarian_food = new JButton();
+    private final JButton halal_food = new JButton();
+    private final ImageIcon icon1_normal = new ImageIcon("kiosk/icons/normal.png");
+    private final Image img_normal = icon1_normal.getImage();
+    private final Image newimg_normal= img_normal.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
+    private final ImageIcon icon_normal = new ImageIcon(newimg_normal);
+    private final ImageIcon icon1_vegetarian = new ImageIcon("kiosk/icons/vegetarian.png");
+    private final Image img_vegetarian = icon1_vegetarian.getImage();
+    private final Image newimg_vegetarian= img_vegetarian.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
+    private final ImageIcon icon_vegetarian = new ImageIcon(newimg_vegetarian);
+    private final ImageIcon icon1_halal = new ImageIcon("kiosk/icons/halal.png");
+    private final Image img_halal = icon1_halal.getImage();
+    private final Image newimg_halal= img_halal.getScaledInstance(350, 780, java.awt.Image.SCALE_SMOOTH);
+    private final ImageIcon icon_halal = new ImageIcon(newimg_halal);
+    private final Border button_chosen = BorderFactory.createLineBorder(new Color(60,179,113),10, true);
+    private final int x1 = 40;
+    private final int x2 = 425;
+    private final int x3 = 810;
+    private final int nx1 = x1 - 4;
+    private final int nx2 = x2 - 4;
+    private final int nx3 = x3 - 4;
 
     public MealInfoCard(){
         setBackground(Theme.getBackgroundColor());

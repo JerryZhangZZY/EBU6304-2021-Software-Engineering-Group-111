@@ -15,9 +15,9 @@ import javax.swing.*;
 
 public class IdLoginPanel extends JPanel {
 
-    private TypeIdLoginCard typeIdLoginCard;
+    private final TypeIdLoginCard typeIdLoginCard;
 
-    private ScanIdLoginCard scanIdLoginCard;
+    private final ScanIdLoginCard scanIdLoginCard;
     public IdLoginPanel() {
         setSize(1920, 980);
         setLayout(null);

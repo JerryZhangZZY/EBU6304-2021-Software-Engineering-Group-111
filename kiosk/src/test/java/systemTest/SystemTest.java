@@ -218,7 +218,7 @@ public class SystemTest {
             billConfirmationPanelTest.testBack();
         }
         else if (next == 7){
-            billConfirmationPanelTest.testSeatBill();;
+            billConfirmationPanelTest.testSeatBill();
             billConfirmationPanelTest.testMealBill();
             billConfirmationPanelTest.testConfirmButton();
         }
