@@ -1,6 +1,9 @@
-# FINAL REPORT GROUP 111
+# FINAL REPORT - GROUP 111
+
+## Catalogue
 
 [TOC]
+
 
 ## Project Setup
 
@@ -28,7 +31,7 @@ In order to facilitate team members with challenging network access to GitHub cl
 
 All code updates are recorded in the **git log** in units of **commit**. If there is any problem with the code, the author can be found through the log.
 
-<img src="report-images/git-log.png" style="zoom: 67%;" />
+<img src="report-images/git-log.png" style="zoom: 50%;" />
 
 We also use **QMPlus Hub** to keep track of our progress. Development timelines, minutes of meetings, and personal pages record every step of our development.
 
@@ -257,7 +260,7 @@ Only the two test cases from partition 1 will return valid booking number result
 
 We started to learn this topic long after we had finished most parts of the project, so only a few classes is designed. The flow show an example of using TDD to develop GUI classes.
 
-<img src="report-images/flow.png" style="zoom:67%;" />
+<img src="report-images/flow.png" style="zoom: 50%;" />
 
 ## Conclusion & Outlook
 
@@ -291,3 +294,6 @@ These problems we encountered are also great harvest the group project brought t
 | Heathrow  |    -    | https://www.heathrow.com                                       |
 |   Ctrip   |    -    | https://flights.ctrip.com                                      |
 
+### Code Contribution
+
+<img src="report-images/code-contribution.png" style="zoom: 80%;" />
