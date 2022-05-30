@@ -11,6 +11,10 @@
     {
       "airline": "CHINA EASTERN",
       "website": "https://www.ceair.com"
+    },
+    {
+      "airline": "BRITISH AIRWAYS",
+      "website": "https://www.britishairways.com"
     }
   ]
 }

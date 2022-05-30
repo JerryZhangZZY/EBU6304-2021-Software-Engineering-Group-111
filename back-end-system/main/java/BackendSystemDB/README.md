@@ -9,7 +9,7 @@
 DBreader reader = new DBreader();
 String[] tmp=reader.getline(2);
 ArrayList<String[]> data = reader.getDataBase();
-ArrayList<String[]> airline = reader.getSpecialAirline("British Airways");
+ArrayList<String[]> airline = reader.getSpecialAirline("BRITISH AIRWAYS");
 ```
 ####DBwriter variable type all are String, if a customer haven't boarded statues put 0 and seat meal special_meal put it as NULL. you must write attribute idPassenger surName idFlight bookingNum status and airline
 ####DBwriter some simple example

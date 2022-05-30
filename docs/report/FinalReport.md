@@ -8,7 +8,7 @@
 
 The software will be a **stand-alone application**, so there is no need to connect to the Internet or communicate with other machines. In addition, this feature makes sure that check-in process is free from race condition.
 
-As required, the software is designed for British Airways and London Heathrow Airport, which means it should be a custom software. However, we decided that it will be more **productive** to develop a **generic software**. Through simple configuration, the software can adapt to any airport and various airlines, including Heathrow and British Airways. This also facilitates **customization** for other airlines, which is another requirement, and makes the software more **flexible** and **extensible**.
+As required, the software is designed for BRITISH AIRWAYS and London Heathrow Airport, which means it should be a custom software. However, we decided that it will be more **productive** to develop a **generic software**. Through simple configuration, the software can adapt to any airport and various airlines, including Heathrow and BRITISH AIRWAYS. This also facilitates **customization** for other airlines, which is another requirement, and makes the software more **flexible** and **extensible**.
 
 ### Software Process
 
