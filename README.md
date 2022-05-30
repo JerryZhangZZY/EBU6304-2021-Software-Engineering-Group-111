@@ -134,10 +134,11 @@ Available options currently includes the following:
 
 - Cobalt
 - Onyx
+- Jungle
+- Tyrian
+- Platinum
 - Tiber
 - Anchor
-- Almond
-- Tomato
 - Maroon
 
 If you want to design your onw theme, go to `theme.json` under `conf` directory to set colors for different parts of the software GUI.
