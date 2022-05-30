@@ -8,7 +8,7 @@
 
 The software will be a **stand-alone application**, so there is no need to connect to the Internet or communicate with other machines. In addition, this feature makes sure that check-in process is free from race condition.
 
-As required, the software is designed for British Airways and London Heathrow Airport, which means it should be a custom software. However, we decided that it will be more productive to develop a **generic software**. Through simple configuration, the software can adapt to any airport and various airlines, including Heathrow and British Airways. This also facilitates customization for other airlines, which is another requirement, and makes the software more flexible and extensible.
+As required, the software is designed for British Airways and London Heathrow Airport, which means it should be a custom software. However, we decided that it will be more **productive** to develop a **generic software**. Through simple configuration, the software can adapt to any airport and various airlines, including Heathrow and British Airways. This also facilitates **customization** for other airlines, which is another requirement, and makes the software more **flexible** and **extensible**.
 
 ### Software Process
 
@@ -278,6 +278,7 @@ We started to learn this topic long after we had finished most parts of the proj
 ## Appendix
 
 ### Reference
+
 - JDK
 
 https://docs.oracle.com/en/java/javase/15/docs/api/index.html
@@ -297,6 +298,14 @@ http://javacsv.sourceforge.net/
 - SnakeYAML
 
 https://bitbucket.org/snakeyaml/snakeyaml/wiki/Documentation#markdown-header-snakeyaml-documentation
+
+- Heathrow
+
+https://www.heathrow.com/
+
+- Ctrip
+
+https://flights.ctrip.com/online/channel/domestic
 
 ### Main screenshots of the system should be included in the appendix.
 
