@@ -259,23 +259,25 @@ We started to learn this topic long after we had finished most parts of the proj
 
 ## Conclusion and Reflection
 
-This group project is not only a good practice for our software engineering study, but also a rehearsal for real projects we may encounter in future work. Our insight into software engineering has been greatly gained during this project. But there are a few shortcomings that need to be mentioned. Firstly, we did not use TDD at the beginning of the project (Iteration 1), but since iteration 2, we have implemented TDD rigorously. Secondly, some user stories are not written carefully enough. Some requirements are difficult to verify. For example, we mentioned the need for animation to be smooth, but didn't mention how smooth it should be. Thirdly, in code design, generalisation is not particularly good. For example, many buttons have the same functionality and can be optimized by inheritance. But because we didn't take this into account early on, the code became a little redundant. These problems we encountered are also great harvest the group project brought to us, and we believe that they can be properly solved in the future iterations.
+This group project is not only a good practice for our software engineering study, but also a rehearsal for real projects we may encounter in future work. Our insight into software engineering has been greatly gained during this project. But there are a few shortcomings that need to be mentioned. Firstly, we did not use TDD at the beginning of the project (Iteration 1), but since iteration 2, we have implemented TDD rigorously. Secondly, although basically following the best practice, some user stories are not written carefully enough. Some requirements are difficult to verify. For example, we mentioned the need for animation to be smooth, but didn't mention how smooth it should be (for example, how many frames per second). Thirdly, in code design, generalisation is not particularly good. For example, many buttons have similar functionality and can be optimized by inheritance. But because we didn't take this into account early on, the code became slightly redundant in a few classes. These problems we encountered are also great harvest the group project brought to us, and we believe that they can be properly solved in the future iterations.
 
 ## Appendix
 
-### Main screenshots
+### Main Screenshots
+
+In the screenshots displayed hear, each page demonstrates a style in out theme library, while in one run, all pages are consistent in theme color.
 
 ![](report-images/screenshots.jpg)
 
 ### Reference
 
-|   Name    | Version | Website                                                      |
-| :-------: | :-----: | ------------------------------------------------------------ |
-|    JDK    | 15.0.2  | https://docs.oracle.com/en/java/javase/15/docs/api/index.html |
-|   JUnit   |  5.7.0  | https://junit.org/junit5/docs/current/user-guide             |
+|   Name    | Version | Website                                                        |
+|:---------:|:-------:|----------------------------------------------------------------|
+|    JDK    | 15.0.2  | https://docs.oracle.com/en/java/javase/15/docs/api/index.html  |
+|   JUnit   |  5.7.0  | https://junit.org/junit5/docs/current/user-guide               |
 | Fastjson  | 1.2.17  | https://mvnrepository.com/artifact/com.alibaba/fastjson/1.2.17 |
-|  JavaCsv  |   2.0   | http://javacsv.sourceforge.net                               |
-| SnakeYAML |  1.30   | https://bitbucket.org/snakeyaml/snakeyaml/wiki/Documentation |
-| Heathrow  |    -    | https://www.heathrow.com                                     |
-|   Ctrip   |    -    | https://flights.ctrip.com                                    |
+|  JavaCsv  |   2.0   | http://javacsv.sourceforge.net                                 |
+| SnakeYAML |  1.30   | https://bitbucket.org/snakeyaml/snakeyaml/wiki/Documentation   |
+| Heathrow  |    -    | https://www.heathrow.com                                       |
+|   Ctrip   |    -    | https://flights.ctrip.com                                      |
 
