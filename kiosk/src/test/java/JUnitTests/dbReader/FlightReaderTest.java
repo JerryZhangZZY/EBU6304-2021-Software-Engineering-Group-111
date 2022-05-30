@@ -34,22 +34,22 @@ class FlightReaderTest {
 
     @Test
     void indexOf() {
-        assertEquals(0, FlightReader.indexOf("CA0001"));
+        assertEquals(0, FlightReader.indexOf("BA0002"));
     }
 
     @Test
     void getIdFlight() {
-        assertEquals("CA0001", FlightReader.getIdFlight(0));
+        assertEquals("BA0002", FlightReader.getIdFlight(0));
     }
 
     @Test
     void getDeparture() {
-        assertEquals("Beijing T3", FlightReader.getDeparture(0));
+        assertEquals("London T3", FlightReader.getDeparture(0));
     }
 
     @Test
     void getArrival() {
-        assertEquals("Shanghai T2", FlightReader.getArrival(0));
+        assertEquals("Paris T2", FlightReader.getArrival(0));
     }
 
     @Test

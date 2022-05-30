@@ -19,7 +19,6 @@ public class BackendMainFrame extends JFrame {
     JPanel title_Panel = new JPanel();
     JPanel  background_Panel = new JPanel();
     JPanel mainPanel = new JPanel();
-    String Name;
     public BackendMainFrame(){
 
         setTitle("BACKEND_SYSTEM");

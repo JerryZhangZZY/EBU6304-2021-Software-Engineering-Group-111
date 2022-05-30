@@ -4,7 +4,7 @@ import com.csvreader.CsvReader;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * a tool read data from DB
@@ -19,16 +19,13 @@ import java.nio.charset.Charset;
  * Modify getNumberOfLine function
  */
 public class DBreader {
-    private String path = "database/backend.csv";
-    private String idPassenger;
+    private final String path = "database/backend.csv";
     private CsvReader csvReaderhead;
-    private CsvReader csvReaderDB;
     private CsvReader csvReaderNL;
-    int row;
 
     public String[] getheadline() throws IOException {
         try {
-            csvReaderhead = new CsvReader(path, ',', Charset.forName("UTF-8"));
+            csvReaderhead = new CsvReader(path, ',', StandardCharsets.UTF_8);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -39,7 +36,7 @@ public class DBreader {
     }
 
     public String[] getline(int temp_row) throws IOException {
-        CsvReader csvReaderline = new CsvReader(path, ',', Charset.forName("UTF-8"));
+        CsvReader csvReaderline = new CsvReader(path, ',', StandardCharsets.UTF_8);
         String[] record;
         for (int count = -1; count < temp_row; count++) {
             try {

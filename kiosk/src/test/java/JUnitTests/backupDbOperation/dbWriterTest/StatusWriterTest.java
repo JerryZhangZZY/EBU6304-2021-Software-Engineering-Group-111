@@ -1,4 +1,4 @@
-package dbWriterTest;
+package backupDbOperation.dbWriterTest;
 
 import dbReader.PassengerFlightReader;
 import dbWriter.StatusWriter;

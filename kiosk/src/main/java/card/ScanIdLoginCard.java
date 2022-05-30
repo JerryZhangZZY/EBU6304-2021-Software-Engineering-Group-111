@@ -40,9 +40,9 @@ import java.util.List;
 
 public class ScanIdLoginCard extends JPanel {
 
-    private JLabel lblScanningImg;
-    private JButton btnScan;
-    private JLabel lblError;
+    private final JLabel lblScanningImg;
+    private final JButton btnScan;
+    private final JLabel lblError;
 
     public ScanIdLoginCard() {
         setSize(770, 980);

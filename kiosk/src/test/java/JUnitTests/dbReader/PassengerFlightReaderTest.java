@@ -68,7 +68,7 @@ class PassengerFlightReaderTest {
     void getIdFlightByBookingNum() {
         List<String> list = new ArrayList<>();
         list.add("MU1314");
-        list.add("AC0001");
+        list.add("BA0001");
         assertEquals(list, PassengerFlightReader.getIdFlightByBookingNum("bn0001"));
     }
 

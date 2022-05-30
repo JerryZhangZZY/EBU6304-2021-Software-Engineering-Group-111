@@ -41,7 +41,7 @@ public class MealSelectionPanelTest implements MainFrameBarsTest {
 
     @BeforeEach
     public void reset(){
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         State.setMeal('d');
         State.resetSmallBillCard();
         currentPc = 5;

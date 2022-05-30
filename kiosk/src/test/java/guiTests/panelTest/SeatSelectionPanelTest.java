@@ -21,7 +21,7 @@ public class SeatSelectionPanelTest {
 //        State.setPassengerName("Jack");
 //        State.setBookingNum("bn0001");
         State.setIdFlight("LH3077");
-//        State.setIdFlight("AC0001");
+//        State.setIdFlight("BA0001");
         MainFrame frame = new MainFrame();
         ProgressPanel progressPanel = new ProgressPanel(2);
         SeatSelectionPanel seatSelectionPanel = new SeatSelectionPanel();

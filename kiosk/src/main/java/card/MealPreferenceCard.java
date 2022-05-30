@@ -29,12 +29,12 @@ import java.awt.event.ItemListener;
  */
 public class MealPreferenceCard extends JPanel {
 
-    private JRadioButton[] pref = new JRadioButton[3];
+    private final JRadioButton[] pref = new JRadioButton[3];
 
-    private int[] price = new int[3];
-    private String[] foodName = new String[3];
-    private boolean[] select = {false, false, false};
-    private String[] detail = new String[3];
+    private final int[] price = new int[3];
+    private final String[] foodName = new String[3];
+    private final boolean[] select = {false, false, false};
+    private final String[] detail = new String[3];
 
     public MealPreferenceCard() {
         setSize(330, 550);

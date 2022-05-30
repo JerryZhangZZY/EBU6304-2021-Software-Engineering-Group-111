@@ -23,8 +23,8 @@ class SeatReaderTest {
 
     @Test
     void getSeat() {
-        assertEquals("[true, true, false, true, true, true]", Arrays.toString(new SeatReader("AC0001").getSeat(1)));
-        assertEquals("[true, true, true, true, true, true]", Arrays.toString(new SeatReader("CA0001").getSeat(2)));
+        assertEquals("[true, true, false, true, true, true]", Arrays.toString(new SeatReader("BA0001").getSeat(1)));
+        assertEquals("[true, true, true, true, true, true]", Arrays.toString(new SeatReader("BA0002").getSeat(2)));
         assertEquals("[false, false, false, true, true, true, true, true, true, true, true]", Arrays.toString(new SeatReader("LH7718").getSeat(4)));
     }
 }

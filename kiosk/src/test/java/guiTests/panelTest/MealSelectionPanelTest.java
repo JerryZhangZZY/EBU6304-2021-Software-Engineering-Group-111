@@ -18,7 +18,7 @@ import panel.ProgressPanel;
  */
 public class MealSelectionPanelTest {
     public static void main(String[] args) {
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         MainFrame frame = new MainFrame();
         ProgressPanel progressPanel = new ProgressPanel(3);
         MealSelectionPanel mealSelectionPanel = new MealSelectionPanel();

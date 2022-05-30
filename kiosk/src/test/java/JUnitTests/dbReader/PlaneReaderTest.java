@@ -32,6 +32,6 @@ class PlaneReaderTest {
 
     @Test
     void getAirline() {
-        assertEquals("AIR CHINA", PlaneReader.getAirline(0));
+        assertEquals("BRITISH AIRWAYS", PlaneReader.getAirline(0));
     }
 }

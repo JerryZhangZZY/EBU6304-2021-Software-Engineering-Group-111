@@ -194,14 +194,14 @@ public class DBGenerator {
         getRandomMeal();
         switch (randomNum){
             case 0 -> {
-                idFlight = "CA"+(r.nextInt(8000)+1000);
+                idFlight = "BA"+(r.nextInt(8000)+1000);
                 seat = r.nextInt(12)+1+randomSeats[seatForm1[r.nextInt(6)]];
-                airline = "AIR CHINA";
+                airline = "BRITISH AIRWAYS";
             }
             case 1 -> {
-                idFlight = "AC"+(r.nextInt(8000)+1000);
+                idFlight = "BA"+(r.nextInt(8000)+1000);
                 seat = r.nextInt(20)+1+randomSeats[seatForm1[r.nextInt(6)]];
-                airline = "AIR CANADA";
+                airline = "BRITISH AIRWAYS";
             }
             case 2 -> {
                 idFlight = "UA"+(r.nextInt(8000)+1000);

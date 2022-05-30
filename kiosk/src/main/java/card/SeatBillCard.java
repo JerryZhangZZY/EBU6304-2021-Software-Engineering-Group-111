@@ -26,10 +26,10 @@ import java.awt.*;
  * @date 3/23
  */
 public class SeatBillCard extends JPanel {
-    private JLabel headline;
-    private JLabel headText;
-    private JLabel preference = new JLabel();
-    private JLabel bill = new JLabel();
+    private final JLabel headline;
+    private final JLabel headText;
+    private final JLabel preference = new JLabel();
+    private final JLabel bill = new JLabel();
 
     public SeatBillCard(int row, char column, String prefer, int pay) {
 

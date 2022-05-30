@@ -16,7 +16,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Hashtable;
 
 
@@ -73,26 +72,6 @@ public final class BarCode_QRCodeGenerator {
     }
 
     /**
-     * Generates a qr code image for the specified string.
-     * @param text text
-     * @param file file
-     * @param format format
-     * @return boolean
-     */
-    public boolean toQrcodeFile(String text, File file, String format) {
-        BitMatrix matrix = toQRCodeMatrix(text, null, null);
-        if (matrix != null) {
-            try {
-                writeToFile(matrix, format, file);
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
-
-    /**
      * Generate black and white graph from point matrix.
      * @param matrix matrix
      * @return image
@@ -111,40 +90,6 @@ public final class BarCode_QRCodeGenerator {
     }
 
     /**
-     * Encode strings into a one-dimensional barcode matrix
-     *
-     * @param str string
-     * @param width width
-     * @param height height
-     * @return bitMatrix
-     */
-    public static BitMatrix toBarCodeMatrix(String str, Integer width,
-                                            Integer height) {
-
-        if (width == null || width < 200) {
-            width = 200;
-        }
-
-        if (height == null || height < 50) {
-            height = 50;
-        }
-
-        try {
-            // Literal encoding
-            Hashtable<EncodeHintType, String> hints = new Hashtable<EncodeHintType, String>();
-            hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
-
-            BitMatrix bitMatrix = new MultiFormatWriter().encode(str,
-                    BarcodeFormat.CODE_128, width, height, hints);
-
-            return bitMatrix;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
      * Generate files according to matrix and picture format.
      */
     public static void writeToFile(BitMatrix matrix, String format, File file)
@@ -156,17 +101,6 @@ public final class BarCode_QRCodeGenerator {
         }
     }
 
-    /**
-     * Writes the matrix to the output stream.
-     */
-    public static void writeToStream(BitMatrix matrix, String format,
-                                     OutputStream stream) throws IOException {
-        BufferedImage image = toBufferedImage(matrix);
-        if (!ImageIO.write(image, format, stream)) {
-            throw new IOException("Could not write an image of format "
-                    + format);
-        }
-    }
     /**
      * Generate the qr codes of websites by idPassengerFlight_index
      * @param idPassengerFlight_index primary key

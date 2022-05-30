@@ -13,7 +13,7 @@
     {
       "idPassengerFlight": 2,
       "idPassenger": "123001",
-      "idFlight": "AC0001",
+      "idFlight": "BA0001",
       "bookingNum": "bn0001",
       "carryon": 2,
       "checkin": 3,
@@ -33,7 +33,7 @@
     {
       "idPassengerFlight": 4,
       "idPassenger": "123002",
-      "idFlight": "CA0002",
+      "idFlight": "BA0003",
       "bookingNum": "bn0003",
       "carryon": 1,
       "checkin": 0,
@@ -43,7 +43,7 @@
     {
       "idPassengerFlight": 5,
       "idPassenger": "123842",
-      "idFlight": "AC3079",
+      "idFlight": "BA3079",
       "bookingNum": "bn0004",
       "carryon": 0,
       "checkin": 2,
@@ -53,7 +53,7 @@
     {
       "idPassengerFlight": 6,
       "idPassenger": "123671",
-      "idFlight": "AC3577",
+      "idFlight": "BA3577",
       "bookingNum": "bn0005",
       "carryon": 2,
       "checkin": 2,
@@ -63,7 +63,7 @@
     {
       "idPassengerFlight": 7,
       "idPassenger": "123027",
-      "idFlight": "AC2485",
+      "idFlight": "BA2485",
       "bookingNum": "bn0006",
       "carryon": 2,
       "checkin": 3,

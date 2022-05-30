@@ -41,7 +41,7 @@ public class BillConfirmationPanelTest implements MainFrameBarsTest {
         State.setPrefSeatPrice(new int[]{0, 5, 20, 10000});
         State.setPrefFoodName(new String[]{"Extra", "Kweichow Moutai", "Ice-cream"});
         State.setPrefFoodPrice(new int[]{5, 1000, 12});
-        State.setIdFlight("AC0001");
+        State.setIdFlight("BA0001");
         mainFrame = new MainFrame();
         currentPC = 6;
         State.setPc(6);

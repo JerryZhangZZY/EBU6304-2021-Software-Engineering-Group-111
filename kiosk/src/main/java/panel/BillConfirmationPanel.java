@@ -42,12 +42,12 @@ import java.awt.event.MouseEvent;
 
 public class BillConfirmationPanel extends JPanel {
 
-    private BoardingPassCard boardingPassCard;
-    private SeatBillCard seatBillCard;
-    private MealBillCard mealBillCard;
-    private JLabel lblScanningImg;
-    private JLabel lblInstruction;
-    private JButton btnConfirm;
+    private final BoardingPassCard boardingPassCard;
+    private final SeatBillCard seatBillCard;
+    private final MealBillCard mealBillCard;
+    private final JLabel lblScanningImg;
+    private final JLabel lblInstruction;
+    private final JButton btnConfirm;
 
     public BillConfirmationPanel() {
 

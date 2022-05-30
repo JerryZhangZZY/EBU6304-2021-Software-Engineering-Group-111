@@ -19,7 +19,7 @@ import panel.ProgressPanel;
 public class PaymentPanelTest {
     public static void main(String[] args) {
         State.setPassengerFlight_index(0);
-        State.setIdFlight("CA0001");
+        State.setIdFlight("BA0002");
         State.setPassengerName("Jack");
         State.setBookingNum("bn0001");
         ProgressPanel progressPanel = new ProgressPanel(4);

@@ -49,9 +49,9 @@ public class MealSelectionPanel extends JPanel {
     private MealInfoCard mealInfoCard;
     MealPreferenceCard mealPreferenceCard;
 
-    private JButton btnOK = new JButton("OK");
+    private final JButton btnOK = new JButton("OK");
 
-    private Border tipBorder = BorderFactory
+    private final Border tipBorder = BorderFactory
             .createTitledBorder(BorderFactory.createMatteBorder(5,5,5,5,new Color(205,92,92))
                     , "Please select your meal", TitledBorder.CENTER
                     , TitledBorder.BOTTOM

@@ -57,14 +57,14 @@ import java.util.Random;
  */
 
 public class PaymentPanel extends JPanel {
-    private JTextField tfCreditId;
-    private JLabel lblPrice;
-    private JButton btnPay;
-    private JLabel errorWarning =  new JLabel();
-    private JPanel panelUnionPay = new JPanel();
-    private JPanel panelPay;
-    private LoadingCard loadingCard;
-    private MouseListener payMouseListener;
+    private final JTextField tfCreditId;
+    private final JLabel lblPrice;
+    private final JButton btnPay;
+    private final JLabel errorWarning =  new JLabel();
+    private final JPanel panelUnionPay = new JPanel();
+    private final JPanel panelPay;
+    private final LoadingCard loadingCard;
+    private final MouseListener payMouseListener;
 
     public PaymentPanel(int price) {
         setBackground(Theme.getBackgroundColor());

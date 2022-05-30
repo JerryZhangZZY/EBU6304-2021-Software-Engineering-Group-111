@@ -79,25 +79,24 @@ public class SeatSelectionPanel extends JPanel {
     private String idFlight;
     private int temp_row = -1;
     private int temp_column = -1;
-    private int[] price = new int[4];
+    private final int[] price = new int[4];
     //button init
     private ArrayList<JButton>[] seatButton;
     private ArrayList<JLabel>[] rowNum;
-    private JPanel warn = new JPanel();
-    private ScrollCard scrollCard = new ScrollCard();
-    private JScrollBar scrollBar = scrollCard.getScrollBar();
+    private final JPanel warn = new JPanel();
+    private final ScrollCard scrollCard = new ScrollCard();
+    private final JScrollBar scrollBar = scrollCard.getScrollBar();
     private PlaneInfoCard planeInfoCard;
-    private JButton btnFold = new JButton();;
+    private final JButton btnFold = new JButton();
     //icon loading
-    private ImageIcon[] iconEmpty = new ImageIcon[4];
-    private ImageIcon[] iconSelected = new ImageIcon[5];
-    private ImageIcon iconNotAvailable = new ImageIcon(new ImageIcon("kiosk/icons/seatNotAvailable.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
-    private ImageIcon iconFold, iconUnfold;
-    private JButton btnOK = new JButton("OK");
+    private final ImageIcon[] iconEmpty = new ImageIcon[4];
+    private final ImageIcon[] iconSelected = new ImageIcon[5];
+    private final ImageIcon iconNotAvailable = new ImageIcon(new ImageIcon("kiosk/icons/seatNotAvailable.png").getImage().getScaledInstance(45, 45, java.awt.Image.SCALE_SMOOTH));
+    private final JButton btnOK = new JButton("OK");
 
     private SeatReader seatReader;
 
-    private Border tipBorder = BorderFactory
+    private final Border tipBorder = BorderFactory
             .createTitledBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, new Color(205,92,92))
                     , "Please select your seat", TitledBorder.CENTER
                     , TitledBorder.BOTTOM
@@ -362,10 +361,6 @@ public class SeatSelectionPanel extends JPanel {
 
     public int getTotalRow() {
         return totalRow;
-    }
-
-    public int getTotalColumn() {
-        return totalColumn;
     }
 
     public int[][] getAvail_seat() {

@@ -108,18 +108,18 @@ import static java.lang.Thread.sleep;
 
 public class MainFrame extends JFrame {
 
-    private JPanel topPanel;
-    private JLabel lblWelcome;
-    private JButton btnExit;
-    private JPanel centerPanel;
-    private JPanel bottomPanel;
-    private JButton btnBack;
-    private JLabel lblSatisflight;
-    private WelcomePanel welcomePanel;
-    private JLabel lblClock;
-    private JLabel lblTimer;
-    private Toolkit container;
-    private AWTEventListener mouseListener;
+    private final JPanel topPanel;
+    private final JLabel lblWelcome;
+    private final JButton btnExit;
+    private final JPanel centerPanel;
+    private final JPanel bottomPanel;
+    private final JButton btnBack;
+    private final JLabel lblSatisflight;
+    private final WelcomePanel welcomePanel;
+    private final JLabel lblClock;
+    private final JLabel lblTimer;
+    private final Toolkit container;
+    private final AWTEventListener mouseListener;
     private int mouseListenerFlag = 0;
     private int freshTime = 8;
     /**
@@ -523,7 +523,7 @@ public class MainFrame extends JFrame {
 
         private int counter = 5;
         private boolean j = false;
-        private Timer timer = new Timer();
+        private final Timer timer = new Timer();
         @Override
         public void mouseClicked(MouseEvent e) {
             if (!j) {

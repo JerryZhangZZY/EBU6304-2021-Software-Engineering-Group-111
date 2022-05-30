@@ -74,14 +74,13 @@ import java.util.TimerTask;
  * @date 2022/3/21
  */
 public class FinalPanel extends JPanel {
-    private JLabel qrLabel;;
-    private JLabel headline = new JLabel();
-    private JButton btnContinue = new JButton();
-    private JButton btnExit = new JButton();
+    private final JLabel qrLabel;
+    private final JLabel headline = new JLabel();
+    private final JButton btnContinue = new JButton();
+    private final JButton btnExit = new JButton();
 
     public FinalPanel(){
         try {
-            char columnInLetter = (char)(State.getSeatColumn() + (int)'A' - 1);
             if (!Files.exists(Path.of("printer-output"))){
                 Files.createDirectory(Path.of("printer-output"));
             }

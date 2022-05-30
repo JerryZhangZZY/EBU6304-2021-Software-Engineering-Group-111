@@ -25,10 +25,10 @@ import java.awt.*;
  */
 
 public class ProgressPanel extends JPanel {
-    private JPanel progressPanel;
-    private JLabel progressLabel;
-    private JPanel cardsPanel;
-    private int progress;
+    private final JPanel progressPanel;
+    private final JLabel progressLabel;
+    private final JPanel cardsPanel;
+    private final int progress;
 	/**
 	 * Create the panel.
      * @param progress which step have customers reached
@@ -101,27 +101,6 @@ public class ProgressPanel extends JPanel {
             State.setIsReady(new boolean[]{true, true, true,
                     false, false, false, false, true, true});
             State.resetSmallBillCard();
-        }
-    }
-    /**
-     * access the cards panel loaded
-     * @return the cards panel loaded
-     */
-    public Component getLoadedCardsPanel(){
-	    if (cardsPanel.getComponentCount()>0){
-	        return cardsPanel.getComponent(0);
-        }
-	    else{
-	        return null;
-        }
-    }
-    /**
-     * remove the cards panel loaded
-     * @param cardsPanel the currently loaded cards panel
-     */
-    public void unloadCardsPanel(Component cardsPanel){
-	    if (cardsPanel != null){
-	        this.cardsPanel.remove(cardsPanel);
         }
     }
 }

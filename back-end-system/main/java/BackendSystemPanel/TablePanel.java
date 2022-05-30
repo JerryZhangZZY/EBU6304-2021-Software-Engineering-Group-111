@@ -27,21 +27,21 @@ import java.io.IOException;
  * Simplify the code, remove the call to getDataBase function
  */
 public class TablePanel extends JPanel {
-    private JTable table = new JTable();
-    private JScrollPane pane = new JScrollPane();
-    private JLabel page_title = new JLabel("Passenger information");
-    private JTextField airline_field = new JTextField();
-    private JTextField idPassenger_field = new JTextField();
-    private JTextField idFlight_field = new JTextField();
-    private JButton airline_button = new JButton("confirm");
-    private JButton passenger_button = new JButton("confirm");
-    private JButton flight_button = new JButton("confirm");
-    private JLabel passenger = new JLabel("idPassenger");
-    private JLabel airline = new JLabel("airline");
-    private JLabel flight = new JLabel("idflight");
-    private Border borderLine = BorderFactory.createLineBorder(Color.DARK_GRAY, 2, true);
-    private Border errorLine = BorderFactory.createLineBorder(Color.RED, 3, true);
-    private DefaultTableModel model = new DefaultTableModel(
+    private final JTable table = new JTable();
+    private final JScrollPane pane = new JScrollPane();
+    private final JLabel page_title = new JLabel("Passenger information");
+    private final JTextField airline_field = new JTextField();
+    private final JTextField idPassenger_field = new JTextField();
+    private final JTextField idFlight_field = new JTextField();
+    private final JButton airline_button = new JButton("confirm");
+    private final JButton passenger_button = new JButton("confirm");
+    private final JButton flight_button = new JButton("confirm");
+    private final JLabel passenger = new JLabel("idPassenger");
+    private final JLabel airline = new JLabel("airline");
+    private final JLabel flight = new JLabel("idflight");
+    private final Border borderLine = BorderFactory.createLineBorder(Color.DARK_GRAY, 2, true);
+    private final Border errorLine = BorderFactory.createLineBorder(Color.RED, 3, true);
+    private final DefaultTableModel model = new DefaultTableModel(
             new Object[][]{
 
             },
@@ -49,7 +49,7 @@ public class TablePanel extends JPanel {
     );
     //    private ArrayList<String[]> data;
     private String[] data;
-    private DBreader dbReader = new DBreader();
+    private final DBreader dbReader = new DBreader();
 
     public TablePanel() throws IOException {
         airlineActionListener air = new airlineActionListener();
@@ -63,7 +63,6 @@ public class TablePanel extends JPanel {
         setSize(1920, 980);
 
         DBreader reader = new DBreader();
-        String[] head = reader.getheadline();
         pane.setBorder(new TitledBorder(null, "DataBase Info", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         pane.setLocation(0, 180);
         pane.setSize(1920, 800);
