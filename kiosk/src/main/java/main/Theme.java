@@ -15,6 +15,10 @@ import java.util.Calendar;
  *
  * @author Zhang Zeyu
  *
+ * @version 5.2
+ * Recover 'Anchor' and fix name: 'Platinum'
+ * @date 2022/5/30
+ *
  * @version 5.1
  * Delete 'Almond' and add 'Platium'.
  * @date 2022/5/20
@@ -163,7 +167,7 @@ public abstract class Theme {
                              "tertiaryFontColor": "192,192,192",
                              "minorFontColor": "255,255,255"
                            },
-                           "Platium": {
+                           "Platinum": {
                              "themeColor": "36,41,47",
                              "backgroundColor": "243,244,246",
                              "cardColor": "255,255,255",
@@ -182,13 +186,13 @@ public abstract class Theme {
                              "minorFontColor": "250,255,254"
                            },
                            "Anchor": {
-                             "themeColor": "36,41,47",
-                             "backgroundColor": "246,248,250",
-                             "cardColor": "255,255,255",
-                             "mainFontColor": "36,41,47",
-                             "secondaryFontColor": "87,96,106",
-                             "tertiaryFontColor": "186,192,198",
-                             "minorFontColor": "255,255,255"
+                             "themeColor": "72,88,104",
+                             "backgroundColor": "240,242,244",
+                             "cardColor": "221,226,231",
+                             "mainFontColor": "47,47,79",
+                             "secondaryFontColor": "86,105,124",
+                             "tertiaryFontColor": "164,178,192",
+                             "minorFontColor": "244,244,255"
                            },
                            "Maroon": {
                              "themeColor": "165,42,42",
