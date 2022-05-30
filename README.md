@@ -59,14 +59,8 @@ Satisflight is a smart flight check-in software system, featuring a kiosk softwa
 
 #### Windows
 
-1. To use kiosk software, run:
-```shell
-sbin\start-kiosk.bat
-```
-2. To use back-end system, run:
-```shell
-sbin\start-backend.bat
-```
+1. To use kiosk software, go to `sbin` directory and run `start-kiosk.bat` by double-click.
+2. To use back-end system, go to `sbin` directory and run `start-backend.bat` by double-click.
 
 #### Linux
 
