@@ -48,47 +48,47 @@ At the end of each iteration, the programmers are given a short vacation so that
 
 ### Stories Writing Workshop
 
-Before each iteration, we hold a group meeting to discuss new requirements. Everyone put forward the new features and improvements. Then we write story cards, which is later collected by a group member and compiled into product backlog. 
+Before each iteration, we hold a **group meeting** to discuss new requirements. Everyone put forward the new features and improvements. Then we write **story** cards, which is later collected by a group member and compiled into product **backlog**. 
 
 ### Requirements Finding Techniques
 
 #### Questionnaire 
 
-In order to understand public demand, our team used questionnaires to collect peoples' opinions. Based on the results, we concluded many important functions to implement.
+In order to understand public demand, our team used **questionnaires** to collect peoples' opinions. Based on the results, we concluded many important functions to implement.
 
 #### Observation - Field Research
 
-Before starting to write epics, one of our team members went to a local airport to conduct field research on the domestic aircraft check-in system, and analysed pros and cons of those check-in kiosks. These findings helped us come up with useful ideas. 
+Before starting to write epics, one of our team members went to a local airport to conduct **field research** on the domestic aircraft check-in system, and analysed pros and cons of those check-in kiosks. These findings helped us come up with useful ideas. 
 
 #### Observation - Website 
 
-Websites of major airlines or airports also provides us with a lot of inspiration. These real-life products worked as major reference when we were designing the GUI.
+**Websites** of major airlines or airports also provides us with a lot of inspiration. These real-life products worked as major reference when we were designing the GUI.
 
 #### Original Ideas
 
-Our team is highly imaginative. We came up with many original ideas. For example, we enable users to use auto dark mode, which makes the screen more eye-friendly at night. This feature has never been used in any check-in kiosk software.
+Our team is highly imaginative. We came up with many original ideas. For example, we enable users to use **auto dark mode**, which makes the screen more eye-friendly at night. This feature has never been used in any check-in kiosk software.
 
 ### Epics and User stories
 
-In Agile process, user requirements are expressed as user stories. Through the above requirement finding methods, we completed the general idea of the software, and compiled it in **Epics**. Because an epic is generally too large for an agile team to complete in one iteration, it is split into multiple smaller **user stories** before it is worked on. We have been adding new stories since the very start of our project, resulting in 44 user stories. We write each user stories as a story cards and discuss them in the group meetings, which is crucial in our agile process. There are about 10 tasks to complete in each iteration.
+In Agile process, user requirements are expressed as user stories. Through the above requirement finding methods, we completed the general idea of the software, and compiled it in **Epics**. Because an epic is generally too large for an agile team to complete in one iteration, it is split into multiple smaller user **stories** before it is worked on. We have been adding new stories since the very start of our project, resulting in 44 user stories. We write each user stories as a story cards and discuss them in the group meetings, which is crucial in our agile process. There are about 10 tasks to complete in each iteration.
 
 ### Metrics
 
 When writing stories, we used specific measures to make sure that these requirements can be tested. Here are some examples.
 
 - story 3.4 - The time before returning to welcome page is specified as **120 seconds**. It is not vaguely "for some time".
-- story 4.2 - We made it clear that, only **8** digits is accepted, instead of simply saying "certain length".
+- story 4.2 - We made it clear that, only **8 digits** is accepted, instead of simply saying "certain length".
 
 ### Product Backlog
 
-Once the user story is built, we create a **Backlog** to record all the stories and the date when we start or complete the implementation of each requirement. 
+Once the user story is built, we create a **backlog** to record all the stories and the date when we start or complete the implementation of each requirement. 
 
 If we come up with new ideas in the middle of an iteration, we estimate the time need to do it. If a new requirement takes too long, we keep it to the next iteration to make sure all tasks in one iteration can be finished in time. 
 
 
 ### Prototype
 
-Before writing GUI classes codes, we first draw a sketch that specifies layout and outlines component of each page. We use low-fidelity prototyping in this step, so it is quick and effective. When GUI design changes, we make an amendment to previous prototypes. There are three versions in total. 
+Before writing GUI classes codes, we first draw a **sketch** that specifies layout and outlines component of each page. We use low-fidelity prototyping in this step, so it is quick and effective. When GUI design changes, we make an **amendment** to previous prototypes. There are three versions in total. 
 
 ## Analysis and Design
 
@@ -108,7 +108,7 @@ Another light spot of our design is the class **State**. It contains all the tem
 
 ### Design
 
-We have high standards for *Satisflight* check-in system. It has to be easy to use, modular, highly customizable, beautiful-looking as well as error-free.
+We have **high standards** for *Satisflight* check-in system. It has to be easy to use, modular, highly customizable, beautiful-looking as well as error-free. We also strictly follow the basic **design principles** to maintain the quality of code as its complexity grows with the development.
 
 #### Ease of use
 
@@ -136,7 +136,7 @@ Rigorous **exception handling** is applied to make sure the **stability** of the
 
 #### Component Management
 
-The project is relatively big in its size, and thus it is very important to properly managing various components before writing codes. We divide source codes into two separate modules, `back-end-system` and `kiosk`. Other components are organized in `database`, `lib`, `out`, .etc.
+The project is relatively **big** in its size, and thus it is very important to properly managing various components before writing codes. We divide source codes into two separate modules, `back-end-system` and `kiosk`. Other components are organized in `database`, `lib`, `out`, etc.
 
 For detailed component structure, vide chart below. Component stereotypes are appended behind,
 
@@ -153,7 +153,7 @@ For detailed component structure, vide chart below. Component stereotypes are ap
 └─ printer-output   <<software output>>
 ```
 
-Among all directories, `src` is the core of this project, which contains all the codes of the kiosk programme. With in this directory, we use package to implement subsystems. To be specific, we applied a hierarchical structure to organize classes. We classify boundary classes, or GUI classes into `frame`, `panel`, and `card` (small panel or sub-panel) packages. And control classes to access database are held in `...Reader/Writer` packages. `main` package are for some system-level classes.
+Among all directories, `src` is the core of this project, which contains all the codes of the kiosk programme. With in this directory, we use package to implement subsystems. To be specific, we applied a **hierarchical** structure to organize classes. We classify boundary classes, or GUI classes into `frame`, `panel`, and `card` (small panel or sub-panel) packages. And control classes to access database are held in `...Reader/Writer` packages. `main` package are for some system-level classes.
 
 ![](report-images/packages.png "packages")
 
@@ -171,13 +171,13 @@ These figures show how classes and database tables in implementation can be trac
 
 ##### Build plan
 
-We decided that we create a major build at the end of each iteration by creating a new version Release in GitHub. Before each iteration, we held a group meeting to discuss the functionalities to be implemented in this build. And when we release a new build, we always write a release note to elaborate new features and using instructions. If any fatal errors are discovered after we made x.0 release, we will release x.1 with hotfix in no time to make sure latest release work properly.
+We decided that we create a major build at the end of each iteration by creating a new version **release** in **GitHub**. Before each iteration, we held a group meeting to discuss the functionalities to be implemented in this build. And when we release a new build, we always write a **release note** to elaborate new features and using instructions. If any fatal errors are discovered after we made x.0 release, we will release x.1 with **hotfix** in no time to make sure latest release work properly.
 
 ##### Version control
 
-When each build is finished, we create a new branch to. Old versions are always kept in those slave branches, while the master branch is under active development and is up-to-date. 
+When each build is finished, we create a new **branch**. Old versions are always kept in those slave branches, while the master branch is under active development and is up-to-date. 
 
-Apart from major and minor builds, there are also many "micro" builds, i.e. commits. On finishing a part of development, we commit and push our changes, uploading the new files to GitHub repo and merging them with branches from other developers local repo. All actions are saved in git log. This makes sure that even the smallest changes are independently recorded in our version control system. If anything goes wrong, we can easily identify the defect, the author who cause it, and the timestamp when the erroneous commit is made. A simple revert can fix anything.
+Apart from major and minor builds, there are also many "micro" builds, i.e. **commits**. On finishing a part of development, we commit and push our changes, uploading the new files to **GitHub** repo and merging them with branches from other developers local repo. All actions are saved in **git log**. This makes sure that even the smallest changes are independently recorded in our version control system. If anything goes wrong, we can easily identify the defect, the author who cause it, and the timestamp when the erroneous commit is made. A simple revert can fix anything.
 
 ### Testing
 
@@ -228,7 +228,7 @@ public class Markov extends CsvReader {
 }
 ```
 
-We designed this algorithm to **simulate uncertainty when users are using the software**. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation, so we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example, must make sure no matter how we switch page, no error display happens. 
+We designed this algorithm to **simulate uncertainty when users are using the software**. In some cases, the testing programme moves to and fro for many times. This, in fact, is quite common: we are sometimes afraid of making wrong operation. So we keep turning to early pages to check the seat or meal we've chosen is indeed what we want. The software, for example, must make sure no matter how we switch page, no error display happens. 
 
 By ensuring that all critical modules are executed and all independent paths are tested, this system test can be considered as using **white-box testing**.
 
@@ -259,36 +259,19 @@ We started to learn this topic long after we had finished most parts of the proj
 
 ## Appendix
 
+### Main screenshots
+
+![](report-images/screenshots.jpg)
+
 ### Reference
 
-- JDK
+|   Name    | Version | Website                                                      |
+| :-------: | :-----: | ------------------------------------------------------------ |
+|    JDK    | 15.0.2  | https://docs.oracle.com/en/java/javase/15/docs/api/index.html |
+|   JUnit   |  5.7.0  | https://junit.org/junit5/docs/current/user-guide             |
+| Fastjson  | 1.2.17  | https://mvnrepository.com/artifact/com.alibaba/fastjson/1.2.17 |
+|  JavaCsv  |   2.0   | http://javacsv.sourceforge.net                               |
+| SnakeYAML |  1.30   | https://bitbucket.org/snakeyaml/snakeyaml/wiki/Documentation |
+| Heathrow  |    -    | https://www.heathrow.com                                     |
+|   Ctrip   |    -    | https://flights.ctrip.com                                    |
 
-https://docs.oracle.com/en/java/javase/15/docs/api/index.html
-
-- JUnit
-
-https://junit.org/junit5/docs/current/user-guide/
-
-- Fastjson
-
-https://mvnrepository.com/artifact/com.alibaba/fastjson/1.2.17
-
-- CSV
-
-http://javacsv.sourceforge.net/
-
-- SnakeYAML
-
-https://bitbucket.org/snakeyaml/snakeyaml/wiki/Documentation#markdown-header-snakeyaml-documentation
-
-- Heathrow
-
-https://www.heathrow.com/
-
-- Ctrip
-
-https://flights.ctrip.com/online/channel/domestic
-
-### Main screenshots of the system should be included in the appendix.
-
-### And a List of All Issues?
