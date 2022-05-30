@@ -179,7 +179,7 @@ public class AboutSatisflight extends JFrame {
         lblVersion.setText(version);
         lblVersion.setFont(new Font("Helvetica", Font.PLAIN, 20));
         lblVersion.setForeground(new Color(51, 51, 51));
-        lblVersion.setBounds(300, 110, 200, 20);
+        lblVersion.setBounds(302, 110, 200, 20);
         mainPanel.add(lblVersion);
 
         taIntro = new JTextArea();
