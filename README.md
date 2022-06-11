@@ -8,7 +8,9 @@
 
 ---
 
-**Preview | Satisflight v5.0: Oriental** (click to play demo👇)
+## Preview | Satisflight v5.0: Oriental
+
+Click to play demo 👇
 
 [![Watch the video](docs/Satisflight-v5.0-screenshots.jpg)](https://www.youtube.com/watch?v=yDMir_wSBAo)
 
