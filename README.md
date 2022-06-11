@@ -1,10 +1,14 @@
 # EBU6304-2021-Software-Engineering-Group-111
 
+![stars](https://img.shields.io/github/stars/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111?style=social)
+![forks](https://img.shields.io/github/forks/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111?style=social)
+![watchers](https://img.shields.io/github/watchers/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111?style=social)
 ![Version](https://img.shields.io/badge/Version-5.0-green)
-![](https://img.shields.io/github/repo-size/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
+![size](https://img.shields.io/github/repo-size/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
 [![CI](https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/actions/workflows/basic.yml/badge.svg)](https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/actions/workflows/basic.yml)
-[![QMPlus Hub](https://img.shields.io/badge/QMPlus%20Hub-here-orange)](https://hub.qmplus.qmul.ac.uk/group/ebu6304-2022-software-engin-35)
-[![Gitee Mirror](https://img.shields.io/badge/Gitee%20Mirror-here-red)](https://gitee.com/jerryzhangzzy/EBU6304-2021-Software-Engineering-Group-111)
+![downloads](https://img.shields.io/github/downloads/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/total)
+![closed-issues](https://img.shields.io/github/issues-closed-raw/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
+![milestones](https://img.shields.io/github/milestones/all/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
 
 ---
 
