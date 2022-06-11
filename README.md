@@ -3,6 +3,7 @@
 ![stars](https://img.shields.io/github/stars/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111?style=social)
 ![forks](https://img.shields.io/github/forks/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111?style=social)
 ![watchers](https://img.shields.io/github/watchers/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111?style=social)
+![license](https://img.shields.io/github/license/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
 ![Version](https://img.shields.io/badge/Version-5.0-green)
 ![size](https://img.shields.io/github/repo-size/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
 [![CI](https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/actions/workflows/basic.yml/badge.svg)](https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/actions/workflows/basic.yml)
