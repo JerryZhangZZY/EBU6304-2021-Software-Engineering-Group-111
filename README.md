@@ -2,10 +2,19 @@
 
 ![Version](https://img.shields.io/badge/Version-5.0-green)
 ![](https://img.shields.io/github/repo-size/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111)
+[![CI](https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/actions/workflows/basic.yml/badge.svg)](https://github.com/JerryZhangZZY/EBU6304-2021-Software-Engineering-Group-111/actions/workflows/basic.yml)
 [![QMPlus Hub](https://img.shields.io/badge/QMPlus%20Hub-here-orange)](https://hub.qmplus.qmul.ac.uk/group/ebu6304-2022-software-engin-35)
 [![Gitee Mirror](https://img.shields.io/badge/Gitee%20Mirror-here-red)](https://gitee.com/jerryzhangzzy/EBU6304-2021-Software-Engineering-Group-111)
 
-## This is the current version of the software
+---
+
+**Preview | Satisflight v5.0: Oriental** (click to play demo👇)
+
+[![Watch the video](docs/Satisflight-v5.0-screenshots.jpg)](https://www.youtube.com/watch?v=yDMir_wSBAo)
+
+---
+
+## This branch is the current version of Satisflight Check-in System
 
 **Quick Links:**
 - [Group Project Handout](https://qmplus.qmul.ac.uk/mod/resource/view.php?id=1562883)
